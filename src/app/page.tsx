@@ -4,8 +4,8 @@ import { landing } from 'pages/LandingPage';
 
 const { Page } = landing;
 
-function HomePage(): JSX.Element {
-    return <Page />;
+function HomePage(props: React.ComponentProps<typeof Page>): JSX.Element {
+    return <Page {...props} />;
 }
 
 export default HomePage;

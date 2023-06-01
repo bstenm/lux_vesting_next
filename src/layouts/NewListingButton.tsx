@@ -7,7 +7,7 @@ import { merchantAssets } from 'pages/MerchantAssetsPage';
 
 export function NewListingButton(): JSX.Element {
     return (
-        <Link to={`${merchantAssets.path}/addNewAsset`}>
+        <Link href={`${merchantAssets.path}/addNewAsset`}>
             <Row
                 spacing={0.8}
                 sx={{

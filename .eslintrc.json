@@ -81,7 +81,8 @@
 				"ignoreFunctionalComponents": true
 			}
 		],
-		"react/no-unstable-nested-components": "warn"
+		"react/no-unstable-nested-components": "warn",
+		"react/jsx-no-constructed-context-values": "warn"
 	},
 	"settings": {
 		"import/resolver": {

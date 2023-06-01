@@ -10,11 +10,15 @@ import { yellow } from '@mui/material/colors';
 import { Provider } from 'react-redux';
 import * as locales from '@mui/material/locale';
 import CssBaseline from '@mui/material/CssBaseline';
+import { useTranslation } from 'react-i18next';
 
 import { store } from 'redux/store';
 import { Layout } from 'layouts/Layout';
+import { defaultLng } from 'config';
+import { LangContext } from 'libs/contexts';
 import { AlertSnackbar } from 'features/alert/AlertSnackbar';
 import { AddFundsDrawer } from 'features/addFunds/AddFundsDrawer';
+import 'config/i18n';
 
 type Props = {
     children: React.ReactNode;
@@ -44,8 +48,6 @@ const theme: ThemeOptions = {
             contrastText: '#fff'
         },
         error: {
-            // main: '#e23131'
-            // main: '#ed1515'
             light: '#e71313',
             main: '#F45455'
         },
@@ -68,6 +70,10 @@ const theme: ThemeOptions = {
 };
 
 export function App({ children }: Props): JSX.Element {
+    const { i18n } = useTranslation();
+
+    const lang = i18n.language ?? defaultLng;
+
     // TODO: get locale from i18next
     const themeWithLocale = createTheme(theme, locales.enUS);
 
@@ -75,12 +81,14 @@ export function App({ children }: Props): JSX.Element {
 
     return (
         <Provider store={store}>
-            <ThemeProvider theme={responsiveTheme}>
-                <CssBaseline />
-                <Layout>{children}</Layout>
-                <AlertSnackbar />
-                <AddFundsDrawer />
-            </ThemeProvider>
+            <LangContext.Provider value={[lang, i18n.changeLanguage]}>
+                <ThemeProvider theme={responsiveTheme}>
+                    <CssBaseline />
+                    <Layout>{children}</Layout>
+                    <AlertSnackbar />
+                    <AddFundsDrawer />
+                </ThemeProvider>
+            </LangContext.Provider>
         </Provider>
     );
 }

@@ -9,7 +9,7 @@ type Props = {
 
 export function ViewAllLink({ to }: Props): JSX.Element {
     return (
-        <Link to={to}>
+        <Link href={to}>
             <Typography
                 sx={{ textDecoration: 'underline' }}
                 capitalized

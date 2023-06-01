@@ -6,14 +6,14 @@ import LanguageIcon from '@mui/icons-material/Language';
 
 import { Row } from 'components/Row';
 import { Option, CustomSelect } from 'components/CustomSelect';
-import { languages, defaultLang } from 'config';
+import { languages, defaultLng } from 'config';
 import { LangContext, LangContextType } from 'libs/contexts';
 
 export function LanguageSelect(): JSX.Element {
     const [lang, setLang] = useContext<LangContextType>(LangContext);
 
     const handleChange = (value: string | null): void => {
-        setLang(value ?? defaultLang);
+        setLang(value ?? defaultLng);
     };
 
     return (

@@ -26,10 +26,10 @@ export function SidebarUserOverview({
         <Menu>
             <SubMenu title={name} icon={<Avatar alt={name} src={avatar} />}>
                 {/* <MenuItem icon={<AccountCircleIcon />}>
-                    <Link to="/profile">{t('myProfile')}</Link>
+                    <Link href="/profile">{t('myProfile')}</Link>
                 </MenuItem>
                 <MenuItem icon={<EditIcon />}>
-                    <Link to="/edit-profile">{t('editProfile')}</Link>
+                    <Link href="/edit-profile">{t('editProfile')}</Link>
                 </MenuItem> */}
                 <MenuItem onClick={logout} icon={<ExitToAppIcon />}>
                     {loggingOut && !loggedOut ? <Spinner /> : t('logout')}

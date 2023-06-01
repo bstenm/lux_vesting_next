@@ -10,7 +10,7 @@ type Props = {
 
 export function NotificationLinkButton({ link }: Props): JSX.Element {
     return (
-        <Link to={link} style={{ height: 20 }}>
+        <Link href={link} style={{ height: 20 }}>
             <ForwardIcon
                 sx={{
                     color: grey[700],

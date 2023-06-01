@@ -15,6 +15,12 @@ import { Web3Component } from 'features/authButton/Web3Component';
 import { whoWeAre } from './WhoWeArePage';
 import { marketplace } from './MarketplacePage';
 
+type Props = {
+    params: {
+        lng: string;
+    };
+};
+
 const Title = styled(Typography)(({ theme }) => ({
     fontSize: '4.5vw',
     lineHeight: '7vw',
@@ -68,7 +74,7 @@ const StartTradingButton = styled(LightButton)(ButtonTheme);
 
 const LearnMoreButton = styled(DarkButton)(ButtonTheme);
 
-function Page(): JSX.Element {
+function Page({ params: { lng } }: Props): JSX.Element {
     return (
         <Grid container>
             <Grid item sm={6} xs={12}>
@@ -83,7 +89,7 @@ function Page(): JSX.Element {
                     <Row spacing={1} justifyContent="space-between">
                         <Web3Component>
                             {(initializing: boolean) => (
-                                <Link href={marketplace.path}>
+                                <Link href={`/${lng}${marketplace.path}`}>
                                     <StartTradingButton
                                         textId="startTrading"
                                         loading={initializing}
@@ -91,7 +97,7 @@ function Page(): JSX.Element {
                                 </Link>
                             )}
                         </Web3Component>
-                        <Link href="who-we-are">
+                        <Link href={whoWeAre.path}>
                             <LearnMoreButton textId="learnMore" />
                         </Link>
                     </Row>

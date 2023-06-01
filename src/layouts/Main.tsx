@@ -1,23 +1,19 @@
-import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { usePathname } from 'next/navigation';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { useEffect, useRef } from 'react';
 import 'react-perfect-scrollbar/dist/css/styles.css';
 
 import { Row } from 'components/Row';
 import { landing } from 'pages/LandingPage';
-import { menuActions } from 'state/menu/menuSlice';
 import { SignInButton } from 'features/authButton/SignInButton';
-import { getMenuState } from 'state/menu/selectors';
 import { isUserLoggedIn } from 'state/user/selectors';
 import { useAppSelector } from 'libs/hooks/useAppSelector';
-import { merchantAssets } from 'pages/MerchantAssetsPage';
-import { useAppDispatch } from 'libs/hooks/useAppDispatch';
-import { NotificationDrawer } from 'features/notifications/NotificationDrawer';
-import { ToggleSidebarButton } from 'components/ToggleSidebarButton';
-import { CollapseSidebarButton } from 'components/CollapseSidebarButton';
 import { LanguageSelect } from 'components/LanguageSelect';
+import { merchantAssets } from 'pages/MerchantAssetsPage';
+import { NotificationDrawer } from 'features/notifications/NotificationDrawer';
 
+import { Footer } from './Footer';
 import { NewListingButton } from './NewListingButton';
 
 const Container = styled('main')`
@@ -25,19 +21,15 @@ const Container = styled('main')`
     background-color: #000;
 `;
 
-const Content = styled(Box)`
+const Content = styled('div')`
     padding: 25px;
-    min-height: 100vh;
+    min-height: 100%;
 `;
 
 export function Main({ children }: { children: React.ReactNode }): JSX.Element {
-    const { pathname } = { pathname: '' };
+    const pathname  = usePathname();
 
     const ps = useRef<HTMLElement>();
-
-    const dispatch = useAppDispatch();
-
-    const menuState = useAppSelector(getMenuState);
 
     const userIsLoggedIn = useAppSelector(isUserLoggedIn);
 
@@ -45,14 +37,6 @@ export function Main({ children }: { children: React.ReactNode }): JSX.Element {
 
     const isNotMerchantAssetsPage =
         pathname.split('/')[1] !== merchantAssets.path;
-
-    const handleCollapsedChange = (): void => {
-        dispatch(menuActions.toggleCollapse());
-    };
-
-    const handleToggleSidebar = (): void => {
-        dispatch(menuActions.toggleOpen());
-    };
 
     const scrollTop = (): void => {
         const curr = ps.current;
@@ -72,36 +56,23 @@ export function Main({ children }: { children: React.ReactNode }): JSX.Element {
                     ps.current = el;
                 }}>
                 <Content>
-                    <Row sx={{ mb: 1 }} justifyContent="space-between">
-                        <Row
-                            sx={{
-                                zIndex: 100,
-                                bgcolor: 'common.black'
-                            }}>
-                            <ToggleSidebarButton toggle={handleToggleSidebar} />
-                            <CollapseSidebarButton
-                                collapsed={menuState.collapsed}
-                                onToggle={handleCollapsedChange}
-                            />
-                        </Row>
-                        <Row
-                            spacing={userIsLoggedIn ? 2 : 4}
-                            alignItems="center">
-                            {isNotMerchantAssetsPage && isNotHomepage && (
-                                <NewListingButton />
-                            )}
-                            {userIsLoggedIn && isNotHomepage && (
-                                <Row spacing={2} alignItems="center">
-                                    <NotificationDrawer />
-                                </Row>
-                            )}
-                            {!userIsLoggedIn && isNotHomepage && (
-                                <SignInButton />
-                            )}
-                            <LanguageSelect />
-                        </Row>
+                    <Row
+                        spacing={userIsLoggedIn ? 2 : 4}
+                        alignItems="center"
+                        justifyContent="flex-end">
+                        {isNotMerchantAssetsPage && isNotHomepage && (
+                            <NewListingButton />
+                        )}
+                        {userIsLoggedIn && isNotHomepage && (
+                            <Row spacing={2} alignItems="center">
+                                <NotificationDrawer />
+                            </Row>
+                        )}
+                        {!userIsLoggedIn && isNotHomepage && <SignInButton />}
+                        <LanguageSelect />
                     </Row>
                     {children}
+                    {isNotHomepage && <Footer />}
                 </Content>
             </PerfectScrollbar>
         </Container>

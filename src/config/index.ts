@@ -1,5 +1,10 @@
 import { MediaType, MimeType } from './types/asset';
 
+export const siteTitle = 'LuxVesting';
+
+export const siteDescription =
+    'Premium asset backed blockchain investment platform';
+
 export const allowedFileMimes: Record<MediaType, Record<MimeType, string[]>> = {
     picture: {
         'image/png': ['.png'],
@@ -29,7 +34,7 @@ export const userTypes = ['customer', 'vendor', 'admin'] as const;
 
 export const languages = ['en', 'zh', 'es'];
 
-export const defaultLang = languages[0];
+export const defaultLng = languages[0];
 
 export const defaultCurrency = 'USD';
 
