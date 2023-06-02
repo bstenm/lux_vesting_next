@@ -3,7 +3,8 @@
 import Grid from '@mui/material/Grid';
 import { FormProvider } from 'react-hook-form';
 
-import { DarkButton } from 'components/buttons/DarkButton';
+import { Row } from 'components/Row';
+import { LightButton } from 'components/buttons/LightButton';
 
 import { useContractForm } from './useContactForm';
 import { ContactFormField } from './ContactFormField';
@@ -35,16 +36,14 @@ export function ContactForm(): JSX.Element {
                             placeholder="How Can We Help?"
                         />
                     </Grid>
-                    <Grid item xs={12}>
-                        <DarkButton
-                            fullWidth
-                            size="large"
-                            type="submit"
-                            textId="sendMessage"
-                            loading={submitting}
-                        />
-                    </Grid>
                 </Grid>
+                <Row justifyContent="center">
+                    <LightButton
+                        type="submit"
+                        textId="send"
+                        loading={submitting}
+                    />
+                </Row>
             </form>
         </FormProvider>
     );

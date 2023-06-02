@@ -3,7 +3,7 @@
 import { Typography } from 'components/Typography';
 import { StandardPage } from 'components/StandardPage';
 
-function WhoWeArePage(): JSX.Element {
+function Page(): JSX.Element {
     return (
         <StandardPage titleId="whoWeAreTitle">
             <Typography variant="h6" textId="history1" />
@@ -13,4 +13,8 @@ function WhoWeArePage(): JSX.Element {
     );
 }
 
-export default WhoWeArePage;
+const path = '/who-we-are';
+
+export const whoWeAre = { path, page: Page };
+
+export default Page;

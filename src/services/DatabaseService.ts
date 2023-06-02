@@ -1,3 +1,4 @@
+import { flatten, remove } from 'lodash';
 import {
     query,
     where,
@@ -5,21 +6,15 @@ import {
     addDoc,
     getDoc,
     getDocs,
+    deleteDoc,
     updateDoc,
-    SetOptions,
     arrayUnion,
-    QueryFieldFilterConstraint,
-    deleteDoc
+    SetOptions,
+    QueryFieldFilterConstraint
 } from 'firebase/firestore';
-import { flatten, remove } from 'lodash';
 
 import {
     Bid,
-    Message,
-    NotificationData,
-    SelectFilterEntry
-} from 'config/types';
-import {
     AssetItem,
     NewAsset,
     AssetMediaMetadata,
@@ -44,6 +39,7 @@ import {
 } from 'libs/firebaseApp';
 import { User } from 'config/types/user';
 import { logger } from 'libs/logger';
+import { Message, NotificationData, SelectFilterEntry } from 'config/types';
 
 const log = logger('Database');
 

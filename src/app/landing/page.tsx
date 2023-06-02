@@ -7,13 +7,12 @@ import { Stack, Theme } from '@mui/material';
 
 import { Row } from 'components/Row';
 import { Image } from 'components/Image';
+import { whoWeAre } from 'app/who-we-are/page';
 import { DarkButton } from 'components/buttons/DarkButton';
 import { Typography } from 'components/Typography';
 import { LightButton } from 'components/buttons/LightButton';
+import { marketplace } from 'app/marketplace/page';
 import { Web3Component } from 'features/authButton/Web3Component';
-
-import { whoWeAre } from './WhoWeArePage';
-import { marketplace } from './MarketplacePage';
 
 type Props = {
     params: {
@@ -113,3 +112,5 @@ function Page({ params: { lng } }: Props): JSX.Element {
 const path = '/';
 
 export const landing = { path, Page };
+
+export default Page;

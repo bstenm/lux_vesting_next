@@ -1,19 +1,18 @@
 'use client';
 
-import Box from '@mui/material/Box';
 import { EmptyResponse } from 'components/EmptyResponse';
 import { CenteredLoader } from 'components/CenteredLoader';
 
-type Props<T> = React.ComponentProps<typeof Box> & {
+type Props<T> = {
     data?: T;
-    children: (data: T) => React.ReactNode;
+    children: (data: T) => JSX.Element;
     fetching: boolean;
     message?: string;
     fullscreen?: boolean;
     noMessage?: boolean;
 };
 
-export function FetchingScreen<T extends unknown>({
+export function FetchingScreen<T>({
     data,
     children,
     fetching,

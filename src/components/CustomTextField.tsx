@@ -24,6 +24,7 @@ type Props<T> = TextFieldProps & {
     multiline?: boolean;
     required?: boolean;
     inputStyle?: string;
+    placeholder?: string;
     labelComponent?: React.ReactNode;
 };
 
@@ -36,6 +37,7 @@ export const CustomTextField = forwardRef(
             width,
             name,
             inputStyle,
+            placeholder,
             noLabel = false,
             disabled = false,
             multiline = false,
@@ -77,6 +79,7 @@ export const CustomTextField = forwardRef(
                             error={!!error}
                             disabled={disabled}
                             multiline={multiline}
+                            placeholder={t(placeholder)}
                             InputProps={{
                                 style: {
                                     backgroundColor: '#fff',

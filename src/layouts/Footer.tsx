@@ -1,28 +1,44 @@
 // Write a footer nextjs 13 component with a link to private policy
 import Link from 'next/link';
-import startCase from 'lodash/startCase';
+import Stack from '@mui/material/Stack';
 
-import { SITE_TITLE } from 'config/constants';
-import { useTranslation } from 'react-i18next';
-import { privacyPolicy } from 'pages/PrivacyPolicyPage';
-import { contactUs } from 'pages/ContactUsPage';
-import { loyaltyTiers } from 'pages/LoyaltyTiersPage';
 import { faq } from 'pages/FAQPage';
+import { Row } from 'components/Row';
+import { contactUs } from 'app/contact-us/page';
+import { SITE_TITLE } from 'config/constants';
+import { loyaltyTiers } from 'app/loyalty-tiers/page';
+import { Typography } from 'components/Typography';
+import { privacyPolicy } from 'app/privacy-policy/page';
 
 export function Footer(): JSX.Element {
-    const { t } = useTranslation();
-
     return (
-        <div>
-            <p>© 2023 {SITE_TITLE}</p>
-            <Link href={privacyPolicy.path}>
-                {startCase(t('privacyPolicy') ?? '')}
-            </Link>
-            <Link href={contactUs.path}>{startCase(t('contactUs') ?? '')}</Link>
-            <Link href={loyaltyTiers.path}>
-                {startCase(t('loyaltyTiers') ?? '')}
-            </Link>
-            <Link href={faq.path}>{startCase(t('faq') ?? '')}</Link>
-        </div>
+        <Stack
+            sx={{
+                pt: 2,
+                mt: 2
+            }}
+            spacing={2}
+            alignItems="center">
+            <Row sx={{ width: '100%' }} justifyContent="space-evenly">
+                {[privacyPolicy, contactUs, loyaltyTiers, faq].map((e) => (
+                    <Link key={e.title} href={e.path}>
+                        <Typography
+                            sx={{
+                                color: 'text.secondary',
+                                '&:hover': {
+                                    color: 'common.white'
+                                }
+                            }}
+                            textId={e.title}
+                            variant="caption"
+                            allCapitalized
+                        />
+                    </Link>
+                ))}
+            </Row>
+            <Typography sx={{ color: 'text.secondary' }} variant="caption">
+                © 2023 {SITE_TITLE}
+            </Typography>
+        </Stack>
     );
 }

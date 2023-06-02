@@ -1,7 +1,6 @@
 import { styled } from '@mui/material/styles';
 import { usePathname } from 'next/navigation';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-import { useEffect, useRef } from 'react';
 import 'react-perfect-scrollbar/dist/css/styles.css';
 
 import { Row } from 'components/Row';
@@ -13,6 +12,7 @@ import { LanguageSelect } from 'components/LanguageSelect';
 import { merchantAssets } from 'pages/MerchantAssetsPage';
 import { NotificationDrawer } from 'features/notifications/NotificationDrawer';
 
+import { Box } from '@mui/material';
 import { Footer } from './Footer';
 import { NewListingButton } from './NewListingButton';
 
@@ -27,34 +27,18 @@ const Content = styled('div')`
 `;
 
 export function Main({ children }: { children: React.ReactNode }): JSX.Element {
-    const pathname  = usePathname();
-
-    const ps = useRef<HTMLElement>();
+    const pathname = usePathname();
 
     const userIsLoggedIn = useAppSelector(isUserLoggedIn);
 
     const isNotHomepage = pathname && pathname !== landing.path;
 
     const isNotMerchantAssetsPage =
-        pathname.split('/')[1] !== merchantAssets.path;
-
-    const scrollTop = (): void => {
-        const curr = ps.current;
-        if (curr) {
-            curr.scrollTop = 0;
-        }
-    };
-
-    useEffect(() => {
-        scrollTop();
-    }, [pathname]);
+        pathname?.split('/')[1] !== merchantAssets.path;
 
     return (
         <Container>
-            <PerfectScrollbar
-                containerRef={(el) => {
-                    ps.current = el;
-                }}>
+            <PerfectScrollbar>
                 <Content>
                     <Row
                         spacing={userIsLoggedIn ? 2 : 4}
@@ -71,7 +55,7 @@ export function Main({ children }: { children: React.ReactNode }): JSX.Element {
                         {!userIsLoggedIn && isNotHomepage && <SignInButton />}
                         <LanguageSelect />
                     </Row>
-                    {children}
+                    <Box sx={{ pt: 2 }}>{children}</Box>
                     {isNotHomepage && <Footer />}
                 </Content>
             </PerfectScrollbar>

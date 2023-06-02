@@ -12,11 +12,10 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 
+import { contactUs } from 'app/contact-us/page';
 import { faqContent } from 'config/faq';
 import { Typography } from 'components/Typography';
 import { StandardPage } from 'components/StandardPage';
-
-import { contactUs } from 'app/contact-us/page';
 
 const ContactUsLink = styled(Link)(
     ({ theme }) => `
@@ -101,3 +100,5 @@ const title = 'faq';
 const path = '/faq';
 
 export const faq = { path, title, page: Page };
+
+export default Page;

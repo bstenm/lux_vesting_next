@@ -8,10 +8,10 @@ import { useTranslation } from 'react-i18next';
 
 import { Tier } from 'config/types';
 import { Row } from 'components/Row';
+import { Caption } from 'components/Caption';
 import { Typography } from 'components/Typography';
 import { StandardPage } from 'components/StandardPage';
 import { loyaltyBenefits } from 'config/loyaltyBenefits';
-import { Caption } from 'components/Caption';
 
 const tiers: { name: Tier; pic: string }[] = [
     { name: 'silver', pic: '/assets/tiers/gold.png' },
@@ -91,3 +91,5 @@ const title = 'loyaltyTiers';
 const path = '/loyalty-tiers';
 
 export const loyaltyTiers = { path, title, page: Page };
+
+export default Page;

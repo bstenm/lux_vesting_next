@@ -24,3 +24,5 @@ const title = 'privacyPolicy';
 const path = '/privacy-policy';
 
 export const privacyPolicy = { path, title, page: Page };
+
+export default Page;

@@ -1,7 +1,7 @@
 'use client';
 
-import Card from '@mui/material/Card';
 import Link from 'next/link';
+import Card from '@mui/material/Card';
 import { Trans } from 'react-i18next';
 import { styled } from '@mui/material/styles';
 
@@ -10,8 +10,7 @@ import { StandardPage } from 'components/StandardPage';
 
 const FormContainer = styled(Card)(({ theme }) => ({
     padding: 20,
-    background: 'linear-gradient(180deg, #151516 33.58%, #343434 123.98%)',
-    boxShadow: '1px 0px 10px rgba(0, 0, 0, 0.42)',
+    bgcolor: '',
     borderRadius: 5,
     [theme.breakpoints.down('md')]: {
         width: '100%'
@@ -34,13 +33,15 @@ function Page(): JSX.Element {
                     components={{ to: <FAQ href="/faq" /> }}
                 />
             }>
-            <FormContainer>
-                <ContactForm />
-            </FormContainer>
+            <ContactForm />
         </StandardPage>
     );
 }
 
+const title = 'contactUs';
+
 const path = '/contact-us';
 
-export const contactUs = { path, page: Page };
+export const contactUs = { path, title, page: Page };
+
+export default Page;
