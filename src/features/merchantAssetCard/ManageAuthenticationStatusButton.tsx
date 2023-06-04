@@ -36,6 +36,13 @@ export const ManageAuthenticationStatusButton = ({
                 {(open) => <RedButton textId="authDenied" onClick={open} />}
             </RequestDenialModal>
         ),
+        revoked: (
+            <RequestDenialModal
+                title={data.name}
+                notes={data.authentication.notes}>
+                {(open) => <RedButton textId="authRevoked" onClick={open} />}
+            </RequestDenialModal>
+        ),
         approved: (
             <BlackBanner>
                 <Typography

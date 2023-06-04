@@ -22,6 +22,11 @@ export const ManageAdminAssetAuthenticationStatusButton = ({
                 {(open) => <RedButton textId="authDenied" onClick={open} />}
             </AdminAssetAuthenticationStatusControlModal>
         ),
+        revoked: (
+            <AdminAssetAuthenticationStatusControlModal data={data}>
+                {(open) => <RedButton textId="authRevoked" onClick={open} />}
+            </AdminAssetAuthenticationStatusControlModal>
+        ),
         pending: (
             <AdminAssetAuthenticationStatusControlModal data={data}>
                 {(open) => <YellowButton textId="authPending" onClick={open} />}

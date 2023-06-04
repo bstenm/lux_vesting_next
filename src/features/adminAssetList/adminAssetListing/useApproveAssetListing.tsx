@@ -5,7 +5,7 @@ import { useAsyncAction } from 'libs/hooks/useAsyncAction';
 // import { getUserAccount } from 'state/user/selectors';
 // import { useNFTTokenService } from 'hooks/useNFTTokenService';
 // import { getItemCoverPicture } from 'libs/utils';
-import { useUpdateAssetData } from 'libs/hooks/useUpdateAssetData';
+// import { useUpdateAssetData } from 'libs/hooks/useUpdateAssetData';
 import { useUpdateAssetStatus } from 'libs/hooks/useUpdateAssetStatus';
 // import { useCreateMarketplaceItem } from 'hooks/useCreateMarketplaceItem';
 // import { useUploadAssetMediaToIPFS } from 'hooks/useUploadAssetMediaToIPFS';
@@ -28,7 +28,7 @@ export const useApproveAssetListing = (
     // All actions should throw so the listing process aborts on first error
     const throws = true;
 
-    const [updateAssetData] = useUpdateAssetData(data.id, { throws });
+    // const [updateAssetData] = useUpdateAssetData(data.id, { throws });
 
     const [updateAssetListingStatus] = useUpdateAssetStatus(
         data.id,
@@ -44,9 +44,7 @@ export const useApproveAssetListing = (
     // const { mintNFT, approveAddress } = useNFTTokenService({ throws });
 
     const onApproveListing = async (): Promise<void> => {
-        const nftId = Math.round(Math.random() * 100000);
         await updateAssetListingStatus('approved');
-        await updateAssetData({ nftId });
         onSuccess();
         // if (!coverPhotoData) return;
         // const { price } = data;

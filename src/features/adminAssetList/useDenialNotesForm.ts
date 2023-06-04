@@ -2,7 +2,7 @@
 
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useForm, UseFormReturn, SubmitHandler } from 'react-hook-form';
+import { useForm, UseFormReturn } from 'react-hook-form';
 
 import {
     minDenialReasonsLength,
@@ -47,7 +47,7 @@ export const useDenialNotesForm = ({ onSave, onCancel }: Props): StateLogic => {
         onCancel();
     };
 
-    const action: SubmitHandler<FormInput> = async (values): Promise<void> => {
+    const action = async (values: FormInput): Promise<void> => {
         const { denialNotes } = values;
         onSave(denialNotes);
     };

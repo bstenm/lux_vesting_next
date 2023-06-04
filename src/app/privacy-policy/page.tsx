@@ -3,7 +3,7 @@
 import { Typography } from 'components/Typography';
 import { StandardPage } from 'components/StandardPage';
 
-function Page(): JSX.Element {
+function PrivacyPolicyPage(): JSX.Element {
     return (
         <StandardPage titleId="privacyPolicy">
             {[
@@ -19,10 +19,4 @@ function Page(): JSX.Element {
     );
 }
 
-const title = 'privacyPolicy';
-
-const path = '/privacy-policy';
-
-export const privacyPolicy = { path, title, page: Page };
-
-export default Page;
+export default PrivacyPolicyPage;

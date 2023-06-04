@@ -26,7 +26,7 @@ export function SortableMediaItem({ data }: Props): JSX.Element {
             {data.type === 'picture' ? (
                 <Image
                     uri={data.uri}
-                    title={data.title}
+                    alt={data.title}
                     draggable={false}
                     size={100}
                 />

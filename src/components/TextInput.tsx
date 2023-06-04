@@ -3,7 +3,7 @@
 import { grey } from '@mui/material/colors';
 import startCase from 'lodash/startCase';
 import { ErrorMessage } from '@hookform/error-message';
-import { useTranslation } from 'react-i18next';
+import { useTranslate } from 'libs/hooks/useTranslate';
 import { useFormContext } from 'react-hook-form';
 import { FormControl, TextField } from '@mui/material';
 
@@ -23,7 +23,7 @@ export function TextInput({
     placeholder,
     ...props
 }: Props): JSX.Element {
-    const { t } = useTranslation();
+    const t = useTranslate();
 
     const {
         register,

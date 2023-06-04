@@ -7,12 +7,12 @@ import { Row } from 'components/Row';
 import { Image } from 'components/Image';
 import { Tooltip } from 'components/Tooltip';
 import { DocsIcon } from 'components/icons/DocsIcon';
-import { AssetMediaMetadata } from 'config/types/asset';
 import { RemoveIconButton } from 'components/iconButtons/RemoveIconButton';
 import { OpenInNewIconButton } from 'components/iconButtons/OpenInNewIconButton';
+import { AssetMediaMetadataItem } from 'config/types/asset';
 
 type Props = {
-    data: AssetMediaMetadata;
+    data: AssetMediaMetadataItem;
     onRemove: ({ id }: { id: string }) => void;
 };
 
@@ -27,7 +27,7 @@ export function UploadedMediaItem({ data, onRemove }: Props): JSX.Element {
             <Tooltip title={data.title}>
                 <a href={data.uri} target="_blank" rel="noreferrer">
                     {data.type === 'picture' ? (
-                        <Img uri={data.uri} title={data.title} />
+                        <Img uri={data.uri} alt={data.title} />
                     ) : (
                         <DocsIcon size="large" />
                     )}

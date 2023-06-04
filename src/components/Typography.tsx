@@ -3,7 +3,7 @@
 import capitalize from 'lodash/capitalize';
 import startCase from 'lodash/startCase';
 import MuiTypography from '@mui/material/Typography';
-import { useTranslation } from 'react-i18next';
+import { useTranslate } from 'libs/hooks/useTranslate';
 
 type Props = React.ComponentProps<typeof MuiTypography> & {
     title?: string;
@@ -34,7 +34,7 @@ export function Typography({
     allCapitalized,
     ...props
 }: Props): JSX.Element {
-    const { t } = useTranslation();
+    const t = useTranslate();
 
     if (showMissing)
         return (

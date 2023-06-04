@@ -5,7 +5,7 @@ import Stack from '@mui/material/Stack';
 import { DataPoint } from 'components/DataPoint';
 import { Typography } from 'components/Typography';
 
-type Props = React.ComponentProps<typeof DataPoint> & {
+type Props = Omit<React.ComponentProps<typeof DataPoint>, 'align'> & {
     align?: string;
     textId: string;
 };

@@ -3,7 +3,7 @@
 import capitalize from 'lodash/capitalize';
 import startCase from 'lodash/startCase';
 import MuiDialogTitle from '@mui/material/DialogTitle';
-import { useTranslation } from 'react-i18next';
+import { useTranslate } from 'libs/hooks/useTranslate';
 
 type Props = React.ComponentProps<typeof MuiDialogTitle> & {
     bold?: boolean;
@@ -22,7 +22,7 @@ export function DialogTitle({
     allCapitalized,
     ...props
 }: Props): JSX.Element {
-    const { t } = useTranslation();
+    const t = useTranslate();
 
     let text = textId ? t(textId.toString()) : (children as string);
 

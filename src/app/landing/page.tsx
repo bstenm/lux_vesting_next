@@ -7,18 +7,11 @@ import { Stack, Theme } from '@mui/material';
 
 import { Row } from 'components/Row';
 import { Image } from 'components/Image';
-import { whoWeAre } from 'app/who-we-are/page';
 import { DarkButton } from 'components/buttons/DarkButton';
 import { Typography } from 'components/Typography';
 import { LightButton } from 'components/buttons/LightButton';
-import { marketplace } from 'app/marketplace/page';
 import { Web3Component } from 'features/authButton/Web3Component';
-
-type Props = {
-    params: {
-        lng: string;
-    };
-};
+import { path } from 'config/path';
 
 const Title = styled(Typography)(({ theme }) => ({
     fontSize: '4.5vw',
@@ -73,7 +66,7 @@ const StartTradingButton = styled(LightButton)(ButtonTheme);
 
 const LearnMoreButton = styled(DarkButton)(ButtonTheme);
 
-function Page({ params: { lng } }: Props): JSX.Element {
+function LandingPage(): JSX.Element {
     return (
         <Grid container>
             <Grid item sm={6} xs={12}>
@@ -88,7 +81,7 @@ function Page({ params: { lng } }: Props): JSX.Element {
                     <Row spacing={1} justifyContent="space-between">
                         <Web3Component>
                             {(initializing: boolean) => (
-                                <Link href={`/${lng}${marketplace.path}`}>
+                                <Link href={path.marketplace}>
                                     <StartTradingButton
                                         textId="startTrading"
                                         loading={initializing}
@@ -96,7 +89,7 @@ function Page({ params: { lng } }: Props): JSX.Element {
                                 </Link>
                             )}
                         </Web3Component>
-                        <Link href={whoWeAre.path}>
+                        <Link href={path.whoWeAre}>
                             <LearnMoreButton textId="learnMore" />
                         </Link>
                     </Row>
@@ -109,8 +102,4 @@ function Page({ params: { lng } }: Props): JSX.Element {
     );
 }
 
-const path = '/';
-
-export const landing = { path, Page };
-
-export default Page;
+export default LandingPage;

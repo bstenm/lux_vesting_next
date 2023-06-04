@@ -1,8 +1,12 @@
+// @ts-nocheck
+
+// TODO: Use SweetAlert2 instead?
+
 'use client';
 
 import noop from 'lodash/noop';
 import SweetAlert from 'react-bootstrap-sweetalert';
-import { useTranslation } from 'react-i18next';
+import { useTranslate } from 'libs/hooks/useTranslate';
 
 import { TitleBanner } from './TitleBanner';
 
@@ -31,7 +35,7 @@ export function Modal({
     confirmBtnText,
     ...rest
 }: Props): JSX.Element {
-    const { t } = useTranslation();
+    const t = useTranslate();
 
     return (
         <SweetAlert

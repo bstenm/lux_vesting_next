@@ -41,8 +41,9 @@ const Content = styled(Box)<{
     background: ${(props) => props.color};
 `;
 
+const gradient = 'linear-gradient(180deg, #3C4858 0%, #151516 58.85%)';
+
 export function StandardDrawer({
-    color,
     width = 'inherit',
     anchor = 'right',
     textalign = 'center',
@@ -63,11 +64,7 @@ export function StandardDrawer({
             {...props}>
             <PerfectScrollbar>
                 <Content
-                    color={
-                        gradientBg
-                            ? 'linear-gradient(180deg, #3C4858 0%, #151516 58.85%)'
-                            : '#151515'
-                    }
+                    color={gradientBg ? gradient : '#151515'}
                     width={width}
                     textalign={textalign}
                     nopadding={nopadding}>

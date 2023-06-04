@@ -1,7 +1,7 @@
 'use client';
 
 import { useTheme } from '@mui/material';
-import { useTranslation } from 'react-i18next';
+import { useTranslate } from 'libs/hooks/useTranslate';
 import MuiButton, { ButtonProps } from '@mui/material/Button';
 
 import { Spinner } from 'components/Spinner';
@@ -19,7 +19,6 @@ type Props = ButtonProps & {
 export function Button({
     textId,
     loading,
-    variant,
     children,
     disabled,
     fullWidth,
@@ -27,11 +26,11 @@ export function Button({
     withBorder,
     ...props
 }: Props): JSX.Element {
-    const { t } = useTranslation();
+    const t = useTranslate();
 
     const theme = useTheme();
 
-    const content = textId ? t(textId ?? '') : children;
+    const content = textId ? t(textId) : children;
 
     return (
         <MuiButton

@@ -1,12 +1,14 @@
 'use client';
 
+import Image from 'next/image';
+
 import logo from 'assets/logo.svg';
 import { SITE_TITLE } from 'config/constants';
 
 type Props = {
-    width: string;
+    width: number;
 };
 
 export function Logo({ width }: Props): JSX.Element {
-    return <img src={logo} alt={SITE_TITLE} width={width} />;
+    return <Image src={logo} alt={SITE_TITLE} width={width} />;
 }

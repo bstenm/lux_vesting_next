@@ -2,7 +2,7 @@
 
 import grey from '@mui/material/colors/grey';
 import { capitalize } from 'lodash';
-import { useTranslation } from 'react-i18next';
+import { useTranslate } from 'libs/hooks/useTranslate';
 
 import { Spinner } from 'components/Spinner';
 import { RoundedGreyBox } from 'components/RoundedGreyBox';
@@ -10,7 +10,7 @@ import { RoundedGreyBox } from 'components/RoundedGreyBox';
 import { useWeb3 } from './useWeb3';
 
 export function SignInButton(): JSX.Element {
-    const { t } = useTranslation();
+    const t = useTranslate();
 
     const { login, processing, initializing } = useWeb3();
 

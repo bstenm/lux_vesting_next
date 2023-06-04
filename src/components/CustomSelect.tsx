@@ -47,19 +47,21 @@ export const Option = styled(OptionUnstyled)(
   `
 );
 
-export const CustomSelect = forwardRef(
-    <TValue extends string>(
-        props: SelectUnstyledProps<TValue>,
-        ref: React.ForwardedRef<HTMLButtonElement>
-    ) => {
-        const components = {
-            Root: StyledButton,
-            Listbox: StyledListbox,
-            Popper: StyledPopper
-        };
+function SelectComponent<TValue extends string>(
+    props: SelectUnstyledProps<TValue>,
+    ref: React.ForwardedRef<HTMLButtonElement>
+): JSX.Element {
+    const components = {
+        Root: StyledButton,
+        Listbox: StyledListbox,
+        Popper: StyledPopper
+    };
 
-        return <SelectUnstyled {...props} ref={ref} components={components} />;
-    }
-) as <TValue extends string>(
+    return <SelectUnstyled {...props} ref={ref} components={components} />;
+}
+
+export const CustomSelect = forwardRef(SelectComponent) as <
+    TValue extends string
+>(
     props: SelectUnstyledProps<TValue> & React.RefAttributes<HTMLButtonElement>
 ) => JSX.Element;

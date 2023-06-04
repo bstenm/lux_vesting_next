@@ -1,11 +1,22 @@
 import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { usePathname } from 'next/navigation';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import 'react-perfect-scrollbar/dist/css/styles.css';
 
-import { Main } from 'layouts/Main';
+import { path } from 'config/path';
 
-const Container = styled(Box)`
+import { Footer } from './Footer';
+import { TopBar } from './TopBar';
+
+const Container = styled('main')`
     height: 100%;
-    display: flex;
+    background-color: #000;
+`;
+
+const Content = styled(Box)`
+    padding: 25px;
+    min-height: 100%;
 `;
 
 export function Layout({
@@ -13,9 +24,19 @@ export function Layout({
 }: {
     children: React.ReactNode;
 }): JSX.Element {
+    const pathname = usePathname();
+
+    const isNotHomepage = pathname && pathname !== path.landing;
+
     return (
         <Container>
-            <Main>{children}</Main>
+            <PerfectScrollbar>
+                <Content>
+                    <TopBar />
+                    <Box sx={{ pt: 2 }}>{children}</Box>
+                </Content>
+                {isNotHomepage && <Footer />}
+            </PerfectScrollbar>
         </Container>
     );
 }

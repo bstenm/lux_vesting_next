@@ -1,7 +1,7 @@
 'use client';
 
 import { capitalize } from 'lodash';
-import { useTranslation } from 'react-i18next';
+import { useTranslate } from 'libs/hooks/useTranslate';
 import MuiIconButton, { IconButtonProps } from '@mui/material/IconButton';
 
 import { Spinner } from 'components/Spinner';
@@ -11,7 +11,7 @@ type Props = IconButtonProps & {
 };
 
 export function IconButton(props: Props): JSX.Element {
-    const { t } = useTranslation();
+    const t = useTranslate();
 
     const {
         title,
@@ -22,9 +22,9 @@ export function IconButton(props: Props): JSX.Element {
         ...rest
     } = props;
 
-    const transTitle = t(title || '') || '';
+    const transTitle = t(title);
 
-    const transAriaLabel = t(ariaLabel || title || '') || '';
+    const transAriaLabel = t(ariaLabel || title) || '';
 
     return (
         <MuiIconButton

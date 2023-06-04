@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles';
 import Tooltip from '@mui/material/Tooltip';
 import ConstructionIcon from '@mui/icons-material/Construction';
 
-import { useTranslation } from 'react-i18next';
+import { useTranslate } from 'libs/hooks/useTranslate';
 
 const Container = styled('div')(({ theme }) => ({
     color: theme.palette.primary.dark,
@@ -14,17 +14,18 @@ const Container = styled('div')(({ theme }) => ({
     justifyContent: 'center'
 }));
 
-export function UnderConstructionPage(): JSX.Element {
-    const { t } = useTranslation();
+function UnderConstructionPage(): JSX.Element {
+    const t = useTranslate();
 
     return (
         <Container>
             <Tooltip title={t('underConstruction') ?? ''}>
                 <ConstructionIcon
-                    color="primary.light"
-                    sx={{ fontSize: 120 }}
+                    sx={{ color: 'primary.light', fontSize: 120 }}
                 />
             </Tooltip>
         </Container>
     );
 }
+
+export default UnderConstructionPage;

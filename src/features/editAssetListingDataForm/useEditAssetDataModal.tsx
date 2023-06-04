@@ -3,7 +3,7 @@
 import { useAlert } from 'features/alert/useAlert';
 import { useEffect } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useForm, UseFormReturn, SubmitHandler } from 'react-hook-form';
+import { useForm, UseFormReturn } from 'react-hook-form';
 
 import { logger } from 'libs/logger';
 import { RootState } from 'redux/store';
@@ -51,9 +51,7 @@ export const useEditAssetDataModal = (
         onSuccess();
     };
 
-    const action: SubmitHandler<EditAssetDataFormInput> = async (
-        values
-    ): Promise<void> => {
+    const action = async (values: EditAssetDataFormInput): Promise<void> => {
         log.info('Submitting new product', values);
         await updateAssetData({ listing: { status: 'pending' }, ...values });
         successAlert('editSuccess');

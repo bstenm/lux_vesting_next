@@ -21,7 +21,7 @@ export function RequestDenialModal({
             title={title}
             button={children}
             {...props}>
-            {(_) => <DataPoint showMissingMessage data={notes} />}
+            {() => <DataPoint showMissingMessage data={notes} />}
         </ButtonWithModal>
     );
 }

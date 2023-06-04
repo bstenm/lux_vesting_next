@@ -51,6 +51,7 @@ export const useWeb3 = (): AuthLogic => {
         if (!storedUser) {
             await DatabaseService.addUser(userData);
         }
+        // TODO: Restore
         const balance: string = await tokenContract.getBalance(account);
         // Set global state user data
         dispatch(userActions.setInfo({ ...userData, balance }));
@@ -91,7 +92,7 @@ export const useWeb3 = (): AuthLogic => {
     return {
         login,
         loggedIn,
-        processing,
-        initializing: initializing || web3Service.initializing
+        initializing,
+        processing
     };
 };

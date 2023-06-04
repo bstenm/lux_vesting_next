@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { grey } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
 import { Card, Stack } from '@mui/material';
-import { useTranslation } from 'react-i18next';
+import { useTranslate } from 'libs/hooks/useTranslate';
 
 import { Tier } from 'config/types';
 import { Row } from 'components/Row';
@@ -25,8 +25,8 @@ const TierBox = styled(Card)({
     boxShadow: '1px 0px 10px rgba(0, 0, 0, 0.42)'
 });
 
-function Page(): JSX.Element {
-    const { t } = useTranslation();
+function LoyaltyTiersPage(): JSX.Element {
+    const t = useTranslate();
 
     return (
         <StandardPage
@@ -86,10 +86,4 @@ function Page(): JSX.Element {
     );
 }
 
-const title = 'loyaltyTiers';
-
-const path = '/loyalty-tiers';
-
-export const loyaltyTiers = { path, title, page: Page };
-
-export default Page;
+export default LoyaltyTiersPage;

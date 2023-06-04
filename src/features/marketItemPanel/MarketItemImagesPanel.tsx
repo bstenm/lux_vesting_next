@@ -71,7 +71,7 @@ export function MarketItemImagesPanel({
                     <Box key={pic.id} sx={{ height: '15vh', mt: '2vh' }}>
                         <ViewOptionImg
                             uri={pic.uri}
-                            title={pic.title}
+                            alt={pic.title}
                             onClick={() => onSelectView(index)}
                             component="img"
                         />

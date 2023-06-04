@@ -1,3 +1,4 @@
+/* eslint-disable import/no-import-module-exports */
 import logger from 'redux-logger';
 import { Action, ThunkAction, configureStore } from '@reduxjs/toolkit';
 

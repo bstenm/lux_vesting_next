@@ -11,7 +11,7 @@ const Container = styled('div')`
     justify-content: center;
 `;
 
-function Page(): JSX.Element {
+function SomethingWentWrongPage(): JSX.Element {
     return (
         <Container>
             <Typography
@@ -23,6 +23,4 @@ function Page(): JSX.Element {
     );
 }
 
-const path = '/something-went-wrong';
-
-export const somethingWentWrong = { path, page: Page };
+export default SomethingWentWrongPage;

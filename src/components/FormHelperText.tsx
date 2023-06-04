@@ -2,7 +2,7 @@
 
 import { pink } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
-import { useTranslation } from 'react-i18next';
+import { useTranslate } from 'libs/hooks/useTranslate';
 import MuiFormHelperText from '@mui/material/FormHelperText';
 
 type Props = React.ComponentProps<typeof MuiFormHelperText> & {
@@ -16,7 +16,7 @@ const Component = styled(MuiFormHelperText)({
 });
 
 export function FormHelperText({ textId, ...other }: Props): JSX.Element {
-    const { t } = useTranslation();
+    const t = useTranslate();
 
     return <Component {...other}>{t(textId ?? 'unexpectedError')}</Component>;
 }

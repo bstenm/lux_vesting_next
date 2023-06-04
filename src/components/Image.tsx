@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Box, { BoxProps } from '@mui/material/Box';
 
 import { BrokenImagePlaceholder } from 'components/BrokenImagePlaceholder';
-import { useTranslation } from 'react-i18next';
+import { useTranslate } from 'libs/hooks/useTranslate';
 
 type Props = BoxProps & {
     uri?: string;
@@ -21,7 +21,7 @@ export function Image({
     height,
     ...other
 }: Props): JSX.Element {
-    const { t } = useTranslation();
+    const t = useTranslate();
 
     const [brokenImage, setBrokenImage] = useState<boolean>(false);
 

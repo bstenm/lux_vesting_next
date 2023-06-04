@@ -17,10 +17,10 @@ type Props = {
     mediaType: MediaType;
 };
 
-export const ManageAssetFilesIconButton = ({
+export function ManageAssetFilesIconButton({
     assetId,
     mediaType
-}: Props): JSX.Element => {
+}: Props): JSX.Element {
     const { name } = useAppSelector((state: RootState) =>
         getAssetData(state, assetId)
     );
@@ -53,4 +53,4 @@ export const ManageAssetFilesIconButton = ({
             )}
         </>
     );
-};
+}

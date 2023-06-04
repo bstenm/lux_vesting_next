@@ -25,7 +25,7 @@ export function AssetRecordPicture({
         <Image
             sx={{ borderRadius: 0.5 }}
             uri={uri}
-            title={assetName}
+            alt={assetName}
             size={size ?? 95}
         />
     );

@@ -7,25 +7,23 @@ import { GreenButton } from 'components/buttons/GreenButton';
 import { YellowButton } from 'components/buttons/YellowButton';
 
 type Props = {
-    status: AssetListingStatus;
+    status?: AssetListingStatus;
     onViewListingData: () => void;
-    onViewPuchaseData: () => void;
 };
 
 export const AdminAssetListingStatusButton = ({
     status,
-    onViewListingData,
-    onViewPuchaseData
+    onViewListingData
 }: Props): JSX.Element => {
     const statusToButton: Record<AssetListingStatus, JSX.Element> = {
         denied: (
             <RedButton textId="listingDenied" onClick={onViewListingData} />
         ),
+        revoked: (
+            <RedButton textId="listingRevoked" onClick={onViewListingData} />
+        ),
         pending: (
             <YellowButton textId="pendingListing" onClick={onViewListingData} />
-        ),
-        purchased: (
-            <GreenButton textId="purchased" onClick={onViewPuchaseData} />
         ),
         approved: (
             <GreenButton textId="listedItem" onClick={onViewListingData} />
@@ -46,5 +44,5 @@ export const AdminAssetListingStatusButton = ({
         )
     };
 
-    return statusToButton[status];
+    return statusToButton[status ?? 'unprocessed'];
 };

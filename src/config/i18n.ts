@@ -30,6 +30,7 @@ i18next
         ns: ['default'],
         debug: DEV_MODE,
         defaultNS: 'default',
+        returnNull: false,
         fallbackLng: defaultLng,
         supportedLngs: languages,
         backend: {

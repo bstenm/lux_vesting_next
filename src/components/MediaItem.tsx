@@ -7,14 +7,14 @@ import DescriptionIcon from '@mui/icons-material/Description';
 
 import { Image } from 'components/Image';
 import { Typography } from 'components/Typography';
-import { AssetMediaMetadata } from 'config/types/asset';
+import { AssetMediaMetadataItem } from 'config/types/asset';
 
 import { Row } from './Row';
 import { IconButton } from './iconButtons/IconButton';
 import { RemoveIconButton } from './iconButtons/RemoveIconButton';
 
 type Props = {
-    data: AssetMediaMetadata;
+    data: AssetMediaMetadataItem;
     draggable?: boolean;
     onRemove?: ({ id }: { id: string }) => void;
 };
@@ -45,7 +45,7 @@ export function MediaItem({ data, draggable, onRemove }: Props): JSX.Element {
             onMouseLeave={() => setOnHover(false)}>
             <a href={data.uri} target="_blank" rel="noreferrer">
                 {data.type === 'picture' ? (
-                    <Img uri={data.uri} title={data.title} draggable={false} />
+                    <Img uri={data.uri} alt={data.title} draggable={false} />
                 ) : (
                     <DescriptionIcon
                         sx={{ color: 'primary.light' }}

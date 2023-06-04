@@ -84,6 +84,5 @@ export const torusConfig: TorusParams = {
         check: false
     },
     whiteLabel: whiteLabelData,
-    skipTKey: true,
-    useLocalStorage: true
+    skipTKey: true
 };

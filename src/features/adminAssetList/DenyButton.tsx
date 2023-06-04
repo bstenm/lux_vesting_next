@@ -2,36 +2,31 @@
 
 import { Modal } from 'components/Modal';
 import { RedButton } from 'components/buttons/RedButton';
-import { AssetStatusType } from 'config/types/asset';
 import { ButtonWithModal } from 'components/ButtonWithModal';
 
+import { useCallback } from 'react';
 import { DenialNotesForm } from './DenialNotesForm';
 
 type Props = React.ComponentProps<typeof RedButton> & {
-    textId?: string;
-    assetId: string;
     onDone: (notes?: string) => void;
-    statusType: AssetStatusType;
 };
 
-export function DenyButton({
-    textId,
-    assetId,
-    onDone,
-    statusType,
-    ...rest
-}: Props): JSX.Element {
+export function DenyButton({ textId, onDone, ...rest }: Props): JSX.Element {
+    const OpenModalButton = useCallback(
+        (handleOpen: () => void) => (
+            <RedButton
+                textId={textId ?? 'deny'}
+                onClick={handleOpen}
+                withBorder
+                fullWidth
+                {...rest}
+            />
+        ),
+        [rest, textId]
+    );
+
     return (
-        <ButtonWithModal
-            button={(handleOpen) => (
-                <RedButton
-                    textId={textId ?? 'deny'}
-                    onClick={handleOpen}
-                    withBorder
-                    fullWidth
-                    {...rest}
-                />
-            )}>
+        <ButtonWithModal button={OpenModalButton}>
             {(handleClose) => (
                 <Modal>
                     <DenialNotesForm

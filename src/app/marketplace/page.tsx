@@ -4,7 +4,7 @@ import { Marketplace } from 'features/marketplace/Marketplace';
 import { PlaceBidButton } from 'features/placeBid/PlaceBidButton';
 import { ComponentWithSelectedAssetInDrawer } from 'layouts/ComponentWithSelectedAssetInDrawer';
 
-function Page(): JSX.Element {
+function MarketplacePage(): JSX.Element {
     return (
         <ComponentWithSelectedAssetInDrawer
             Actions={PlaceBidButton}
@@ -13,8 +13,4 @@ function Page(): JSX.Element {
     );
 }
 
-const path = '/marketplace';
-
-export const marketplace = { path, page: Page };
-
-export default Page;
+export default MarketplacePage;

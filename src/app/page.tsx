@@ -1,11 +1,9 @@
 'use client';
 
-import { landing } from 'pages/LandingPage';
+import LandingPage from 'app/landing/page';
 
-const { Page } = landing;
-
-function HomePage(props: React.ComponentProps<typeof Page>): JSX.Element {
-    return <Page {...props} />;
+function HomePage(): JSX.Element {
+    return <LandingPage />;
 }
 
 export default HomePage;

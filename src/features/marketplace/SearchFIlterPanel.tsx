@@ -2,12 +2,11 @@
 
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
-
-import { SelectFilterEntry } from 'config/types';
+import { Divider } from '@mui/material';
 
 import { Typography } from 'components/Typography';
-import { LightDivider } from 'components/LightDivider';
-import { Divider } from '@mui/material';
+import { SelectFilterEntry } from 'config/types';
+
 import { Select } from './Select';
 import { PriceRangeCheckbox } from './PriceChangeCheckbox';
 

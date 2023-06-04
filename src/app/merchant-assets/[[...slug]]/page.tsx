@@ -8,23 +8,30 @@ import { FloatingAddButton } from 'components/FloatingAddButton';
 import { AddNewAssetModal } from 'features/addNewAssetModal/AddNewAssetModal';
 import { ComponentWithSelectedAssetInDrawer } from 'layouts/ComponentWithSelectedAssetInDrawer';
 import { ListingStatusView } from 'features/merchantAssetCard/ManageListingStatusButton';
+import { useCallback } from 'react';
+import { AssetItem } from 'config/types/asset';
 
-function Page(): JSX.Element {
+function MerchantAssetsPage(): JSX.Element {
     const { slug } = useParams() as { slug?: string[] };
 
     const [action, assetId] = slug ?? [];
+
+    const List = useCallback(
+        (onSelectitem: (data: AssetItem) => void) => (
+            <MerchantAssetList
+                assetId={assetId}
+                openView={action as ListingStatusView}
+                onSelectitem={onSelectitem}
+            />
+        ),
+        [action, assetId]
+    );
 
     return (
         <>
             <ComponentWithSelectedAssetInDrawer
                 Actions={PlaceBidButton}
-                MainComponent={(onSelectitem) => (
-                    <MerchantAssetList
-                        assetId={assetId}
-                        openView={action as ListingStatusView}
-                        onSelectitem={onSelectitem}
-                    />
-                )}
+                MainComponent={List}
             />
             <AddNewAssetModal openOnLoad={action === 'addNewAsset'}>
                 {(handleOpenModal) => (
@@ -35,10 +42,4 @@ function Page(): JSX.Element {
     );
 }
 
-const route = 'merchant-assets';
-
-const path = `/${route}`;
-
-export const merchantAssets = { path, route, page: Page };
-
-export default Page;
+export default MerchantAssetsPage;

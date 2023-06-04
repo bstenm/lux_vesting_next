@@ -3,7 +3,7 @@ import { parseUnits } from 'ethers';
 import TokenVendor from 'artifacts/contracts/LuxVestingTokenVendor.sol/LuxVestingTokenVendor.json';
 import { TOKEN_VENDOR_CONTRACT_ADDRESS } from 'config/constants';
 
-import { SmartContractService } from './SmartContractService';
+import { SmartContractService } from 'services/SmartContractService';
 
 export class TokenVendorContractService extends SmartContractService {
     async releaseTokens(to: string, value: number): Promise<void> {

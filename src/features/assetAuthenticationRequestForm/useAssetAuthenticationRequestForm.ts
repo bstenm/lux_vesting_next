@@ -1,7 +1,8 @@
 'use client';
 
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useForm, UseFormReturn, SubmitHandler } from 'react-hook-form';
+import { TestFunction } from 'yup';
+import { useForm, UseFormReturn } from 'react-hook-form';
 
 import * as yup from 'yup';
 import { logger } from 'libs/logger';
@@ -30,7 +31,7 @@ export const assetAuthenticationFormSchema = yup
             .test(
                 'file_type_validation',
                 'Invalid file type',
-                isValidDocumentFileType
+                isValidDocumentFileType as TestFunction
             )
     })
     .required();
@@ -64,8 +65,8 @@ export const useAssetAuthenticationRequestForm = (
         handleClose();
     };
 
-    const action: SubmitHandler<AssetAuthenticationFormInput> = async (
-        data
+    const action = async (
+        data: AssetAuthenticationFormInput
     ): Promise<void> => {
         logger('Submitting asset authentication data').info(data);
         const { certificateOfAuthenticityFile: file, ...shippingData } = data;

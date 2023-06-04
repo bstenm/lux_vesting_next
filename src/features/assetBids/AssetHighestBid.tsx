@@ -8,7 +8,7 @@ import { TitledAmountData } from 'components/dataPoints/TitledAmountData';
 
 import { useFetchAssetBids } from './useFetchAssetBids';
 
-type Props = React.ComponentProps<typeof Typography> & {
+type Props = Omit<React.ComponentProps<typeof Typography>, 'align'> & {
     id: string;
     align?: string;
 };

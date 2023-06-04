@@ -23,7 +23,7 @@ export function ListingDataModal({
             title={title}
             button={children}
             opened={opened}>
-            {(_) => <ListingData {...rest} />}
+            {() => <ListingData {...rest} />}
         </ButtonWithModal>
     );
 }

@@ -73,7 +73,7 @@ export function AdminAssetCard({
                     </Row>
                     <Stack sx={{ mt: 2 }} spacing={0.7}>
                         <ManageAdminListingStatusButton
-                            data={data}
+                            status={data.listing?.status}
                             onViewListing={() => onViewListingData(data)}
                         />
                         <ManageAdminAssetAuthenticationStatusButton

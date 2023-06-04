@@ -2,8 +2,9 @@
 
 import { query, Query } from 'firebase/firestore';
 
+import { BidItem } from 'config/types/asset';
+import { HookOptions } from 'config/types';
 import { getBidCollectionRef } from 'libs/firebaseApp';
-import { HookOptions, BidItem } from 'config/types';
 import { useRealTimeFetchCollection } from 'libs/hooks/useRealTimeFetchCollection';
 
 type StateLogic = [BidItem[], boolean];

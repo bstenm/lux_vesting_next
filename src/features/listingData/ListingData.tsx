@@ -13,7 +13,7 @@ import { AssetListingData } from 'config/types/asset';
 
 export function ListingData({
     bids = [],
-    listedAt,
+    ,
     nbOfTimesSaved = 0,
     nbOfTimesViewed = 0
 }: AssetListingData): JSX.Element {

@@ -12,7 +12,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 
-import { contactUs } from 'app/contact-us/page';
+import { path } from 'config/path';
 import { faqContent } from 'config/faq';
 import { Typography } from 'components/Typography';
 import { StandardPage } from 'components/StandardPage';
@@ -25,7 +25,7 @@ const ContactUsLink = styled(Link)(
 `
 );
 
-function Page(): JSX.Element {
+function FAQPage(): JSX.Element {
     const [expanded, setExpanded] = useState<string | false>(false);
 
     const handleChange =
@@ -39,7 +39,7 @@ function Page(): JSX.Element {
             subtitle={
                 <Trans
                     i18nKey="contactUsPrompt"
-                    components={{ to: <ContactUsLink href={contactUs.path} /> }}
+                    components={{ to: <ContactUsLink href={path.contactUs} /> }}
                 />
             }>
             <Box>
@@ -95,10 +95,4 @@ function Page(): JSX.Element {
     );
 }
 
-const title = 'faq';
-
-const path = '/faq';
-
-export const faq = { path, title, page: Page };
-
-export default Page;
+export default FAQPage;

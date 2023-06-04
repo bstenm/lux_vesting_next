@@ -1,5 +1,7 @@
 'use client';
 
+// TODO:  Add manual address ?
+
 import { useState } from 'react';
 import { Stack, Box } from '@mui/material';
 import { FormProvider } from 'react-hook-form';
@@ -11,7 +13,6 @@ import { LightDivider } from 'components/LightDivider';
 import { GreenButton } from 'components/buttons/GreenButton';
 import { CertificateFileInput } from 'features/dropFileArea/CertificateFileInput';
 
-import { ManualAddress } from './ManualAddress';
 import { AddressAutocompleteInput } from './AddressAutocompleteInput';
 import { useAssetAuthenticationRequestForm } from './useAssetAuthenticationRequestForm';
 
@@ -26,14 +27,8 @@ export function AssetAuthenticationRequestForm({
 }: Props): JSX.Element {
     const [noDocument, setNoDocument] = useState<boolean>(false);
 
-    const [manualAddress, setManualAddress] = useState<boolean>(false);
-
     const onNoDocumentChange = (): void => {
         setNoDocument(!noDocument);
-    };
-
-    const onManualAddressChange = (): void => {
-        setManualAddress(!manualAddress);
     };
 
     const { onClose, onSubmit, submitting, formMethods } =
@@ -62,11 +57,7 @@ export function AssetAuthenticationRequestForm({
                             sx={{ m: 'auto', width: 50, opacity: 0.4 }}
                         />
                     </Box>
-                    {!manualAddress ? (
-                        <AddressAutocompleteInput disabled={submitting} />
-                    ) : (
-                        <ManualAddress disabled={submitting} />
-                    )}
+                    <AddressAutocompleteInput disabled={submitting} />
                 </Stack>
                 <Row sx={{ mt: 4 }} justifyContent="space-between">
                     <DarkButton

@@ -60,7 +60,8 @@ export const useDropFileArea = ({
     );
 
     const onDropRejected = (fileRejections: FileRejection[]): void => {
-        console.log(fileRejections);
+        // TODO: Meaningful error message
+        // console.log(fileRejections);
     };
 
     const dropzoneState = useDropzone({

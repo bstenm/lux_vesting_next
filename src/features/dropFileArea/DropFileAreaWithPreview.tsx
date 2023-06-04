@@ -128,7 +128,7 @@ export function DropFileAreaWithPreview({
         color = 'success.main';
     }
 
-    function ErrorMsg(): JSX.Element {
+    const ErrorMsg = useCallback((): JSX.Element => {
         return (
             <ErrorMessage
                 errors={errors}
@@ -136,7 +136,7 @@ export function DropFileAreaWithPreview({
                 render={({ message }) => <FormHelperText textId={message} />}
             />
         );
-    }
+    }, [errors, fieldName]);
 
     return newFile?.name ? (
         <Stack sx={{ py: 2 }}>

@@ -55,18 +55,17 @@ export const AdminAssetAuthenticationStatusControlButtons = ({
     }
 
     function RejectButton(): JSX.Element {
-        return (
-            <DenyButton
-                assetId={id}
-                onDone={handleClose}
-                disabled={updating}
-                statusType="authentication"
-            />
-        );
+        return <DenyButton onDone={handleClose} disabled={updating} />;
     }
 
     const actionButton: Record<AssetAuthenticationStatus, JSX.Element> = {
         denied: (
+            <Row spacing={3}>
+                <DenialNotesModalButton title={name} disabled={updating} />
+                {!allStepsCompleted ? <DoneButton /> : <ApproveButton />}
+            </Row>
+        ),
+        revoked: (
             <Row spacing={3}>
                 <DenialNotesModalButton title={name} disabled={updating} />
                 {!allStepsCompleted ? <DoneButton /> : <ApproveButton />}

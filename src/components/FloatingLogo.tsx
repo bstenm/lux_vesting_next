@@ -26,7 +26,7 @@ const Container = styled(Box)<Props>(({ top, left, right, bottom, theme }) => ({
 export function FloatingLogo(position: Props): JSX.Element {
     return (
         <Container {...position}>
-            <Logo width="80px" />
+            <Logo width={80} />
         </Container>
     );
 }

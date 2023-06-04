@@ -17,7 +17,7 @@ type Props = {
     handleClose: () => void;
 };
 
-type Status = Exclude<AssetListingStatus, 'unprocessed' | 'purchased'>;
+type Status = Exclude<AssetListingStatus, 'unprocessed'>;
 
 export const AdminAssetListingStatusControlButtons = ({
     data,
@@ -89,8 +89,6 @@ export const AdminAssetListingStatusControlButtons = ({
         pending: (
             <Row spacing={3}>
                 <DenyButton
-                    assetId={id}
-                    statusType="listing"
                     onDone={(notes) => onUpdateStatus('denied', notes)}
                 />
                 <GreenButton

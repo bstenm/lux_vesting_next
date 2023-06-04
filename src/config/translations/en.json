@@ -266,5 +266,8 @@
     "listingStatusChanged": "<type>Listing {{value}}</type> <asset>{{asset}}</asset>",
 	"placeBid": "place a bid",
 	"accessPortfolio": "access your portfolio",
-	"howCanWeHelp": "How Can We Help?"
+	"howCanWeHelp": "How Can We Help?",
+	"revoked": "revoked",
+	"listingRevoked": "listing revoked",
+	"authRevoked": "authentication revoked"
 }

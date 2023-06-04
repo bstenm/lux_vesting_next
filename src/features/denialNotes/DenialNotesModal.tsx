@@ -16,7 +16,7 @@ export function DenialNotesModal({
 }: Props): JSX.Element {
     return (
         <ButtonWithModal showCloseButton title={title} button={children}>
-            {(_) => <DataPoint data={data} showMissingMessage />}
+            {() => <DataPoint data={data} showMissingMessage />}
         </ButtonWithModal>
     );
 }

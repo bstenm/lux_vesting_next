@@ -2,7 +2,7 @@
 
 import MuiGrid from '@mui/material/Grid';
 import capitalize from 'lodash/capitalize';
-import { useTranslation } from 'react-i18next';
+import { useTranslate } from 'libs/hooks/useTranslate';
 
 type Props = React.ComponentProps<typeof MuiGrid> & {
     textId?: string;
@@ -18,7 +18,7 @@ export function Grid({
     children,
     ...props
 }: Props): JSX.Element {
-    const { t } = useTranslation();
+    const t = useTranslate();
 
     let text = textId && t(textId);
 

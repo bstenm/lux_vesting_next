@@ -6,6 +6,7 @@ import {
     ThemeProvider,
     responsiveFontSizes
 } from '@mui/material/styles';
+import { useMemo } from 'react';
 import { yellow } from '@mui/material/colors';
 import { Provider } from 'react-redux';
 import * as locales from '@mui/material/locale';
@@ -15,9 +16,9 @@ import { useTranslation } from 'react-i18next';
 import { store } from 'redux/store';
 import { Layout } from 'layouts/Layout';
 import { defaultLng } from 'config';
-import { LangContext } from 'libs/contexts';
 import { AlertSnackbar } from 'features/alert/AlertSnackbar';
 import { AddFundsDrawer } from 'features/addFunds/AddFundsDrawer';
+import { LangContext, LangContextType } from 'libs/contexts';
 import 'config/i18n';
 
 type Props = {
@@ -79,9 +80,14 @@ export function App({ children }: Props): JSX.Element {
 
     const responsiveTheme = responsiveFontSizes(themeWithLocale);
 
+    const lngCxtValue = useMemo(
+        () => [lang, i18n.changeLanguage],
+        [lang, i18n.changeLanguage]
+    ) as LangContextType;
+
     return (
         <Provider store={store}>
-            <LangContext.Provider value={[lang, i18n.changeLanguage]}>
+            <LangContext.Provider value={lngCxtValue}>
                 <ThemeProvider theme={responsiveTheme}>
                     <CssBaseline />
                     <Layout>{children}</Layout>

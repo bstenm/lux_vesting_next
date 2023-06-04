@@ -1,4 +1,4 @@
-import { ElementType, useState } from 'react';
+import { ElementType, useCallback, useState } from 'react';
 
 import { AssetItem } from 'config/types/asset';
 import { MarketItemSpecPanel } from 'features/marketItemPanel/MarketItemSpecPanel';
@@ -16,27 +16,37 @@ export function ComponentWithSelectedAssetInDrawer({
 }: Props): JSX.Element {
     const [picSelected, setPicSelected] = useState<number>();
 
+    const ImagesPanel = useCallback(
+        (data: AssetItem) => (
+            <MarketItemImagesPanel
+                data={data}
+                selected={picSelected}
+                onSelectPic={(pic) => setPicSelected(pic)}
+            />
+        ),
+        [picSelected]
+    );
+
+    const SpecsPanel = useCallback(
+        (data: AssetItem, handleClose?: () => void) => (
+            <MarketItemSpecPanel
+                data={data}
+                Actions={Actions}
+                selected={picSelected}
+                onSelectPic={(pic) => setPicSelected(pic)}
+                handleClose={handleClose}
+            />
+        ),
+        [picSelected, Actions]
+    );
+
     return (
         <ComponentWithSelectedDataInDrawer<AssetItem>
             noLeftPanelPadding
             rightPanelWidth={350}
             MainComponent={MainComponent}
-            leftPanelComponent={(data) => (
-                <MarketItemImagesPanel
-                    data={data}
-                    selected={picSelected}
-                    onSelectPic={(pic) => setPicSelected(pic)}
-                />
-            )}
-            rightPanelComponent={(data, handleClose) => (
-                <MarketItemSpecPanel
-                    data={data}
-                    Actions={Actions}
-                    selected={picSelected}
-                    onSelectPic={(pic) => setPicSelected(pic)}
-                    handleClose={handleClose}
-                />
-            )}
+            leftPanelComponent={ImagesPanel}
+            rightPanelComponent={SpecsPanel}
         />
     );
 }

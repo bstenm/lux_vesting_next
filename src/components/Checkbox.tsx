@@ -1,7 +1,7 @@
 'use client';
 
 import MuiCheckbox from '@mui/material/Checkbox';
-import { useTranslation } from 'react-i18next';
+import { useTranslate } from 'libs/hooks/useTranslate';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
 type Props = React.ComponentProps<typeof MuiCheckbox> & {
@@ -10,7 +10,7 @@ type Props = React.ComponentProps<typeof MuiCheckbox> & {
 };
 
 export function Checkbox({ textId, transVars, ...other }: Props): JSX.Element {
-    const { t } = useTranslation();
+    const t = useTranslate();
 
     if (!textId) {
         return <MuiCheckbox {...other} />;
@@ -19,7 +19,7 @@ export function Checkbox({ textId, transVars, ...other }: Props): JSX.Element {
     return (
         <FormControlLabel
             control={<MuiCheckbox {...other} />}
-            label={t(textId ?? '', transVars || {})}
+            label={t(textId, transVars)}
         />
     );
 }

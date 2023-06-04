@@ -42,9 +42,17 @@ export const ManageListingStatusButton = ({
         denied: (
             <RequestDenialModal
                 title={data.name}
-                notes={data.listingDenialNotes}
+                notes={data.listing?.notes}
                 opened={openView === 'denialNotes'}>
                 {(open) => <RedButton textId="listingDenied" onClick={open} />}
+            </RequestDenialModal>
+        ),
+        revoked: (
+            <RequestDenialModal
+                title={data.name}
+                notes={data.listing?.notes}
+                opened={openView === 'denialNotes'}>
+                {(open) => <RedButton textId="listingRevoked" onClick={open} />}
             </RequestDenialModal>
         ),
         approved: (
@@ -61,9 +69,8 @@ export const ManageListingStatusButton = ({
                 opened={openView === 'editAssetListingData'}>
                 {(open) => <LightButton textId="notListed" onClick={open} />}
             </EditAssetListingDataModal>
-        ),
-        purchased: <div />
+        )
     };
 
-    return statusToElement[data.listing.status];
+    return statusToElement[data.listing?.status ?? 'unprocessed'];
 };

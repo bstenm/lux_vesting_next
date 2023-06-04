@@ -20,7 +20,7 @@ export function ImageCarouselItem({ sx, data, onSelect }: Props): JSX.Element {
                     ...sx
                 }}
                 uri={data.uri}
-                title={data.title}
+                alt={data.title}
             />
         </Box>
     );

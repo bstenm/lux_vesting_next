@@ -71,7 +71,6 @@ export type AssetAuthenticationStatusDetails = {
 export type AssetItem = Asset & {
     id: string;
     bids?: Bid[];
-    nftId: number;
     listing?: AssetListingStatusDetails;
     createdAt: string;
     followers?: string[];

@@ -2,11 +2,12 @@
 
 import { grey } from '@mui/material/colors';
 import capitalize from 'lodash/capitalize';
-import { useTranslation } from 'react-i18next';
 import MuiTextField, { TextFieldProps } from '@mui/material/TextField';
 
+import { useTranslate } from 'libs/hooks/useTranslate';
+
 export function TextField(props: TextFieldProps): JSX.Element {
-    const { t } = useTranslation();
+    const t = useTranslate();
 
     const { sx, label, placeholder, ...rest } = props;
 

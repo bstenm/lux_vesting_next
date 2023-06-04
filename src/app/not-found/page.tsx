@@ -24,7 +24,7 @@ const Typography = styled(MuiTypography)(({ theme }) => {
     };
 });
 
-function Page(): JSX.Element {
+function NotFoundPage(): JSX.Element {
     return (
         <Container>
             <Typography variant="h1">404</Typography>
@@ -32,6 +32,4 @@ function Page(): JSX.Element {
     );
 }
 
-const path = '/not-found';
-
-export const notFound = { path, page: Page };
+export default NotFoundPage;

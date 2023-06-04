@@ -3,7 +3,7 @@
 import TextField from '@mui/material/TextField';
 import { capitalize } from 'lodash';
 import { forwardRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslate } from 'libs/hooks/useTranslate';
 import { NumericFormat, NumericFormatProps } from 'react-number-format';
 
 import { defaultCurrencySymbol } from 'config';
@@ -44,7 +44,7 @@ type Props = {
 export function BidInput({ onChange }: Props): JSX.Element {
     const [value, setValue] = useState<string>();
 
-    const { t } = useTranslation();
+    const t = useTranslate();
 
     return (
         <TextField
@@ -75,4 +75,3 @@ export function BidInput({ onChange }: Props): JSX.Element {
         />
     );
 }
-// Write an text input with the material ui with a white border

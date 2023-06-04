@@ -1,5 +1,7 @@
 'use client';
 
+import { TestFunction } from 'yup';
+
 import { yupLocale as yup } from 'config/yup';
 import { isValidPictureFileType } from 'libs/utils';
 
@@ -12,7 +14,7 @@ export const addNewAssetSchema = yup
             .test(
                 'file_type_validation',
                 'Invalid file type',
-                isValidPictureFileType
+                isValidPictureFileType as TestFunction
             )
     })
     .required();

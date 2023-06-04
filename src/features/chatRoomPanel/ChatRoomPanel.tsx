@@ -5,8 +5,8 @@ import { Box, Stack } from '@mui/material';
 import { Row } from 'components/Row';
 import { AssetItem } from 'config/types/asset';
 import { StandardDrawer } from 'components/StandardDrawer';
-import { BigMutedMessage } from 'components/typography/BigMutedMessage';
 
+import { FetchingScreen } from 'components/FetchingScreen';
 import { useChatRoom } from './useChatRoom';
 import { ChatRoomInput } from './ChatRoomInput';
 import { ChatRoomMessage } from './ChatRoomMessage';
@@ -38,21 +38,22 @@ export function ChatRoomPanel({
                 <ChatRoomAssetOverview asset={asset} />
             </ChatRoomPanelSlider>
             <Box sx={{ width: 320 }}>
-                {messages?.length ? (
-                    <Stack sx={{ mt: 3, mb: 6 }} spacing={2}>
-                        {messages.map((message) => (
-                            <ChatRoomMessage
-                                key={message.createdAt}
-                                data={message}
-                                thisUser={message.from === from}
-                            />
-                        ))}
-                    </Stack>
-                ) : (
-                    <Box sx={{ mt: 4 }}>
-                        <BigMutedMessage textId="startConversation" />
-                    </Box>
-                )}
+                <FetchingScreen
+                    fetching={fetching}
+                    data={messages}
+                    message="startConversation">
+                    {(data) => (
+                        <Stack sx={{ mt: 3, mb: 6 }} spacing={2}>
+                            {data.map((message) => (
+                                <ChatRoomMessage
+                                    key={message.createdAt}
+                                    data={message}
+                                    thisUser={message.from === from}
+                                />
+                            ))}
+                        </Stack>
+                    )}
+                </FetchingScreen>
                 <Row
                     sx={{
                         p: 1,

@@ -1,7 +1,7 @@
 'use client';
 
 import capitalize from 'lodash/capitalize';
-import { useTranslation } from 'react-i18next';
+import { useTranslate } from 'libs/hooks/useTranslate';
 
 import { alertActions } from 'state/alert/alertSlice';
 import { useAppDispatch } from 'libs/hooks/useAppDispatch';
@@ -14,7 +14,7 @@ type StateLogic = {
 };
 
 export const useAlert = (mute?: boolean): StateLogic => {
-    const { t } = useTranslation();
+    const t = useTranslate();
 
     const dispatch = useAppDispatch();
 

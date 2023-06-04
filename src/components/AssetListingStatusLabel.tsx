@@ -20,8 +20,8 @@ const statusToButton = (
 ): Record<AssetListingStatus, JSX.Element> => ({
     denied: <RedButton fullWidth={fullWidth} textId="denied" />,
     pending: <YellowButton fullWidth={fullWidth} textId="pending" />,
+    revoked: <RedButton fullWidth={fullWidth} textId="revoked" />,
     approved: <DarkButton fullWidth={fullWidth} textId="listed" />,
-    purchased: <LightButton fullWidth={fullWidth} textId="purchased" />,
     unprocessed: <LightButton fullWidth={fullWidth} textId="notListed" />
 });
 

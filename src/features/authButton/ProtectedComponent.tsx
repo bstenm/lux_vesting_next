@@ -1,5 +1,6 @@
 'use client';
 
+import { Box } from '@mui/material';
 import { Trans } from 'react-i18next';
 
 import { Centered } from 'components/Centered';
@@ -31,5 +32,9 @@ export function ProtectedComponent({ action, children }: Props): JSX.Element {
         );
     }
 
-    return <>{children}</>;
+    if (Array.isArray(children)) {
+        return <Box>{children}</Box>;
+    }
+
+    return children;
 }

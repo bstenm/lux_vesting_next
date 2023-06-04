@@ -1,7 +1,11 @@
 'use client';
 
-import { EmptyResponse } from 'components/EmptyResponse';
+import { useTheme } from '@mui/material';
+import { GrDropbox } from 'react-icons/gr';
+
+import { Centered } from 'components/Centered';
 import { CenteredLoader } from 'components/CenteredLoader';
+import { BigMutedMessage } from './typography/BigMutedMessage';
 
 type Props<T> = {
     data?: T;
@@ -21,20 +25,27 @@ export function FetchingScreen<T>({
     noMessage,
     ...other
 }: Props<T>): JSX.Element {
+    const theme = useTheme();
+
     if (fetching) {
         return <CenteredLoader fullscreen={fullscreen} {...other} />;
     }
 
-    if (!data || (Array.isArray(data) && !data.length)) {
+    if ((Array.isArray(data) && data.length) || data) {
+        return <>{children(data)}</>;
+    }
+
+    if (!noMessage) {
         return (
-            <EmptyResponse
-                message={message}
-                fullscreen={fullscreen}
-                noMessage={noMessage}
-                {...other}
-            />
+            <Centered fullscreen={fullscreen} {...other}>
+                <BigMutedMessage textId={message ?? 'noData'} />
+            </Centered>
         );
     }
 
-    return <>{children(data)}</>;
+    return (
+        <Centered fullscreen={fullscreen} {...other}>
+            <GrDropbox size={50} color={theme.palette.primary.light} />
+        </Centered>
+    );
 }

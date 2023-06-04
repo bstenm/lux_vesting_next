@@ -10,7 +10,6 @@ import { CardActions } from '@mui/material';
 import { Row } from 'components/Row';
 import { Tooltip } from 'components/Tooltip';
 import { AssetItem } from 'config/types/asset';
-import { LightDivider } from 'components/LightDivider';
 import { ImageCarousel } from 'features/imageCarousel/ImageCarousel';
 import { isUserLoggedIn } from 'state/user/selectors';
 import { useAppSelector } from 'libs/hooks/useAppSelector';

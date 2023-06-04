@@ -38,7 +38,6 @@ export function AssetBidsDrawer({
         <StandardDrawer open={open} onClose={handleClose}>
             <AssetBidsPanel
                 assetId={asset.id}
-                handleClose={handleClose}
                 handleOpenChat={handleOpenChat}
             />
             {userId === clientId && (

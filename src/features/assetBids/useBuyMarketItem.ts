@@ -1,7 +1,5 @@
 'use client';
 
-import { biddingService } from 'services/BiddingService';
-
 import { HookOptions } from 'config/types';
 import { useAsyncAction } from 'libs/hooks/useAsyncAction';
 import { useUpdateAssetData } from 'libs/hooks/useUpdateAssetData';
@@ -11,7 +9,6 @@ import { useFetchUserData } from './useFetchUserData';
 
 type Param = {
     price: number;
-    nftId: number;
     assetId: string;
 };
 
@@ -31,12 +28,12 @@ export const useBuyMarketItem = (
     const [updateAssetStatus] = useUpdateAssetStatus(id, merchantId, 'listing');
 
     const action = async (param: Param): Promise<void> => {
-        const { nftId } = param;
-        await biddingService.endAuction(nftId);
+        const { assetId } = param;
+        // await biddingService.endAuction(assetId);
         const userData = await fetchUserData({ id: bidder });
         const merchantName = userData.name;
         await updateAssetData({ merchantName, merchantId });
-        await updateAssetStatus('purchased');
+        await updateAssetStatus('unprocessed');
     };
 
     const [buyMarketItem, processing] = useAsyncAction<Param, void>(action, {

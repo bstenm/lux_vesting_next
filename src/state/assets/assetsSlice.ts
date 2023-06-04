@@ -13,7 +13,6 @@ export const assetsSlice = createSlice({
         updateData: (state, { payload: { id, data } }) => {
             const ind = state.findIndex((e) => e.id === id);
             if (ind > -1) {
-                console.log(' IN STATE>> ', data);
                 state[ind] = { ...state[ind], ...data };
             }
         },
