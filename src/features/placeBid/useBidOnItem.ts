@@ -4,13 +4,12 @@ import uniq from 'lodash/uniq';
 import remove from 'lodash/remove';
 
 import {
-    Bid,
     HookOptions,
     NotificationType,
     NewBidNotificationData
 } from 'config/types';
 import { getUserId } from 'state/user/selectors';
-import { AssetItem } from 'config/types/asset';
+import { Bid, AssetItem } from 'config/types/asset';
 import { useAsyncAction } from 'libs/hooks/useAsyncAction';
 import { useAppSelector } from 'libs/hooks/useAppSelector';
 import { DatabaseService } from 'services/DatabaseService';

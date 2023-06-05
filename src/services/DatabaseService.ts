@@ -17,15 +17,19 @@ import {
     Bid,
     AssetItem,
     NewAsset,
+    AssetListingData,
     AssetMediaMetadata,
-    AssetMediaMetadataItem
+    AssetMediaMetadataItem,
+    AssetAuthenticationStatusData,
+    AssetStatusType
 } from 'config/types/asset';
 import {
     setRecordWithId,
     setRecordWithDate,
     getDocSnapshotData,
     getQuerySnapshotData,
-    setRecordWithIdAndDate
+    setRecordWithIdAndDate,
+    setRecordWithUpdateDate
 } from 'libs/firestoreUtils';
 import {
     userCollectionRef,
@@ -243,6 +247,17 @@ export class DatabaseService {
         data: Partial<AssetItem>
     ): Promise<void> {
         log.debug('Update asset with data:', data);
+        await updateDoc(getAssetDocumentRef(id), data);
+        log.debug('Successfully updated asset', id, 'with data:', data);
+    }
+
+    public static async updateAssetStatus(
+        id: string,
+        statusType: AssetStatusType,
+        status: AssetAuthenticationStatusData | AssetListingData
+    ): Promise<void> {
+        log.debug('Update asset status with data:', status);
+        const data = { [statusType]: setRecordWithUpdateDate({ status }) };
         await updateDoc(getAssetDocumentRef(id), data);
         log.debug('Successfully updated asset', id, 'with data:', data);
     }

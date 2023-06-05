@@ -1,51 +1,57 @@
 import {
+    AssetStatusType,
     AssetListingStatus,
-    AssetAuthenticationStatusDetails,
-    AssetAuthenticationStatus,
-    AssetListingStatusDetails
+    AssetAuthenticationStatus
 } from 'config/types/asset';
-import { useUpdateAssetData } from 'libs/hooks/useUpdateAssetData';
+import { assetsActions } from 'state/assets/assetsSlice';
+import { DatabaseService } from 'services/DatabaseService';
 import { useSendNotifications } from 'features/notifications/useSendNotifications';
 import { HookOptions, NotificationType } from 'config/types';
+
+import { useAppDispatch } from './useAppDispatch';
+import { useAsyncAction } from './useAsyncAction';
 
 type AssetStatus = AssetListingStatus | AssetAuthenticationStatus;
 
 type StateLogic = [
-    (value: AssetStatus, notes?: string) => Promise<void>,
+    (status: AssetStatus, notes?: string) => Promise<void>,
     boolean
 ];
 
-type AssetStatusDetails =
-    | AssetAuthenticationStatusDetails
-    | AssetListingStatusDetails;
-
-export type StatusType = 'listing' | 'authentication';
+type Args = {
+    status: AssetStatus;
+    notes?: string;
+};
 
 export const useUpdateAssetStatus = (
     assetId: string,
     merchantId: string,
-    statusType: StatusType,
+    statusType: AssetStatusType,
     op: HookOptions = {}
 ): StateLogic => {
-    const [updateAssetData, updating] = useUpdateAssetData(assetId, op);
+    const dispatch = useAppDispatch();
 
     const [sendNotifications] = useSendNotifications({
         silent: true
     });
 
-    const updateStatus = async (
-        status: AssetStatus,
-        notes = ''
-    ): Promise<void> => {
-        const updatedAt = Date.now();
-        const details: AssetStatusDetails = { status, updatedAt, notes };
-        await updateAssetData({ [statusType]: details });
+    const action = async ({ status, notes = '' }: Args): Promise<void> => {
+        const data = { status, notes };
+        await DatabaseService.updateAssetStatus(assetId, statusType, data);
+        dispatch(assetsActions.updateData({ id: assetId, [statusType]: data }));
         const type: NotificationType = `${statusType}StatusChanged`;
-        sendNotifications({
-            to: [merchantId],
-            data: { type, assetId, value: status }
-        });
+        const notificationData = { type, assetId, value: status };
+        sendNotifications({ to: [merchantId], data: notificationData });
     };
 
-    return [updateStatus, updating];
+    const [updateStatus, processing] = useAsyncAction<Args, void>(action, {
+        error: 'errorUpdatingAssetData',
+        ...op
+    });
+
+    return [
+        (status: AssetStatus, notes?: string) =>
+            updateStatus({ status, notes }),
+        processing
+    ];
 };

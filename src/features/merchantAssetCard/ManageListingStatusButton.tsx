@@ -4,7 +4,6 @@ import { RedButton } from 'components/buttons/RedButton';
 import { LightButton } from 'components/buttons/LightButton';
 import { GreenButton } from 'components/buttons/GreenButton';
 import { YellowButton } from 'components/buttons/YellowButton';
-import { pickAssetListingData } from 'libs/utils';
 import { RequestDenialModal } from 'features/requestDenialNotes/RequestDenialNotesModal';
 import { EditAssetListingDataModal } from 'features/editAssetListingDataForm/EditAssetListingDataModal';
 import { AssetItem, AssetListingStatus } from 'config/types/asset';
@@ -59,7 +58,8 @@ export const ManageListingStatusButton = ({
             <ListingDataModal
                 title={data.name}
                 opened={openView === 'listingData'}
-                {...pickAssetListingData(data)}>
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                {...data.listing!}>
                 {(open) => <GreenButton textId="listed" onClick={open} />}
             </ListingDataModal>
         ),

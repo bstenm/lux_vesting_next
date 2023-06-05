@@ -36,7 +36,7 @@ export const useRemoveAssetMediaItem = (
         const newList = files.filter((e) => e.id !== id);
         await DatabaseService.updateAssetMedias(assetId, newList);
         dispatch(
-            assetsActions.updateAssetData({
+            assetsActions.updateData({
                 id: assetId,
                 data: { medias: newList }
             })

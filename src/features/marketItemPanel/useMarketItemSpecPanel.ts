@@ -2,9 +2,8 @@
 
 import maxBy from 'lodash/maxBy';
 
-import { Bid } from 'config/types';
 import { useFetchAssetBids } from 'features/assetBids/useFetchAssetBids';
-import { AssetItem, AssetMediaMetadataItem } from 'config/types/asset';
+import { Bid, AssetItem, AssetMediaMetadataItem } from 'config/types/asset';
 import { getItemPics, getCertificateOfAuthenticity } from 'libs/utils';
 
 type StateLogic = {

@@ -43,7 +43,7 @@ export const useReorderList = (
         });
         await DatabaseService.updateAssetMedias(assetId, newMediaList);
         dispatch(
-            assetsActions.updateAssetData({
+            assetsActions.updateData({
                 id: assetId,
                 data: { medias: newMediaList }
             })

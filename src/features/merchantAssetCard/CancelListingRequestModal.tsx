@@ -1,7 +1,9 @@
 'use client';
 
-import { useUpdateAssetData } from 'libs/hooks/useUpdateAssetData';
+import { useUpdateAssetStatus } from 'libs/hooks/useUpdateAssetStatus';
 
+import { useAppSelector } from 'libs/hooks/useAppSelector';
+import { getUserId } from 'state/user/selectors';
 import { CancelRequestModal } from './CancelRequestModal';
 
 type Props = {
@@ -17,10 +19,15 @@ export function CancelListingRequestModal({
     opened,
     children
 }: Props): JSX.Element {
-    const [updateAssetData, processing] = useUpdateAssetData(assetId);
+    const merchantId = useAppSelector(getUserId);
 
-    const onConfirm = (): Promise<void> =>
-        updateAssetData({ listing: { status: 'unprocessed' } });
+    const [updateAssetStatus, processing] = useUpdateAssetStatus(
+        assetId,
+        merchantId,
+        'listing'
+    );
+
+    const onConfirm = (): Promise<void> => updateAssetStatus('unprocessed');
 
     return (
         <CancelRequestModal

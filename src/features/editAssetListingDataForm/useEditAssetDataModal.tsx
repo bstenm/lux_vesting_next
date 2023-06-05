@@ -13,6 +13,8 @@ import { getAssetData } from 'state/assets/selectors';
 import { useUpdateAssetData } from 'libs/hooks/useUpdateAssetData';
 import { EditAssetDataFormInput } from 'config/types/asset';
 
+import { useUpdateAssetStatus } from 'libs/hooks/useUpdateAssetStatus';
+import { getUserId } from 'state/user/selectors';
 import { editAssetDataSchema } from './editAssetDataSchema';
 
 type StateLogic = {
@@ -36,11 +38,17 @@ export const useEditAssetDataModal = (
 ): StateLogic => {
     const { successAlert } = useAlert(silent);
 
-    const [updateAssetData] = useUpdateAssetData(assetId, { throws: true });
-
     const assetData = useAppSelector((state: RootState) =>
         getAssetData(state, assetId)
     );
+
+    const uid = useAppSelector(getUserId);
+
+    const [updateAssetData] = useUpdateAssetData(assetId, { throws: true });
+
+    const [updateAssetStatus] = useUpdateAssetStatus(assetId, uid, 'listing', {
+        throws: true
+    });
 
     const formMethods = useForm<EditAssetDataFormInput>({
         resolver: yupResolver(editAssetDataSchema)
@@ -53,7 +61,8 @@ export const useEditAssetDataModal = (
 
     const action = async (values: EditAssetDataFormInput): Promise<void> => {
         log.info('Submitting new product', values);
-        await updateAssetData({ listing: { status: 'pending' }, ...values });
+        await updateAssetData(values);
+        await updateAssetStatus('pending');
         successAlert('editSuccess');
         onSuccess();
     };

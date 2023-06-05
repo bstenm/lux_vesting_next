@@ -51,7 +51,7 @@ export function MerchantAssetCard<T extends AssetItem>({
             <CardContent sx={{ py: 0 }}>
                 <Stack spacing={1.5} alignItems="stretch">
                     <AssetCardTitle title={data.name} />
-                    {data.listing.status === 'approved' ? (
+                    {data.listing?.status === 'approved' ? (
                         <Row justifyContent="center">
                             <FullViewIconButton onClick={() => onView(data)} />
                             <EmailIconButton title="emailAdmin" />

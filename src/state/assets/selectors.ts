@@ -17,7 +17,9 @@ export const getAssetData = (state: RootState, id: string): AssetItem => {
 };
 
 export const getAssetBids = (state: RootState, id: string): Bid[] => {
-    const { bids } = getAssetData(state, id);
+    const { listing } = getAssetData(state, id);
+
+    const { bids } = listing ?? { bids: [] };
 
     // We sort the bids by value desc and by created at desc and
     // make sure all potential duplicate (bidder, value) is removed

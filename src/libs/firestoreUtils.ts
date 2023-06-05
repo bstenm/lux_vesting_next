@@ -15,6 +15,13 @@ export const setRecordWithDate = <T>(
     createdAt: serverTimestamp()
 });
 
+export const setRecordWithUpdateDate = <T>(
+    data: T
+): T & { updatedAt: FieldValue } => ({
+    ...data,
+    updatedAt: serverTimestamp()
+});
+
 export const setRecordWithId = <T>(data: T): T & { id: string } => ({
     ...data,
     id: uuid()

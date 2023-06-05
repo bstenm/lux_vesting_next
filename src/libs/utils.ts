@@ -1,11 +1,9 @@
-import pick from 'lodash/pick';
 import sortBy from 'lodash/sortBy';
 import { BigNumberish, formatUnits, formatEther, parseEther } from 'ethers';
 
 import {
     AssetItem,
     MimeType,
-    AssetListingData,
     AssetMediaMetadata,
     AssetMediaMetadataItem
 } from 'config/types/asset';
@@ -77,6 +75,3 @@ export const convertToBlockchainCurrencyUnit = (
 
 export const formatDate = (date: string | number): string =>
     new Date(date).toLocaleDateString();
-
-export const pickAssetListingData = (data: AssetItem): AssetListingData =>
-    pick(data, ['bids', 'listedAt', 'nbOfTimesSaved', 'nbOfTimesViewed']);

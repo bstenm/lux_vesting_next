@@ -1,9 +1,10 @@
-export const path = {
+export const path: Record<string, string> = {
     faq: '/faq',
     landing: '/',
     notFound: '/not-found',
     contactUs: '/contact-us',
     whoWeAre: '/who-we-are',
+    loyaltyTiers: '/loyalty-tiers',
     marketplace: '/marketplace',
     privacyPolicy: '/privacy-policy',
     merchantAssets: '/merchant-assets',

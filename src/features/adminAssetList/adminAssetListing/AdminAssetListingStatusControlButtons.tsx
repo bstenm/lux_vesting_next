@@ -4,7 +4,6 @@ import { Row } from 'components/Row';
 import { RedButton } from 'components/buttons/RedButton';
 import { GreenButton } from 'components/buttons/GreenButton';
 import { ListingDataModal } from 'features/listingData/ListingDataModal';
-import { pickAssetListingData } from 'libs/utils';
 import { useUpdateAssetStatus } from 'libs/hooks/useUpdateAssetStatus';
 import { DenialNotesModalButton } from 'features/denialNotes/DenialNotesModalButton';
 import { AssetItem, AssetListingStatus } from 'config/types/asset';
@@ -57,7 +56,8 @@ export const AdminAssetListingStatusControlButtons = ({
                 />
                 <ListingDataModal
                     title={data.name}
-                    {...pickAssetListingData(data)}>
+                    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                    {...data.listing!}>
                     {(open) => (
                         <GreenButton
                             textId="listingData"

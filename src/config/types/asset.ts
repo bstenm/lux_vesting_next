@@ -56,13 +56,16 @@ export type Asset = {
     merchantName: string;
 };
 
-export type AssetListingStatusDetails = {
+export type AssetListingData = {
+    bids?: Bid[];
     notes?: string;
     status: AssetListingStatus;
-    updatedAt?: number;
+    updatedAt: number;
+    nbOfTimesSaved?: number;
+    nbOfTimesViewed?: number;
 };
 
-export type AssetAuthenticationStatusDetails = {
+export type AssetAuthenticationStatusData = {
     notes?: string;
     status: AssetAuthenticationStatus;
     updatedAt?: number;
@@ -70,13 +73,10 @@ export type AssetAuthenticationStatusDetails = {
 
 export type AssetItem = Asset & {
     id: string;
-    bids?: Bid[];
-    listing?: AssetListingStatusDetails;
+    listing?: AssetListingData;
     createdAt: string;
     followers?: string[];
-    authentication: AssetAuthenticationStatusDetails;
-    nbOfTimesSaved?: number;
-    nbOfTimesViewed?: number;
+    authentication: AssetAuthenticationStatusData;
     physicallyChecked?: boolean;
     physicallyReceived?: boolean;
     physicallyCheckedAt?: number;
@@ -86,19 +86,7 @@ export type AssetItem = Asset & {
 
 export type NewAsset = Pick<
     AssetItem,
-    | 'name'
-    | 'listing'
-    | 'category'
-    | 'merchantId'
-    | 'authentication'
-    | 'merchantName'
-    | 'physicallyChecked'
-    | 'physicallyReceived'
->;
-
-export type AssetListingData = Pick<
-    AssetItem,
-    'bids' | 'listing' | 'nbOfTimesSaved' | 'nbOfTimesViewed'
+    'name' | 'category' | 'merchantId' | 'merchantName'
 >;
 
 export type AssetMedia = {

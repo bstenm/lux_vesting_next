@@ -13,7 +13,7 @@ import { AssetListingData } from 'config/types/asset';
 
 export function ListingData({
     bids = [],
-    ,
+    updatedAt,
     nbOfTimesSaved = 0,
     nbOfTimesViewed = 0
 }: AssetListingData): JSX.Element {
@@ -32,7 +32,7 @@ export function ListingData({
             <Grid item xs={4}>
                 <Row>
                     <Typography sx={{ color: 'primary.light' }}>
-                        {formatDate(listedAt)}
+                        {formatDate(updatedAt)}
                     </Typography>
                 </Row>
             </Grid>
