@@ -1,6 +1,6 @@
 'use client';
 
-import { Box } from '@mui/material';
+import Box from '@mui/material/Box';
 import SaveIcon from '@mui/icons-material/Save';
 
 import { Row } from 'components/Row';

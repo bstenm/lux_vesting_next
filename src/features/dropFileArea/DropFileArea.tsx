@@ -1,7 +1,7 @@
 'use client';
 
 import Box from '@mui/material/Box';
-import { styled } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import GetAppIcon from '@mui/icons-material/GetApp';
 
 import { Spinner } from 'components/Spinner';

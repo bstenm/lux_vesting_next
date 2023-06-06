@@ -1,7 +1,8 @@
 'use client';
 
-import { noop } from 'lodash';
-import { Stack, styled } from '@mui/material';
+import noop from 'lodash/noop';
+import Stack from '@mui/material/Stack';
+import { styled } from '@mui/material/styles';
 
 import { Row } from 'components/Row';
 import { Image } from 'components/Image';

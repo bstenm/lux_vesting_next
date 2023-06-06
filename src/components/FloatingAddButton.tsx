@@ -1,7 +1,7 @@
 'use client';
 
 import AddIcon from '@mui/icons-material/Add';
-import { IconButton } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
 
 type Props = {
     onClick: () => void;

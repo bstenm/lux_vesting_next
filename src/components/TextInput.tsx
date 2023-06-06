@@ -2,11 +2,12 @@
 
 import { grey } from '@mui/material/colors';
 import startCase from 'lodash/startCase';
+import TextField from '@mui/material/TextField';
+import FormControl from '@mui/material/FormControl';
 import { ErrorMessage } from '@hookform/error-message';
-import { useTranslate } from 'libs/hooks/useTranslate';
 import { useFormContext } from 'react-hook-form';
-import { FormControl, TextField } from '@mui/material';
 
+import { useTranslate } from 'libs/hooks/useTranslate';
 import { FormHelperText } from 'components/FormHelperText';
 
 type Props = React.ComponentProps<typeof TextField> & {

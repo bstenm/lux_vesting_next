@@ -1,7 +1,7 @@
 'use client';
 
 import { Trans } from 'react-i18next';
-import { useTheme } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 import {
     NotificationItem,

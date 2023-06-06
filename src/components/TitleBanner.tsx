@@ -1,6 +1,6 @@
 'use client';
 
-import { BoxProps } from '@mui/material';
+import { BoxProps } from '@mui/material/Box';
 
 import { Typography } from 'components/Typography';
 

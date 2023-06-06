@@ -1,6 +1,6 @@
 'use client';
 
-import { useTheme } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import MuiBadge, { BadgeProps } from '@mui/material/Badge';
 
 export function Badge(props: BadgeProps): JSX.Element {

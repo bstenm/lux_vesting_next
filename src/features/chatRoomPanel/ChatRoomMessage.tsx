@@ -1,6 +1,6 @@
 'use client';
 
-import { Box } from '@mui/material';
+import Box from '@mui/material/Box';
 
 import { Row } from 'components/Row';
 import { Typography } from 'components/Typography';

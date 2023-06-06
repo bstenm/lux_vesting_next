@@ -1,6 +1,6 @@
 'use client';
 
-import { Box } from '@mui/material';
+import Box from '@mui/material/Box';
 import Stack, { StackProps } from '@mui/material/Stack';
 
 import { AssetItem } from 'config/types/asset';

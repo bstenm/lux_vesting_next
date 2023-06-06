@@ -4,8 +4,8 @@ import Stack from '@mui/material/Stack';
 import sortBy from 'lodash/sortBy';
 import MuiCard from '@mui/material/Card';
 import { styled } from '@mui/material/styles';
+import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import { CardActions } from '@mui/material';
 
 import { Row } from 'components/Row';
 import { Tooltip } from 'components/Tooltip';

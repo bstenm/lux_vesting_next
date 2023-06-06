@@ -3,7 +3,8 @@
 import Image from 'next/image';
 import { grey } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
-import { Card, Stack } from '@mui/material';
+import Stack from '@mui/material/Stack';
+import Card from '@mui/material/Card';
 import { useTranslate } from 'libs/hooks/useTranslate';
 
 import { Tier } from 'config/types';

@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, BoxProps } from '@mui/material';
+import Box, { BoxProps } from '@mui/material/Box';
 
 export function BlackBanner({ sx, ...rest }: BoxProps): JSX.Element {
     return (

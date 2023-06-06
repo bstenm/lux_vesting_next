@@ -9,7 +9,6 @@ import { FetchingScreen } from 'components/FetchingScreen';
 import { useAppSelector } from 'libs/hooks/useAppSelector';
 import { ListingStatusView } from 'features/merchantAssetCard/ManageListingStatusButton';
 import { MerchantAssetCard } from 'features/merchantAssetCard/MerchantAssetCard';
-import { ProtectedComponent } from 'features/authButton/ProtectedComponent';
 import { useFetchMerchantAssets } from 'features/adminAssetList/useFetchMerchantAssets';
 
 type Props = {
@@ -33,25 +32,21 @@ export function MerchantAssetList({
     }, []);
 
     return (
-        <ProtectedComponent action="accessPrivateArea">
-            <FetchingScreen<AssetItem[]> data={list} fetching={fetching}>
-                {(data: AssetItem[]) => (
-                    <Row
-                        sx={{ mt: 2, flexWrap: 'wrap', gap: 4 }}
-                        justifyContent="space-between">
-                        {data.map((asset: AssetItem) => (
-                            <MerchantAssetCard
-                                key={asset.id}
-                                data={asset}
-                                onView={onSelectitem}
-                                openView={
-                                    asset.id === assetId ? openView : 'none'
-                                }
-                            />
-                        ))}
-                    </Row>
-                )}
-            </FetchingScreen>
-        </ProtectedComponent>
+        <FetchingScreen<AssetItem[]> data={list} fetching={fetching}>
+            {(data: AssetItem[]) => (
+                <Row
+                    sx={{ mt: 2, flexWrap: 'wrap', gap: 4 }}
+                    justifyContent="space-between">
+                    {data.map((asset: AssetItem) => (
+                        <MerchantAssetCard
+                            key={asset.id}
+                            data={asset}
+                            onView={onSelectitem}
+                            openView={asset.id === assetId ? openView : 'none'}
+                        />
+                    ))}
+                </Row>
+            )}
+        </FetchingScreen>
     );
 }

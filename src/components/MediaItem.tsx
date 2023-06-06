@@ -1,8 +1,9 @@
 'use client';
 
+import Stack from '@mui/material/Stack';
+import { styled } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from 'react';
-import { Stack, styled } from '@mui/material';
 import DescriptionIcon from '@mui/icons-material/Description';
 
 import { Image } from 'components/Image';

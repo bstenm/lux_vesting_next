@@ -1,6 +1,6 @@
 'use client';
 
-import { useTheme } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import { useTranslate } from 'libs/hooks/useTranslate';
 import MuiButton, { ButtonProps } from '@mui/material/Button';
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { Stack } from '@mui/material';
+import Stack from '@mui/material/Stack';
 import { FormProvider } from 'react-hook-form';
 
 import { Row } from 'components/Row';

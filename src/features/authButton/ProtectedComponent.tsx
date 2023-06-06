@@ -1,6 +1,6 @@
 'use client';
 
-import { Box } from '@mui/material';
+import Box from '@mui/material/Box';
 import { Trans } from 'react-i18next';
 
 import { Centered } from 'components/Centered';

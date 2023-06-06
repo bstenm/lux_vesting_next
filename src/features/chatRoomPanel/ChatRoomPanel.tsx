@@ -1,6 +1,7 @@
 'use client';
 
-import { Box, Stack } from '@mui/material';
+import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
 
 import { Row } from 'components/Row';
 import { AssetItem } from 'config/types/asset';

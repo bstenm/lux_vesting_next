@@ -1,15 +1,16 @@
 'use client';
 
 import { useParams } from 'next/navigation';
+import { useCallback } from 'react';
 
+import { AssetItem } from 'config/types/asset';
 import { PlaceBidButton } from 'features/placeBid/PlaceBidButton';
+import { ListingStatusView } from 'features/merchantAssetCard/ManageListingStatusButton';
 import { MerchantAssetList } from 'features/merchantAssetList/MerchantAssetList';
 import { FloatingAddButton } from 'components/FloatingAddButton';
 import { AddNewAssetModal } from 'features/addNewAssetModal/AddNewAssetModal';
+import { ProtectedComponent } from 'features/authButton/ProtectedComponent';
 import { ComponentWithSelectedAssetInDrawer } from 'layouts/ComponentWithSelectedAssetInDrawer';
-import { ListingStatusView } from 'features/merchantAssetCard/ManageListingStatusButton';
-import { useCallback } from 'react';
-import { AssetItem } from 'config/types/asset';
 
 function MerchantAssetsPage(): JSX.Element {
     const { slug } = useParams() as { slug?: string[] };
@@ -18,11 +19,13 @@ function MerchantAssetsPage(): JSX.Element {
 
     const List = useCallback(
         (onSelectitem: (data: AssetItem) => void) => (
-            <MerchantAssetList
-                assetId={assetId}
-                openView={action as ListingStatusView}
-                onSelectitem={onSelectitem}
-            />
+            <ProtectedComponent action="accessPrivateArea">
+                <MerchantAssetList
+                    assetId={assetId}
+                    openView={action as ListingStatusView}
+                    onSelectitem={onSelectitem}
+                />
+            </ProtectedComponent>
         ),
         [action, assetId]
     );

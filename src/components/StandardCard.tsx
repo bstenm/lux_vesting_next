@@ -1,6 +1,6 @@
 'use client';
 
-import { styled } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import MuiCard from '@mui/material/Card';
 
 type Props = React.ComponentProps<typeof MuiCard> & {

@@ -1,6 +1,6 @@
 'use client';
 
-import grey from '@mui/material/colors/grey';
+import { grey } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
 import { forwardRef } from 'react';
 import OptionUnstyled from '@mui/base/OptionUnstyled';

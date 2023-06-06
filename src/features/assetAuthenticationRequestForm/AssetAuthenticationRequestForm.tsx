@@ -2,15 +2,16 @@
 
 // TODO:  Add manual address ?
 
+import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
 import { useState } from 'react';
-import { Stack, Box } from '@mui/material';
-import { FormProvider } from 'react-hook-form';
 
 import { Row } from 'components/Row';
 import { Checkbox } from 'components/Checkbox';
 import { DarkButton } from 'components/buttons/DarkButton';
 import { LightDivider } from 'components/LightDivider';
 import { GreenButton } from 'components/buttons/GreenButton';
+import { FormProvider } from 'react-hook-form';
 import { CertificateFileInput } from 'features/dropFileArea/CertificateFileInput';
 
 import { AddressAutocompleteInput } from './AddressAutocompleteInput';

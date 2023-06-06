@@ -2,7 +2,7 @@
 
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
-import { Divider } from '@mui/material';
+import Divider from '@mui/material/Divider';
 
 import { Typography } from 'components/Typography';
 import { SelectFilterEntry } from 'config/types';

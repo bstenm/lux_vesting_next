@@ -1,13 +1,15 @@
 'use client';
 
+import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import GetAppIcon from '@mui/icons-material/GetApp';
+import FormControl from '@mui/material/FormControl';
 import { useDropzone } from 'react-dropzone';
 import { ErrorMessage } from '@hookform/error-message';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { useFormContext } from 'react-hook-form';
 import { useCallback, useState } from 'react';
-import { FormControl, Stack, Box } from '@mui/material';
 
 import { Row } from 'components/Row';
 import PdfIcon from 'assets/pdf.svg';

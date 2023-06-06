@@ -1,7 +1,7 @@
 'use client';
 
 import Box from '@mui/material/Box';
-import { styled } from '@mui/material';
+import { styled } from '@mui/material/styles';
 
 import { Spinner } from 'components/Spinner';
 import { Typography } from 'components/Typography';

@@ -1,7 +1,9 @@
 'use client';
 
+import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
+import { styled } from '@mui/material/styles';
 import { useState } from 'react';
-import { Box, Stack, styled } from '@mui/material';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 

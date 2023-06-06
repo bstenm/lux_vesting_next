@@ -1,6 +1,9 @@
 'use client';
 
-import { Box, CircularProgress, circularProgressClasses } from '@mui/material';
+import CircularProgress, {
+    circularProgressClasses
+} from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
 type Props = {
     size?: number;

@@ -1,6 +1,6 @@
 'use client';
 
-import grey from '@mui/material/colors/grey';
+import { grey } from '@mui/material/colors';
 import { capitalize } from 'lodash';
 import { useTranslate } from 'libs/hooks/useTranslate';
 

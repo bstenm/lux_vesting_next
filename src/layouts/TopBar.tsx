@@ -18,7 +18,7 @@ export function TopBar(): JSX.Element {
 
     const isNotMerchantAssetsPage =
         pathname?.split('/')[1] !== path.merchantAssets;
-
+    console.log(pathname, isNotMerchantAssetsPage);
     return (
         <Row
             spacing={userIsLoggedIn ? 2 : 4}
