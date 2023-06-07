@@ -19,7 +19,7 @@ type Props = DrawerProps & {
     anchor?: 'bottom' | 'left' | 'right' | 'top' | undefined;
     noData?: boolean;
     textalign?: Align;
-    nopadding?: boolean;
+    padding?: number;
     gradientBg?: boolean;
     noCloseButton?: boolean;
     noDataMessage?: string;
@@ -31,11 +31,11 @@ const Content = styled(Box)<{
     color: string;
     width: string;
     textalign: Align;
-    nopadding?: boolean;
+    padding?: number;
 }>`
     width: ${(props) => props.width};
     border-left: 1px solid #3c4858;
-    padding: ${(props) => (props.nopadding ? '0px' : '20px')};
+    padding: ${(props) => props.padding || '20px'};
     min-height: 100%;
     text-align: ${(props) => props.textalign};
     background: ${(props) => props.color};
@@ -49,7 +49,7 @@ export function StandardDrawer({
     textalign = 'center',
     noData,
     onClose,
-    nopadding,
+    padding,
     gradientBg,
     noCloseButton,
     noDataMessage,
@@ -67,7 +67,7 @@ export function StandardDrawer({
                     color={gradientBg ? gradient : '#151515'}
                     width={width}
                     textalign={textalign}
-                    nopadding={nopadding}>
+                    padding={padding}>
                     {!noCloseButton && (
                         <IconButton
                             sx={{ position: 'fixed', top: 5, right: 5 }}

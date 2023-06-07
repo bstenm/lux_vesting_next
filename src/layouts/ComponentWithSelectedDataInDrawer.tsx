@@ -108,8 +108,8 @@ export function ComponentWithSelectedDataInDrawer<
                 open={drawerOpen}
                 anchor="left"
                 onClose={onCloseDrawer}
+                padding={noLeftPanelPadding ? 0 : 20}
                 textalign="left"
-                nopadding={noLeftPanelPadding}
                 hideBackdrop>
                 {selectedItem && (
                     <Box sx={{ width: leftBoxWidth }}>
@@ -121,8 +121,8 @@ export function ComponentWithSelectedDataInDrawer<
                 sx={{ position: 'static' }}
                 open={drawerOpen}
                 onClose={onCloseDrawer}
+                padding={noRightPanelPadding ? 0 : 20}
                 textalign="left"
-                nopadding={noRightPanelPadding}
                 hideBackdrop
                 noCloseButton>
                 <Box sx={{ width: rightBoxWidth }}>
