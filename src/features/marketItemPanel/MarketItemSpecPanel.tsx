@@ -36,7 +36,7 @@ export function MarketItemSpecPanel({
     const pictures = getItemPics(data);
 
     return (
-        <Stack sx={{ color: 'common.white' }} justifyContent="space-between">
+        <Stack justifyContent="space-between">
             <Stack sx={{ mt: 3 }} spacing={4}>
                 <AssetSpecs data={data} />
                 <LightDivider />

@@ -51,13 +51,12 @@ export const useWeb3 = (): AuthLogic => {
         if (!storedUser) {
             await DatabaseService.addUser(userData);
         }
-        // TODO: Restore
         const balance: string = await tokenContract.getBalance(account);
         // Set global state user data
         dispatch(userActions.setInfo({ ...userData, balance }));
     };
 
-    const [initialize, initializing] = useAsyncAction<void, void>(
+    const [initialize] = useAsyncAction<void, void>(
         async () => web3Service.init(),
         {
             error: 'appInitialisationError',
@@ -79,7 +78,7 @@ export const useWeb3 = (): AuthLogic => {
 
     useEffect(() => {
         (async () => {
-            await initialize();
+            // await initialize();
             if (web3Service.isUserLoggedIn()) {
                 getUserData();
             }
@@ -89,10 +88,7 @@ export const useWeb3 = (): AuthLogic => {
 
     const loggedIn = !!userId && web3Service.isUserLoggedIn();
 
-    return {
-        login,
-        loggedIn,
-        initializing,
-        processing
-    };
+    const initializing = web3Service.getInitializing();
+
+    return { login, loggedIn, initializing, processing };
 };

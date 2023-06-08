@@ -35,7 +35,7 @@ const Content = styled(Box)<{
 }>`
     width: ${(props) => props.width};
     border-left: 1px solid #3c4858;
-    padding: ${(props) => props.padding || '20px'};
+    padding: ${(props) => `${props.padding}px` || '20px'};
     min-height: 100%;
     text-align: ${(props) => props.textalign};
     background: ${(props) => props.color};
@@ -57,17 +57,13 @@ export function StandardDrawer({
     ...props
 }: Props): JSX.Element {
     return (
-        <Drawer
-            sx={{ zIndex: 1400 }}
-            anchor={anchor}
-            onClose={onClose}
-            {...props}>
+        <Drawer anchor={anchor} onClose={onClose} {...props}>
             <PerfectScrollbar>
                 <Content
                     color={gradientBg ? gradient : '#151515'}
                     width={width}
-                    textalign={textalign}
-                    padding={padding}>
+                    padding={padding}
+                    textalign={textalign}>
                     {!noCloseButton && (
                         <IconButton
                             sx={{ position: 'fixed', top: 5, right: 5 }}

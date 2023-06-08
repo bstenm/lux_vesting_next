@@ -35,9 +35,11 @@
 		"no-restricted-imports": [
 			"error",
 			{
-				"patterns": ["@mui/*/*/*"]
+				"patterns": [
+					"@mui/*/*/*"
+				]
 			}
-		  ],
+		],
 		"@typescript-eslint/ban-ts-comment": "warn",
 		"prettier/prettier": [
 			"error",
@@ -51,15 +53,22 @@
 			}
 		],
 		"no-use-before-define": "off",
-		"@typescript-eslint/no-use-before-define": ["error"],
+		"@typescript-eslint/no-use-before-define": [
+			"error"
+		],
 		"@typescript-eslint/no-unused-vars": "warn",
 		"react/jsx-props-no-spreading": "off",
-		"react/jsx-indent-props": [2, 4],
+		"react/jsx-indent-props": [
+			2,
+			4
+		],
 		"react/react-in-jsx-scope": "off",
 		"react/jsx-filename-extension": [
 			"warn",
 			{
-				"extensions": [".tsx"]
+				"extensions": [
+					".tsx"
+				]
 			}
 		],
 		"import/extensions": [
@@ -71,12 +80,23 @@
 			}
 		],
 		"no-shadow": "off",
-		"@typescript-eslint/no-shadow": ["error"],
+		"@typescript-eslint/no-shadow": [
+			"error"
+		],
 		"@typescript-eslint/explicit-function-return-type": [
 			"error",
-			{"allowExpressions": true}
+			{
+				"allowExpressions": true
+			}
 		],
-		"max-len": ["warn", {"code": 80, "ignorePattern": "^import .*", "ignoreComments": true }],
+		"max-len": [
+			"warn",
+			{
+				"code": 80,
+				"ignorePattern": "^import .*",
+				"ignoreComments": true
+			}
+		],
 		"react-hooks/rules-of-hooks": "error",
 		"react-hooks/exhaustive-deps": "warn",
 		"import/prefer-default-export": "off",

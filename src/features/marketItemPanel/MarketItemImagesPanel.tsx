@@ -20,7 +20,6 @@ type Props = {
 
 const Container = styled(Row)(({ theme }) => ({
     height: '100vh',
-    marginLeft: 80,
     backgroundColor: theme.palette.common.black,
     [theme.breakpoints.down('md')]: {
         marginLeft: 0
