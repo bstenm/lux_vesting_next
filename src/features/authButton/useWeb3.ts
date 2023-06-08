@@ -78,7 +78,7 @@ export const useWeb3 = (): AuthLogic => {
 
     useEffect(() => {
         (async () => {
-            // await initialize();
+            await initialize();
             if (web3Service.isUserLoggedIn()) {
                 getUserData();
             }

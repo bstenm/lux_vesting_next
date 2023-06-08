@@ -13,9 +13,9 @@ import { ProtectedComponent } from 'features/authButton/ProtectedComponent';
 import { ComponentWithSelectedAssetInDrawer } from 'layouts/ComponentWithSelectedAssetInDrawer';
 
 function MerchantAssetsPage(): JSX.Element {
-    const { slug } = useParams() as { slug?: string[] };
+    const { slug } = useParams() as { slug?: string };
 
-    const [action, assetId] = slug ?? [];
+    const [action, assetId] = slug?.split('/') ?? [];
 
     const List = useCallback(
         (onSelectitem: (data: AssetItem) => void) => (

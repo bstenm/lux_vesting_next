@@ -269,5 +269,6 @@
 	"howCanWeHelp": "How Can We Help?",
 	"revoked": "revoked",
 	"listingRevoked": "listing revoked",
-	"authRevoked": "authentication revoked"
+	"authRevoked": "authentication revoked",
+	"createdAssets": "created assets"
 }

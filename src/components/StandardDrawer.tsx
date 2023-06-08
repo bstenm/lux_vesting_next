@@ -35,7 +35,8 @@ const Content = styled(Box)<{
 }>`
     width: ${(props) => props.width};
     border-left: 1px solid #3c4858;
-    padding: ${(props) => `${props.padding}px` || '20px'};
+    padding: ${(props) =>
+        props.padding !== undefined ? `${props.padding}px` : '20px'};
     min-height: 100%;
     text-align: ${(props) => props.textalign};
     background: ${(props) => props.color};

@@ -14,10 +14,11 @@ export function BigMutedMessage({
 }: Props): JSX.Element {
     return (
         <Typography
-            sx={{ lineHeight: '1.5em', ...sx }}
-            capitalized={!uppercased}
+            bold
+            sx={{ lineHeight: '1.8em', ...sx }}
             uppercased={uppercased}
-            color="text.secondary"
+            allCapitalized={!uppercased}
+            color="text.disabled"
             textId={textId}
             variant={uppercased ? 'h5' : 'h4'}
         />

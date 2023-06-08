@@ -3,14 +3,16 @@
 import { useTheme } from '@mui/material/styles';
 import { GrDropbox } from 'react-icons/gr';
 
-import { Centered } from 'components/Centered';
-import { CenteredLoader } from 'components/CenteredLoader';
+import { Centered } from './Centered';
+import { CenteredLoader } from './CenteredLoader';
+import { CenteredSpinner } from './CenteredSpinner';
 import { BigMutedMessage } from './typography/BigMutedMessage';
 
 type Props<T> = {
     data?: T;
     children: (data: T) => JSX.Element;
     fetching: boolean;
+    spinner?: boolean;
     message?: string;
     fullscreen?: boolean;
     noMessage?: boolean;
@@ -18,6 +20,7 @@ type Props<T> = {
 
 export function FetchingScreen<T>({
     data,
+    spinner,
     children,
     fetching,
     message,
@@ -28,7 +31,11 @@ export function FetchingScreen<T>({
     const theme = useTheme();
 
     if (fetching) {
-        return <CenteredLoader fullscreen={fullscreen} {...other} />;
+        return spinner ? (
+            <CenteredSpinner fullscreen={fullscreen} {...other} />
+        ) : (
+            <CenteredLoader fullscreen={fullscreen} {...other} />
+        );
     }
 
     if ((Array.isArray(data) && data.length) || data) {

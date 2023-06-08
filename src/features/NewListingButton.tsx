@@ -10,6 +10,7 @@ export function NewListingButton(): JSX.Element {
         <Link href={`${path.merchantAssets}/addNewAsset`}>
             <Row
                 spacing={0.8}
+                alignItems="center"
                 sx={{
                     color: 'success.main'
                 }}>
@@ -19,6 +20,7 @@ export function NewListingButton(): JSX.Element {
                         color: 'inherit'
                     }}
                     textId="newListing"
+                    variant="body2"
                     allCapitalized
                 />
             </Row>

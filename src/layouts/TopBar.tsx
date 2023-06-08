@@ -1,19 +1,22 @@
-import { grey } from '@mui/material/colors';
 import HomeIcon from '@mui/icons-material/Home';
+import { grey, purple } from '@mui/material/colors';
 import { usePathname } from 'next/navigation';
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 
 import { Link } from 'components/Link';
 import { Row } from 'components/Row';
 import { path } from 'config/path';
 import { SignInButton } from 'features/authButton/SignInButton';
-import { isUserLoggedIn } from 'state/user/selectors';
 import { useAppSelector } from 'libs/hooks/useAppSelector';
 import { LanguageSelect } from 'components/LanguageSelect';
 import { NewListingButton } from 'features/NewListingButton';
 import { NotificationDrawer } from 'features/notifications/NotificationDrawer';
+import { isUserAdmin, isUserLoggedIn } from 'state/user/selectors';
 
 export function TopBar(): JSX.Element {
     const pathname = usePathname();
+
+    const userIsAdmin = useAppSelector(isUserAdmin);
 
     const userIsLoggedIn = useAppSelector(isUserLoggedIn);
 
@@ -24,7 +27,7 @@ export function TopBar(): JSX.Element {
 
     return (
         <Row justifyContent="space-between">
-            <Row spacing={6} alignItems="center">
+            <Row spacing={4} alignItems="center">
                 <Link href={path.landing}>
                     <HomeIcon sx={{ color: grey[500] }} />
                 </Link>
@@ -32,7 +35,13 @@ export function TopBar(): JSX.Element {
                     sx={{ color: grey[400] }}
                     href={path.marketplace}
                     textId="marketplace"
-                    capitalized
+                    allCapitalized
+                />
+                <Link
+                    sx={{ color: grey[400] }}
+                    href={path.merchantAssets}
+                    textId="createdAssets"
+                    allCapitalized
                 />
             </Row>
             <Row alignItems="center" spacing={userIsLoggedIn ? 2 : 4}>
@@ -46,6 +55,11 @@ export function TopBar(): JSX.Element {
                 )}
                 {!userIsLoggedIn && isNotHomepage && <SignInButton />}
                 <LanguageSelect />
+                {userIsAdmin && (
+                    <Link href={path.admin}>
+                        <AdminPanelSettingsIcon sx={{ color: purple[300] }} />
+                    </Link>
+                )}
             </Row>
         </Row>
     );

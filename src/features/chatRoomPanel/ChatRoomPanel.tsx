@@ -40,8 +40,9 @@ export function ChatRoomPanel({
             </ChatRoomPanelSlider>
             <Box sx={{ width: 320 }}>
                 <FetchingScreen
-                    fetching={fetching}
+                    spinner
                     data={messages}
+                    fetching={fetching}
                     message="startConversation">
                     {(data) => (
                         <Stack sx={{ mt: 3, mb: 6 }} spacing={2}>

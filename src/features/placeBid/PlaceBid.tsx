@@ -7,7 +7,6 @@ import { AssetItem } from 'config/types/asset';
 import { DarkButton } from 'components/buttons/DarkButton';
 import { GreenButton } from 'components/buttons/GreenButton';
 import { AssetHighestBid } from 'features/assetBids/AssetHighestBid';
-import { ProtectedComponent } from 'features/authButton/ProtectedComponent';
 
 import { BidInput } from './BidInput';
 import { useBidInput } from './useBidInput';
@@ -24,29 +23,27 @@ export function PlaceBid({ data, handleClose }: Props): JSX.Element {
     );
 
     return (
-        <Stack spacing={4} alignItems="center">
-            <ProtectedComponent action="placeBid">
-                <AssetHighestBid id={data.id} align="center" />
-                <BidInput onChange={handleBidChange} />
-                <Row
-                    sx={{ pt: 2 }}
-                    spacing={4}
-                    justifyContent={invalidBid ? 'center' : 'space-between'}>
-                    <DarkButton
-                        textId="cancel"
-                        onClick={handleClose}
-                        disabled={processing}
+        <Stack spacing={2} alignItems="center">
+            <AssetHighestBid id={data.id} align="center" />
+            <BidInput onChange={handleBidChange} />
+            <Row
+                sx={{ pt: 2 }}
+                spacing={4}
+                justifyContent={invalidBid ? 'center' : 'space-between'}>
+                <DarkButton
+                    textId="cancel"
+                    onClick={handleClose}
+                    disabled={processing}
+                />
+                {!invalidBid && (
+                    <GreenButton
+                        textId="submit"
+                        onClick={onSubmit}
+                        loading={processing}
+                        disabled={invalidBid}
                     />
-                    {!invalidBid && (
-                        <GreenButton
-                            textId="submit"
-                            onClick={onSubmit}
-                            loading={processing}
-                            disabled={invalidBid}
-                        />
-                    )}
-                </Row>
-            </ProtectedComponent>
+                )}
+            </Row>
         </Stack>
     );
 }

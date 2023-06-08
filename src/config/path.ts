@@ -1,5 +1,6 @@
 export const path: Record<string, string> = {
     faq: '/faq',
+    admin: '/admin/assets',
     landing: '/',
     notFound: '/not-found',
     contactUs: '/contact-us',

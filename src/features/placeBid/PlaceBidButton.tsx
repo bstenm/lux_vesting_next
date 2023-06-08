@@ -1,10 +1,12 @@
 'use client';
 
+import { useCallback } from 'react';
+
 import { PlaceBid } from 'features/placeBid/PlaceBid';
 import { AssetItem } from 'config/types/asset';
 import { GreenButton } from 'components/buttons/GreenButton';
 import { ButtonWithModal } from 'components/ButtonWithModal';
-import { useCallback } from 'react';
+import { ProtectedComponent } from 'features/authButton/ProtectedComponent';
 
 type Props = {
     data: AssetItem;
@@ -24,7 +26,9 @@ export function PlaceBidButton({ data }: Props): JSX.Element {
             button={OpenModalButton}
             fitContent>
             {(handleClose) => (
-                <PlaceBid data={data} handleClose={handleClose} />
+                <ProtectedComponent action="placeBid">
+                    <PlaceBid data={data} handleClose={handleClose} />
+                </ProtectedComponent>
             )}
         </ButtonWithModal>
     );

@@ -42,6 +42,7 @@ const theme: ThemeOptions = {
     },
     palette: {
         text: {
+            disabled: '#555',
             secondary: '#aaa'
         },
         info: {
