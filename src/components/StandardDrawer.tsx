@@ -21,6 +21,7 @@ type Props = DrawerProps & {
     noData?: boolean;
     textalign?: Align;
     padding?: number;
+    transparent?: boolean;
     noCloseButton?: boolean;
     noDataMessage?: string;
     children: React.ReactNode;
@@ -32,14 +33,17 @@ const Content = styled(Box)<{
     width: string;
     textalign: Align;
     padding?: number;
+    transparent?: boolean;
 }>`
     width: ${(props) => props.width};
-    border-left: 1px solid #3c4858;
+    border-left: ${(props) =>
+        props.transparent ? 'none' : '1px solid #3c4858'};
     padding: ${(props) =>
         props.padding !== undefined ? `${props.padding}px` : '20px'};
     min-height: 100%;
     text-align: ${(props) => props.textalign};
-    background: ${(props) => props.color ?? '#151515'};
+    background: ${(props) =>
+        props.transparent ? 'transparent' : props.color ?? '#151515'};
 `;
 
 export function StandardDrawer({
@@ -50,19 +54,29 @@ export function StandardDrawer({
     noData,
     onClose,
     padding,
+    transparent,
     noCloseButton,
     noDataMessage,
     children,
     ...props
 }: Props): JSX.Element {
     return (
-        <Drawer anchor={anchor} onClose={onClose} {...props}>
+        <Drawer
+            sx={{
+                '& .MuiDrawer-paper': {
+                    backgroundColor: transparent ? 'transparent' : 'inherit'
+                }
+            }}
+            anchor={anchor}
+            onClose={onClose}
+            {...props}>
             <PerfectScrollbar>
                 <Content
                     color={color}
                     width={width}
                     padding={padding}
-                    textalign={textalign}>
+                    textalign={textalign}
+                    transparent={transparent}>
                     {!noCloseButton && (
                         <IconButton
                             sx={{ position: 'fixed', top: 5, right: 5 }}
