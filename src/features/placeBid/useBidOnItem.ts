@@ -25,7 +25,7 @@ export const useBidOnItem = (
 ): StateLogic => {
     const { id: assetId, merchantId, followers } = item;
 
-    const [sendNotifications] = useSendNotifications({
+    const [sendNotifications] = useSendNotifications(item.id, {
         silent: true
     });
 
@@ -38,11 +38,11 @@ export const useBidOnItem = (
         await DatabaseService.addBidToItem(assetId, newBid);
         // Send a notification to all this asset bidders
         const type: NotificationType = 'newBidPlaced';
-        const notification = { type, value, assetId } as NewBidNotificationData;
+        const data = { type, value } as NewBidNotificationData;
         // Send a notification to the merchant, the other bidders and the followers
         const to = uniq([merchantId, ...bidders, ...(followers || [])]);
         remove(to, (e) => e === bidder);
-        sendNotifications({ to, data: notification });
+        sendNotifications({ to, data });
     };
 
     const [bidOnItem, processing] = useAsyncAction<ActionParams, void>(action, {

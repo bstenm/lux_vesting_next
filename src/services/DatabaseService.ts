@@ -43,7 +43,7 @@ import {
 } from 'libs/firebaseApp';
 import { User } from 'config/types/user';
 import { logger } from 'libs/logger';
-import { Message, NotificationData, SelectFilterEntry } from 'config/types';
+import { Message, AssetNotification, SelectFilterEntry } from 'config/types';
 
 const log = logger('Database');
 
@@ -219,7 +219,7 @@ export class DatabaseService {
 
     public static async addNotificationToUsers(
         userIds: string[],
-        data: NotificationData
+        data: AssetNotification
     ): Promise<void> {
         log.debug('Adding notification:', data, 'to userIds:', userIds);
         Promise.all(

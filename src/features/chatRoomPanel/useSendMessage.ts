@@ -12,16 +12,12 @@ type StateLogic = [({ text }: Args) => void, boolean];
 
 type Args = { text: string };
 
-export const useSendMessage = (
-    to: string,
-    assetId: string,
-    assetName: string
-): StateLogic => {
+export const useSendMessage = (to: string, assetId: string): StateLogic => {
     const from = useAppSelector(getUserId);
 
     const userName = useAppSelector(getUserName);
 
-    const [sendNotifications] = useSendNotifications({
+    const [sendNotifications] = useSendNotifications(assetId, {
         silent: true
     });
 
@@ -32,8 +28,7 @@ export const useSendMessage = (
         const record: Message = { to, from, text };
         await DatabaseService.addMessage(assetId, record);
         const type: NotificationType = `newMessage`;
-        const data = { type, from: userName, assetId, assetName };
-        sendNotifications({ to: [to], data });
+        sendNotifications({ to: [to], data: { type, from: userName } });
     };
 
     const [sendMessage, submitting] = useAsyncAction<Args, void>(action, {

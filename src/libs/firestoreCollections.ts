@@ -12,7 +12,7 @@ import {
 import pick from 'lodash/pick';
 import { firebaseApp } from 'libs/firebaseApp';
 
-import { Message, NotificationItem, NotificationData } from 'config/types';
+import { Message, NotificationItem, AssetNotification } from 'config/types';
 
 const db: Firestore = getFirestore(firebaseApp);
 
@@ -41,7 +41,7 @@ export const getMessageCollection = (
     );
 
 const notificationConverter: FirestoreDataConverter<NotificationItem> = {
-    toFirestore(message: WithFieldValue<NotificationData>): DocumentData {
+    toFirestore(message: WithFieldValue<AssetNotification>): DocumentData {
         return message;
     },
     fromFirestore(
@@ -54,7 +54,8 @@ const notificationConverter: FirestoreDataConverter<NotificationItem> = {
             'from',
             'value',
             'assetId',
-            'createdAt'
+            'createdAt',
+            'assetName'
         ]);
         return { id: snapshot.id, ...data };
     }

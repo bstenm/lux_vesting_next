@@ -31,7 +31,7 @@ export const useUpdateAssetStatus = (
 ): StateLogic => {
     const dispatch = useAppDispatch();
 
-    const [sendNotifications] = useSendNotifications({
+    const [sendNotifications] = useSendNotifications(assetId, {
         silent: true
     });
 
@@ -40,8 +40,7 @@ export const useUpdateAssetStatus = (
         await DatabaseService.updateAssetStatus(assetId, statusType, data);
         dispatch(assetsActions.updateData({ id: assetId, [statusType]: data }));
         const type: NotificationType = `${statusType}StatusChanged`;
-        const notificationData = { type, assetId, value: status };
-        sendNotifications({ to: [merchantId], data: notificationData });
+        sendNotifications({ to: [merchantId], data: { type, value: status } });
     };
 
     const [updateStatus, processing] = useAsyncAction<Args, void>(action, {

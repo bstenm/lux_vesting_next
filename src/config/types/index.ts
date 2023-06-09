@@ -53,7 +53,6 @@ export type NotificationType =
 export type BaseNotificationData = {
     link?: string;
     type: NotificationType;
-    assetId: string;
 };
 
 export type NewBidNotificationData = BaseNotificationData & {
@@ -74,7 +73,12 @@ export type NotificationData =
     | NewMessageNotificationData
     | StatusChangeNotificationData;
 
-export type NotificationItem = NotificationData & {
+export type AssetNotification = NotificationData & {
+    assetId: string;
+    assetName: string;
+};
+
+export type NotificationItem = AssetNotification & {
     id: string;
     createdAt: string;
 };

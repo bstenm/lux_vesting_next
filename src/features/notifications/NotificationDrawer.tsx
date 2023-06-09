@@ -3,19 +3,22 @@
 import Box from '@mui/material/Box';
 import { useState } from 'react';
 
+import { getUserId } from 'state/user/selectors';
 import { StandardDrawer } from 'components/StandardDrawer';
+import { useAppSelector } from 'libs/hooks/useAppSelector';
 
 import { Notifications } from './Notifications';
+import { useFetchNotifications } from './useFetchNotifications';
 import { OpenNotificationsButton } from './OpenNotificationsButton';
-import { useCurrentUserNotifications } from './useCurrentUserNotifications';
 
 export function NotificationDrawer(): JSX.Element {
+    const uid = useAppSelector(getUserId);
+
     const [open, setOpen] = useState(false);
 
-    const { userNotifications, deleteUserNotification } =
-        useCurrentUserNotifications({
-            silent: true
-        });
+    const [userNotifications] = useFetchNotifications(uid, {
+        silent: true
+    });
 
     const toggleOpen = (): void => {
         setOpen(!open);
@@ -29,16 +32,12 @@ export function NotificationDrawer(): JSX.Element {
             />
             {open && (
                 <StandardDrawer
-                    transparent
                     open={open}
+                    noData={!userNotifications.length}
                     onClose={toggleOpen}
-                    noData={!userNotifications?.length}
+                    transparent={!!userNotifications.length}
                     noDataMessage="noNotifications">
-                    <Notifications
-                        sx={{ mt: 4 }}
-                        data={userNotifications}
-                        deleteNotification={deleteUserNotification}
-                    />
+                    <Notifications sx={{ mt: 4 }} data={userNotifications} />
                 </StandardDrawer>
             )}
         </Box>
