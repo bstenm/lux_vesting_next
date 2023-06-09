@@ -1,7 +1,7 @@
 'use client';
 
+import Box from '@mui/material/Box';
 import Link from 'next/link';
-import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import { Theme, styled } from '@mui/material/styles';
 
@@ -68,37 +68,33 @@ const LearnMoreButton = styled(DarkButton)(ButtonTheme);
 
 function LandingPage(): JSX.Element {
     return (
-        <Grid container>
-            <Grid item sm={6} xs={12}>
-                <Stack
-                    sx={{
-                        px: { sm: 1, md: 3 },
-                        height: 'calc(100vh - 95px)'
-                    }}
-                    justifyContent="space-between">
-                    <Title uppercased textId="appPurpose" />
-                    <SubTitle textId="appDescription" />
-                    <Row spacing={1} justifyContent="space-between">
-                        <Web3Component>
-                            {(initializing: boolean) => (
-                                <Link href={path.marketplace}>
-                                    <StartTradingButton
-                                        textId="startTrading"
-                                        loading={initializing}
-                                    />
-                                </Link>
-                            )}
-                        </Web3Component>
-                        <Link href={path.whoWeAre}>
-                            <LearnMoreButton textId="learnMore" />
-                        </Link>
-                    </Row>
-                </Stack>
-            </Grid>
-            <Grid item md={6} xs={12}>
-                <Img uri="/assets/landing-page-graphic.png" alt="" />
-            </Grid>
-        </Grid>
+        <Box>
+            <Stack
+                sx={{
+                    width: '45%',
+                    height: 'calc(100vh - 95px)'
+                }}
+                justifyContent="space-between">
+                <Title uppercased textId="appPurpose" />
+                <SubTitle textId="appDescription" />
+                <Row spacing={1} justifyContent="space-between">
+                    <Web3Component>
+                        {(initializing: boolean) => (
+                            <Link href={path.marketplace}>
+                                <StartTradingButton
+                                    textId="startTrading"
+                                    loading={initializing}
+                                />
+                            </Link>
+                        )}
+                    </Web3Component>
+                    <Link href={path.whoWeAre}>
+                        <LearnMoreButton textId="learnMore" />
+                    </Link>
+                </Row>
+            </Stack>
+            <Img uri="/assets/landing-page-graphic.png" alt="" />
+        </Box>
     );
 }
 

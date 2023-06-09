@@ -14,11 +14,6 @@ const Container = styled('main')`
     background-color: #000;
 `;
 
-const Content = styled(Box)`
-    padding: 25px;
-    min-height: 100%;
-`;
-
 export function Layout({
     children
 }: {
@@ -31,10 +26,10 @@ export function Layout({
     return (
         <Container>
             <PerfectScrollbar>
-                <Content>
+                <Box sx={{ px: 6, py: 3, minHeight: '100%' }}>
                     <TopBar />
                     <Box sx={{ pt: 2 }}>{children}</Box>
-                </Content>
+                </Box>
                 {isNotHomepage && <Footer />}
             </PerfectScrollbar>
         </Container>

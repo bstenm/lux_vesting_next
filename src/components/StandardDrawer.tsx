@@ -9,6 +9,7 @@ import PerfectScrollbar from 'react-perfect-scrollbar';
 import Drawer, { DrawerProps } from '@mui/material/Drawer';
 
 import { BigMutedMessage } from 'components/typography/BigMutedMessage';
+
 import { Centered } from './Centered';
 
 type Align = 'center' | 'left' | 'right';
@@ -20,7 +21,6 @@ type Props = DrawerProps & {
     noData?: boolean;
     textalign?: Align;
     padding?: number;
-    gradientBg?: boolean;
     noCloseButton?: boolean;
     noDataMessage?: string;
     children: React.ReactNode;
@@ -28,7 +28,7 @@ type Props = DrawerProps & {
 };
 
 const Content = styled(Box)<{
-    color: string;
+    color?: string;
     width: string;
     textalign: Align;
     padding?: number;
@@ -39,19 +39,17 @@ const Content = styled(Box)<{
         props.padding !== undefined ? `${props.padding}px` : '20px'};
     min-height: 100%;
     text-align: ${(props) => props.textalign};
-    background: ${(props) => props.color};
+    background: ${(props) => props.color ?? '#151515'};
 `;
-
-const gradient = 'linear-gradient(180deg, #3C4858 0%, #151516 58.85%)';
 
 export function StandardDrawer({
     width = 'inherit',
     anchor = 'right',
     textalign = 'center',
+    color,
     noData,
     onClose,
     padding,
-    gradientBg,
     noCloseButton,
     noDataMessage,
     children,
@@ -61,7 +59,7 @@ export function StandardDrawer({
         <Drawer anchor={anchor} onClose={onClose} {...props}>
             <PerfectScrollbar>
                 <Content
-                    color={gradientBg ? gradient : '#151515'}
+                    color={color}
                     width={width}
                     padding={padding}
                     textalign={textalign}>

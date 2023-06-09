@@ -30,6 +30,7 @@ export function NotificationDrawer(): JSX.Element {
             {open && (
                 <StandardDrawer
                     open={open}
+                    color="transparent"
                     onClose={toggleOpen}
                     noData={!userNotifications?.length}
                     noDataMessage="noNotifications">
