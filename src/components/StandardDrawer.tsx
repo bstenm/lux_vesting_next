@@ -40,6 +40,7 @@ const Content = styled(Box)<{
         props.transparent ? 'none' : '1px solid #3c4858'};
     padding: ${(props) =>
         props.padding !== undefined ? `${props.padding}px` : '20px'};
+    padding-top: ${(props) => (props.transparent ? `80px` : '20px')};
     min-height: 100%;
     text-align: ${(props) => props.textalign};
     background: ${(props) =>
@@ -79,7 +80,12 @@ export function StandardDrawer({
                     transparent={transparent}>
                     {!noCloseButton && (
                         <IconButton
-                            sx={{ position: 'fixed', top: 5, right: 5 }}
+                            sx={{
+                                top: transparent ? 60 : 5,
+                                right: 5,
+                                bgcolor: '#151515',
+                                position: 'fixed'
+                            }}
                             aria-label="close"
                             onClick={onClose}>
                             <CloseIcon

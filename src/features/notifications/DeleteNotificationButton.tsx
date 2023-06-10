@@ -11,7 +11,12 @@ type Props = {
 
 export function DeleteNotificationButton({ onClick }: Props): JSX.Element {
     return (
-        <IconButton onClick={onClick} title="delete">
+        <IconButton
+            sx={{
+                p: 0
+            }}
+            onClick={onClick}
+            title="delete">
             <DeleteIcon
                 fontSize="small"
                 sx={{
