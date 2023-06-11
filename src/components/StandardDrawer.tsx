@@ -47,6 +47,8 @@ export function StandardDrawer({
             <PerfectScrollbar>
                 <Box
                     sx={{
+                        p: 3,
+                        pt: transparent ? 11 : 3,
                         bgcolor: transparent ? 'transparent' : '#151515',
                         textAlign: 'center',
                         minHeight: '100%',
@@ -56,7 +58,7 @@ export function StandardDrawer({
                     {!noCloseButton && (
                         <IconButton
                             sx={{
-                                top: transparent ? 80 : 5,
+                                top: transparent ? 70 : 5,
                                 right: 5,
                                 bgcolor: '#252525',
                                 position: 'fixed',
