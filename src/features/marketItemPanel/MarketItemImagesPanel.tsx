@@ -23,18 +23,15 @@ const Container = styled(Row)(({ theme }) => ({
     backgroundColor: theme.palette.common.black,
     [theme.breakpoints.down('md')]: {
         marginLeft: 0
-    },
-    [theme.breakpoints.down('sm')]: {
-        border: '2px solid green'
     }
 }));
 
 const ViewOptionImg = styled(Image)({
-    width: '100%',
+    width: '15vh',
     height: '15vh',
     cursor: 'pointer',
     objectFit: 'cover',
-    borderRadius: 3,
+    borderRadius: 10,
     objectPosition: 'center'
 });
 
@@ -61,9 +58,7 @@ export function MarketItemImagesPanel({
             </Box>
             <Stack
                 sx={{
-                    py: 0,
-                    px: 2,
-                    width: '20%',
+                    px: 1.5,
                     display: { xs: 'none', md: 'block' }
                 }}>
                 {pictures.map((pic, index) => (

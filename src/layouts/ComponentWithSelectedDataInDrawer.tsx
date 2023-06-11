@@ -1,8 +1,8 @@
 import Box from '@mui/material/Box';
-import { useCallback, useState } from 'react';
+import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import { styled, useTheme } from '@mui/material/styles';
+import { useCallback, useState } from 'react';
 
 import { Row } from 'components/Row';
 import { menuActions } from 'state/menu/menuSlice';
@@ -65,8 +65,6 @@ export function ComponentWithSelectedDataInDrawer<
     let leftBoxWidth = `${leftPanelWidth}px`;
     let rightBoxWidth = `${rightPanelWidth}px`;
 
-    const theme = useTheme();
-
     const dispatch = useAppDispatch();
 
     const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
@@ -90,7 +88,7 @@ export function ComponentWithSelectedDataInDrawer<
         rightBoxWidth = `calc(100vw - ${leftPanelWidth + 80}px)`;
     } else if (rightPanelWidth) {
         leftBoxWidth = `calc(100vw - ${
-            rightPanelWidth + (noLeftPanelPadding ? 40 : 70)
+            rightPanelWidth + (noLeftPanelPadding ? 50 : 70)
         }px)`;
     }
 
@@ -104,12 +102,14 @@ export function ComponentWithSelectedDataInDrawer<
                     position: 'static',
                     display: { xs: 'none', sm: 'block' }
                 }}
-                color={theme.palette.common.black}
+                contentSx={{
+                    p: noLeftPanelPadding ? 0 : 3,
+                    color: 'common.black',
+                    textalign: 'left'
+                }}
                 open={drawerOpen}
                 anchor="left"
                 onClose={onCloseDrawer}
-                padding={noLeftPanelPadding ? 0 : 20}
-                textalign="left"
                 hideBackdrop>
                 {selectedItem && (
                     <Box sx={{ width: leftBoxWidth }}>
@@ -119,10 +119,13 @@ export function ComponentWithSelectedDataInDrawer<
             </StandardDrawer>
             <StandardDrawer
                 sx={{ position: 'static' }}
+                contentSx={{
+                    p: noRightPanelPadding ? 0 : 3,
+                    color: 'common.black',
+                    textAlign: 'left'
+                }}
                 open={drawerOpen}
                 onClose={onCloseDrawer}
-                padding={noRightPanelPadding ? 0 : 20}
-                textalign="left"
                 hideBackdrop
                 noCloseButton>
                 <Box sx={{ width: rightBoxWidth }}>
