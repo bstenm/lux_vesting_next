@@ -14,6 +14,7 @@ export function RoundedGreyBox({ children, ...props }: Props): JSX.Element {
             sx={{
                 color: 'common.white',
                 bgcolor: '#252525',
+                textAlign: 'center',
                 borderRadius: 2,
                 ...(sx ?? {})
             }}

@@ -271,5 +271,7 @@
 	"listingRevoked": "listing revoked",
 	"authRevoked": "authentication revoked",
 	"createdAssets": "created assets",
-	"noItemFound": "no item found"
+	"noItemFound": "no item found",
+    "day_one": "{{count}} day",
+    "day_other": "{{count}} days"
 }

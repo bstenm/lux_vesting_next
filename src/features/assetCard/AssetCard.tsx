@@ -70,7 +70,7 @@ export function AssetCard<T extends AssetItem>({
                         textAlign: 'center',
                         color: 'common.white'
                     }}>
-                    <Stack spacing={1}>
+                    <Stack spacing={0.8}>
                         <AssetCardTitle title={data.name} />
                         {data.listing?.updatedAt && (
                             <Stack spacing={2} alignItems="center">

@@ -7,7 +7,7 @@ import {
     AssetMediaMetadata,
     AssetMediaMetadataItem
 } from 'config/types/asset';
-import { allowedFileMimes } from 'config';
+import { allowedFileMimes, defaultAuctionDuration } from 'config';
 import { BLOCKCHAIN_CURRENCY_TO_DOLLAR } from 'config/constants';
 
 export const formatCryptoPriceForDisplay = (
@@ -75,3 +75,27 @@ export const convertToBlockchainCurrencyUnit = (
 
 export const formatDate = (date: string | number): string =>
     new Date(date).toLocaleDateString();
+
+export const daysLeftForAuction = (now: number, startedAt: number): number => {
+    const auctionEndTimestamp = defaultAuctionDuration * 24 * 3600 * 1000;
+
+    const secondsLeft = (startedAt + auctionEndTimestamp - now) / 1000;
+
+    return Math.floor(secondsLeft / 86400);
+};
+
+export const timeLeftForAuction = (now: number, startedAt: number): string => {
+    const auctionEndTimestamp = defaultAuctionDuration * 24 * 3600 * 1000;
+
+    const secondsLeft = (startedAt + auctionEndTimestamp - now) / 1000;
+
+    const daysLeft = Math.floor(secondsLeft / 86400);
+
+    const hoursLeft = Math.floor(secondsLeft / 3600) % 24;
+
+    const minLeft = Math.floor(secondsLeft / 60) % 60;
+
+    return daysLeft > 0
+        ? `${daysLeft} days ${hoursLeft} hours `
+        : `${hoursLeft} hours ${minLeft} min`;
+};

@@ -10,6 +10,7 @@ type Props = React.ComponentProps<typeof MuiTypography> & {
     bold?: boolean;
     italic?: boolean;
     suffix?: string;
+    prefix?: string;
     textId?: string;
     children?: React.ReactNode;
     transVars?: Record<string, unknown>;
@@ -25,6 +26,7 @@ export function Typography({
     bold,
     italic,
     suffix,
+    prefix,
     textId,
     transVars,
     children,
@@ -68,6 +70,7 @@ export function Typography({
             }}
             title={title && capitalize(t(title))}
             {...props}>
+            {prefix ?? ''}
             {text}
             {suffix ?? ''}
         </MuiTypography>

@@ -7,23 +7,26 @@ import { DatabaseService } from 'services/DatabaseService';
 import { SelectFilterEntry, HookOptions } from 'config/types';
 
 type Args = {
-    filters: SelectFilterEntry[];
+    filters?: SelectFilterEntry[];
 };
 
-type StateLogic = [({ filters }: Args) => Promise<void>, boolean];
+type StateLogic = [(args?: Args) => Promise<void>, boolean];
 
 export const useFetchMarketplace = (op: HookOptions = {}): StateLogic => {
     const dispatch = useAppDispatch();
 
-    const action = async ({ filters }: Args): Promise<void> => {
+    const action = async ({ filters }: Args = {}): Promise<void> => {
         const items = await DatabaseService.getAllMarketItems(filters);
         dispatch(assetsActions.setList(items));
     };
 
-    const [fetchAssets, processing] = useAsyncAction<Args, void>(action, {
-        error: 'errorFetchingMarketplaceItems',
-        ...op
-    });
+    const [fetchAssets, processing] = useAsyncAction<Args | undefined, void>(
+        action,
+        {
+            error: 'errorFetchingMarketplaceItems',
+            ...op
+        }
+    );
 
     return [fetchAssets, processing];
 };
