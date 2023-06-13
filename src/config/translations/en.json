@@ -270,5 +270,6 @@
 	"revoked": "revoked",
 	"listingRevoked": "listing revoked",
 	"authRevoked": "authentication revoked",
-	"createdAssets": "created assets"
+	"createdAssets": "created assets",
+	"noItemFound": "no item found"
 }

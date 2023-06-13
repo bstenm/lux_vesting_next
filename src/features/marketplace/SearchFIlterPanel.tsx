@@ -32,6 +32,25 @@ const priceRanges = [
     [50000, 80000]
 ];
 
+const sorting = [
+    {
+        label: 'price ascending',
+        value: { key: 'price', direction: 'ascending' }
+    },
+    {
+        label: 'price descending',
+        value: { key: 'price', direction: 'descending' }
+    },
+    {
+        label: 'newest first',
+        value: { key: 'listedAt', direction: 'ascending' }
+    },
+    {
+        label: 'newest last',
+        value: { key: 'listedAt', direction: 'descending' }
+    }
+];
+
 export function SearchFIlterPanel({
     isOpen,
     onSelectFilter
@@ -49,17 +68,25 @@ export function SearchFIlterPanel({
             }}>
             <Stack spacing={4}>
                 <Select
+                    isClearable
+                    name="sortBy"
+                    options={sorting}
+                    onSelect={onSelectFilter}
+                    placeholder="sort by..."
+                />
+                <Select
                     isMulti
                     name="brand"
                     options={brands}
                     onSelect={onSelectFilter}
+                    placeholder="select  brand..."
                 />
                 <Select
                     isClearable
                     name="merchantName"
                     options={merchants}
                     onSelect={onSelectFilter}
-                    placeholder="merchant"
+                    placeholder="select  merchant..."
                 />
                 <Stack spacing={1}>
                     <Typography

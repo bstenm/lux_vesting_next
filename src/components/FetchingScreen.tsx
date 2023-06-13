@@ -30,6 +30,8 @@ export function FetchingScreen<T>({
 }: Props<T>): JSX.Element {
     const theme = useTheme();
 
+    const notEmpty = Array.isArray(data) ? data.length : data;
+
     if (fetching) {
         return spinner ? (
             <CenteredSpinner fullscreen={fullscreen} {...other} />
@@ -38,8 +40,8 @@ export function FetchingScreen<T>({
         );
     }
 
-    if ((Array.isArray(data) && data.length) || data) {
-        return <>{children(data)}</>;
+    if (notEmpty) {
+        return <>{children(data as T)}</>;
     }
 
     if (!noMessage) {

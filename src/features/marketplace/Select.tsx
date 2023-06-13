@@ -6,7 +6,7 @@ import { useTheme } from '@mui/material/styles';
 
 import { SelectInputValue, SelectInputMultiValue } from 'config/types';
 
-type Option = { value: string; label: string };
+type Option = { value: string | Record<string, string>; label: string };
 
 type Props = React.ComponentProps<typeof RSelect> & {
     name: string;
@@ -27,7 +27,7 @@ export function Select({
     return (
         <RSelect
             options={options}
-            placeholder={`select ${placeholder ?? name}...`}
+            placeholder={placeholder ?? name}
             onChange={(option) => {
                 onSelect(
                     rest.isMulti

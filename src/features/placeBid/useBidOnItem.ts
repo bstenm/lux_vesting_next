@@ -15,27 +15,30 @@ import { useAppSelector } from 'libs/hooks/useAppSelector';
 import { DatabaseService } from 'services/DatabaseService';
 import { useSendNotifications } from 'features/notifications/useSendNotifications';
 
-type ActionParams = { value: number; bidders: string[] };
+type ActionParams = { value: number; bidders?: string[] };
 
 type StateLogic = [(param: ActionParams) => Promise<void>, boolean];
 
 export const useBidOnItem = (
-    item: AssetItem,
+    asset: AssetItem,
     op: HookOptions = {}
 ): StateLogic => {
-    const { id: assetId, merchantId, followers } = item;
+    const { id: assetId, merchantId, followers } = asset;
 
-    const [sendNotifications] = useSendNotifications(item.id, {
+    const [sendNotifications] = useSendNotifications(asset.id, {
         silent: true
     });
 
     const bidder = useAppSelector(getUserId);
 
-    const action = async ({ bidders, value }: ActionParams): Promise<void> => {
+    const action = async ({
+        bidders = [],
+        value
+    }: ActionParams): Promise<void> => {
         const newBid: Bid = { value, bidder };
         // TODO: Restore?
         // await biddingService.createBid(newBid);
-        await DatabaseService.addBidToItem(assetId, newBid);
+        await DatabaseService.addBidToAsset(assetId, newBid);
         // Send a notification to all this asset bidders
         const type: NotificationType = 'newBidPlaced';
         const data = { type, value } as NewBidNotificationData;

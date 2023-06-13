@@ -16,7 +16,6 @@ export const useFetchMarketplace = (op: HookOptions = {}): StateLogic => {
     const dispatch = useAppDispatch();
 
     const action = async ({ filters }: Args): Promise<void> => {
-        // TODO: revert
         const items = await DatabaseService.getAllMarketItems(filters);
         dispatch(assetsActions.setList(items));
     };

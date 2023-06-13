@@ -86,7 +86,7 @@ export type NotificationItem = AssetNotification & {
 export type SelectInputValue = {
     id: string;
     type: 'singleValue';
-    value: string | null;
+    value: string | null | Record<string, string>;
     name: string;
     selected: boolean;
 };
@@ -94,7 +94,7 @@ export type SelectInputValue = {
 export type SelectInputMultiValue = {
     id: string;
     type: 'multiValues';
-    value: (string | null)[];
+    value: (string | null | Record<string, string>)[];
     name: string;
     selected: boolean;
 };
