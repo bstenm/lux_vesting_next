@@ -42,7 +42,7 @@ export function StandardPage({
             {noBox ? (
                 children
             ) : (
-                <BoxGradient spacing={6}>{children}</BoxGradient>
+                <BoxGradient spacing={4}>{children}</BoxGradient>
             )}
         </Stack>
     );

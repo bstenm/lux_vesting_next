@@ -9,6 +9,7 @@ import CardContent from '@mui/material/CardContent';
 
 import { Row } from 'components/Row';
 import { Tooltip } from 'components/Tooltip';
+import { TimeLeft } from 'components/TimeLeft';
 import { AssetItem } from 'config/types/asset';
 import { ImageCarousel } from 'features/imageCarousel/ImageCarousel';
 import { isUserLoggedIn } from 'state/user/selectors';
@@ -17,6 +18,7 @@ import { getItemPictures } from 'libs/utils';
 import { AssetHighestBid } from 'features/assetBids/AssetHighestBid';
 import { TitledAmountData } from 'components/dataPoints/TitledAmountData';
 
+import { Divider } from '@mui/material';
 import { AssetCardTitle } from './AssetCardTitle';
 import { AssetFavoriteButton } from './AssetFavoriteButton';
 
@@ -70,8 +72,16 @@ export function AssetCard<T extends AssetItem>({
                     }}>
                     <Stack spacing={1}>
                         <AssetCardTitle title={data.name} />
+                        {data.listing?.updatedAt && (
+                            <Stack spacing={2} alignItems="center">
+                                <TimeLeft startedAt={data.listing.updatedAt} />
+                                <Divider
+                                    sx={{ bgcolor: '#aaa', width: '60%' }}
+                                />
+                            </Stack>
+                        )}
                         <Row
-                            sx={{ pb: 1, width: '100%' }}
+                            sx={{ pb: 1, pt: 1, width: '100%' }}
                             justifyContent="space-between">
                             <TitledAmountData
                                 data={data.price}

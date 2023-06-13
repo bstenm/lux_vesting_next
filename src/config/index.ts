@@ -56,3 +56,5 @@ export const chartRanges: string[] = [
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 export const adminID = process.env.NEXT_PUBLIC_ADMIN_ID!;
+
+export const defaultAuctionDuration = 7; // in days
