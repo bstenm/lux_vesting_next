@@ -26,10 +26,6 @@ type Props = {
 };
 
 const theme: ThemeOptions = {
-    zIndex: {
-        // So it shows in a modal (Modal uses 5600)
-        tooltip: 6000
-    },
     typography: {
         allVariants: {
             color: 'white'

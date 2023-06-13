@@ -25,7 +25,7 @@ const Img = styled(Image)({
 export function UploadedMediaItem({ data, onRemove }: Props): JSX.Element {
     return (
         <Stack alignItems="center">
-            <Tooltip title={data.title}>
+            <Tooltip title={data.title} sx={{ zIndex: 6000 }}>
                 <a href={data.uri} target="_blank" rel="noreferrer">
                     {data.type === 'picture' ? (
                         <Img uri={data.uri} alt={data.title} />
