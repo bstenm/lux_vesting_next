@@ -195,7 +195,7 @@ export class DatabaseService {
         return data;
     }
 
-    public static async addBidToItem(
+    public static async addBidToAsset(
         assetId: string,
         data: Bid
     ): Promise<void> {

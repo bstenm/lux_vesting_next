@@ -21,7 +21,10 @@ export function AssetList<T extends AssetItem>({
     ...other
 }: Props<T>): JSX.Element {
     return (
-        <FetchingScreen<T[]> data={list} fetching={loading}>
+        <FetchingScreen<T[]>
+            data={list}
+            fetching={loading}
+            message='"noItemFound'>
             {(data: T[]) => (
                 <Row sx={{ gap: 8, flexWrap: 'wrap', ...sx }} {...other}>
                     {data.map((item: T) => (

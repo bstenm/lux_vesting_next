@@ -1,25 +1,21 @@
 import {
-    FieldValue,
     DocumentData,
     QuerySnapshot,
-    DocumentSnapshot,
     SnapshotOptions,
-    serverTimestamp
+    DocumentSnapshot
 } from 'firebase/firestore';
 import { uuid } from 'uuidv4';
 
-export const setRecordWithDate = <T>(
-    data: T
-): T & { createdAt: FieldValue } => ({
+export const setRecordWithDate = <T>(data: T): T & { createdAt: number } => ({
     ...data,
-    createdAt: serverTimestamp()
+    createdAt: Date.now()
 });
 
 export const setRecordWithUpdateDate = <T>(
     data: T
-): T & { updatedAt: FieldValue } => ({
+): T & { updatedAt: number } => ({
     ...data,
-    updatedAt: serverTimestamp()
+    updatedAt: Date.now()
 });
 
 export const setRecordWithId = <T>(data: T): T & { id: string } => ({
@@ -29,7 +25,7 @@ export const setRecordWithId = <T>(data: T): T & { id: string } => ({
 
 export const setRecordWithIdAndDate = <T>(
     data: T
-): T & { id: string; createdAt: FieldValue } =>
+): T & { id: string; createdAt: number } =>
     setRecordWithId(setRecordWithDate(data));
 
 export const getDocSnapshotData = <T>(
@@ -38,9 +34,6 @@ export const getDocSnapshotData = <T>(
 ): T => {
     let item = snapshot.data(options);
     item = item && { ...item, id: snapshot.id };
-    if (item?.createdAt) {
-        item.createdAt = item.createdAt.toMillis();
-    }
     return item as T;
 };
 
@@ -51,9 +44,6 @@ export const getQuerySnapshotData = <T>(
     snapshot.forEach((d) => {
         let data = d.data();
         data = data && { ...data, id: d.id };
-        if (data?.createdAt) {
-            data.createdAt = data.createdAt.toMillis();
-        }
         items.push(data as T);
     });
     return items;
