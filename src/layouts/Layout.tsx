@@ -39,7 +39,7 @@ export function Layout({
                         justifyContent="center">
                         <TopBar />
                     </Stack>
-                    <Box sx={{ pt: isNotHomepage ? 8 : 0 }}>{children}</Box>
+                    <Box sx={{ pt: isNotHomepage ? 9 : 0 }}>{children}</Box>
                 </Box>
                 {isNotHomepage && <Footer />}
             </PerfectScrollbar>
