@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 import { Row } from 'components/Row';
 import { Badge } from 'components/Badge';
@@ -19,6 +19,7 @@ import { RoundedBoxFilterIconButton } from 'components/iconButtons/RoundedBoxFil
 import { AssetList } from './AssetList';
 import { SearchFIlterPanel } from './SearchFIlterPanel';
 import { useFetchMarketplace } from './useFetchMarketplace';
+import { AuctionTimeLeftFilter } from './AuctionTimeLeftFilter';
 
 type Props = {
     onSelectitem: (data: AssetItem) => void;
@@ -41,33 +42,33 @@ export function Marketplace({ onSelectitem }: Props): JSX.Element {
         setFilter({ ...filter, ...constraint });
     };
 
-    const toggleDaysLeftFilter = (count: number): void => {
-        if (filter.daysLeft === count) {
-            const newFilter = { ...filter };
-            delete newFilter.daysLeft;
-            setFilter(newFilter);
-            return;
-        }
-        setFilter({ ...filter, ...{ daysLeft: count } });
-    };
+    const nbOfFiltersApplied = Object.values(filter).filter((e) => e).length;
 
-    let listDisplayed = [...list];
+    const listDisplayed = useMemo(() => {
+        let listClone = [...list];
 
-    Object.keys(filter).forEach((type) => {
-        const value = filter[type];
+        Object.keys(filter).forEach((type) => {
+            const value = filter[type];
 
-        switch (type) {
-            case 'daysLeft':
-                listDisplayed = listDisplayed.filter((e) => {
-                    const { updatedAt } = e.listing ?? {};
-                    if (!updatedAt) return false;
-                    const daysLeft = daysLeftForAuction(Date.now(), updatedAt);
-                    return daysLeft === value;
-                });
-                break;
-            default:
-        }
-    });
+            switch (type) {
+                case 'daysLeft':
+                    listClone = listClone.filter((e) => {
+                        if (!value) return true;
+                        const { updatedAt } = e.listing ?? {};
+                        if (!updatedAt) return false;
+                        const daysLeft = daysLeftForAuction(
+                            Date.now(),
+                            updatedAt
+                        );
+                        return daysLeft === value;
+                    });
+                    break;
+                default:
+            }
+        });
+
+        return listClone;
+    }, [list, filter]);
 
     useEffect(() => {
         (async () => {
@@ -79,29 +80,8 @@ export function Marketplace({ onSelectitem }: Props): JSX.Element {
     return (
         <>
             <Row spacing={2}>
-                {Array.from(
-                    { length: defaultAuctionDuration },
-                    (x, i) => i
-                ).map((count) => {
-                    const selected = filter.daysLeft === count + 1;
-                    return (
-                        <RoundedGreyBox
-                            sx={{ p: 1, cursor: 'pointer' }}
-                            key={count}
-                            light={selected}
-                            onClick={() => toggleDaysLeftFilter(count + 1)}>
-                            <Typography
-                                color={
-                                    selected ? 'primary.light' : 'common.white'
-                                }
-                                textId={count > 0 ? 'day_other' : 'day_one'}
-                                variant="body2"
-                                transVars={{ count: count + 1 }}
-                            />
-                        </RoundedGreyBox>
-                    );
-                })}
-                <Badge color="error" badgeContent={Object.keys(filter).length}>
+                <AuctionTimeLeftFilter onSelect={addFilter} />
+                <Badge color="error" badgeContent={nbOfFiltersApplied}>
                     <RoundedBoxFilterIconButton onClick={toggleFilterPanel} />
                 </Badge>
             </Row>
