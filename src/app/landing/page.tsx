@@ -39,11 +39,11 @@ const SubTitle = styled(Typography)(({ theme }) => ({
 }));
 
 const Img = styled(Image)(({ theme }) => ({
-    top: 0,
+    top: -5,
     right: 0,
     width: '50%',
-    height: '100vh',
-    position: 'absolute',
+    height: 'calc(100vh + 5px)',
+    position: 'fixed',
     objectFit: 'cover',
     objectPosition: 'top',
     [theme.breakpoints.down('sm')]: {

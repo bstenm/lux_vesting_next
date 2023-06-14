@@ -93,10 +93,14 @@ export function Marketplace({ onSelectitem }: Props): JSX.Element {
                     (x, i) => i
                 ).map((count) => (
                     <RoundedGreyBox
+                        light={filters}
                         sx={{ p: 1, cursor: 'pointer' }}
                         key={count}
-                        onClick={() => addFilter({ daysLeft: count + 1 })}>
+                        onClick={() =>
+                            addFilter({ type: 'daysLeft', value: count + 1 })
+                        }>
                         <Typography
+                            sx={{ color: '#252525' }}
                             textId={count > 0 ? 'day_other' : 'day_one'}
                             variant="body2"
                             transVars={{ count: count + 1 }}

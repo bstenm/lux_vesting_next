@@ -1,4 +1,5 @@
 import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import { usePathname } from 'next/navigation';
 import PerfectScrollbar from 'react-perfect-scrollbar';
@@ -26,9 +27,19 @@ export function Layout({
     return (
         <Container>
             <PerfectScrollbar>
-                <Box sx={{ px: 6, py: 3, minHeight: '100%' }}>
-                    <TopBar />
-                    <Box sx={{ pt: 2 }}>{children}</Box>
+                <Box sx={{ px: 6, minHeight: '100%' }}>
+                    <Stack
+                        sx={{
+                            width: 'calc(100vw - 80px)',
+                            height: 60,
+                            zIndex: 6000,
+                            bgcolor: 'common.black',
+                            position: isNotHomepage ? 'fixed' : 'static'
+                        }}
+                        justifyContent="center">
+                        <TopBar />
+                    </Stack>
+                    <Box sx={{ pt: isNotHomepage ? 8 : 0 }}>{children}</Box>
                 </Box>
                 {isNotHomepage && <Footer />}
             </PerfectScrollbar>
