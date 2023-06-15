@@ -52,13 +52,10 @@ export function Select({
             styles={{
                 placeholder: (baseStyles) => ({
                     ...baseStyles,
-                    color: theme.palette.common.white,
-                    opacity: 0.6
+                    color: theme.palette.common.white
                 }),
                 control: (baseStyles) => ({
                     ...baseStyles,
-                    borderColor: theme.palette.common.white,
-                    borderRadius: 0,
                     textTransform: 'capitalize',
                     backgroundColor: theme.palette.common.black,
                     '&:hover': {

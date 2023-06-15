@@ -1,25 +1,23 @@
 'use client';
 
+import { orderBy } from 'lodash';
 import { useState, useEffect, useMemo } from 'react';
 
 import { Row } from 'components/Row';
 import { Badge } from 'components/Badge';
 import { AssetItem } from 'config/types/asset';
-import { Typography } from 'components/Typography';
 import { LightButton } from 'components/buttons/LightButton';
 import { getAllAssets } from 'state/assets/selectors';
 import { PlaceBidButton } from 'features/placeBid/PlaceBidButton';
 import { useAppSelector } from 'libs/hooks/useAppSelector';
-import { SelectFilterEntry } from 'config/types';
-import { RoundedGreyBox } from 'components/RoundedGreyBox';
 import { daysLeftForAuction } from 'libs/utils';
-import { defaultAuctionDuration } from 'config';
 import { RoundedBoxFilterIconButton } from 'components/iconButtons/RoundedBoxFilterIconButton';
 
 import { AssetList } from './AssetList';
 import { SearchFIlterPanel } from './SearchFIlterPanel';
 import { useFetchMarketplace } from './useFetchMarketplace';
 import { AuctionTimeLeftFilter } from './AuctionTimeLeftFilter';
+import { SortOptionValue, SortingSelection } from './SortingSelection';
 
 type Props = {
     onSelectitem: (data: AssetItem) => void;
@@ -50,6 +48,8 @@ export function Marketplace({ onSelectitem }: Props): JSX.Element {
         Object.keys(filter).forEach((type) => {
             const value = filter[type];
 
+            const { key, direction } = (value as SortOptionValue) ?? {};
+
             switch (type) {
                 case 'daysLeft':
                     listClone = listClone.filter((e) => {
@@ -60,8 +60,13 @@ export function Marketplace({ onSelectitem }: Props): JSX.Element {
                             Date.now(),
                             updatedAt
                         );
-                        return daysLeft === value;
+                        return daysLeft <= (value as number);
                     });
+                    break;
+                case 'orderBy':
+                    listClone = key
+                        ? orderBy(listClone, [key], [direction])
+                        : listClone;
                     break;
                 default:
             }
@@ -81,6 +86,7 @@ export function Marketplace({ onSelectitem }: Props): JSX.Element {
         <>
             <Row spacing={2}>
                 <AuctionTimeLeftFilter onSelect={addFilter} />
+                <SortingSelection onSelect={addFilter} />
                 <Badge color="error" badgeContent={nbOfFiltersApplied}>
                     <RoundedBoxFilterIconButton onClick={toggleFilterPanel} />
                 </Badge>
@@ -90,7 +96,7 @@ export function Marketplace({ onSelectitem }: Props): JSX.Element {
                 loading={fetching}
                 onSelectitem={onSelectitem}
                 sx={{
-                    mt: 4,
+                    mt: 6,
                     width: `calc(100vw - ${filterPanelIsOpen ? 450 : 150}px)`
                 }}>
                 {(asset) => (

@@ -27,27 +27,27 @@ export function AuctionTimeLeftFilter({ onSelect }: Props): JSX.Element {
 
     return (
         <>
-            {Array.from({ length: defaultAuctionDuration }, (x, i) => i).map(
-                (count) => {
-                    const selected = filter.daysLeft === count + 1;
-                    return (
-                        <RoundedGreyBox
-                            sx={{ p: 1, cursor: 'pointer' }}
-                            key={count}
-                            light={selected}
-                            onClick={() => toggleDaysLeftFilter(count + 1)}>
-                            <Typography
-                                color={
-                                    selected ? 'primary.light' : 'common.white'
-                                }
-                                textId={count > 0 ? 'day_other' : 'day_one'}
-                                variant="body2"
-                                transVars={{ count: count + 1 }}
-                            />
-                        </RoundedGreyBox>
-                    );
-                }
-            )}
+            {[
+                1,
+                Math.floor(defaultAuctionDuration / 2),
+                defaultAuctionDuration
+            ].map((count) => {
+                const selected = filter.daysLeft === count;
+                return (
+                    <RoundedGreyBox
+                        sx={{ p: 1, cursor: 'pointer' }}
+                        key={count}
+                        light={selected}
+                        onClick={() => toggleDaysLeftFilter(count)}>
+                        <Typography
+                            color={selected ? 'primary.light' : 'common.white'}
+                            textId={count > 1 ? 'day_other' : 'day_one'}
+                            variant="body2"
+                            transVars={{ count }}
+                        />
+                    </RoundedGreyBox>
+                );
+            })}
         </>
     );
 }
