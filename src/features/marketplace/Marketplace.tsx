@@ -1,79 +1,45 @@
 'use client';
 
-import { orderBy } from 'lodash';
 import { useState, useEffect, useMemo } from 'react';
 
 import { Row } from 'components/Row';
-import { Badge } from 'components/Badge';
 import { AssetItem } from 'config/types/asset';
 import { LightButton } from 'components/buttons/LightButton';
 import { getAllAssets } from 'state/assets/selectors';
 import { PlaceBidButton } from 'features/placeBid/PlaceBidButton';
 import { useAppSelector } from 'libs/hooks/useAppSelector';
-import { daysLeftForAuction } from 'libs/utils';
-import { RoundedBoxFilterIconButton } from 'components/iconButtons/RoundedBoxFilterIconButton';
 
 import { AssetList } from './AssetList';
+import { useFilterList } from './useFilterList';
+import { useOrderList } from './useOrderList';
+import { SortingSelection } from './SortingSelection';
 import { SearchFIlterPanel } from './SearchFIlterPanel';
 import { useFetchMarketplace } from './useFetchMarketplace';
 import { AuctionTimeLeftFilter } from './AuctionTimeLeftFilter';
-import { SortOptionValue, SortingSelection } from './SortingSelection';
 
 type Props = {
     onSelectitem: (data: AssetItem) => void;
 };
 
 export function Marketplace({ onSelectitem }: Props): JSX.Element {
-    const [filterPanelIsOpen, setFilterPanelIsOpen] = useState<boolean>(false);
-
-    const toggleFilterPanel = (): void => {
-        setFilterPanelIsOpen(!filterPanelIsOpen);
-    };
-
     const list = useAppSelector(getAllAssets);
 
-    const [filter, setFilter] = useState<Record<string, unknown>>({});
+    const [filterList, addFilter] = useFilterList();
+
+    const [orderList, addSorting] = useOrderList();
 
     const [getFetchList, fetching] = useFetchMarketplace();
 
-    const addFilter = (constraint: Record<string, unknown>): void => {
-        setFilter({ ...filter, ...constraint });
+    const [filterPanelIsOpen, setFilterPanelIsOpen] = useState<boolean>(false);
+
+    const onToggleAdvancedFilter = (isOpen: boolean): void => {
+        setFilterPanelIsOpen(isOpen);
     };
 
-    const nbOfFiltersApplied = Object.values(filter).filter((e) => e).length;
-
-    const listDisplayed = useMemo(() => {
-        let listClone = [...list];
-
-        Object.keys(filter).forEach((type) => {
-            const value = filter[type];
-
-            const { key, direction } = (value as SortOptionValue) ?? {};
-
-            switch (type) {
-                case 'daysLeft':
-                    listClone = listClone.filter((e) => {
-                        if (!value) return true;
-                        const { updatedAt } = e.listing ?? {};
-                        if (!updatedAt) return false;
-                        const daysLeft = daysLeftForAuction(
-                            Date.now(),
-                            updatedAt
-                        );
-                        return daysLeft <= (value as number);
-                    });
-                    break;
-                case 'orderBy':
-                    listClone = key
-                        ? orderBy(listClone, [key], [direction])
-                        : listClone;
-                    break;
-                default:
-            }
-        });
-
-        return listClone;
-    }, [list, filter]);
+    const listToDisplay = useMemo(
+        () => orderList(filterList(list)),
+        [filterList, list, orderList]
+    );
 
     useEffect(() => {
         (async () => {
@@ -86,13 +52,14 @@ export function Marketplace({ onSelectitem }: Props): JSX.Element {
         <>
             <Row spacing={2}>
                 <AuctionTimeLeftFilter onSelect={addFilter} />
-                <SortingSelection onSelect={addFilter} />
-                <Badge color="error" badgeContent={nbOfFiltersApplied}>
-                    <RoundedBoxFilterIconButton onClick={toggleFilterPanel} />
-                </Badge>
+                <SortingSelection onSelect={addSorting} />
+                <SearchFIlterPanel
+                    onToggle={onToggleAdvancedFilter}
+                    onSelectFilter={addFilter}
+                />
             </Row>
             <AssetList<AssetItem>
-                list={listDisplayed}
+                list={listToDisplay.concat(listToDisplay)}
                 loading={fetching}
                 onSelectitem={onSelectitem}
                 sx={{
@@ -110,10 +77,6 @@ export function Marketplace({ onSelectitem }: Props): JSX.Element {
                     </Row>
                 )}
             </AssetList>
-            <SearchFIlterPanel
-                isOpen={filterPanelIsOpen}
-                onSelectFilter={addFilter}
-            />
         </>
     );
 }

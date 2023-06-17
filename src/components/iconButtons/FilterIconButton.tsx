@@ -26,10 +26,10 @@ export function FilterIconButton({ size, ...props }: Props): JSX.Element {
                     fontSize={size ?? 'small'}
                 />
                 <Typography
-                    capitalized
+                    allCapitalized
                     sx={{ position: 'relative', top: 2 }}
-                    variant="caption"
-                    textId="filter"
+                    variant="body2"
+                    textId="advancedFilters"
                 />
             </Row>
         </IconButton>

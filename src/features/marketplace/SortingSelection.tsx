@@ -1,11 +1,11 @@
 'use client';
 
 import { grey } from '@mui/material/colors';
-import RSelect from 'react-select';
+import ReactSelect from 'react-select';
 import { useTheme } from '@mui/material/styles';
 
 export type SortOptionValue = {
-    key: string;
+    key: 'price' | 'updatedAt';
     direction: 'asc' | 'desc';
 };
 
@@ -14,12 +14,8 @@ type SortOption = {
     value: SortOptionValue;
 };
 
-type Selection = {
-    orderBy?: SortOptionValue;
-};
-
 type Props = {
-    onSelect: (sorting: Selection) => void;
+    onSelect: (option?: SortOptionValue) => void;
 };
 
 const sorting: SortOption[] = [
@@ -33,11 +29,11 @@ const sorting: SortOption[] = [
     },
     {
         label: 'newest first',
-        value: { key: 'listedAt', direction: 'asc' }
+        value: { key: 'updatedAt', direction: 'asc' }
     },
     {
         label: 'newest last',
-        value: { key: 'listedAt', direction: 'desc' }
+        value: { key: 'updatedAt', direction: 'desc' }
     }
 ];
 
@@ -45,13 +41,11 @@ export function SortingSelection({ onSelect }: Props): JSX.Element {
     const theme = useTheme();
 
     const onChange = (option: SortOption | null): void => {
-        onSelect({
-            orderBy: option?.value
-        });
+        onSelect(option?.value);
     };
 
     return (
-        <RSelect
+        <ReactSelect
             isClearable
             options={sorting}
             onChange={onChange}
@@ -64,6 +58,7 @@ export function SortingSelection({ onSelect }: Props): JSX.Element {
                 }),
                 control: (baseStyles) => ({
                     ...baseStyles,
+                    width: 185,
                     borderColor: theme.palette.text.secondary,
                     textTransform: 'capitalize',
                     backgroundColor: theme.palette.common.black,

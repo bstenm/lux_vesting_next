@@ -7,7 +7,7 @@ import { RoundedGreyBox } from 'components/RoundedGreyBox';
 import { defaultAuctionDuration } from 'config';
 
 type Filter = {
-    daysLeft?: number;
+    timeLeft?: number;
 };
 
 type Props = {
@@ -17,33 +17,43 @@ type Props = {
 export function AuctionTimeLeftFilter({ onSelect }: Props): JSX.Element {
     const [filter, setFilter] = useState<Filter>({});
 
-    const toggleDaysLeftFilter = (count: number): void => {
+    const toggleTimeLeftFilter = (value: number): void => {
         const newFilter = {
-            daysLeft: filter.daysLeft !== count ? count : undefined
+            timeLeft: filter.timeLeft !== value ? value : undefined
         };
         setFilter(newFilter);
         onSelect(newFilter);
     };
 
+    const maxDaysLeft = defaultAuctionDuration;
+
+    const auctionMidway = Math.floor(maxDaysLeft / 2);
+
     return (
         <>
             {[
-                1,
-                Math.floor(defaultAuctionDuration / 2),
-                defaultAuctionDuration
-            ].map((count) => {
-                const selected = filter.daysLeft === count;
+                { label: '1 hour', value: 3600 * 1000 },
+                { label: '1 day', value: 24 * 3600 * 1000 },
+                {
+                    label: `${auctionMidway} days`,
+                    value: auctionMidway * 24 * 3600 * 1000
+                },
+                {
+                    label: `${maxDaysLeft} days`,
+                    value: maxDaysLeft * 24 * 3600 * 1000
+                }
+            ].map((e) => {
+                const selected = filter.timeLeft === e.value;
                 return (
                     <RoundedGreyBox
                         sx={{ p: 1, cursor: 'pointer' }}
-                        key={count}
+                        key={e.label}
                         light={selected}
-                        onClick={() => toggleDaysLeftFilter(count)}>
+                        onClick={() => toggleTimeLeftFilter(e.value)}>
                         <Typography
                             color={selected ? 'primary.light' : 'common.white'}
-                            textId={count > 1 ? 'day_other' : 'day_one'}
+                            textId={e.label}
                             variant="body2"
-                            transVars={{ count }}
                         />
                     </RoundedGreyBox>
                 );

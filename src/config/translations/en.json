@@ -252,6 +252,7 @@
    "priceRange": "{{currency}}{{from}} - {{currency}}{{to}}",
    "priceRanges": "price ranges",
    "filter": "filter",
+   "advancedFilters": "advanced filters",
    "submitBid": "submit bid",
    "errorRetrievingMessages": "error while attempting to retrieve messages",
    "enterBid": "enter your bid",
@@ -273,5 +274,7 @@
 	"createdAssets": "created assets",
 	"noItemFound": "no item found",
     "day_one": "{{count}} day",
-    "day_other": "{{count}} days"
+    "day_other": "{{count}} days",
+    "listFilteringError": "Error while filtering asset list",
+    "listOrderingError": "Error while ordering asset list"
 }
