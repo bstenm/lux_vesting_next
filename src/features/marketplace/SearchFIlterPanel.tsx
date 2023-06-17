@@ -53,7 +53,7 @@ export function SearchFIlterPanel({
         <Row
             sx={{
                 top: 150,
-                right: isOpen ? 20 : -305,
+                right: isOpen ? 20 : -285,
                 position: 'fixed',
                 transition: 'all 0.3s ease'
             }}>

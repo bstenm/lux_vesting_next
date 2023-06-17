@@ -20,7 +20,7 @@ export const useFilterList = (): StateLogic => {
         let listClone = [...list];
 
         Object.keys(constraint).forEach((type) => {
-            const value = constraint[type] as number;
+            const value = constraint[type];
 
             if (!value) return;
 
@@ -31,8 +31,15 @@ export const useFilterList = (): StateLogic => {
                         if (!updatedAt) return false;
                         const timeLeft =
                             getAuctionEndTimestamp(updatedAt) - Date.now();
-                        return timeLeft <= value;
+                        return timeLeft <= (value as number);
                     });
+                    break;
+                case 'searchTerm':
+                    listClone = listClone.filter((e) =>
+                        e.name
+                            .toLowerCase()
+                            .includes((value as string).toLowerCase())
+                    );
                     break;
                 default:
             }

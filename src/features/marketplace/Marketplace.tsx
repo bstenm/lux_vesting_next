@@ -16,6 +16,7 @@ import { SortingSelection } from './SortingSelection';
 import { SearchFIlterPanel } from './SearchFIlterPanel';
 import { useFetchMarketplace } from './useFetchMarketplace';
 import { AuctionTimeLeftFilter } from './AuctionTimeLeftFilter';
+import { SearchInput } from './SearchInput';
 
 type Props = {
     onSelectitem: (data: AssetItem) => void;
@@ -53,13 +54,14 @@ export function Marketplace({ onSelectitem }: Props): JSX.Element {
             <Row spacing={2}>
                 <AuctionTimeLeftFilter onSelect={addFilter} />
                 <SortingSelection onSelect={addSorting} />
+                <SearchInput realTime onSubmit={addFilter} />
                 <SearchFIlterPanel
                     onToggle={onToggleAdvancedFilter}
                     onSelectFilter={addFilter}
                 />
             </Row>
             <AssetList<AssetItem>
-                list={listToDisplay.concat(listToDisplay)}
+                list={listToDisplay}
                 loading={fetching}
                 onSelectitem={onSelectitem}
                 sx={{

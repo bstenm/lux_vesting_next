@@ -1,20 +1,41 @@
 import Box from '@mui/material/Box';
+import CloseIcon from '@mui/icons-material/Close';
 import InputBase from '@mui/material/InputBase';
-import { useState } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import IconButton from '@mui/material/IconButton';
+import { debounce } from 'lodash';
+import { useRef, useState } from 'react';
 
-type Props = {
-    onSubmit: (value: string) => void;
+type Filter = {
+    searchTerm?: string;
 };
 
-export function SearchInput({ onSubmit }: Props): JSX.Element {
+type Props = {
+    realTime?: boolean;
+    onSubmit: (filter: Filter) => void;
+};
+
+export function SearchInput({ realTime, onSubmit }: Props): JSX.Element {
+    const ref = useRef<HTMLInputElement>(null);
+
     const [value, setValue] = useState('');
+
+    const reset = (): void => {
+        setValue('');
+        onSubmit({ searchTerm: null });
+    };
+
+    const debounceSearch = debounce((searchTerm: string) => {
+        onSubmit({ searchTerm });
+    }, 300);
 
     const handleChange = ({
         target
     }: React.ChangeEvent<HTMLInputElement>): void => {
         setValue(target.value);
+        if (realTime) {
+            debounceSearch(value);
+        }
     };
 
     return (
@@ -27,6 +48,7 @@ export function SearchInput({ onSubmit }: Props): JSX.Element {
                 alignItems: 'center'
             }}>
             <InputBase
+                ref={ref}
                 sx={{
                     pl: 2,
                     pr: 1,
@@ -34,19 +56,23 @@ export function SearchInput({ onSubmit }: Props): JSX.Element {
                     border: (theme) =>
                         `1px solid ${theme.palette.text.secondary}`,
                     fontSize: 14,
-                    borderRadius: 6
+                    borderRadius: 1
                 }}
                 value={value}
                 onChange={handleChange}
                 inputProps={{ 'aria-label': 'search' }}
                 placeholder="Search…"
                 endAdornment={
-                    <IconButton
-                        sx={{ p: 0.5 }}
-                        onClick={() => onSubmit(value)}
-                        aria-label="search">
-                        <SearchIcon sx={{ color: 'text.secondary' }} />
-                    </IconButton>
+                    realTime ? (
+                        <CloseIcon fontSize="small" onClick={() => reset()} />
+                    ) : (
+                        <IconButton
+                            sx={{ p: 0.5 }}
+                            onClick={() => onSubmit({ searchTerm: value })}
+                            aria-label="search">
+                            <SearchIcon sx={{ color: 'text.secondary' }} />
+                        </IconButton>
+                    )
                 }
             />
         </Box>
