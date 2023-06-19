@@ -17,6 +17,7 @@ import { SearchFIlterPanel } from './SearchFIlterPanel';
 import { useFetchMarketplace } from './useFetchMarketplace';
 import { AuctionTimeLeftFilter } from './AuctionTimeLeftFilter';
 import { SearchInput } from './SearchInput';
+import { PriceRangeInput } from './PriceRangeInput';
 
 type Props = {
     onSelectitem: (data: AssetItem) => void;
@@ -51,8 +52,9 @@ export function Marketplace({ onSelectitem }: Props): JSX.Element {
 
     return (
         <>
-            <Row spacing={2}>
+            <Row spacing={6}>
                 <AuctionTimeLeftFilter onSelect={addFilter} />
+                <PriceRangeInput onSelect={addFilter} />
                 <SortingSelection onSelect={addSorting} />
                 <SearchInput realTime onSubmit={addFilter} />
                 <SearchFIlterPanel

@@ -22,7 +22,7 @@ export function SearchInput({ realTime, onSubmit }: Props): JSX.Element {
 
     const reset = (): void => {
         setValue('');
-        onSubmit({ searchTerm: null });
+        onSubmit({ searchTerm: '' });
     };
 
     const debounceSearch = debounce((searchTerm: string) => {

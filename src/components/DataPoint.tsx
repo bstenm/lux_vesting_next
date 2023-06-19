@@ -3,6 +3,7 @@
 import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
 
 import { Typography } from 'components/Typography';
+
 import { Spinner } from './Spinner';
 
 type Props = React.ComponentProps<typeof Typography> & {

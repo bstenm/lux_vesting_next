@@ -53,30 +53,30 @@ export function SortingSelection({ onSelect }: Props): JSX.Element {
             styles={{
                 placeholder: (baseStyles) => ({
                     ...baseStyles,
-                    color: theme.palette.text.secondary,
-                    fontSize: 13
+                    color: theme.filter.color,
+                    fontSize: theme.filter.fontSize
                 }),
                 control: (baseStyles) => ({
                     ...baseStyles,
-                    width: 185,
-                    borderColor: theme.palette.text.secondary,
+                    width: 190,
+                    border: theme.filter.border,
+                    borderRadius: theme.filter.borderRadius,
                     textTransform: 'capitalize',
-                    backgroundColor: theme.palette.common.black,
-
+                    backgroundColor: theme.filter.bgcolor,
                     '&:hover': {
-                        borderColor: theme.palette.common.white
+                        border: theme.filter.borderHover
                     }
                 }),
                 menuList: (baseStyles) => ({
                     ...baseStyles,
-                    backgroundColor: theme.palette.common.black
+                    backgroundColor: theme.filter.bgcolor
                 }),
                 option: (baseStyles) => ({
                     ...baseStyles,
                     color: theme.palette.text.secondary,
                     fontSize: 13,
                     textTransform: 'capitalize',
-                    backgroundColor: theme.palette.common.black,
+                    backgroundColor: theme.filter.bgcolor,
                     '&:hover': {
                         color: theme.palette.common.white,
                         backgroundColor: grey[900]
@@ -84,8 +84,8 @@ export function SortingSelection({ onSelect }: Props): JSX.Element {
                 }),
                 singleValue: (baseStyles) => ({
                     ...baseStyles,
-                    color: theme.palette.text.secondary,
-                    fontSize: 13
+                    color: theme.filter.color,
+                    fontSize: theme.filter.fontSize
                 }),
                 container: (baseStyles) => ({
                     ...baseStyles,

@@ -1,3 +1,4 @@
+import debounce from 'lodash/debounce';
 import { useState } from 'react';
 
 import { useAction } from 'libs/hooks/useAction';
@@ -15,7 +16,7 @@ type StateLogic = [
 
 export const useFilterList = (): StateLogic => {
     const [constraint, setConstraint] = useState<Filter>({});
-
+    console.log(constraint);
     const action = ({ list }: Args): AssetItem[] => {
         let listClone = [...list];
 
@@ -33,6 +34,16 @@ export const useFilterList = (): StateLogic => {
                             getAuctionEndTimestamp(updatedAt) - Date.now();
                         return timeLeft <= (value as number);
                     });
+                    break;
+                case 'priceRangeTo':
+                    listClone = listClone.filter(
+                        (e) => !value || e.price <= (value as number)
+                    );
+                    break;
+                case 'priceRangeFrom':
+                    listClone = listClone.filter(
+                        (e) => !value || e.price >= (value as number)
+                    );
                     break;
                 case 'searchTerm':
                     listClone = listClone.filter((e) =>
@@ -52,8 +63,9 @@ export const useFilterList = (): StateLogic => {
         error: 'listFilteringError'
     });
 
-    return [
-        (list) => setListToDisplay({ list }),
-        (entry: Filter) => setConstraint(entry)
-    ];
+    const debounceInput = debounce((entry: Filter) => {
+        setConstraint({ ...constraint, ...entry });
+    }, 3000);
+
+    return [(list) => setListToDisplay({ list }), debounceInput];
 };

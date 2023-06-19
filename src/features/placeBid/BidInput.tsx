@@ -1,41 +1,11 @@
 'use client';
 
 import TextField from '@mui/material/TextField';
+import { useState } from 'react';
 import { capitalize } from 'lodash';
-import { forwardRef, useState } from 'react';
+
 import { useTranslate } from 'libs/hooks/useTranslate';
-import { NumericFormat, NumericFormatProps } from 'react-number-format';
-
-import { defaultCurrencySymbol } from 'config';
-
-type NumericFormatCustomProps = {
-    onChange: (event: { target: { value: string } }) => void;
-    name: string;
-};
-
-const NumericFormatCustom = forwardRef<
-    NumericFormatProps,
-    NumericFormatCustomProps
->(function NumericFormatCustom(props, ref) {
-    const { onChange, ...other } = props;
-
-    return (
-        <NumericFormat
-            {...other}
-            getInputRef={ref}
-            onValueChange={(values) =>
-                onChange({
-                    target: {
-                        value: values.value
-                    }
-                })
-            }
-            thousandSeparator
-            valueIsNumericString
-            prefix={`${defaultCurrencySymbol} `}
-        />
-    );
-});
+import { CustomNumericFormat } from 'components/CustomNumericFormat';
 
 type Props = {
     onChange: (value: string) => void;
@@ -55,8 +25,8 @@ export function BidInput({ onChange }: Props): JSX.Element {
             }}
             autoFocus
             onChange={(e) => {
-                onChange(e.target?.value ?? '');
                 setValue(e.target?.value);
+                onChange(e.target?.value ?? '');
             }}
             InputProps={{
                 disableUnderline: true,
@@ -68,7 +38,7 @@ export function BidInput({ onChange }: Props): JSX.Element {
                     borderColor: 'purple'
                 },
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                inputComponent: NumericFormatCustom as any
+                inputComponent: CustomNumericFormat as any
             }}
             variant="standard"
             placeholder={capitalize(t('enterBid'))}

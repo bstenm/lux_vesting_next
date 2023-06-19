@@ -39,7 +39,6 @@ export function AmountInput({
     return (
         <FormControl variant="outlined">
             <Input
-                id="standard-amount"
                 type="number"
                 autoFocus
                 sx={{ pb: 1 }}

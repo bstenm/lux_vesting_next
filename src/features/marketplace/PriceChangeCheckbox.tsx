@@ -28,7 +28,7 @@ export function PriceRangeCheckbox({
                     selected: e.target.checked
                 });
             }}
-            textId="priceRange"
+            textId="priceRangeSelect"
             transVars={{
                 to: range[1],
                 from: range[0],

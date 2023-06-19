@@ -64,6 +64,14 @@ const theme: ThemeOptions = {
             main: '#3C4858',
             contrastText: '#000'
         }
+    },
+    filter: {
+        color: '#CCC',
+        border: '1px solid #CCC',
+        bgcolor: '#000',
+        fontSize: 14,
+        borderHover: '1px solid #FFF',
+        borderRadius: 0
     }
 };
 

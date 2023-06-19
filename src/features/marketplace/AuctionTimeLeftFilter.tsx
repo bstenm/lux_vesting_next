@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Typography } from 'components/Typography';
 import { RoundedGreyBox } from 'components/RoundedGreyBox';
 import { defaultAuctionDuration } from 'config';
+import { Row } from 'components/Row';
 
 type Filter = {
     timeLeft?: number;
@@ -30,7 +31,7 @@ export function AuctionTimeLeftFilter({ onSelect }: Props): JSX.Element {
     const auctionMidway = Math.floor(maxDaysLeft / 2);
 
     return (
-        <>
+        <Row spacing={2}>
             {[
                 { label: '1 hour', value: 3600 * 1000 },
                 { label: '1 day', value: 24 * 3600 * 1000 },
@@ -54,10 +55,11 @@ export function AuctionTimeLeftFilter({ onSelect }: Props): JSX.Element {
                             color={selected ? 'primary.light' : 'common.white'}
                             textId={e.label}
                             variant="body2"
+                            noWrap
                         />
                     </RoundedGreyBox>
                 );
             })}
-        </>
+        </Row>
     );
 }
