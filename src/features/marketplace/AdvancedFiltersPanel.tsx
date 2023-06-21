@@ -8,13 +8,12 @@ import { useState } from 'react';
 
 import { Row } from 'components/Row';
 import { Badge } from 'components/Badge';
+import { IconButton } from 'components/iconButtons/IconButton';
 import { Typography } from 'components/Typography';
 import { FilterIconButton } from 'components/iconButtons/FilterIconButton';
 import { SelectFilterEntry } from 'config/types';
 
-import { IconButton } from 'components/iconButtons/IconButton';
 import { Select } from './Select';
-import { PriceRangeCheckbox } from './PriceChangeCheckbox';
 
 type Props = {
     onToggle: (isOpen: boolean) => void;
@@ -31,14 +30,7 @@ const merchants = [
     { value: 'Lux Vesting', label: 'Lux Vesting' }
 ];
 
-const priceRanges = [
-    [1000, 10000],
-    [10000, 30000],
-    [30000, 50000],
-    [50000, 80000]
-];
-
-export function SearchFIlterPanel({
+export function AdvancedFiltersPanel({
     onToggle,
     onSelectFilter
 }: Props): JSX.Element {
@@ -130,14 +122,6 @@ export function SearchFIlterPanel({
                             opacity: 0.5
                         }}
                     />
-                    {priceRanges.map((range, id) => (
-                        <PriceRangeCheckbox
-                            id={id}
-                            key={range.toString()}
-                            range={range}
-                            onSelect={onSelectFilter}
-                        />
-                    ))}
                 </Stack>
             </Stack>
         </Row>

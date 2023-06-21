@@ -16,7 +16,7 @@ type StateLogic = [
 
 export const useFilterList = (): StateLogic => {
     const [constraint, setConstraint] = useState<Filter>({});
-    console.log(constraint);
+
     const action = ({ list }: Args): AssetItem[] => {
         let listClone = [...list];
 
@@ -65,7 +65,7 @@ export const useFilterList = (): StateLogic => {
 
     const debounceInput = debounce((entry: Filter) => {
         setConstraint({ ...constraint, ...entry });
-    }, 3000);
+    }, 300);
 
     return [(list) => setListToDisplay({ list }), debounceInput];
 };

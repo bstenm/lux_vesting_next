@@ -1,9 +1,11 @@
 'use client';
 
+import { useSearchParams } from 'next/navigation';
 import { useState, useEffect, useMemo } from 'react';
 
 import { Row } from 'components/Row';
 import { AssetItem } from 'config/types/asset';
+import { SearchInput } from 'features/SearchInput';
 import { LightButton } from 'components/buttons/LightButton';
 import { getAllAssets } from 'state/assets/selectors';
 import { PlaceBidButton } from 'features/placeBid/PlaceBidButton';
@@ -13,17 +15,18 @@ import { AssetList } from './AssetList';
 import { useFilterList } from './useFilterList';
 import { useOrderList } from './useOrderList';
 import { SortingSelection } from './SortingSelection';
-import { SearchFIlterPanel } from './SearchFIlterPanel';
-import { useFetchMarketplace } from './useFetchMarketplace';
-import { AuctionTimeLeftFilter } from './AuctionTimeLeftFilter';
-import { SearchInput } from './SearchInput';
 import { PriceRangeInput } from './PriceRangeInput';
+import { useFetchMarketplace } from './useFetchMarketplace';
+import { AdvancedFiltersPanel } from './AdvancedFiltersPanel';
+import { AuctionTimeLeftFilter } from './AuctionTimeLeftFilter';
 
 type Props = {
     onSelectitem: (data: AssetItem) => void;
 };
 
 export function Marketplace({ onSelectitem }: Props): JSX.Element {
+    const searchTerm = useSearchParams().get('query');
+
     const list = useAppSelector(getAllAssets);
 
     const [filterList, addFilter] = useFilterList();
@@ -46,6 +49,9 @@ export function Marketplace({ onSelectitem }: Props): JSX.Element {
     useEffect(() => {
         (async () => {
             await getFetchList();
+            if (searchTerm) {
+                addFilter({ searchTerm });
+            }
         })();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
@@ -54,10 +60,10 @@ export function Marketplace({ onSelectitem }: Props): JSX.Element {
         <>
             <Row spacing={6}>
                 <AuctionTimeLeftFilter onSelect={addFilter} />
+                <SearchInput realTime onSubmit={addFilter} />
                 <PriceRangeInput onSelect={addFilter} />
                 <SortingSelection onSelect={addSorting} />
-                <SearchInput realTime onSubmit={addFilter} />
-                <SearchFIlterPanel
+                <AdvancedFiltersPanel
                     onToggle={onToggleAdvancedFilter}
                     onSelectFilter={addFilter}
                 />

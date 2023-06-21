@@ -6,6 +6,7 @@ import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import { Link } from 'components/Link';
 import { Row } from 'components/Row';
 import { path } from 'config/path';
+import { SearchInput } from 'features/SearchInput';
 import { SignInButton } from 'features/authButton/SignInButton';
 import { useAppSelector } from 'libs/hooks/useAppSelector';
 import { LanguageSelect } from 'components/LanguageSelect';
@@ -19,6 +20,8 @@ export function TopBar(): JSX.Element {
     const userIsAdmin = useAppSelector(isUserAdmin);
 
     const userIsLoggedIn = useAppSelector(isUserLoggedIn);
+
+    const isMarketplace = !!pathname && pathname === path.marketplace;
 
     const isNotHomepage = pathname && pathname !== path.landing;
 
@@ -44,6 +47,7 @@ export function TopBar(): JSX.Element {
                     allCapitalized
                 />
             </Row>
+            {isNotHomepage && !isMarketplace && <SearchInput />}
             <Row alignItems="center" spacing={userIsLoggedIn ? 2 : 4}>
                 {isNotMerchantAssetsPage && isNotHomepage && (
                     <NewListingButton />

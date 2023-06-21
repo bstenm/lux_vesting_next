@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 
+import { path } from 'config/path';
 import { Row } from 'components/Row';
 import { Typography } from 'components/Typography';
-import { path } from 'config/path';
 
 export function NewListingButton(): JSX.Element {
     return (
