@@ -5,11 +5,17 @@ import { useAction } from 'libs/hooks/useAction';
 import { AssetItem } from 'config/types/asset';
 import { getAuctionEndTimestamp } from 'libs/utils';
 
-type Filter = Record<string, unknown>;
+type Filter = {
+    timeLeft?: number;
+    searchTerm?: string;
+    priceRangeTo?: string;
+    priceRangeFrom?: string;
+};
 
 type Args = { list: AssetItem[] };
 
 type StateLogic = [
+    Filter,
     (list: AssetItem[]) => AssetItem[],
     (filter: Filter) => void
 ];
@@ -17,11 +23,13 @@ type StateLogic = [
 export const useFilterList = (): StateLogic => {
     const [constraint, setConstraint] = useState<Filter>({});
 
+    const [realTimeConstraint, setRealTimeConstraint] = useState<Filter>({});
+
     const action = ({ list }: Args): AssetItem[] => {
         let listClone = [...list];
 
         Object.keys(constraint).forEach((type) => {
-            const value = constraint[type];
+            const value = constraint[type as keyof Filter];
 
             if (!value) return;
 
@@ -37,12 +45,12 @@ export const useFilterList = (): StateLogic => {
                     break;
                 case 'priceRangeTo':
                     listClone = listClone.filter(
-                        (e) => !value || e.price <= (value as number)
+                        (e) => e.price <= parseInt(value as string, 10)
                     );
                     break;
                 case 'priceRangeFrom':
                     listClone = listClone.filter(
-                        (e) => !value || e.price >= (value as number)
+                        (e) => e.price >= parseInt(value as string, 10)
                     );
                     break;
                 case 'searchTerm':
@@ -63,9 +71,23 @@ export const useFilterList = (): StateLogic => {
         error: 'listFilteringError'
     });
 
-    const debounceInput = debounce((entry: Filter) => {
-        setConstraint({ ...constraint, ...entry });
+    const debounceAddConstraint = debounce((filter: Filter): void => {
+        setConstraint({ ...constraint, ...filter });
     }, 300);
 
-    return [(list) => setListToDisplay({ list }), debounceInput];
+    const addConstraint = (filter: Filter): void => {
+        // Toggling the timeLeft value  disables this timeLeft filter
+        const { timeLeft } = filter;
+        const timeLeftToggled = timeLeft && constraint.timeLeft === timeLeft;
+        const entry = timeLeftToggled ? { timeLeft: undefined } : filter;
+        // We need that to update the filter values in real time (without debounce)
+        setRealTimeConstraint({ ...realTimeConstraint, ...entry });
+        debounceAddConstraint(entry);
+    };
+
+    const filterList = (list: AssetItem[]): AssetItem[] => {
+        return setListToDisplay({ list });
+    };
+
+    return [realTimeConstraint, filterList, addConstraint];
 };

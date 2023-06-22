@@ -1,34 +1,20 @@
 'use client';
 
-import { useState } from 'react';
-
+import { Row } from 'components/Row';
 import { Typography } from 'components/Typography';
 import { RoundedGreyBox } from 'components/RoundedGreyBox';
 import { defaultAuctionDuration } from 'config';
-import { Row } from 'components/Row';
-
-type Filter = {
-    timeLeft?: number;
-};
 
 type Props = {
-    onSelect: (filter: Filter) => void;
+    selected?: number;
+    onToggle: (value: number) => void;
 };
 
-export function AuctionTimeLeftFilter({ onSelect }: Props): JSX.Element {
-    const [filter, setFilter] = useState<Filter>({});
-
-    const toggleTimeLeftFilter = (value: number): void => {
-        const newFilter = {
-            timeLeft: filter.timeLeft !== value ? value : undefined
-        };
-        setFilter(newFilter);
-        onSelect(newFilter);
-    };
-
-    const maxDaysLeft = defaultAuctionDuration;
-
-    const auctionMidway = Math.floor(maxDaysLeft / 2);
+export function AuctionTimeLeftFilter({
+    selected,
+    onToggle
+}: Props): JSX.Element {
+    const auctionMidway = Math.floor(defaultAuctionDuration / 2);
 
     return (
         <Row spacing={2}>
@@ -40,19 +26,20 @@ export function AuctionTimeLeftFilter({ onSelect }: Props): JSX.Element {
                     value: auctionMidway * 24 * 3600 * 1000
                 },
                 {
-                    label: `${maxDaysLeft} days`,
-                    value: maxDaysLeft * 24 * 3600 * 1000
+                    label: `${defaultAuctionDuration} days`,
+                    value: defaultAuctionDuration * 24 * 3600 * 1000
                 }
             ].map((e) => {
-                const selected = filter.timeLeft === e.value;
+                const isSelected = selected === e.value;
+
                 return (
                     <RoundedGreyBox
                         sx={{ p: 1, cursor: 'pointer' }}
                         key={e.label}
-                        light={selected}
-                        onClick={() => toggleTimeLeftFilter(e.value)}>
+                        light={isSelected}
+                        onClick={() => onToggle(e.value)}>
                         <Typography
-                            color={selected ? 'primary.light' : 'common.white'}
+                            color="common.white"
                             textId={e.label}
                             variant="body2"
                             noWrap

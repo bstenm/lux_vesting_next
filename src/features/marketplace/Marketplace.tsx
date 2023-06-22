@@ -5,13 +5,13 @@ import { useState, useEffect, useMemo } from 'react';
 
 import { Row } from 'components/Row';
 import { AssetItem } from 'config/types/asset';
-import { SearchInput } from 'features/SearchInput';
 import { LightButton } from 'components/buttons/LightButton';
 import { getAllAssets } from 'state/assets/selectors';
 import { PlaceBidButton } from 'features/placeBid/PlaceBidButton';
 import { useAppSelector } from 'libs/hooks/useAppSelector';
 
 import { AssetList } from './AssetList';
+import { SearchInput } from './SearchInput';
 import { useFilterList } from './useFilterList';
 import { useOrderList } from './useOrderList';
 import { SortingSelection } from './SortingSelection';
@@ -25,15 +25,15 @@ type Props = {
 };
 
 export function Marketplace({ onSelectitem }: Props): JSX.Element {
-    const searchTerm = useSearchParams().get('query');
+    const searchQuery = useSearchParams().get('query');
 
     const list = useAppSelector(getAllAssets);
-
-    const [filterList, addFilter] = useFilterList();
 
     const [orderList, addSorting] = useOrderList();
 
     const [getFetchList, fetching] = useFetchMarketplace();
+
+    const [filter, filterList, addFilter] = useFilterList();
 
     const [filterPanelIsOpen, setFilterPanelIsOpen] = useState<boolean>(false);
 
@@ -46,11 +46,14 @@ export function Marketplace({ onSelectitem }: Props): JSX.Element {
         [filterList, list, orderList]
     );
 
+    const addAuctionTimeLeftFilter = (timeLeft?: number): void =>
+        addFilter({ timeLeft });
+
     useEffect(() => {
         (async () => {
             await getFetchList();
-            if (searchTerm) {
-                addFilter({ searchTerm });
+            if (searchQuery) {
+                addFilter({ searchTerm: searchQuery });
             }
         })();
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -59,14 +62,22 @@ export function Marketplace({ onSelectitem }: Props): JSX.Element {
     return (
         <>
             <Row spacing={6}>
-                <AuctionTimeLeftFilter onSelect={addFilter} />
-                <SearchInput realTime onSubmit={addFilter} />
-                <PriceRangeInput onSelect={addFilter} />
+                <AuctionTimeLeftFilter
+                    selected={filter.timeLeft}
+                    onToggle={addAuctionTimeLeftFilter}
+                />
+                <SearchInput input={filter.searchTerm} onSubmit={addFilter} />
+                <PriceRangeInput
+                    toValue={filter.priceRangeTo}
+                    fromValue={filter.priceRangeFrom}
+                    onSelect={addFilter}
+                />
+                {/* <PriceRangeInput onSelect={addFilter} />
                 <SortingSelection onSelect={addSorting} />
                 <AdvancedFiltersPanel
                     onToggle={onToggleAdvancedFilter}
                     onSelectFilter={addFilter}
-                />
+                /> */}
             </Row>
             <AssetList<AssetItem>
                 list={listToDisplay}

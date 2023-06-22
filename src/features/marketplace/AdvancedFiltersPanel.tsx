@@ -2,14 +2,12 @@
 
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
-import Divider from '@mui/material/Divider';
 import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react';
 
 import { Row } from 'components/Row';
 import { Badge } from 'components/Badge';
 import { IconButton } from 'components/iconButtons/IconButton';
-import { Typography } from 'components/Typography';
 import { FilterIconButton } from 'components/iconButtons/FilterIconButton';
 import { SelectFilterEntry } from 'config/types';
 
@@ -109,20 +107,6 @@ export function AdvancedFiltersPanel({
                     onSelect={onSelectFilter}
                     placeholder="select  merchant..."
                 />
-                <Stack spacing={1}>
-                    <Typography
-                        allCapitalized
-                        color="text.disabled"
-                        textId="priceRanges"
-                    />
-                    <Divider
-                        sx={{
-                            width: 100,
-                            bgcolor: 'text.disabled',
-                            opacity: 0.5
-                        }}
-                    />
-                </Stack>
             </Stack>
         </Row>
     );

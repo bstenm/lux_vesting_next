@@ -21,7 +21,7 @@ export function RoundedGreyBox({
                 textAlign: 'center',
                 borderRadius: 2,
                 border: (theme) =>
-                    light ? `1px solid ${theme.palette.primary.light}` : 'none',
+                    light ? `1px solid ${theme.palette.common.white}` : 'none',
                 ...(sx ?? {})
             }}
             {...rest}>
