@@ -1,4 +1,3 @@
-import { flatten, remove } from 'lodash';
 import {
     query,
     where,
@@ -9,8 +8,7 @@ import {
     deleteDoc,
     updateDoc,
     arrayUnion,
-    SetOptions,
-    QueryFieldFilterConstraint
+    SetOptions
 } from 'firebase/firestore';
 
 import {
@@ -43,7 +41,7 @@ import {
 } from 'libs/firebaseApp';
 import { User } from 'config/types/user';
 import { logger } from 'libs/logger';
-import { Message, AssetNotification, SelectFilterEntry } from 'config/types';
+import { Message, AssetNotification } from 'config/types';
 
 const log = logger('Database');
 
@@ -75,57 +73,66 @@ export class DatabaseService {
         return data;
     }
 
-    public static generateFilterCondition(
-        filter: SelectFilterEntry
-    ): QueryFieldFilterConstraint | QueryFieldFilterConstraint[] {
-        const { value, type, name } = filter;
-        switch (type) {
-            case 'range':
-                return value.length === 2
-                    ? [where(name, '>=', value[0]), where(name, '<', value[1])]
-                    : [];
-            case 'multiValues':
-                return value.length ? where(name, 'in', value) : [];
-            case 'singleValue':
-                return value ? where(name, '==', value) : [];
-            default:
-                return [];
-        }
-    }
+    // public static generateFilterCondition(
+    //     filter: SelectFilterEntry
+    // ): QueryFieldFilterConstraint | QueryFieldFilterConstraint[] {
+    //     const { value, type, name } = filter;
+    //     switch (type) {
+    //         case 'range':
+    //             return value.length === 2
+    //                 ? [where(name, '>=', value[0]), where(name, '<', value[1])]
+    //                 : [];
+    //         case 'multiValues':
+    //             return value.length ? where(name, 'in', value) : [];
+    //         case 'singleValue':
+    //             return value ? where(name, '==', value) : [];
+    //         default:
+    //             return [];
+    //     }
+    // }
 
-    public static getFilterConditions(
-        filters: SelectFilterEntry[]
-    ): (QueryFieldFilterConstraint | QueryFieldFilterConstraint[])[][] {
-        const clone = [...filters];
-        const rangeFilters = remove(clone, (filter) => filter.type === 'range');
-        const filtersList = rangeFilters.length
-            ? rangeFilters.map((rangeFilter) => clone.concat(rangeFilter))
-            : [filters];
-        return filtersList.map((filterList) =>
-            filterList.map(this.generateFilterCondition)
-        );
-    }
+    // public static getFilterConditions(
+    //     filters: SelectFilterEntry[]
+    // ): (QueryFieldFilterConstraint | QueryFieldFilterConstraint[])[][] {
+    //     const clone = [...filters];
+    //     const rangeFilters = remove(clone, (filter) => filter.type === 'range');
+    //     const filtersList = rangeFilters.length
+    //         ? rangeFilters.map((rangeFilter) => clone.concat(rangeFilter))
+    //         : [filters];
+    //     return filtersList.map((filterList) =>
+    //         filterList.map(this.generateFilterCondition)
+    //     );
+    // }
 
-    public static async getAllMarketItems(
-        filters: SelectFilterEntry[] = []
-    ): Promise<AssetItem[]> {
-        const filterConditionsList = this.getFilterConditions(filters);
-        const queryConditionsList =
-            filterConditionsList.length === 0 ? [[]] : filterConditionsList;
-        const queryList = queryConditionsList.map((conditions) =>
-            query(
-                assetCollectionRef,
-                where('listing.status', '==', 'approved'),
-                ...flatten(conditions)
-            )
-        );
-        const querySnapshotList = await Promise.all(queryList.map(getDocs));
-        const assetItemList = flatten(
-            querySnapshotList.map((querySnapshot) =>
-                getQuerySnapshotData<AssetItem>(querySnapshot)
-            )
-        );
-        return assetItemList;
+    // public static async getAllMarketItems(
+    //     filters: SelectFilterEntry[] = []
+    // ): Promise<AssetItem[]> {
+    //     const filterConditionsList = this.getFilterConditions(filters);
+    //     const queryConditionsList =
+    //         filterConditionsList.length === 0 ? [[]] : filterConditionsList;
+    //     const queryList = queryConditionsList.map((conditions) =>
+    //         query(
+    //             assetCollectionRef,
+    //             where('listing.status', '==', 'approved'),
+    //             ...flatten(conditions)
+    //         )
+    //     );
+    //     const querySnapshotList = await Promise.all(queryList.map(getDocs));
+    //     const assetItemList = flatten(
+    //         querySnapshotList.map((querySnapshot) =>
+    //             getQuerySnapshotData<AssetItem>(querySnapshot)
+    //         )
+    //     );
+    //     return assetItemList;
+    // }
+
+    public static async getAllMarketItems(): Promise<AssetItem[]> {
+        const isListed = where('listing.status', '==', 'approved');
+        const q = query(assetCollectionRef, isListed);
+        const snap = await getDocs(q);
+        const data = getQuerySnapshotData<AssetItem>(snap);
+        log.debug('Successfully retrieved all listed asset:s:', data);
+        return data;
     }
 
     public static async getMerchantAssets(id: string): Promise<AssetItem[]> {

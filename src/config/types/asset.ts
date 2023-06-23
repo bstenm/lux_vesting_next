@@ -73,6 +73,7 @@ export type AssetAuthenticationStatusData = {
 
 export type AssetItem = Asset & {
     id: string;
+    brand?: string;
     listing?: AssetListingData;
     createdAt: string;
     followers?: string[];

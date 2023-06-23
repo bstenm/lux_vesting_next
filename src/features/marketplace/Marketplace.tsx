@@ -14,8 +14,10 @@ import { AssetList } from './AssetList';
 import { SearchInput } from './SearchInput';
 import { useFilterList } from './useFilterList';
 import { useOrderList } from './useOrderList';
+import { BrandsSelection } from './BrandsSelection';
 import { SortingSelection } from './SortingSelection';
 import { PriceRangeInput } from './PriceRangeInput';
+import { MerchantSelection } from './MerchantSelection';
 import { useFetchMarketplace } from './useFetchMarketplace';
 import { AdvancedFiltersPanel } from './AdvancedFiltersPanel';
 import { AuctionTimeLeftFilter } from './AuctionTimeLeftFilter';
@@ -46,9 +48,6 @@ export function Marketplace({ onSelectitem }: Props): JSX.Element {
         [filterList, list, orderList]
     );
 
-    const addAuctionTimeLeftFilter = (timeLeft?: number): void =>
-        addFilter({ timeLeft });
-
     useEffect(() => {
         (async () => {
             await getFetchList();
@@ -64,7 +63,7 @@ export function Marketplace({ onSelectitem }: Props): JSX.Element {
             <Row spacing={6}>
                 <AuctionTimeLeftFilter
                     selected={filter.timeLeft}
-                    onToggle={addAuctionTimeLeftFilter}
+                    onToggle={addFilter}
                 />
                 <SearchInput input={filter.searchTerm} onSubmit={addFilter} />
                 <PriceRangeInput
@@ -72,12 +71,11 @@ export function Marketplace({ onSelectitem }: Props): JSX.Element {
                     fromValue={filter.priceRangeFrom}
                     onSelect={addFilter}
                 />
-                {/* <PriceRangeInput onSelect={addFilter} />
                 <SortingSelection onSelect={addSorting} />
-                <AdvancedFiltersPanel
-                    onToggle={onToggleAdvancedFilter}
-                    onSelectFilter={addFilter}
-                /> */}
+                <AdvancedFiltersPanel onToggle={onToggleAdvancedFilter}>
+                    <BrandsSelection onSelect={addFilter} />
+                    <MerchantSelection onSelect={addFilter} />
+                </AdvancedFiltersPanel>
             </Row>
             <AssetList<AssetItem>
                 list={listToDisplay}

@@ -9,28 +9,15 @@ import { Row } from 'components/Row';
 import { Badge } from 'components/Badge';
 import { IconButton } from 'components/iconButtons/IconButton';
 import { FilterIconButton } from 'components/iconButtons/FilterIconButton';
-import { SelectFilterEntry } from 'config/types';
-
-import { Select } from './Select';
 
 type Props = {
+    children: React.ReactNode;
     onToggle: (isOpen: boolean) => void;
-    onSelectFilter: (entry: SelectFilterEntry) => void;
 };
 
-const brands = [
-    { value: 'rolex', label: 'rolex' },
-    { value: 'omega', label: 'omega' }
-];
-
-const merchants = [
-    { value: 'Bertrand Steinmetz', label: 'Bertrand Steinmetz' },
-    { value: 'Lux Vesting', label: 'Lux Vesting' }
-];
-
 export function AdvancedFiltersPanel({
-    onToggle,
-    onSelectFilter
+    children,
+    onToggle
 }: Props): JSX.Element {
     const [isOpen, setOpen] = useState<boolean>(false);
 
@@ -93,20 +80,7 @@ export function AdvancedFiltersPanel({
             <Stack
                 sx={{ p: 4, width: 280, bgcolor: '#151515', zIndex: 10 }}
                 spacing={4}>
-                <Select
-                    isMulti
-                    name="brand"
-                    options={brands}
-                    onSelect={onSelectFilter}
-                    placeholder="select  brand..."
-                />
-                <Select
-                    isClearable
-                    name="merchantName"
-                    options={merchants}
-                    onSelect={onSelectFilter}
-                    placeholder="select  merchant..."
-                />
+                {children}
             </Stack>
         </Row>
     );

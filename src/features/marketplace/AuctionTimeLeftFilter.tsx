@@ -5,9 +5,13 @@ import { Typography } from 'components/Typography';
 import { RoundedGreyBox } from 'components/RoundedGreyBox';
 import { defaultAuctionDuration } from 'config';
 
+type TimeLeftFilter = {
+    timeLeft?: number;
+};
+
 type Props = {
     selected?: number;
-    onToggle: (value: number) => void;
+    onToggle: ({ timeLeft }: TimeLeftFilter) => void;
 };
 
 export function AuctionTimeLeftFilter({
@@ -37,7 +41,7 @@ export function AuctionTimeLeftFilter({
                         sx={{ p: 1, cursor: 'pointer' }}
                         key={e.label}
                         light={isSelected}
-                        onClick={() => onToggle(e.value)}>
+                        onClick={() => onToggle({ timeLeft: e.value })}>
                         <Typography
                             color="common.white"
                             textId={e.label}

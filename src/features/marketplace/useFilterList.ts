@@ -4,9 +4,12 @@ import { useState } from 'react';
 import { useAction } from 'libs/hooks/useAction';
 import { AssetItem } from 'config/types/asset';
 import { getAuctionEndTimestamp } from 'libs/utils';
+import { SelectInputMultiValue, SelectInputValue } from 'config/types';
 
 type Filter = {
+    brands?: SelectInputMultiValue['value'];
     timeLeft?: number;
+    merchant?: SelectInputValue['value'];
     searchTerm?: string;
     priceRangeTo?: string;
     priceRangeFrom?: string;
@@ -33,7 +36,7 @@ export const useFilterList = (): StateLogic => {
 
             if (!value) return;
 
-            switch (type) {
+            switch (type as keyof Filter) {
                 case 'timeLeft':
                     listClone = listClone.filter((e) => {
                         const { updatedAt } = e.listing ?? {};
@@ -59,6 +62,22 @@ export const useFilterList = (): StateLogic => {
                             .toLowerCase()
                             .includes((value as string).toLowerCase())
                     );
+                    break;
+                case 'merchant':
+                    listClone = listClone.filter(
+                        (e) =>
+                            e.merchantName.toLowerCase() ===
+                            (value as string).toLowerCase()
+                    );
+                    break;
+                case 'brands':
+                    listClone = listClone.filter((e) => {
+                        if (!(value as string[]).length) return true;
+                        if (!e.brand) return false;
+                        return (value as string[]).includes(
+                            e.brand.toLowerCase()
+                        );
+                    });
                     break;
                 default:
             }
