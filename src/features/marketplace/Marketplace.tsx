@@ -35,7 +35,7 @@ export function Marketplace({ onSelectitem }: Props): JSX.Element {
 
     const [getFetchList, fetching] = useFetchMarketplace();
 
-    const [filter, filterList, addFilter] = useFilterList();
+    const [filter, filterList, addFilter, resetFilter] = useFilterList();
 
     const [filterPanelIsOpen, setFilterPanelIsOpen] = useState<boolean>(false);
 
