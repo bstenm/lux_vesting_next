@@ -5,7 +5,7 @@ import { SelectInputValue } from 'config/types';
 import { Select } from './Select';
 
 type SelectedMerchant = {
-    merchant: SelectInputValue['value'];
+    merchant: SelectInputValue;
 };
 
 type Props = {
@@ -23,8 +23,8 @@ export function MerchantSelection({ onSelect }: Props): JSX.Element {
             isClearable
             name="merchantName"
             options={merchants}
-            onSelect={({ value }) =>
-                onSelect({ merchant: value as SelectInputValue['value'] })
+            onSelect={(value) =>
+                onSelect({ merchant: value as SelectInputValue })
             }
             placeholder="select  merchant..."
         />

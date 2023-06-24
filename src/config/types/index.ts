@@ -83,31 +83,6 @@ export type NotificationItem = AssetNotification & {
     createdAt: string;
 };
 
-export type SelectInputValue = {
-    id: string;
-    type: 'singleValue';
-    value: string | null | Record<string, string>;
-    name: string;
-    selected: boolean;
-};
+export type SelectInputValue = string | null | Record<string, string>;
 
-export type SelectInputMultiValue = {
-    id: string;
-    type: 'multiValues';
-    value: (string | null | Record<string, string>)[];
-    name: string;
-    selected: boolean;
-};
-
-export type SelectInputRange = {
-    id: string;
-    type: 'range';
-    value: number[];
-    name: string;
-    selected: boolean;
-};
-
-export type SelectFilterEntry =
-    | SelectInputValue
-    | SelectInputMultiValue
-    | SelectInputRange;
+export type SelectInputMultiValue = (string | null | Record<string, string>)[];

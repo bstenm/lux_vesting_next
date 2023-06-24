@@ -5,7 +5,7 @@ import { SelectInputMultiValue } from 'config/types';
 import { Select } from './Select';
 
 type Filter = {
-    brands: SelectInputMultiValue['value'];
+    brands: SelectInputMultiValue;
 };
 
 type Props = {
@@ -23,8 +23,8 @@ export function BrandsSelection({ onSelect }: Props): JSX.Element {
             isMulti
             name="brand"
             options={brands}
-            onSelect={({ value }) =>
-                onSelect({ brands: value as SelectInputMultiValue['value'] })
+            onSelect={(value) =>
+                onSelect({ brands: value as SelectInputMultiValue })
             }
             placeholder="select  brand..."
         />

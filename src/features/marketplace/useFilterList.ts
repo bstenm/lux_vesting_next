@@ -7,9 +7,9 @@ import { getAuctionEndTimestamp } from 'libs/utils';
 import { SelectInputMultiValue, SelectInputValue } from 'config/types';
 
 type Filter = {
-    brands?: SelectInputMultiValue['value'];
+    brands?: SelectInputMultiValue;
     timeLeft?: number;
-    merchant?: SelectInputValue['value'];
+    merchant?: SelectInputValue;
     searchTerm?: string;
     priceRangeTo?: string;
     priceRangeFrom?: string;

@@ -31,22 +31,8 @@ export function Select({
             onChange={(option) => {
                 onSelect(
                     rest.isMulti
-                        ? {
-                              id: name,
-                              type: 'multiValues',
-                              selected: true,
-                              value: (option as Option[]).map(
-                                  (entry) => entry.value
-                              ),
-                              name
-                          }
-                        : {
-                              id: name,
-                              selected: true,
-                              type: 'singleValue',
-                              value: (option as Option)?.value,
-                              name
-                          }
+                        ? (option as Option[]).map((entry) => entry.value)
+                        : (option as Option)?.value
                 );
             }}
             styles={{
