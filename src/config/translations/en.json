@@ -277,5 +277,8 @@
     "day_one": "{{count}} day",
     "day_other": "{{count}} days",
     "listFilteringError": "Error while filtering asset list",
-    "listOrderingError": "Error while ordering asset list"
+    "listOrderingError": "Error while ordering asset list",
+    "clearFilters": "clear filters",
+    "priceFrom": "price from",
+    "priceTo": "price to"
 }

@@ -31,7 +31,7 @@ export function ChatRoomPanel({
     onClose
 }: Props): JSX.Element {
     const { text, send, fetching, messages, submitting, handleTextChange } =
-        useChatRoom(to, from, asset.id, asset.name);
+        useChatRoom(to, from, asset.id);
 
     return (
         <StandardDrawer open={open} onClose={onClose}>

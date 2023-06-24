@@ -5,10 +5,12 @@ import { useState, useEffect, useMemo } from 'react';
 
 import { Row } from 'components/Row';
 import { AssetItem } from 'config/types/asset';
+import { Typography } from 'components/Typography';
 import { LightButton } from 'components/buttons/LightButton';
 import { getAllAssets } from 'state/assets/selectors';
 import { PlaceBidButton } from 'features/placeBid/PlaceBidButton';
 import { useAppSelector } from 'libs/hooks/useAppSelector';
+import { RoundedGreyBox } from 'components/RoundedGreyBox';
 
 import { AssetList } from './AssetList';
 import { SearchInput } from './SearchInput';
@@ -72,9 +74,25 @@ export function Marketplace({ onSelectitem }: Props): JSX.Element {
                     onSelect={addFilter}
                 />
                 <SortingSelection onSelect={addSorting} />
+                <RoundedGreyBox
+                    sx={{ cursor: 'pointer' }}
+                    onClick={resetFilter}>
+                    <Typography
+                        sx={{ py: 1, px: 2, fontSize: 14 }}
+                        textId="clearFilters"
+                        noWrap
+                        allCapitalized
+                    />
+                </RoundedGreyBox>
                 <AdvancedFiltersPanel onToggle={onToggleAdvancedFilter}>
-                    <BrandsSelection onSelect={addFilter} />
-                    <MerchantSelection onSelect={addFilter} />
+                    <BrandsSelection
+                        selected={filter.brands}
+                        onSelect={addFilter}
+                    />
+                    <MerchantSelection
+                        selected={filter.merchant}
+                        onSelect={addFilter}
+                    />
                 </AdvancedFiltersPanel>
             </Row>
             <AssetList<AssetItem>

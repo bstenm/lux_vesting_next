@@ -15,6 +15,15 @@ type Filter = {
     priceRangeFrom?: string;
 };
 
+const initialFilter: Filter = {
+    brands: [],
+    timeLeft: undefined,
+    merchant: undefined,
+    searchTerm: '',
+    priceRangeTo: '',
+    priceRangeFrom: ''
+};
+
 type Args = { list: AssetItem[] };
 
 type StateLogic = [
@@ -110,7 +119,8 @@ export const useFilterList = (): StateLogic => {
     };
 
     const resetFilter = (): void => {
-        setConstraint({});
+        setRealTimeConstraint(initialFilter);
+        setConstraint(initialFilter);
     };
 
     return [realTimeConstraint, filterList, addConstraint, resetFilter];

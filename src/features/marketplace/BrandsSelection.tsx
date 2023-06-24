@@ -10,6 +10,7 @@ type Filter = {
 
 type Props = {
     onSelect: (filter: Filter) => void;
+    selected?: SelectInputMultiValue;
 };
 
 const brands = [
@@ -17,10 +18,16 @@ const brands = [
     { value: 'omega', label: 'omega' }
 ];
 
-export function BrandsSelection({ onSelect }: Props): JSX.Element {
+export function BrandsSelection({
+    selected = [],
+    onSelect
+}: Props): JSX.Element {
+    const input = brands.filter((e) => selected.includes(e.value));
+
     return (
         <Select
             isMulti
+            value={input}
             name="brand"
             options={brands}
             onSelect={(value) =>

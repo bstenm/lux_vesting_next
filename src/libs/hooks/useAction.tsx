@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import { logger } from 'libs/logger';
 import { useAlert } from 'features/alert/useAlert';
 import { HookOptions } from 'config/types';

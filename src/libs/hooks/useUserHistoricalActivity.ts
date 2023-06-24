@@ -1,11 +1,10 @@
 import {
     query,
-    addDoc,
+    // addDoc,
     collection,
     Firestore,
     getFirestore,
     DocumentData,
-    WithFieldValue,
     SnapshotOptions,
     FirestoreDataConverter,
     QueryDocumentSnapshot
@@ -15,8 +14,8 @@ import { useAlert } from 'features/alert/useAlert';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 import {
-    getDocSnapshotData,
-    setRecordWithIdAndDate
+    getDocSnapshotData
+    // setRecordWithIdAndDate
 } from 'libs/firestoreUtils';
 import {
     UserHistoricalActivity,
@@ -40,9 +39,7 @@ type StateLogic = {
 };
 
 const activityConverter: FirestoreDataConverter<UserHistoricalActivityItem> = {
-    toFirestore(
-        activity: WithFieldValue<UserHistoricalActivityItem>
-    ): DocumentData {
+    toFirestore(activity: UserHistoricalActivityItem): DocumentData {
         return pick(activity, ['title', 'item', 'amount', 'createdAt']);
     },
     fromFirestore(
@@ -85,10 +82,9 @@ export const useUserHistoricalActivity = ({
         }
     }
 
-    const addActivityAction = async (
-        record: UserHistoricalActivity
-    ): Promise<void> => {
-        await addDoc(userActivityRef, setRecordWithIdAndDate(record));
+    const addActivityAction = async (): // record: UserHistoricalActivity
+    Promise<void> => {
+        // await addDoc(userActivityRef, setRecordWithIdAndDate(record));
     };
 
     const [addActivity, adding] = useAsyncAction<UserHistoricalActivity, void>(

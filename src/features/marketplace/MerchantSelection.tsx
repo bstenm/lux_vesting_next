@@ -10,6 +10,7 @@ type SelectedMerchant = {
 
 type Props = {
     onSelect: ({ merchant }: SelectedMerchant) => void;
+    selected?: SelectInputValue;
 };
 
 const merchants = [
@@ -17,10 +18,13 @@ const merchants = [
     { value: 'Lux Vesting', label: 'Lux Vesting' }
 ];
 
-export function MerchantSelection({ onSelect }: Props): JSX.Element {
+export function MerchantSelection({ selected, onSelect }: Props): JSX.Element {
+    const input = merchants.filter((e) => selected === e.value);
+
     return (
         <Select
             isClearable
+            value={input}
             name="merchantName"
             options={merchants}
             onSelect={(value) =>

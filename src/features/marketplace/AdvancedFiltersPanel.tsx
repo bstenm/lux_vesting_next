@@ -2,8 +2,8 @@
 
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
-import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react';
+import ChevronRight from '@mui/icons-material/ExpandMore';
 
 import { Row } from 'components/Row';
 import { Badge } from 'components/Badge';
@@ -45,9 +45,8 @@ export function AdvancedFiltersPanel({
                 {isOpen ? (
                     <IconButton
                         sx={{
-                            p: 1,
-                            pb: 3,
-                            color: 'text.disabled',
+                            p: 0.5,
+                            color: 'text.secondary',
                             bgcolor: '#151515',
                             borderRadius: 1,
                             '&:hover': {
@@ -56,7 +55,7 @@ export function AdvancedFiltersPanel({
                             }
                         }}
                         onClick={togglePanel}>
-                        <CloseIcon fontSize="medium" />
+                        <ChevronRight fontSize="large" />
                     </IconButton>
                 ) : (
                     <Badge color="error" badgeContent={0}>

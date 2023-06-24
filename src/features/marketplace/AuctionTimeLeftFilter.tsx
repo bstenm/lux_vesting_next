@@ -1,5 +1,6 @@
 'use client';
 
+import { useTheme } from '@mui/material';
 import Box from '@mui/material/Box';
 
 import { Row } from 'components/Row';
@@ -19,6 +20,8 @@ export function AuctionTimeLeftFilter({
     selected,
     onToggle
 }: Props): JSX.Element {
+    const theme = useTheme();
+
     const auctionMidway = Math.floor(defaultAuctionDuration / 2);
 
     return (
@@ -42,19 +45,16 @@ export function AuctionTimeLeftFilter({
                         sx={{
                             p: 0.8,
                             cursor: 'pointer',
-                            border: (theme) =>
-                                `1px solid ${
-                                    isSelected
-                                        ? theme.palette.text.disabled
-                                        : theme.palette.text.disabled
-                                }`
+                            border: isSelected
+                                ? `1px solid ${theme.palette.text.disabled}`
+                                : theme.filter.border
                         }}
                         key={e.label}
                         onClick={() => onToggle({ timeLeft: e.value })}>
                         <Typography
                             bold={isSelected}
                             color={
-                                isSelected ? 'common.white' : 'text.secondary'
+                                isSelected ? 'common.white' : theme.filter.color
                             }
                             textId={e.label}
                             variant="body2"

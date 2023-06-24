@@ -19,14 +19,13 @@ type StateLogic = {
 export const useChatRoom = (
     to: string,
     from: string,
-    assetId: string,
-    assetName: string
+    assetId: string
 ): StateLogic => {
     const [text, setText] = useState<string>('');
 
     const [messages, fetching] = useFetchChat(to, from, assetId);
 
-    const [sendMessage, submitting] = useSendMessage(to, assetId, assetName);
+    const [sendMessage, submitting] = useSendMessage(to, assetId);
 
     const handleTextChange = (value: string): void => {
         setText(value);
