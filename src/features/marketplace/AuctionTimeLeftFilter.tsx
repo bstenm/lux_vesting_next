@@ -1,8 +1,9 @@
 'use client';
 
+import Box from '@mui/material/Box';
+
 import { Row } from 'components/Row';
 import { Typography } from 'components/Typography';
-import { RoundedGreyBox } from 'components/RoundedGreyBox';
 import { defaultAuctionDuration } from 'config';
 
 type TimeLeftFilter = {
@@ -21,7 +22,7 @@ export function AuctionTimeLeftFilter({
     const auctionMidway = Math.floor(defaultAuctionDuration / 2);
 
     return (
-        <Row spacing={2}>
+        <Row spacing={2} alignItems="center">
             {[
                 { label: '1 hour', value: 3600 * 1000 },
                 { label: '1 day', value: 24 * 3600 * 1000 },
@@ -37,18 +38,29 @@ export function AuctionTimeLeftFilter({
                 const isSelected = selected === e.value;
 
                 return (
-                    <RoundedGreyBox
-                        sx={{ p: 1, cursor: 'pointer' }}
+                    <Box
+                        sx={{
+                            p: 0.8,
+                            cursor: 'pointer',
+                            border: (theme) =>
+                                `1px solid ${
+                                    isSelected
+                                        ? theme.palette.text.disabled
+                                        : theme.palette.text.disabled
+                                }`
+                        }}
                         key={e.label}
-                        light={isSelected}
                         onClick={() => onToggle({ timeLeft: e.value })}>
                         <Typography
-                            color="common.white"
+                            bold={isSelected}
+                            color={
+                                isSelected ? 'common.white' : 'text.secondary'
+                            }
                             textId={e.label}
                             variant="body2"
                             noWrap
                         />
-                    </RoundedGreyBox>
+                    </Box>
                 );
             })}
         </Row>

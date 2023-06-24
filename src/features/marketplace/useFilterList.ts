@@ -20,7 +20,8 @@ type Args = { list: AssetItem[] };
 type StateLogic = [
     Filter,
     (list: AssetItem[]) => AssetItem[],
-    (filter: Filter) => void
+    (filter: Filter) => void,
+    () => void
 ];
 
 export const useFilterList = (): StateLogic => {
@@ -90,6 +91,10 @@ export const useFilterList = (): StateLogic => {
         error: 'listFilteringError'
     });
 
+    const filterList = (list: AssetItem[]): AssetItem[] => {
+        return setListToDisplay({ list });
+    };
+
     const debounceAddConstraint = debounce((filter: Filter): void => {
         setConstraint({ ...constraint, ...filter });
     }, 300);
@@ -104,9 +109,9 @@ export const useFilterList = (): StateLogic => {
         debounceAddConstraint(entry);
     };
 
-    const filterList = (list: AssetItem[]): AssetItem[] => {
-        return setListToDisplay({ list });
+    const resetFilter = (): void => {
+        setConstraint({});
     };
 
-    return [realTimeConstraint, filterList, addConstraint];
+    return [realTimeConstraint, filterList, addConstraint, resetFilter];
 };
