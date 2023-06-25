@@ -11,14 +11,19 @@ import { useWeb3 } from './useWeb3';
 type Props = {
     action?: string;
     children: JSX.Element | JSX.Element[];
+    fullscreen?: boolean;
 };
 
-export function ProtectedComponent({ action, children }: Props): JSX.Element {
+export function ProtectedComponent({
+    action,
+    children,
+    fullscreen
+}: Props): JSX.Element {
     const { login, loggedIn, processing, initializing } = useWeb3();
 
     if (!loggedIn) {
         return (
-            <Centered>
+            <Centered fullscreen={fullscreen}>
                 <LightButton
                     sx={{ width: 250 }}
                     onClick={login}

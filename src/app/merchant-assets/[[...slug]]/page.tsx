@@ -7,8 +7,6 @@ import { AssetItem } from 'config/types/asset';
 import { PlaceBidButton } from 'features/placeBid/PlaceBidButton';
 import { ListingStatusView } from 'features/merchantAssetCard/ManageListingStatusButton';
 import { MerchantAssetList } from 'features/merchantAssetList/MerchantAssetList';
-import { FloatingAddButton } from 'components/FloatingAddButton';
-import { AddNewAssetModal } from 'features/addNewAssetModal/AddNewAssetModal';
 import { ProtectedComponent } from 'features/authButton/ProtectedComponent';
 import { ComponentWithSelectedAssetInDrawer } from 'layouts/ComponentWithSelectedAssetInDrawer';
 
@@ -19,7 +17,7 @@ function MerchantAssetsPage(): JSX.Element {
 
     const List = useCallback(
         (onSelectitem: (data: AssetItem) => void) => (
-            <ProtectedComponent action="accessPrivateArea">
+            <ProtectedComponent fullscreen action="accessPrivateArea">
                 <MerchantAssetList
                     assetId={assetId}
                     openView={action as ListingStatusView}
@@ -31,17 +29,10 @@ function MerchantAssetsPage(): JSX.Element {
     );
 
     return (
-        <>
-            <ComponentWithSelectedAssetInDrawer
-                Actions={PlaceBidButton}
-                MainComponent={List}
-            />
-            <AddNewAssetModal openOnLoad={action === 'addNewAsset'}>
-                {(handleOpenModal) => (
-                    <FloatingAddButton onClick={handleOpenModal} />
-                )}
-            </AddNewAssetModal>
-        </>
+        <ComponentWithSelectedAssetInDrawer
+            Actions={PlaceBidButton}
+            MainComponent={List}
+        />
     );
 }
 

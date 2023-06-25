@@ -16,6 +16,7 @@ import { LanguageSelect } from 'components/LanguageSelect';
 import { NewListingButton } from 'features/NewListingButton';
 import { NotificationDrawer } from 'features/notifications/NotificationDrawer';
 import { isUserAdmin, isUserLoggedIn } from 'state/user/selectors';
+import { AddNewAssetModalButton } from 'features/addNewAssetModal/AddNewAssetModalButton';
 
 export function TopBar(): JSX.Element {
     const { logout } = useWeb3();
@@ -29,9 +30,6 @@ export function TopBar(): JSX.Element {
     const isMarketplace = !!pathname && pathname === path.marketplace;
 
     const isNotHomepage = pathname && pathname !== path.landing;
-
-    const isNotMerchantAssetsPage =
-        pathname?.split('/')[1] !== path.merchantAssets.split('/')[1];
 
     return (
         <Row justifyContent="space-between">
@@ -59,8 +57,12 @@ export function TopBar(): JSX.Element {
             </Row>
             {isNotHomepage && !isMarketplace && <SearchInput />}
             <Row alignItems="center" spacing={userIsLoggedIn ? 2 : 4}>
-                {isNotMerchantAssetsPage && isNotHomepage && (
-                    <NewListingButton />
+                {isNotHomepage && (
+                    <AddNewAssetModalButton>
+                        {(handleOpenModal) => (
+                            <NewListingButton onClick={handleOpenModal} />
+                        )}
+                    </AddNewAssetModalButton>
                 )}
                 {userIsLoggedIn && isNotHomepage && (
                     <Row spacing={2} alignItems="center">

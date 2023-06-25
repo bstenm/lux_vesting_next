@@ -1,13 +1,16 @@
-import Link from 'next/link';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 
-import { path } from 'config/path';
 import { Row } from 'components/Row';
 import { Typography } from 'components/Typography';
+import { IconButton } from 'components/iconButtons/IconButton';
 
-export function NewListingButton(): JSX.Element {
+type Props = {
+    onClick: () => void;
+};
+
+export function NewListingButton({ onClick }: Props): JSX.Element {
     return (
-        <Link href={`${path.merchantAssets}/addNewAsset`}>
+        <IconButton onClick={onClick}>
             <Row
                 spacing={0.8}
                 alignItems="center"
@@ -24,6 +27,6 @@ export function NewListingButton(): JSX.Element {
                     allCapitalized
                 />
             </Row>
-        </Link>
+        </IconButton>
     );
 }
