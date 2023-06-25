@@ -2,8 +2,6 @@ import {
     query,
     // addDoc,
     collection,
-    Firestore,
-    getFirestore,
     DocumentData,
     SnapshotOptions,
     FirestoreDataConverter,
@@ -21,8 +19,8 @@ import {
     UserHistoricalActivity,
     UserHistoricalActivityItem
 } from 'config/types/user';
+import { db } from 'libs/firebaseApp';
 import { getUserId } from 'state/user/selectors';
-import { firebaseApp } from 'libs/firebaseApp';
 import { useAppSelector } from 'libs/hooks/useAppSelector';
 import { useAsyncAction } from 'libs/hooks/useAsyncAction';
 
@@ -61,8 +59,6 @@ export const useUserHistoricalActivity = ({
     const userId = useAppSelector(getUserId);
 
     const { errorAlert } = useAlert();
-
-    const db: Firestore = getFirestore(firebaseApp);
 
     const userActivityRef = collection(
         db,
