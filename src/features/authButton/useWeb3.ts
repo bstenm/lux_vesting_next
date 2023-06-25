@@ -16,6 +16,7 @@ import { RecordNotFoundError } from 'libs/customErrors';
 
 type AuthLogic = {
     login: () => Promise<void>;
+    logout: () => Promise<void>;
     loggedIn: boolean;
     initializing: boolean;
     processing: boolean;
@@ -37,10 +38,9 @@ export const useWeb3 = (): AuthLogic => {
         dispatch(userActions.setInfo({ ...user, balance: 0 }));
     };
 
-    const logInAction = async (): Promise<void> => {
+    const loginAction = async (): Promise<void> => {
         // Open web3 provider login popup
         const account = await web3Service.login();
-        // const account = '0xa3695e336335FbD01DfAF3E9f6Fd546ff66F990d';
         // Retrieve the user info from the database if exists
         const storedUser: User = await DatabaseService.getUserById(account);
         // Get the user info stored by web3 provider after login
@@ -56,6 +56,11 @@ export const useWeb3 = (): AuthLogic => {
         dispatch(userActions.setInfo({ ...userData, balance }));
     };
 
+    const logoutAction = async (): Promise<void> => {
+        await web3Service.logout();
+        dispatch(userActions.setInfo({}));
+    };
+
     const [initialize] = useAsyncAction<void, void>(
         async () => web3Service.init(),
         {
@@ -64,10 +69,14 @@ export const useWeb3 = (): AuthLogic => {
         }
     );
 
-    const [login, processing] = useAsyncAction<void, void>(logInAction, {
+    const [login, processing] = useAsyncAction<void, void>(loginAction, {
         error: 'loginError',
         onError: (e) =>
             e instanceof RecordNotFoundError ? 'recordNotFound' : 'loginError'
+    });
+
+    const [logout] = useAsyncAction<void, void>(logoutAction, {
+        error: 'logoutError'
     });
 
     const [getUserData] = useAsyncAction<void, void>(setUserData, {
@@ -90,5 +99,5 @@ export const useWeb3 = (): AuthLogic => {
 
     const initializing = web3Service.getInitializing();
 
-    return { login, loggedIn, initializing, processing };
+    return { login, logout, loggedIn, initializing, processing };
 };

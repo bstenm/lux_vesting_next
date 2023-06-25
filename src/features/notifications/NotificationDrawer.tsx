@@ -25,18 +25,20 @@ export function NotificationDrawer(): JSX.Element {
         setOpen(!open);
     };
 
+    const nbOfNotification = userNotifications?.length;
+
     return (
         <Box>
             <OpenNotificationsButton
                 onClick={toggleOpen}
-                nbOfNotifications={userNotifications.length}
+                nbOfNotifications={nbOfNotification}
             />
             {open && (
                 <StandardDrawer
                     open={open}
-                    noData={!userNotifications.length}
+                    noData={!nbOfNotification}
                     onClose={toggleOpen}
-                    transparent={!!userNotifications.length}
+                    transparent={!!nbOfNotification}
                     noDataMessage="noNotifications">
                     <Stack sx={{ mt: 4 }}>
                         {userNotifications.map((notification) => (

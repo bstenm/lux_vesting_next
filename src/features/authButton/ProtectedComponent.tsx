@@ -18,7 +18,7 @@ export function ProtectedComponent({ action, children }: Props): JSX.Element {
 
     if (!loggedIn) {
         return (
-            <Centered fullscreen>
+            <Centered>
                 <LightButton
                     sx={{ width: 250 }}
                     onClick={login}

@@ -21,5 +21,5 @@ export const useRealTimeFetchCollection = <T extends Record<string, unknown>>(
         throw new Error(error.message);
     }
 
-    return [items as T[], fetching];
+    return [(items as T[]) ?? [], fetching];
 };
