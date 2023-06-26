@@ -1,5 +1,4 @@
 import HomeIcon from '@mui/icons-material/Home';
-import PersonIcon from '@mui/icons-material/Person';
 import { grey, purple } from '@mui/material/colors';
 import { usePathname } from 'next/navigation';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
@@ -7,20 +6,17 @@ import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import { Link } from 'components/Link';
 import { Row } from 'components/Row';
 import { path } from 'config/path';
-import { useWeb3 } from 'features/authButton/useWeb3';
-import { IconButton } from 'components/iconButtons/IconButton';
 import { SearchInput } from 'features/SearchInput';
 import { SignInButton } from 'features/authButton/SignInButton';
 import { useAppSelector } from 'libs/hooks/useAppSelector';
 import { LanguageSelect } from 'components/LanguageSelect';
+import { UserMenuButton } from 'features/userMenu/UserMenuButton';
 import { NewListingButton } from 'features/NewListingButton';
 import { NotificationDrawer } from 'features/notifications/NotificationDrawer';
 import { isUserAdmin, isUserLoggedIn } from 'state/user/selectors';
 import { AddNewAssetModalButton } from 'features/addNewAssetModal/AddNewAssetModalButton';
 
 export function TopBar(): JSX.Element {
-    const { logout } = useWeb3();
-
     const pathname = usePathname();
 
     const userIsAdmin = useAppSelector(isUserAdmin);
@@ -67,9 +63,7 @@ export function TopBar(): JSX.Element {
                 {userIsLoggedIn && isNotHomepage && (
                     <Row spacing={2} alignItems="center">
                         <NotificationDrawer />
-                        <IconButton onClick={() => logout()}>
-                            <PersonIcon sx={{ color: 'primary.light' }} />
-                        </IconButton>
+                        <UserMenuButton />
                     </Row>
                 )}
                 {!userIsLoggedIn && isNotHomepage && <SignInButton />}
