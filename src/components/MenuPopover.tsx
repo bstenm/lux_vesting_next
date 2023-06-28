@@ -18,7 +18,7 @@ export function MenuPopover(
                 zIndex: 6000,
                 '& .MuiMenu-paper': {
                     border: '1px solid #3C4858',
-                    bgcolor: '#151515'
+                    bgcolor: '#252525'
                 }
             }}
             id="menu-appbar"

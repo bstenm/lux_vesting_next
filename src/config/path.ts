@@ -4,6 +4,7 @@ export const path: Record<string, string> = {
     landing: '/',
     notFound: '/not-found',
     contactUs: '/contact-us',
+    sendEmail: '/api/email',
     whoWeAre: '/who-we-are',
     loyaltyTiers: '/loyalty-tiers',
     marketplace: '/marketplace',
