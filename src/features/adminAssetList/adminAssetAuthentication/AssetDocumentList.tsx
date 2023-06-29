@@ -1,9 +1,9 @@
 'use client';
 
-import { Row } from 'components/Row';
-import { MediaItem } from 'components/MediaItem';
-import { Typography } from 'components/Typography';
-import { AssetMediaMetadataItem } from 'config/types/asset';
+import { Row } from '@/components/Row';
+import { MediaItem } from '@/components/MediaItem';
+import { Typography } from '@/components/Typography';
+import { AssetMediaMetadataItem } from '@/config/types/asset';
 
 type Props = {
     documents: AssetMediaMetadataItem[];

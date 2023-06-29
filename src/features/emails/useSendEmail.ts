@@ -1,16 +1,11 @@
-import { path } from 'config/path';
-import { logger } from 'libs/logger';
-import { SITE_URL } from 'config/constants';
-import { HookOptions } from 'config/types';
-import { useAsyncAction } from 'libs/hooks/useAsyncAction';
-import { EmailTemplate } from 'app/api/email/route';
+import { path } from '@/config/path';
+import { logger } from '@/libs/logger';
+import { SITE_URL } from '@/config/constants';
+import { HookOptions } from '@/config/types';
+import { SendEmailBody } from '@/app/api/email/route';
+import { useAsyncAction } from '@/libs/hooks/useAsyncAction';
 
-type Args = {
-    to: string;
-    template: keyof EmailTemplate;
-};
-
-type HookLogic = [(args: Args) => void, boolean];
+type HookLogic = [(args: SendEmailBody) => void, boolean];
 
 const log = logger('Send Email');
 
@@ -22,7 +17,7 @@ export const useSendEmail = ({
 
     const error = 'errorSendingEmail';
 
-    const action = async (args: Args): Promise<void> => {
+    const action = async (args: SendEmailBody): Promise<void> => {
         log.debug('Sending email to', args.to);
 
         const body = JSON.stringify(args);
@@ -38,5 +33,9 @@ export const useSendEmail = ({
         log.debug('Successfully sent  email to ', args.to);
     };
 
-    return useAsyncAction<Args, void>(action, { error, silent, throws });
+    return useAsyncAction<SendEmailBody, void>(action, {
+        error,
+        silent,
+        throws
+    });
 };

@@ -3,14 +3,14 @@
 import { useSearchParams } from 'next/navigation';
 import { useState, useEffect, useMemo } from 'react';
 
-import { Row } from 'components/Row';
-import { AssetItem } from 'config/types/asset';
-import { Typography } from 'components/Typography';
-import { LightButton } from 'components/buttons/LightButton';
-import { getAllAssets } from 'state/assets/selectors';
-import { PlaceBidButton } from 'features/placeBid/PlaceBidButton';
-import { useAppSelector } from 'libs/hooks/useAppSelector';
-import { RoundedGreyBox } from 'components/RoundedGreyBox';
+import { Row } from '@/components/Row';
+import { AssetItem } from '@/config/types/asset';
+import { Typography } from '@/components/Typography';
+import { LightButton } from '@/components/buttons/LightButton';
+import { getAllAssets } from '@/state/assets/selectors';
+import { PlaceBidButton } from '@/features/placeBid/PlaceBidButton';
+import { useAppSelector } from '@/libs/hooks/useAppSelector';
+import { RoundedGreyBox } from '@/components/RoundedGreyBox';
 
 import { AssetList } from './AssetList';
 import { SearchInput } from './SearchInput';

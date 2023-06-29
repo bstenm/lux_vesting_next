@@ -3,7 +3,7 @@
 import Box from '@mui/material/Box';
 import Stack, { StackProps } from '@mui/material/Stack';
 
-import { AssetItem } from 'config/types/asset';
+import { AssetItem } from '@/config/types/asset';
 
 import { AssetDocumentList } from './AssetDocumentList';
 import { AdminAssetAuthenticationFormCheckbox } from './AdminAssetAuthenticationFormCheckbox';

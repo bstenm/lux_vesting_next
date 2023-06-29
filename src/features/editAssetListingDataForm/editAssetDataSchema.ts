@@ -9,7 +9,7 @@ import {
     maxWristLength,
     minAssetDescription,
     maxAssetDescription
-} from 'config/formValues';
+} from '@/config/formValues';
 
 export const editAssetDataSchema = yup
     .object({

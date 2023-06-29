@@ -1,5 +1,5 @@
-import { useWeb3 } from 'features/authButton/useWeb3';
-import { MenuPopover, MenuPopoverItem } from 'components/MenuPopover';
+import { useWeb3 } from '@/features/authButton/useWeb3';
+import { MenuPopover, MenuPopoverItem } from '@/components/MenuPopover';
 
 type Props = {
     anchorEl: HTMLButtonElement | null;

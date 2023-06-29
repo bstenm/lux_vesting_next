@@ -1,8 +1,8 @@
-import { logger } from 'libs/logger';
-import { useAlert } from 'features/alert/useAlert';
-import { HookOptions } from 'config/types';
-import { HookActionError } from 'libs/customErrors';
-import { getErrorMessage } from 'libs/getErrorMessage';
+import { logger } from '@/libs/logger';
+import { useAlert } from '@/features/alert/useAlert';
+import { HookOptions } from '@/config/types';
+import { HookActionError } from '@/libs/customErrors';
+import { getErrorMessage } from '@/libs/getErrorMessage';
 
 type StateLogic<T, V> = [(args: T) => V];
 

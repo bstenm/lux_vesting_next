@@ -1,8 +1,8 @@
 'use client';
 
-import { Modal } from 'components/Modal';
-import { RedButton } from 'components/buttons/RedButton';
-import { ButtonWithModal } from 'components/ButtonWithModal';
+import { Modal } from '@/components/Modal';
+import { RedButton } from '@/components/buttons/RedButton';
+import { ButtonWithModal } from '@/components/ButtonWithModal';
 
 import { useCallback } from 'react';
 import { DenialNotesForm } from './DenialNotesForm';

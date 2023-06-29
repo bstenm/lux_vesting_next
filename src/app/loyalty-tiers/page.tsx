@@ -5,14 +5,14 @@ import { grey } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
 import Stack from '@mui/material/Stack';
 import Card from '@mui/material/Card';
-import { useTranslate } from 'libs/hooks/useTranslate';
+import { useTranslate } from '@/libs/hooks/useTranslate';
 
-import { Tier } from 'config/types';
-import { Row } from 'components/Row';
-import { Caption } from 'components/Caption';
-import { Typography } from 'components/Typography';
-import { StandardPage } from 'components/StandardPage';
-import { loyaltyBenefits } from 'config/loyaltyBenefits';
+import { Tier } from '@/config/types';
+import { Row } from '@/components/Row';
+import { Caption } from '@/components/Caption';
+import { Typography } from '@/components/Typography';
+import { StandardPage } from '@/components/StandardPage';
+import { loyaltyBenefits } from '@/config/loyaltyBenefits';
 
 const tiers: { name: Tier; pic: string }[] = [
     { name: 'silver', pic: '/assets/tiers/gold.png' },

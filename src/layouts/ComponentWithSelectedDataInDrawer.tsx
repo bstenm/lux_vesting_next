@@ -4,10 +4,10 @@ import Typography from '@mui/material/Typography';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { useCallback, useState } from 'react';
 
-import { Row } from 'components/Row';
-import { menuActions } from 'state/menu/menuSlice';
-import { useAppDispatch } from 'libs/hooks/useAppDispatch';
-import { StandardDrawer } from 'components/StandardDrawer';
+import { Row } from '@/components/Row';
+import { menuActions } from '@/state/menu/menuSlice';
+import { useAppDispatch } from '@/libs/hooks/useAppDispatch';
+import { StandardDrawer } from '@/components/StandardDrawer';
 
 const Fade = styled('div')<{ out: number }>`
     animation: ${(props) => (props.out ? 'fadeOut' : 'fadeIn')} 0.3s linear;

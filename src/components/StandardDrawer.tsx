@@ -7,7 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import Drawer, { DrawerProps } from '@mui/material/Drawer';
 
-import { BigMutedMessage } from 'components/typography/BigMutedMessage';
+import { BigMutedMessage } from '@/components/typography/BigMutedMessage';
 
 import { Centered } from './Centered';
 

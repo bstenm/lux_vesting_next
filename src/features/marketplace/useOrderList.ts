@@ -1,8 +1,8 @@
 import { orderBy } from 'lodash';
 import { useState } from 'react';
 
-import { useAction } from 'libs/hooks/useAction';
-import { AssetItem } from 'config/types/asset';
+import { useAction } from '@/libs/hooks/useAction';
+import { AssetItem } from '@/config/types/asset';
 
 import { SortOptionValue } from './SortingSelection';
 

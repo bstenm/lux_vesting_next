@@ -1,10 +1,10 @@
 'use client';
 
 import capitalize from 'lodash/capitalize';
-import { useTranslate } from 'libs/hooks/useTranslate';
+import { useTranslate } from '@/libs/hooks/useTranslate';
 
-import { alertActions } from 'state/alert/alertSlice';
-import { useAppDispatch } from 'libs/hooks/useAppDispatch';
+import { alertActions } from '@/state/alert/alertSlice';
+import { useAppDispatch } from '@/libs/hooks/useAppDispatch';
 
 type StateLogic = {
     infoAlert: (messageId: string) => void;

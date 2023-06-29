@@ -3,11 +3,11 @@
 import Box from '@mui/material/Box';
 import SaveIcon from '@mui/icons-material/Save';
 
-import { Row } from 'components/Row';
-import { Button } from 'components/buttons/Button';
-import { SortableList } from 'features/sortableList/SortableList';
-import { DarkButton } from 'components/buttons/DarkButton';
-import { MediaType, AssetMediaMetadataItem } from 'config/types/asset';
+import { Row } from '@/components/Row';
+import { Button } from '@/components/buttons/Button';
+import { SortableList } from '@/features/sortableList/SortableList';
+import { DarkButton } from '@/components/buttons/DarkButton';
+import { MediaType, AssetMediaMetadataItem } from '@/config/types/asset';
 
 import { SortableMediaItem } from './SortableMediaItem';
 import { useSortableMediaList } from './useSortableMediaList';

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { Modal } from 'components/Modal';
+import { Modal } from '@/components/Modal';
 
 type Props = Omit<React.ComponentProps<typeof Modal>, 'children'> & {
     button: (handleOpen: () => void) => React.ReactNode;

@@ -4,8 +4,8 @@ import TextField from '@mui/material/TextField';
 import { capitalize } from 'lodash';
 import { ChangeEvent } from 'react';
 
-import { useTranslate } from 'libs/hooks/useTranslate';
-import { CustomNumericFormat } from 'components/CustomNumericFormat';
+import { useTranslate } from '@/libs/hooks/useTranslate';
+import { CustomNumericFormat } from '@/components/CustomNumericFormat';
 
 type Props = {
     label: string;

@@ -2,8 +2,8 @@
 
 import Box, { BoxProps } from '@mui/material/Box';
 
-import { Image } from 'components/Image';
-import { AssetMediaMetadata } from 'config/types/asset';
+import { Image } from '@/components/Image';
+import { AssetMediaMetadata } from '@/config/types/asset';
 
 type Props = BoxProps & {
     data: AssetMediaMetadata;

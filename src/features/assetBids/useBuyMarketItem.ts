@@ -1,9 +1,9 @@
 'use client';
 
-import { HookOptions } from 'config/types';
-import { useAsyncAction } from 'libs/hooks/useAsyncAction';
-import { useUpdateAssetData } from 'libs/hooks/useUpdateAssetData';
-import { useUpdateAssetStatus } from 'libs/hooks/useUpdateAssetStatus';
+import { HookOptions } from '@/config/types';
+import { useAsyncAction } from '@/libs/hooks/useAsyncAction';
+import { useUpdateAssetData } from '@/libs/hooks/useUpdateAssetData';
+import { useUpdateAssetStatus } from '@/libs/hooks/useUpdateAssetStatus';
 
 import { useFetchUserData } from './useFetchUserData';
 

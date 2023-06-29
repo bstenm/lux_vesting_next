@@ -1,9 +1,9 @@
 'use client';
 
-import { AssetItem } from 'config/types/asset';
-import { ChatRoomPanel } from 'features/chatRoomPanel/ChatRoomPanel';
-import { StandardDrawer } from 'components/StandardDrawer';
-import { ModalForbidden } from 'components/ModalForbidden';
+import { AssetItem } from '@/config/types/asset';
+import { ChatRoomPanel } from '@/features/chatRoomPanel/ChatRoomPanel';
+import { StandardDrawer } from '@/components/StandardDrawer';
+import { ModalForbidden } from '@/components/ModalForbidden';
 
 import { AssetBidsPanel } from './AssetBidsPanel';
 import { useAssetBidsDrawer } from './useAssetBidsDrawer';

@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from 'components/buttons/Button';
+import { Button } from '@/components/buttons/Button';
 
 type Props = React.ComponentProps<typeof Button> & {
     textId: string;

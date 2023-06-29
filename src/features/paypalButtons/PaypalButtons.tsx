@@ -7,9 +7,9 @@ import {
     usePayPalScriptReducer
 } from '@paypal/react-paypal-js';
 
-import { usePaypal } from 'features/paypalButtons/usePaypal';
-import { CenteredSpinner } from 'components/CenteredSpinner';
-import { defaultCurrency } from 'config';
+import { usePaypal } from '@/features/paypalButtons/usePaypal';
+import { CenteredSpinner } from '@/components/CenteredSpinner';
+import { defaultCurrency } from '@/config';
 
 type PaypalButtonsProps = {
     amount: number;

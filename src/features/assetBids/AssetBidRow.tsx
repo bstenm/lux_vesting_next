@@ -3,12 +3,12 @@
 import ListItem from '@mui/material/ListItem';
 import { useEffect, useState } from 'react';
 
-import { Bid } from 'config/types/asset';
-import { Row } from 'components/Row';
-import { Spinner } from 'components/Spinner';
-import { DarkButton } from 'components/buttons/DarkButton';
-import { Typography } from 'components/Typography';
-import { defaultCurrencySymbol } from 'config';
+import { Bid } from '@/config/types/asset';
+import { Row } from '@/components/Row';
+import { Spinner } from '@/components/Spinner';
+import { DarkButton } from '@/components/buttons/DarkButton';
+import { Typography } from '@/components/Typography';
+import { defaultCurrencySymbol } from '@/config';
 
 import { useFetchUserData } from './useFetchUserData';
 

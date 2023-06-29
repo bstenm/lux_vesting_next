@@ -11,15 +11,15 @@ import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { useFormContext } from 'react-hook-form';
 import { useCallback, useState } from 'react';
 
-import { Row } from 'components/Row';
-import PdfIcon from 'assets/pdf.svg';
-import { Image } from 'components/Image';
-import { useAlert } from 'features/alert/useAlert';
-import { MediaType } from 'config/types/asset';
-import { Typography } from 'components/Typography';
-import { FormHelperText } from 'components/FormHelperText';
-import { FileTooLargeError } from 'libs/customErrors';
-import { allowedFileMimes, fileMaxSize } from 'config';
+import { Row } from '@/components/Row';
+import PdfIcon from '@/assets/pdf.svg';
+import { Image } from '@/components/Image';
+import { useAlert } from '@/features/alert/useAlert';
+import { MediaType } from '@/config/types/asset';
+import { Typography } from '@/components/Typography';
+import { FormHelperText } from '@/components/FormHelperText';
+import { FileTooLargeError } from '@/libs/customErrors';
+import { allowedFileMimes, fileMaxSize } from '@/config';
 
 type Props = {
     textId?: string;

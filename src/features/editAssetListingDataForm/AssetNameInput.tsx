@@ -2,7 +2,7 @@
 
 import Box from '@mui/material/Box';
 
-import { TextInput } from 'components/TextInput';
+import { TextInput } from '@/components/TextInput';
 
 type Props = {
     disabled: boolean;

@@ -6,8 +6,8 @@ import IconButton from '@mui/material/IconButton';
 import { useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 
-import { Link } from 'components/Link';
-import { path } from 'config/path';
+import { Link } from '@/components/Link';
+import { path } from '@/config/path';
 
 type Filter = {
     searchTerm?: string;

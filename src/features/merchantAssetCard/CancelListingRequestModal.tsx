@@ -1,9 +1,9 @@
 'use client';
 
-import { useUpdateAssetStatus } from 'libs/hooks/useUpdateAssetStatus';
+import { useUpdateAssetStatus } from '@/libs/hooks/useUpdateAssetStatus';
 
-import { useAppSelector } from 'libs/hooks/useAppSelector';
-import { getUserId } from 'state/user/selectors';
+import { useAppSelector } from '@/libs/hooks/useAppSelector';
+import { getUserId } from '@/state/user/selectors';
 import { CancelRequestModal } from './CancelRequestModal';
 
 type Props = {

@@ -2,11 +2,11 @@
 
 import Box from '@mui/material/Box';
 
-import { Row } from 'components/Row';
-import { MediaType } from 'config/types/asset';
-import { DarkButton } from 'components/buttons/DarkButton';
-import { DropFileArea } from 'features/dropFileArea/DropFileArea';
-import { BigMutedMessage } from 'components/typography/BigMutedMessage';
+import { Row } from '@/components/Row';
+import { MediaType } from '@/config/types/asset';
+import { DarkButton } from '@/components/buttons/DarkButton';
+import { DropFileArea } from '@/features/dropFileArea/DropFileArea';
+import { BigMutedMessage } from '@/components/typography/BigMutedMessage';
 
 import { ReorderButton } from './ReorderButton';
 import { UploadedMediaItem } from './UploadedMediaItem';

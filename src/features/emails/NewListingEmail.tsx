@@ -12,9 +12,9 @@ import {
     Text
 } from '@react-email/components';
 
-import { path } from 'config/path';
-import { siteTitle } from 'config';
-import { SITE_URL } from 'config/constants';
+import { path } from '@/config/path';
+import { siteTitle } from '@/config';
+import { SITE_URL } from '@/config/constants';
 
 const main = {
     backgroundColor: '#f6f9fc',

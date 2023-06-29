@@ -1,7 +1,7 @@
 'use client';
 
-import { BidIcon } from 'components/icons/BidIcon';
-import { IconButton } from 'components/iconButtons/IconButton';
+import { BidIcon } from '@/components/icons/BidIcon';
+import { IconButton } from '@/components/iconButtons/IconButton';
 
 type Props = React.ComponentProps<typeof IconButton> & {
     size?: number;

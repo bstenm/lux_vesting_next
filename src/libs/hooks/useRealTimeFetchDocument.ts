@@ -1,8 +1,8 @@
 import { useDocumentData } from 'react-firebase-hooks/firestore';
 import { DocumentReference } from 'firebase/firestore';
 
-import { useAlert } from 'features/alert/useAlert';
-import { HookOptions } from 'config/types';
+import { useAlert } from '@/features/alert/useAlert';
+import { HookOptions } from '@/config/types';
 
 type StateLogic<T> = [T, boolean];
 

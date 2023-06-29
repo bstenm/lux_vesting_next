@@ -1,11 +1,11 @@
 /* eslint no-console: 0 */
-import { getErrorMessage } from 'libs/getErrorMessage';
+import { getErrorMessage } from '@/libs/getErrorMessage';
 import {
     DEV_MODE,
     PROD_MODE,
     SHOW_RENDERED,
     IS_TEST_NETWORK
-} from 'config/constants';
+} from '@/config/constants';
 
 export type Logger = Record<string, (...args: unknown[]) => void>;
 

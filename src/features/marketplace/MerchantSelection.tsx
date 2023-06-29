@@ -1,6 +1,6 @@
 'use client';
 
-import { SelectInputValue } from 'config/types';
+import { SelectInputValue } from '@/config/types';
 
 import { Select } from './Select';
 

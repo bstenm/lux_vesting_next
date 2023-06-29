@@ -1,7 +1,7 @@
 'use client';
 
-import { Modal } from 'components/Modal';
-import { ProtectedComponent } from 'features/authButton/ProtectedComponent';
+import { Modal } from '@/components/Modal';
+import { ProtectedComponent } from '@/features/authButton/ProtectedComponent';
 
 import { AddNewAssetForm } from './AddNewAssetForm';
 

@@ -1,11 +1,11 @@
 'use client';
 
-import { Row } from 'components/Row';
-import { Checkbox } from 'components/Checkbox';
-import { AssetItem } from 'config/types/asset';
-import { Typography } from 'components/Typography';
-import { BoxedSpinner } from 'components/BoxedSpinner';
-import { useUpdateAssetData } from 'libs/hooks/useUpdateAssetData';
+import { Row } from '@/components/Row';
+import { Checkbox } from '@/components/Checkbox';
+import { AssetItem } from '@/config/types/asset';
+import { Typography } from '@/components/Typography';
+import { BoxedSpinner } from '@/components/BoxedSpinner';
+import { useUpdateAssetData } from '@/libs/hooks/useUpdateAssetData';
 
 type Required<T> = {
     [P in keyof T]-?: T[P];

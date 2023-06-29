@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from 'react';
 
-import { Typography } from 'components/Typography';
-import { timeLeftForAuction } from 'libs/utils';
+import { Typography } from '@/components/Typography';
+import { timeLeftForAuction } from '@/libs/utils';
 
 type Props = {
     startedAt: number;

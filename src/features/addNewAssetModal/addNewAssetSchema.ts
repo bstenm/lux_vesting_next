@@ -2,8 +2,8 @@
 
 import { TestFunction } from 'yup';
 
-import { yupLocale as yup } from 'config/yup';
-import { isValidPictureFileType } from 'libs/utils';
+import { yupLocale as yup } from '@/config/yup';
+import { isValidPictureFileType } from '@/libs/utils';
 
 export const addNewAssetSchema = yup
     .object({

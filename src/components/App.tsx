@@ -13,13 +13,13 @@ import * as locales from '@mui/material/locale';
 import CssBaseline from '@mui/material/CssBaseline';
 import { useTranslation } from 'react-i18next';
 
-import { store } from 'redux/store';
-import { Layout } from 'layouts/Layout';
-import { defaultLng } from 'config';
-import { AlertSnackbar } from 'features/alert/AlertSnackbar';
-import { AddFundsDrawer } from 'features/addFunds/AddFundsDrawer';
-import { LangContext, LangContextType } from 'libs/contexts';
-import 'config/i18n';
+import { store } from '@/redux/store';
+import { Layout } from '@/layouts/Layout';
+import { defaultLng } from '@/config';
+import { AlertSnackbar } from '@/features/alert/AlertSnackbar';
+import { AddFundsDrawer } from '@/features/addFunds/AddFundsDrawer';
+import { LangContext, LangContextType } from '@/libs/contexts';
+import '@/config/i18n';
 
 type Props = {
     children: React.ReactNode;

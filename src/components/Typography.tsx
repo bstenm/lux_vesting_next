@@ -3,7 +3,7 @@
 import capitalize from 'lodash/capitalize';
 import startCase from 'lodash/startCase';
 import MuiTypography from '@mui/material/Typography';
-import { useTranslate } from 'libs/hooks/useTranslate';
+import { useTranslate } from '@/libs/hooks/useTranslate';
 
 type Props = React.ComponentProps<typeof MuiTypography> & {
     title?: string;

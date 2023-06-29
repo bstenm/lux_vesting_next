@@ -2,7 +2,7 @@
 
 import { styled } from '@mui/material/styles';
 
-import { Button } from 'components/buttons/Button';
+import { Button } from '@/components/buttons/Button';
 
 const StyledButton = styled(Button)(
     ({ theme }) => `

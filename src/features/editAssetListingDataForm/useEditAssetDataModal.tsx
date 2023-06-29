@@ -1,20 +1,20 @@
 'use client';
 
-import { useAlert } from 'features/alert/useAlert';
+import { useAlert } from '@/features/alert/useAlert';
 import { useEffect } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm, UseFormReturn } from 'react-hook-form';
 
-import { logger } from 'libs/logger';
-import { RootState } from 'redux/store';
-import { useAppSelector } from 'libs/hooks/useAppSelector';
-import { useAsyncAction } from 'libs/hooks/useAsyncAction';
-import { getAssetData } from 'state/assets/selectors';
-import { useUpdateAssetData } from 'libs/hooks/useUpdateAssetData';
-import { EditAssetDataFormInput } from 'config/types/asset';
+import { logger } from '@/libs/logger';
+import { RootState } from '@/redux/store';
+import { useAppSelector } from '@/libs/hooks/useAppSelector';
+import { useAsyncAction } from '@/libs/hooks/useAsyncAction';
+import { getAssetData } from '@/state/assets/selectors';
+import { useUpdateAssetData } from '@/libs/hooks/useUpdateAssetData';
+import { EditAssetDataFormInput } from '@/config/types/asset';
 
-import { useUpdateAssetStatus } from 'libs/hooks/useUpdateAssetStatus';
-import { getUserId } from 'state/user/selectors';
+import { useUpdateAssetStatus } from '@/libs/hooks/useUpdateAssetStatus';
+import { getUserId } from '@/state/user/selectors';
 import { editAssetDataSchema } from './editAssetDataSchema';
 
 type StateLogic = {

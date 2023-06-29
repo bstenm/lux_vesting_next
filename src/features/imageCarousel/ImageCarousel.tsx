@@ -9,8 +9,8 @@ import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import { styled, useTheme } from '@mui/material/styles';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 
-import { AssetMediaMetadata } from 'config/types/asset';
-import { BrokenImagePlaceholder } from 'components/BrokenImagePlaceholder';
+import { AssetMediaMetadata } from '@/config/types/asset';
+import { BrokenImagePlaceholder } from '@/components/BrokenImagePlaceholder';
 
 import { ImageCarouselItem } from './ImageCarouselItem';
 

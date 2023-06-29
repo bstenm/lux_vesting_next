@@ -1,7 +1,7 @@
-import { getUserId } from 'state/user/selectors';
-import { userActions } from 'state/user/userSlice';
-import { HookOptions } from 'config/types';
-import { DatabaseService } from 'services/DatabaseService';
+import { getUserId } from '@/state/user/selectors';
+import { userActions } from '@/state/user/userSlice';
+import { HookOptions } from '@/config/types';
+import { DatabaseService } from '@/services/DatabaseService';
 
 import { useAsyncAction } from './useAsyncAction';
 import { useAppSelector } from './useAppSelector';

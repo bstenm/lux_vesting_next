@@ -3,8 +3,8 @@
 import Grid from '@mui/material/Grid';
 import { FormProvider } from 'react-hook-form';
 
-import { Row } from 'components/Row';
-import { LightButton } from 'components/buttons/LightButton';
+import { Row } from '@/components/Row';
+import { LightButton } from '@/components/buttons/LightButton';
 
 import { useContractForm } from './useContactForm';
 import { ContactFormField } from './ContactFormField';

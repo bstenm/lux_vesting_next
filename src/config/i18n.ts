@@ -11,9 +11,9 @@ import HttpBackend from 'i18next-http-backend';
 // import resourcesToBackend from 'i18next-resources-to-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-import { DEV_MODE } from 'config/constants';
+import { DEV_MODE } from '@/config/constants';
 import { initReactI18next } from 'react-i18next';
-import { languages, defaultLng } from 'config';
+import { languages, defaultLng } from '@/config';
 
 // const defaultNS = 'translation';
 

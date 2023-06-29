@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { MediaType } from 'config/types/asset';
+import { MediaType } from '@/config/types/asset';
 
 import { UploadMedia } from './UploadMedia';
 import { SortableMediaList } from './SortableMediaList';

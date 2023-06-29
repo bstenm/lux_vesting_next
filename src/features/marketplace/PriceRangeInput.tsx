@@ -5,8 +5,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import { ChangeEvent } from 'react';
 import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
 
-import { Row } from 'components/Row';
-import { AmountInput } from 'features/marketplace/AmountInput';
+import { Row } from '@/components/Row';
+import { AmountInput } from '@/features/marketplace/AmountInput';
 
 type Filter = { priceRangeTo?: string } | { priceRangeFrom?: string };
 

@@ -10,9 +10,9 @@ import {
     QueryDocumentSnapshot
 } from 'firebase/firestore';
 import pick from 'lodash/pick';
-import { firebaseApp } from 'libs/firebaseApp';
+import { firebaseApp } from '@/libs/firebaseApp';
 
-import { Message, NotificationItem, AssetNotification } from 'config/types';
+import { Message, NotificationItem, AssetNotification } from '@/config/types';
 
 const db: Firestore = getFirestore(firebaseApp);
 

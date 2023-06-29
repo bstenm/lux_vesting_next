@@ -1,10 +1,10 @@
 'use client';
 
 import { useTheme } from '@mui/material/styles';
-import { useTranslate } from 'libs/hooks/useTranslate';
+import { useTranslate } from '@/libs/hooks/useTranslate';
 import MuiButton, { ButtonProps } from '@mui/material/Button';
 
-import { Spinner } from 'components/Spinner';
+import { Spinner } from '@/components/Spinner';
 
 type Props = ButtonProps & {
     textId?: string;

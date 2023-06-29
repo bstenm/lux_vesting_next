@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm, SubmitHandler, UseFormReturn } from 'react-hook-form';
 
-import { ContactFormInput } from 'config/types';
+import { ContactFormInput } from '@/config/types';
 
 import { contactFormSchema } from './contactFormSchema';
 

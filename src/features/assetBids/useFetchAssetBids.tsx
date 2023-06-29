@@ -2,10 +2,10 @@
 
 import { query, Query } from 'firebase/firestore';
 
-import { BidItem } from 'config/types/asset';
-import { HookOptions } from 'config/types';
-import { getBidCollectionRef } from 'libs/firebaseApp';
-import { useRealTimeFetchCollection } from 'libs/hooks/useRealTimeFetchCollection';
+import { BidItem } from '@/config/types/asset';
+import { HookOptions } from '@/config/types';
+import { getBidCollectionRef } from '@/libs/firebaseApp';
+import { useRealTimeFetchCollection } from '@/libs/hooks/useRealTimeFetchCollection';
 
 type StateLogic = [BidItem[], boolean];
 
@@ -20,11 +20,11 @@ export const useFetchAssetBids = (
     );
 
 // TODO: Remove?
-// import { assetsActions } from 'state/assets/assetsSlice';
-// import { biddingService } from 'services/BiddingService';
-// import { BidItem, HookOptions } from 'config/types';
+// import { assetsActions } from '@/state/assets/assetsSlice';
+// import { biddingService } from '@/services/BiddingService';
+// import { BidItem, HookOptions } from '@/config/types';
 
-// import { DatabaseService } from 'services/DatabaseService';
+// import { DatabaseService } from '@/services/DatabaseService';
 // import { useAsyncAction } from './useAsyncAction';
 // import { useAppDispatch } from './useAppDispatch';
 

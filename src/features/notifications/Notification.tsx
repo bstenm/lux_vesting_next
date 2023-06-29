@@ -5,14 +5,14 @@ import { Stack } from '@mui/material';
 import { Trans } from 'react-i18next';
 import { useTheme } from '@mui/material/styles';
 
-import { Row } from 'components/Row';
-import { Spinner } from 'components/Spinner';
-import { getUserId } from 'state/user/selectors';
-import { formatDate } from 'libs/utils';
-import { Typography } from 'components/Typography';
-import { useAppSelector } from 'libs/hooks/useAppSelector';
-import { defaultCurrencySymbol } from 'config';
-import { NotificationItem, StatusChangeNotificationData } from 'config/types';
+import { Row } from '@/components/Row';
+import { Spinner } from '@/components/Spinner';
+import { getUserId } from '@/state/user/selectors';
+import { formatDate } from '@/libs/utils';
+import { Typography } from '@/components/Typography';
+import { useAppSelector } from '@/libs/hooks/useAppSelector';
+import { defaultCurrencySymbol } from '@/config';
+import { NotificationItem, StatusChangeNotificationData } from '@/config/types';
 
 import { useDeleteNotification } from './useDeleteNotification';
 import { NotificationLinkButton } from './NotificationLinkButton';

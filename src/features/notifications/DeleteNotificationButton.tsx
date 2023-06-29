@@ -3,7 +3,7 @@
 import { grey } from '@mui/material/colors';
 import DeleteIcon from '@mui/icons-material/HighlightOff';
 
-import { IconButton } from 'components/iconButtons/IconButton';
+import { IconButton } from '@/components/iconButtons/IconButton';
 
 type Props = {
     onClick: () => void;

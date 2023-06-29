@@ -2,11 +2,11 @@
 
 import { useState } from 'react';
 
-import { Modal } from 'components/Modal';
+import { Modal } from '@/components/Modal';
 import { useRouter } from 'next/navigation';
-import { ProtectedComponent } from 'features/authButton/ProtectedComponent';
+import { ProtectedComponent } from '@/features/authButton/ProtectedComponent';
 
-import { path } from 'config/path';
+import { path } from '@/config/path';
 import { AddNewAssetForm } from './AddNewAssetForm';
 
 type Props = {

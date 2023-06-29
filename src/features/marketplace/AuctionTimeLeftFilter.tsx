@@ -3,9 +3,9 @@
 import { useTheme } from '@mui/material';
 import Box from '@mui/material/Box';
 
-import { Row } from 'components/Row';
-import { Typography } from 'components/Typography';
-import { defaultAuctionDuration } from 'config';
+import { Row } from '@/components/Row';
+import { Typography } from '@/components/Typography';
+import { defaultAuctionDuration } from '@/config';
 
 type TimeLeftFilter = {
     timeLeft?: number;

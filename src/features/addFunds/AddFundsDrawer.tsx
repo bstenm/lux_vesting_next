@@ -1,7 +1,7 @@
 'use client';
 
-import { AddFundsPanel } from 'features/addFunds/AddFundsPanel';
-import { StandardDrawer } from 'components/StandardDrawer';
+import { AddFundsPanel } from '@/features/addFunds/AddFundsPanel';
+import { StandardDrawer } from '@/components/StandardDrawer';
 
 import { useAddFundsDrawer } from './useAddFundsDrawer';
 

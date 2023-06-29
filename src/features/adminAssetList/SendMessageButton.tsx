@@ -2,12 +2,12 @@
 
 import { useState } from 'react';
 
-import { getUserId } from 'state/user/selectors';
-import { AssetItem } from 'config/types/asset';
-import { useAppSelector } from 'libs/hooks/useAppSelector';
-import { ChatRoomPanel } from 'features/chatRoomPanel/ChatRoomPanel';
-import { ModalForbidden } from 'components/ModalForbidden';
-import { CommentIconButton } from 'components/iconButtons/CommentIconButton';
+import { getUserId } from '@/state/user/selectors';
+import { AssetItem } from '@/config/types/asset';
+import { useAppSelector } from '@/libs/hooks/useAppSelector';
+import { ChatRoomPanel } from '@/features/chatRoomPanel/ChatRoomPanel';
+import { ModalForbidden } from '@/components/ModalForbidden';
+import { CommentIconButton } from '@/components/iconButtons/CommentIconButton';
 
 type Props = {
     to: string;

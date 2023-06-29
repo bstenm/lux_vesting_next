@@ -4,9 +4,9 @@ import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import { useState } from 'react';
 
-import { getUserId } from 'state/user/selectors';
-import { StandardDrawer } from 'components/StandardDrawer';
-import { useAppSelector } from 'libs/hooks/useAppSelector';
+import { getUserId } from '@/state/user/selectors';
+import { StandardDrawer } from '@/components/StandardDrawer';
+import { useAppSelector } from '@/libs/hooks/useAppSelector';
 
 import { Notification } from './Notification';
 import { useFetchNotifications } from './useFetchNotifications';

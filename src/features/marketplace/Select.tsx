@@ -4,7 +4,7 @@ import { grey } from '@mui/material/colors';
 import RSelect from 'react-select';
 import { useTheme } from '@mui/material/styles';
 
-import { SelectInputValue, SelectInputMultiValue } from 'config/types';
+import { SelectInputValue, SelectInputMultiValue } from '@/config/types';
 
 type Option = { value: string | Record<string, string>; label: string };
 

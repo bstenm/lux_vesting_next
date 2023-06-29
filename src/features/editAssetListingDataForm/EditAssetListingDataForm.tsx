@@ -2,11 +2,11 @@
 
 import { FormProvider } from 'react-hook-form';
 
-import { Row } from 'components/Row';
-import { DarkButton } from 'components/buttons/DarkButton';
-import { LightButton } from 'components/buttons/LightButton';
-import { CustomTextField } from 'components/CustomTextField';
-import { AssetListingFormInput } from 'config/types/asset';
+import { Row } from '@/components/Row';
+import { DarkButton } from '@/components/buttons/DarkButton';
+import { LightButton } from '@/components/buttons/LightButton';
+import { CustomTextField } from '@/components/CustomTextField';
+import { AssetListingFormInput } from '@/config/types/asset';
 
 import { AssetNameInput } from './AssetNameInput';
 import { useEditAssetDataModal } from './useEditAssetDataModal';

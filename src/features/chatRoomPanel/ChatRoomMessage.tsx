@@ -2,9 +2,9 @@
 
 import Box from '@mui/material/Box';
 
-import { Row } from 'components/Row';
-import { Typography } from 'components/Typography';
-import { Message } from 'config/types';
+import { Row } from '@/components/Row';
+import { Typography } from '@/components/Typography';
+import { Message } from '@/config/types';
 
 type Props = {
     data: Message;

@@ -7,13 +7,13 @@ import {
     HookOptions,
     NotificationType,
     NewBidNotificationData
-} from 'config/types';
-import { getUserId } from 'state/user/selectors';
-import { Bid, AssetItem } from 'config/types/asset';
-import { useAsyncAction } from 'libs/hooks/useAsyncAction';
-import { useAppSelector } from 'libs/hooks/useAppSelector';
-import { DatabaseService } from 'services/DatabaseService';
-import { useSendNotifications } from 'features/notifications/useSendNotifications';
+} from '@/config/types';
+import { getUserId } from '@/state/user/selectors';
+import { Bid, AssetItem } from '@/config/types/asset';
+import { useAsyncAction } from '@/libs/hooks/useAsyncAction';
+import { useAppSelector } from '@/libs/hooks/useAppSelector';
+import { DatabaseService } from '@/services/DatabaseService';
+import { useSendNotifications } from '@/features/notifications/useSendNotifications';
 
 type ActionParams = { value: number; bidders?: string[] };
 

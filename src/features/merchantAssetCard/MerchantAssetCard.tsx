@@ -5,17 +5,17 @@ import MuiCard from '@mui/material/Card';
 import { styled } from '@mui/material/styles';
 import CardContent from '@mui/material/CardContent';
 
-import { Row } from 'components/Row';
-import { adminID } from 'config';
-import { AssetItem } from 'config/types/asset';
-import { ImageCarousel } from 'features/imageCarousel/ImageCarousel';
-import { getItemPictures } from 'libs/utils';
-import { EmailIconButton } from 'components/iconButtons/EmailIconButton';
-import { FullViewIconButton } from 'components/iconButtons/FullViewIconButton';
-import { SendMessageButton } from 'features/adminAssetList/SendMessageButton';
-import { EditAssetDataIconButton } from 'features/editAssetListingDataForm/EditAssetDataIconButton';
-import { ManageAssetPicsIconButton } from 'features/manageAssetFilesModal/ManageAssetPicsIconButton';
-import { ManageAssetDocsIconButton } from 'features/manageAssetFilesModal/ManageAssetDocsIconButton';
+import { Row } from '@/components/Row';
+import { adminID } from '@/config';
+import { AssetItem } from '@/config/types/asset';
+import { ImageCarousel } from '@/features/imageCarousel/ImageCarousel';
+import { getItemPictures } from '@/libs/utils';
+import { EmailIconButton } from '@/components/iconButtons/EmailIconButton';
+import { FullViewIconButton } from '@/components/iconButtons/FullViewIconButton';
+import { SendMessageButton } from '@/features/adminAssetList/SendMessageButton';
+import { EditAssetDataIconButton } from '@/features/editAssetListingDataForm/EditAssetDataIconButton';
+import { ManageAssetPicsIconButton } from '@/features/manageAssetFilesModal/ManageAssetPicsIconButton';
+import { ManageAssetDocsIconButton } from '@/features/manageAssetFilesModal/ManageAssetDocsIconButton';
 
 import {
     ListingStatusView,

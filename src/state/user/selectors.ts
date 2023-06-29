@@ -1,8 +1,8 @@
 import pick from 'lodash/pick';
 
-import { RootState } from 'redux/store';
-import { AssetItem } from 'config/types/asset';
-import { User, UserFunds, UserLimitOrderItem } from 'config/types/user';
+import { RootState } from '@/redux/store';
+import { AssetItem } from '@/config/types/asset';
+import { User, UserFunds, UserLimitOrderItem } from '@/config/types/user';
 
 export const isUserLoggedIn = (state: RootState): boolean =>
     !!state.user.account;

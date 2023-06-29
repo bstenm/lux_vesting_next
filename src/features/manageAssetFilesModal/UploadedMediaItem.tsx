@@ -4,13 +4,13 @@ import noop from 'lodash/noop';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 
-import { Row } from 'components/Row';
-import { Image } from 'components/Image';
-import { Tooltip } from 'components/Tooltip';
-import { DocsIcon } from 'components/icons/DocsIcon';
-import { RemoveIconButton } from 'components/iconButtons/RemoveIconButton';
-import { OpenInNewIconButton } from 'components/iconButtons/OpenInNewIconButton';
-import { AssetMediaMetadataItem } from 'config/types/asset';
+import { Row } from '@/components/Row';
+import { Image } from '@/components/Image';
+import { Tooltip } from '@/components/Tooltip';
+import { DocsIcon } from '@/components/icons/DocsIcon';
+import { RemoveIconButton } from '@/components/iconButtons/RemoveIconButton';
+import { OpenInNewIconButton } from '@/components/iconButtons/OpenInNewIconButton';
+import { AssetMediaMetadataItem } from '@/config/types/asset';
 
 type Props = {
     data: AssetMediaMetadataItem;

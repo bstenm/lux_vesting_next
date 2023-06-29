@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { MessageItem } from 'config/types';
+import { MessageItem } from '@/config/types';
 
 import { useFetchChat } from './useFetchChat';
 import { useSendMessage } from './useSendMessage';

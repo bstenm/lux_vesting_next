@@ -20,7 +20,7 @@ import {
     AssetMediaMetadataItem,
     AssetAuthenticationStatusData,
     AssetStatusType
-} from 'config/types/asset';
+} from '@/config/types/asset';
 import {
     setRecordWithId,
     setRecordWithDate,
@@ -28,7 +28,7 @@ import {
     getQuerySnapshotData,
     setRecordWithIdAndDate,
     setRecordWithUpdateDate
-} from 'libs/firestoreUtils';
+} from '@/libs/firestoreUtils';
 import {
     userCollectionRef,
     assetCollectionRef,
@@ -38,10 +38,10 @@ import {
     getAssetDocumentRef,
     getMessageDocumentRef,
     getUserNotificationDocumentRef
-} from 'libs/firebaseApp';
-import { User } from 'config/types/user';
-import { logger } from 'libs/logger';
-import { Message, AssetNotification } from 'config/types';
+} from '@/libs/firebaseApp';
+import { User } from '@/config/types/user';
+import { logger } from '@/libs/logger';
+import { Message, AssetNotification } from '@/config/types';
 
 const log = logger('Database');
 

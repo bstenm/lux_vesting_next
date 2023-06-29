@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import 'react-perfect-scrollbar/dist/css/styles.css';
 
-import { path } from 'config/path';
+import { path } from '@/config/path';
 
 import { Footer } from './Footer';
 import { TopBar } from './TopBar';

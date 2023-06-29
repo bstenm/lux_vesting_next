@@ -1,10 +1,10 @@
 'use client';
 
-import { HookOptions } from 'config/types';
-import { assetsActions } from 'state/assets/assetsSlice';
-import { useAsyncAction } from 'libs/hooks/useAsyncAction';
-import { useAppDispatch } from 'libs/hooks/useAppDispatch';
-import { DatabaseService } from 'services/DatabaseService';
+import { HookOptions } from '@/config/types';
+import { assetsActions } from '@/state/assets/assetsSlice';
+import { useAsyncAction } from '@/libs/hooks/useAsyncAction';
+import { useAppDispatch } from '@/libs/hooks/useAppDispatch';
+import { DatabaseService } from '@/services/DatabaseService';
 
 type StateLogic = [() => Promise<void>, boolean];
 

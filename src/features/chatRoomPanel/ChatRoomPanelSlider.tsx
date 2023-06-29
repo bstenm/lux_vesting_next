@@ -7,7 +7,7 @@ import { useState } from 'react';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
-import { IconButton } from 'components/iconButtons/IconButton';
+import { IconButton } from '@/components/iconButtons/IconButton';
 
 type Props = {
     children?: React.ReactElement;

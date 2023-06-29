@@ -4,14 +4,14 @@ import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import { ElementType } from 'react';
 
-import { Row } from 'components/Row';
-import { AssetItem } from 'config/types/asset';
-import { DarkButton } from 'components/buttons/DarkButton';
-import { LightDivider } from 'components/LightDivider';
-import { ImageMagnifier } from 'features/imageMagnifier/ImageMagnifier';
-import { AssetHighestBid } from 'features/assetBids/AssetHighestBid';
-import { TitledAmountData } from 'components/dataPoints/TitledAmountData';
-import { getItemPics, getCertificateOfAuthenticity } from 'libs/utils';
+import { Row } from '@/components/Row';
+import { AssetItem } from '@/config/types/asset';
+import { DarkButton } from '@/components/buttons/DarkButton';
+import { LightDivider } from '@/components/LightDivider';
+import { ImageMagnifier } from '@/features/imageMagnifier/ImageMagnifier';
+import { AssetHighestBid } from '@/features/assetBids/AssetHighestBid';
+import { TitledAmountData } from '@/components/dataPoints/TitledAmountData';
+import { getItemPics, getCertificateOfAuthenticity } from '@/libs/utils';
 
 import { AssetSpecs } from './AssetSpecs';
 import { LinktToPictures } from './LinktToPictures ';

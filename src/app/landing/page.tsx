@@ -5,13 +5,13 @@ import Link from 'next/link';
 import Stack from '@mui/material/Stack';
 import { Theme, styled } from '@mui/material/styles';
 
-import { path } from 'config/path';
-import { Row } from 'components/Row';
-import { Image } from 'components/Image';
-import { DarkButton } from 'components/buttons/DarkButton';
-import { Typography } from 'components/Typography';
-import { LightButton } from 'components/buttons/LightButton';
-import { Web3Component } from 'features/authButton/Web3Component';
+import { path } from '@/config/path';
+import { Row } from '@/components/Row';
+import { Image } from '@/components/Image';
+import { DarkButton } from '@/components/buttons/DarkButton';
+import { Typography } from '@/components/Typography';
+import { LightButton } from '@/components/buttons/LightButton';
+import { Web3Component } from '@/features/authButton/Web3Component';
 
 const Title = styled(Typography)(({ theme }) => ({
     fontSize: '4.5vw',

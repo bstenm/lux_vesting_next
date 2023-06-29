@@ -2,7 +2,7 @@
 
 import { grey } from '@mui/material/colors';
 import Typography from '@mui/material/Typography';
-import { useTranslate } from 'libs/hooks/useTranslate';
+import { useTranslate } from '@/libs/hooks/useTranslate';
 
 type Props = {
     message: string;

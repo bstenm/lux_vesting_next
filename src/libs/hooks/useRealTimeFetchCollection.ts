@@ -1,8 +1,8 @@
 import { Query } from 'firebase/firestore';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
-import { useAlert } from 'features/alert/useAlert';
-import { HookOptions } from 'config/types';
+import { useAlert } from '@/features/alert/useAlert';
+import { HookOptions } from '@/config/types';
 
 type StateLogic<T> = [T[], boolean];
 

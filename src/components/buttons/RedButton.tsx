@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from 'components/buttons/Button';
+import { Button } from '@/components/buttons/Button';
 
 export function RedButton(
     props: React.ComponentProps<typeof Button>

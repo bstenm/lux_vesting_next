@@ -3,12 +3,12 @@
 import Box from '@mui/material/Box';
 import { useState } from 'react';
 
-import { Badge } from 'components/Badge';
-import { Spinner } from 'components/Spinner';
-import { AssetItem } from 'config/types/asset';
-import { BidIconButton } from 'components/iconButtons/BidIconButton';
-import { AssetBidsDrawer } from 'features/assetBids/AssetBidsDrawer';
-import { useFetchAssetBids } from 'features/assetBids/useFetchAssetBids';
+import { Badge } from '@/components/Badge';
+import { Spinner } from '@/components/Spinner';
+import { AssetItem } from '@/config/types/asset';
+import { BidIconButton } from '@/components/iconButtons/BidIconButton';
+import { AssetBidsDrawer } from '@/features/assetBids/AssetBidsDrawer';
+import { useFetchAssetBids } from '@/features/assetBids/useFetchAssetBids';
 
 type Props = {
     data: AssetItem;

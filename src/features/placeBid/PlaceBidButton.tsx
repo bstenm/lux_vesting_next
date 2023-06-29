@@ -2,11 +2,11 @@
 
 import { useCallback } from 'react';
 
-import { PlaceBid } from 'features/placeBid/PlaceBid';
-import { AssetItem } from 'config/types/asset';
-import { GreenButton } from 'components/buttons/GreenButton';
-import { ButtonWithModal } from 'components/ButtonWithModal';
-import { ProtectedComponent } from 'features/authButton/ProtectedComponent';
+import { PlaceBid } from '@/features/placeBid/PlaceBid';
+import { AssetItem } from '@/config/types/asset';
+import { GreenButton } from '@/components/buttons/GreenButton';
+import { ButtonWithModal } from '@/components/ButtonWithModal';
+import { ProtectedComponent } from '@/features/authButton/ProtectedComponent';
 
 type Props = {
     data: AssetItem;

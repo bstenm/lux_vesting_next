@@ -6,9 +6,9 @@ import {
     MimeType,
     AssetMediaMetadata,
     AssetMediaMetadataItem
-} from 'config/types/asset';
-import { allowedFileMimes, defaultAuctionDuration } from 'config';
-import { BLOCKCHAIN_CURRENCY_TO_DOLLAR } from 'config/constants';
+} from '@/config/types/asset';
+import { allowedFileMimes, defaultAuctionDuration } from '@/config';
+import { BLOCKCHAIN_CURRENCY_TO_DOLLAR } from '@/config/constants';
 
 export const formatCryptoPriceForDisplay = (
     tokenPrice: BigNumberish

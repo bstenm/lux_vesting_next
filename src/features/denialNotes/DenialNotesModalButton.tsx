@@ -1,6 +1,6 @@
 'use client';
 
-import { RedButton } from 'components/buttons/RedButton';
+import { RedButton } from '@/components/buttons/RedButton';
 
 import { DenialNotesModal } from './DenialNotesModal';
 

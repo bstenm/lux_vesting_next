@@ -4,16 +4,16 @@ import {
     MediaType,
     AssetCategory,
     AddNewAssetFormInput
-} from 'config/types/asset';
-import { getFileTitle } from 'libs/utils';
-import { HookOptions } from 'config/types';
-import { assetsActions } from 'state/assets/assetsSlice';
-import { StorageService } from 'services/StorageService';
-import { useAsyncAction } from 'libs/hooks/useAsyncAction';
-import { useAppSelector } from 'libs/hooks/useAppSelector';
-import { useAppDispatch } from 'libs/hooks/useAppDispatch';
-import { DatabaseService } from 'services/DatabaseService';
-import { getUserId, getUserName } from 'state/user/selectors';
+} from '@/config/types/asset';
+import { getFileTitle } from '@/libs/utils';
+import { HookOptions } from '@/config/types';
+import { assetsActions } from '@/state/assets/assetsSlice';
+import { StorageService } from '@/services/StorageService';
+import { useAsyncAction } from '@/libs/hooks/useAsyncAction';
+import { useAppSelector } from '@/libs/hooks/useAppSelector';
+import { useAppDispatch } from '@/libs/hooks/useAppDispatch';
+import { DatabaseService } from '@/services/DatabaseService';
+import { getUserId, getUserName } from '@/state/user/selectors';
 
 type StateLogic = [(values: AddNewAssetFormInput) => Promise<void>, boolean];
 

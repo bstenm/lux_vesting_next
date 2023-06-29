@@ -3,7 +3,7 @@
 import IconButton from '@mui/material/IconButton';
 import ChevronRight from '@mui/icons-material/ChevronRight';
 
-import { Spinner } from 'components/Spinner';
+import { Spinner } from '@/components/Spinner';
 
 type Props = {
     submit: () => void;

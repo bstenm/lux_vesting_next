@@ -1,12 +1,12 @@
 'use client';
 
-import { Row } from 'components/Row';
-import { RedButton } from 'components/buttons/RedButton';
-import { GreenButton } from 'components/buttons/GreenButton';
-import { ListingDataModal } from 'features/listingData/ListingDataModal';
-import { useUpdateAssetStatus } from 'libs/hooks/useUpdateAssetStatus';
-import { DenialNotesModalButton } from 'features/denialNotes/DenialNotesModalButton';
-import { AssetItem, AssetListingStatus } from 'config/types/asset';
+import { Row } from '@/components/Row';
+import { RedButton } from '@/components/buttons/RedButton';
+import { GreenButton } from '@/components/buttons/GreenButton';
+import { ListingDataModal } from '@/features/listingData/ListingDataModal';
+import { useUpdateAssetStatus } from '@/libs/hooks/useUpdateAssetStatus';
+import { DenialNotesModalButton } from '@/features/denialNotes/DenialNotesModalButton';
+import { AssetItem, AssetListingStatus } from '@/config/types/asset';
 
 import { DenyButton } from '../DenyButton';
 import { useApproveAssetListing } from './useApproveAssetListing';

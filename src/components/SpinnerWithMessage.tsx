@@ -2,8 +2,8 @@
 
 import Stack from '@mui/material/Stack';
 
-import { Spinner } from 'components/Spinner';
-import { Typography } from 'components/Typography';
+import { Spinner } from '@/components/Spinner';
+import { Typography } from '@/components/Typography';
 
 type Props = {
     textId: string;

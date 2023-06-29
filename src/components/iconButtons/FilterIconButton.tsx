@@ -4,9 +4,9 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import { OverridableStringUnion } from '@mui/types';
 import { SvgIconPropsSizeOverrides } from '@mui/material/SvgIcon';
 
-import { Row } from 'components/Row';
-import { Typography } from 'components/Typography';
-import { IconButton } from 'components/iconButtons/IconButton';
+import { Row } from '@/components/Row';
+import { Typography } from '@/components/Typography';
+import { IconButton } from '@/components/iconButtons/IconButton';
 
 type Props = React.ComponentProps<typeof IconButton> & {
     size?:

@@ -8,21 +8,21 @@ import {
     QueryDocumentSnapshot
 } from 'firebase/firestore';
 import pick from 'lodash/pick';
-import { useAlert } from 'features/alert/useAlert';
+import { useAlert } from '@/features/alert/useAlert';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 import {
     getDocSnapshotData
     // setRecordWithIdAndDate
-} from 'libs/firestoreUtils';
+} from '@/libs/firestoreUtils';
 import {
     UserHistoricalActivity,
     UserHistoricalActivityItem
-} from 'config/types/user';
-import { db } from 'libs/firebaseApp';
-import { getUserId } from 'state/user/selectors';
-import { useAppSelector } from 'libs/hooks/useAppSelector';
-import { useAsyncAction } from 'libs/hooks/useAsyncAction';
+} from '@/config/types/user';
+import { db } from '@/libs/firebaseApp';
+import { getUserId } from '@/state/user/selectors';
+import { useAppSelector } from '@/libs/hooks/useAppSelector';
+import { useAsyncAction } from '@/libs/hooks/useAsyncAction';
 
 type Options = {
     silent?: boolean;

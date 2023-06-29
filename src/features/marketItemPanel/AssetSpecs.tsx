@@ -2,10 +2,10 @@
 
 import Stack from '@mui/material/Stack';
 
-import { Row } from 'components/Row';
-import { AssetItem } from 'config/types/asset';
-import { Typography } from 'components/Typography';
-import { TitledDataPoint } from 'components/dataPoints/TitledDataPoint';
+import { Row } from '@/components/Row';
+import { AssetItem } from '@/config/types/asset';
+import { Typography } from '@/components/Typography';
+import { TitledDataPoint } from '@/components/dataPoints/TitledDataPoint';
 
 type Props = {
     data: AssetItem;

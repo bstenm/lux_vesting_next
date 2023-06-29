@@ -2,7 +2,7 @@
 
 import { pink } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
-import { useTranslate } from 'libs/hooks/useTranslate';
+import { useTranslate } from '@/libs/hooks/useTranslate';
 import MuiFormHelperText from '@mui/material/FormHelperText';
 
 type Props = React.ComponentProps<typeof MuiFormHelperText> & {

@@ -1,8 +1,8 @@
 'use client';
 
-import { ButtonWithModal } from 'components/ButtonWithModal';
+import { ButtonWithModal } from '@/components/ButtonWithModal';
 
-import { AssetItem } from 'config/types/asset';
+import { AssetItem } from '@/config/types/asset';
 import { AdminAssetAuthenticationStatusControl } from './AdminAssetAuthenticationStatusControl';
 
 type Props = {

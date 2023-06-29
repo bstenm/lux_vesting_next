@@ -2,14 +2,14 @@
 
 import Grid from '@mui/material/Grid';
 
-import { Row } from 'components/Row';
-import { BidIcon } from 'components/icons/BidIcon';
-import { ViewIcon } from 'components/icons/ViewIcon';
-import { formatDate } from 'libs/utils';
-import { Typography } from 'components/Typography';
-import { FavoriteIcon } from 'components/icons/FavoriteIcon';
-import { CalendarIcon } from 'components/icons/CalendarIcon';
-import { AssetListingData } from 'config/types/asset';
+import { Row } from '@/components/Row';
+import { BidIcon } from '@/components/icons/BidIcon';
+import { ViewIcon } from '@/components/icons/ViewIcon';
+import { formatDate } from '@/libs/utils';
+import { Typography } from '@/components/Typography';
+import { FavoriteIcon } from '@/components/icons/FavoriteIcon';
+import { CalendarIcon } from '@/components/icons/CalendarIcon';
+import { AssetListingData } from '@/config/types/asset';
 
 export function ListingData({
     bids = [],

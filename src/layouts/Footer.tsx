@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import Stack from '@mui/material/Stack';
 
-import { Row } from 'components/Row';
-import { path } from 'config/path';
-import { SITE_TITLE } from 'config/constants';
-import { Typography } from 'components/Typography';
+import { Row } from '@/components/Row';
+import { path } from '@/config/path';
+import { SITE_TITLE } from '@/config/constants';
+import { Typography } from '@/components/Typography';
 
 export function Footer(): JSX.Element {
     return (

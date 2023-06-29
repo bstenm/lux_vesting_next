@@ -3,8 +3,8 @@
 import { OverridableStringUnion } from '@mui/types';
 import { SvgIconPropsSizeOverrides } from '@mui/material/SvgIcon';
 
-import { EmailIcon } from 'components/icons/EmailIcon';
-import { IconButton } from 'components/iconButtons/IconButton';
+import { EmailIcon } from '@/components/icons/EmailIcon';
+import { IconButton } from '@/components/iconButtons/IconButton';
 
 type Props = React.ComponentProps<typeof IconButton> & {
     size?:

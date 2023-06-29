@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles';
 import Tooltip from '@mui/material/Tooltip';
 import ConstructionIcon from '@mui/icons-material/Construction';
 
-import { useTranslate } from 'libs/hooks/useTranslate';
+import { useTranslate } from '@/libs/hooks/useTranslate';
 
 const Container = styled('div')(({ theme }) => ({
     color: theme.palette.primary.dark,
