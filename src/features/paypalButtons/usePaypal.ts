@@ -7,10 +7,10 @@ import {
     CreateOrderActions
 } from '@paypal/paypal-js/types/components/buttons';
 
-import { logger } from 'libs/logger';
-import { useAlert } from 'features/alert/useAlert';
-import { DEV_MODE } from 'config/constants';
-import { defaultCurrency } from 'config';
+import { logger } from '@/libs/logger';
+import { useAlert } from '@/features/alert/useAlert';
+import { DEV_MODE } from '@/config/constants';
+import { defaultCurrency } from '@/config';
 
 type StateLogic = {
     onError: (e: unknown) => void;

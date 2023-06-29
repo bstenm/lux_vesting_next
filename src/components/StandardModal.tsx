@@ -4,7 +4,7 @@ import Dialog from '@mui/material/Dialog';
 import { styled } from '@mui/material/styles';
 import DialogContent from '@mui/material/DialogContent';
 
-import { DialogTitle } from 'components/DialogTitle';
+import { DialogTitle } from '@/components/DialogTitle';
 
 type Props = React.ComponentProps<typeof Dialog> & {
     title?: string;

@@ -1,9 +1,9 @@
 'use client';
 
-import { Row } from 'components/Row';
-import { AssetCard } from 'features/assetCard/AssetCard';
-import { AssetItem } from 'config/types/asset';
-import { FetchingScreen } from 'components/FetchingScreen';
+import { Row } from '@/components/Row';
+import { AssetCard } from '@/features/assetCard/AssetCard';
+import { AssetItem } from '@/config/types/asset';
+import { FetchingScreen } from '@/components/FetchingScreen';
 
 type Props<T> = Omit<React.ComponentProps<typeof Row>, 'children'> & {
     list: T[];

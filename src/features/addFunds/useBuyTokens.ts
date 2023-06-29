@@ -2,16 +2,16 @@
 
 import { useState } from 'react';
 
-import { logger } from 'libs/logger';
-import { useAlert } from 'features/alert/useAlert';
-import { userActions } from 'state/user/userSlice';
-import { useAppSelector } from 'libs/hooks/useAppSelector';
-import { useAsyncAction } from 'libs/hooks/useAsyncAction';
-import { useAppDispatch } from 'libs/hooks/useAppDispatch';
-import { tokenVendorContract } from 'services/TokenVendorContractService';
-import { useUserHistoricalActivity } from 'libs/hooks/useUserHistoricalActivity';
-import { getUserAccount, getUserBalance } from 'state/user/selectors';
-import { DOLLAR_TO_PROPRIETARY_CURRENCY } from 'config/constants';
+import { logger } from '@/libs/logger';
+import { useAlert } from '@/features/alert/useAlert';
+import { userActions } from '@/state/user/userSlice';
+import { useAppSelector } from '@/libs/hooks/useAppSelector';
+import { useAsyncAction } from '@/libs/hooks/useAsyncAction';
+import { useAppDispatch } from '@/libs/hooks/useAppDispatch';
+import { tokenVendorContract } from '@/services/TokenVendorContractService';
+import { useUserHistoricalActivity } from '@/libs/hooks/useUserHistoricalActivity';
+import { getUserAccount, getUserBalance } from '@/state/user/selectors';
+import { DOLLAR_TO_PROPRIETARY_CURRENCY } from '@/config/constants';
 
 type StateLogic = {
     amount: number | undefined;

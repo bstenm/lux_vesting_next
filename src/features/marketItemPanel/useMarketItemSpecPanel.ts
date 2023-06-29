@@ -2,9 +2,9 @@
 
 import maxBy from 'lodash/maxBy';
 
-import { useFetchAssetBids } from 'features/assetBids/useFetchAssetBids';
-import { Bid, AssetItem, AssetMediaMetadataItem } from 'config/types/asset';
-import { getItemPics, getCertificateOfAuthenticity } from 'libs/utils';
+import { useFetchAssetBids } from '@/features/assetBids/useFetchAssetBids';
+import { Bid, AssetItem, AssetMediaMetadataItem } from '@/config/types/asset';
+import { getItemPics, getCertificateOfAuthenticity } from '@/libs/utils';
 
 type StateLogic = {
     coaURI?: string;

@@ -2,11 +2,11 @@
 
 import { useEffect } from 'react';
 
-import { Row } from 'components/Row';
-import { AssetItem } from 'config/types/asset';
-import { getAllAssets } from 'state/assets/selectors';
-import { FetchingScreen } from 'components/FetchingScreen';
-import { useAppSelector } from 'libs/hooks/useAppSelector';
+import { Row } from '@/components/Row';
+import { AssetItem } from '@/config/types/asset';
+import { getAllAssets } from '@/state/assets/selectors';
+import { FetchingScreen } from '@/components/FetchingScreen';
+import { useAppSelector } from '@/libs/hooks/useAppSelector';
 
 import { AdminAssetCard } from './AdminAssetCard';
 import { useAdminFetchAssets } from './useAdminFetchAssets';

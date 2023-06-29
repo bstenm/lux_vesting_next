@@ -1,9 +1,9 @@
 import { ElementType, useCallback, useState } from 'react';
 
-import { AssetItem } from 'config/types/asset';
-import { MarketItemSpecPanel } from 'features/marketItemPanel/MarketItemSpecPanel';
-import { MarketItemImagesPanel } from 'features/marketItemPanel/MarketItemImagesPanel';
-import { ComponentWithSelectedDataInDrawer } from 'layouts/ComponentWithSelectedDataInDrawer';
+import { AssetItem } from '@/config/types/asset';
+import { MarketItemSpecPanel } from '@/features/marketItemPanel/MarketItemSpecPanel';
+import { MarketItemImagesPanel } from '@/features/marketItemPanel/MarketItemImagesPanel';
+import { ComponentWithSelectedDataInDrawer } from '@/layouts/ComponentWithSelectedDataInDrawer';
 
 type Props = {
     Actions?: ElementType;

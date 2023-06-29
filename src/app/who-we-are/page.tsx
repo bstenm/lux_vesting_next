@@ -1,7 +1,7 @@
 'use client';
 
-import { Typography } from 'components/Typography';
-import { StandardPage } from 'components/StandardPage';
+import { Typography } from '@/components/Typography';
+import { StandardPage } from '@/components/StandardPage';
 
 function WhoWeArePage(): JSX.Element {
     return (

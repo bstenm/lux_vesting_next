@@ -5,9 +5,9 @@ import Snackbar from '@mui/material/Snackbar';
 import capitalize from 'lodash/capitalize';
 import Slide, { SlideProps } from '@mui/material/Slide';
 
-import { RootState } from 'redux/store';
-import { AlertProps } from 'state/alert/alertSlice';
-import { useAppSelector } from 'libs/hooks/useAppSelector';
+import { RootState } from '@/redux/store';
+import { AlertProps } from '@/state/alert/alertSlice';
+import { useAppSelector } from '@/libs/hooks/useAppSelector';
 
 import { useAlert } from './useAlert';
 

@@ -1,7 +1,7 @@
 'use client';
 
-import { Spinner } from 'components/Spinner';
-import { Centered } from 'components/Centered';
+import { Spinner } from '@/components/Spinner';
+import { Centered } from '@/components/Centered';
 
 type Props = {
     fullscreen?: boolean;

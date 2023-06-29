@@ -7,8 +7,8 @@ import { useForm, UseFormReturn } from 'react-hook-form';
 import {
     minDenialReasonsLength,
     maxDenialReasonsLength
-} from 'config/formValues';
-import { useAsyncAction } from 'libs/hooks/useAsyncAction';
+} from '@/config/formValues';
+import { useAsyncAction } from '@/libs/hooks/useAsyncAction';
 
 export type FormInput = {
     denialNotes: string;

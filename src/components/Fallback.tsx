@@ -2,7 +2,7 @@
 
 import { styled } from '@mui/material/styles';
 
-import { BounceLoader } from 'components/BounceLoader';
+import { BounceLoader } from '@/components/BounceLoader';
 
 const Container = styled('div')(
     ({ theme }) => `

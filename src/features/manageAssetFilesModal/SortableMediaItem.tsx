@@ -5,9 +5,9 @@ import { useState } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import DescriptionIcon from '@mui/icons-material/Description';
 
-import { Image } from 'components/Image';
-import { IconButton } from 'components/iconButtons/IconButton';
-import { AssetMediaMetadata } from 'config/types/asset';
+import { Image } from '@/components/Image';
+import { IconButton } from '@/components/iconButtons/IconButton';
+import { AssetMediaMetadata } from '@/config/types/asset';
 
 import { MediaItemCaption } from './MediaItemCaption';
 

@@ -5,15 +5,15 @@ import { TestFunction } from 'yup';
 import { useForm, UseFormReturn } from 'react-hook-form';
 
 import * as yup from 'yup';
-import { logger } from 'libs/logger';
-import { getUserData } from 'state/user/selectors';
-import { useAppSelector } from 'libs/hooks/useAppSelector';
-import { useAsyncAction } from 'libs/hooks/useAsyncAction';
-import { useUpdateUserData } from 'libs/hooks/useUpdateUserData';
-import { useAddMediaToAsset } from 'features/dropFileArea/useAddMediaToAsset';
-import { useUpdateAssetStatus } from 'libs/hooks/useUpdateAssetStatus';
-import { isValidDocumentFileType } from 'libs/utils';
-import { MediaType, AssetAuthenticationFormInput } from 'config/types/asset';
+import { logger } from '@/libs/logger';
+import { getUserData } from '@/state/user/selectors';
+import { useAppSelector } from '@/libs/hooks/useAppSelector';
+import { useAsyncAction } from '@/libs/hooks/useAsyncAction';
+import { useUpdateUserData } from '@/libs/hooks/useUpdateUserData';
+import { useAddMediaToAsset } from '@/features/dropFileArea/useAddMediaToAsset';
+import { useUpdateAssetStatus } from '@/libs/hooks/useUpdateAssetStatus';
+import { isValidDocumentFileType } from '@/libs/utils';
+import { MediaType, AssetAuthenticationFormInput } from '@/config/types/asset';
 
 type StateLogic = {
     onClose: () => void;

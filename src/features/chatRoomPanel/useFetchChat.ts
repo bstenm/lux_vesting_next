@@ -3,9 +3,9 @@
 import sortBy from 'lodash/sortBy';
 import { Query, collection, query, where } from 'firebase/firestore';
 
-import { db } from 'libs/firebaseApp';
-import { MessageItem } from 'config/types';
-import { useRealTimeFetchCollection } from 'libs/hooks/useRealTimeFetchCollection';
+import { db } from '@/libs/firebaseApp';
+import { MessageItem } from '@/config/types';
+import { useRealTimeFetchCollection } from '@/libs/hooks/useRealTimeFetchCollection';
 
 type StateLogic = [MessageItem[] | undefined, boolean];
 

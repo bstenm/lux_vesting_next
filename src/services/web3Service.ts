@@ -3,8 +3,8 @@ import Torus, {
     TorusInpageProvider
 } from '@toruslabs/torus-embed';
 
-import { logger } from 'libs/logger';
-import { torusConfig } from 'config/torus';
+import { logger } from '@/libs/logger';
+import { torusConfig } from '@/config/torus';
 
 const log = logger('Web3 Service');
 

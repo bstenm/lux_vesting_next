@@ -3,8 +3,8 @@
 import Box from '@mui/material/Box';
 import { Trans } from 'react-i18next';
 
-import { Centered } from 'components/Centered';
-import { LightButton } from 'components/buttons/LightButton';
+import { Centered } from '@/components/Centered';
+import { LightButton } from '@/components/buttons/LightButton';
 
 import { useWeb3 } from './useWeb3';
 

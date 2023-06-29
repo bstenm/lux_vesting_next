@@ -1,6 +1,6 @@
 'use client';
 
-import { useUpdateAssetStatus } from 'libs/hooks/useUpdateAssetStatus';
+import { useUpdateAssetStatus } from '@/libs/hooks/useUpdateAssetStatus';
 
 import { CancelRequestModal } from './CancelRequestModal';
 

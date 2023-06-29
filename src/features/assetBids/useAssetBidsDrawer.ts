@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 
-import { getUserId } from 'state/user/selectors';
-import { useAppSelector } from 'libs/hooks/useAppSelector';
+import { getUserId } from '@/state/user/selectors';
+import { useAppSelector } from '@/libs/hooks/useAppSelector';
 
 type StateLogic = {
     userId: string;

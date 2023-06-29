@@ -1,7 +1,7 @@
 'use client';
 
-import { MediaType } from 'config/types/asset';
-import { getFileTitle } from 'libs/utils';
+import { MediaType } from '@/config/types/asset';
+import { getFileTitle } from '@/libs/utils';
 
 import { useAddMediaToAsset } from './useAddMediaToAsset';
 

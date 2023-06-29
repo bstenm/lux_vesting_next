@@ -1,7 +1,7 @@
 'use client';
 
 import MuiCheckbox from '@mui/material/Checkbox';
-import { useTranslate } from 'libs/hooks/useTranslate';
+import { useTranslate } from '@/libs/hooks/useTranslate';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
 type Props = React.ComponentProps<typeof MuiCheckbox> & {

@@ -1,8 +1,8 @@
 import { Contract, InterfaceAbi, BrowserProvider } from 'ethers';
 
-import { Logger, logger } from 'libs/logger';
-import { HOST_NETWORK } from 'config/constants';
-import { MissingContractAddressError } from 'libs/customErrors';
+import { Logger, logger } from '@/libs/logger';
+import { HOST_NETWORK } from '@/config/constants';
+import { MissingContractAddressError } from '@/libs/customErrors';
 
 import { web3Service } from './web3Service';
 

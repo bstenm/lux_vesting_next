@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { NumericFormat, NumericFormatProps } from 'react-number-format';
 
-import { defaultCurrencySymbol } from 'config';
+import { defaultCurrencySymbol } from '@/config';
 
 type CustomNumericFormatProps = {
     onChange: (event: { target: { value: string } }) => void;

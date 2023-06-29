@@ -1,5 +1,5 @@
-import { App } from 'components/App';
-import { siteTitle, siteDescription } from 'config';
+import { App } from '@/components/App';
+import { siteTitle, siteDescription } from '@/config';
 import './globals.css';
 
 type Props = {

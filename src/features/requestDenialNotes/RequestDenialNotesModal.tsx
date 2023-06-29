@@ -1,7 +1,7 @@
 'use client';
 
-import { DataPoint } from 'components/DataPoint';
-import { ButtonWithModal } from 'components/ButtonWithModal';
+import { DataPoint } from '@/components/DataPoint';
+import { ButtonWithModal } from '@/components/ButtonWithModal';
 
 type Props = Omit<React.ComponentProps<typeof ButtonWithModal>, 'button'> & {
     title: string;

@@ -1,10 +1,10 @@
 'use client';
 
 import { capitalize } from 'lodash';
-import { useTranslate } from 'libs/hooks/useTranslate';
+import { useTranslate } from '@/libs/hooks/useTranslate';
 import MuiIconButton, { IconButtonProps } from '@mui/material/IconButton';
 
-import { Spinner } from 'components/Spinner';
+import { Spinner } from '@/components/Spinner';
 
 type Props = IconButtonProps & {
     processing?: boolean;

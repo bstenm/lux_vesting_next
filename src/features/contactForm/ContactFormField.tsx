@@ -2,10 +2,10 @@
 
 import { Path } from 'react-hook-form';
 
-import { Row } from 'components/Row';
-import { Typography } from 'components/Typography';
-import { CustomTextField } from 'components/CustomTextField';
-import { ContactFormInput } from 'config/types';
+import { Row } from '@/components/Row';
+import { Typography } from '@/components/Typography';
+import { CustomTextField } from '@/components/CustomTextField';
+import { ContactFormInput } from '@/config/types';
 
 type Props = React.ComponentProps<typeof CustomTextField>;
 

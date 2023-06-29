@@ -1,9 +1,9 @@
 'use client';
 
-import { RootState } from 'redux/store';
-import { useAppSelector } from 'libs/hooks/useAppSelector';
-import { getAssetCoverPicture } from 'state/assets/selectors';
-import { Image } from 'components/Image';
+import { RootState } from '@/redux/store';
+import { useAppSelector } from '@/libs/hooks/useAppSelector';
+import { getAssetCoverPicture } from '@/state/assets/selectors';
+import { Image } from '@/components/Image';
 
 type Props = {
     size?: number;

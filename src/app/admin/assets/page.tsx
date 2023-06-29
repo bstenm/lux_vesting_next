@@ -1,8 +1,8 @@
 'use client';
 
-import { AdminAssetList } from 'features/adminAssetList/AdminAssetList';
-import { ComponentWithSelectedAssetInDrawer } from 'layouts/ComponentWithSelectedAssetInDrawer';
-import { AdminAssetListingStatusControlButtons } from 'features/adminAssetList/adminAssetListing/AdminAssetListingStatusControlButtons';
+import { AdminAssetList } from '@/features/adminAssetList/AdminAssetList';
+import { ComponentWithSelectedAssetInDrawer } from '@/layouts/ComponentWithSelectedAssetInDrawer';
+import { AdminAssetListingStatusControlButtons } from '@/features/adminAssetList/adminAssetListing/AdminAssetListingStatusControlButtons';
 
 function AdminAssetsPage(): JSX.Element {
     return (

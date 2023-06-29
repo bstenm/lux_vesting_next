@@ -1,10 +1,10 @@
 'use client';
 
 import { query, Query } from 'firebase/firestore';
-import { HookOptions, NotificationItem } from 'config/types';
+import { HookOptions, NotificationItem } from '@/config/types';
 
-import { useRealTimeFetchCollection } from 'libs/hooks/useRealTimeFetchCollection';
-import { getNotificationCollectionRef } from 'libs/firebaseApp';
+import { useRealTimeFetchCollection } from '@/libs/hooks/useRealTimeFetchCollection';
+import { getNotificationCollectionRef } from '@/libs/firebaseApp';
 
 type StateLogic = [NotificationItem[], boolean];
 

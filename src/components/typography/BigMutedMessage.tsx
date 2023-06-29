@@ -1,6 +1,6 @@
 'use client';
 
-import { Typography } from 'components/Typography';
+import { Typography } from '@/components/Typography';
 
 type Props = React.ComponentProps<typeof Typography> & {
     textId: string;

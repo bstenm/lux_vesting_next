@@ -9,8 +9,8 @@ import {
 
 import { FirebaseApp, initializeApp } from 'firebase/app';
 
-import { AssetItem } from 'config/types/asset';
-import { firebaseConfig } from 'libs/firebaseConfig';
+import { AssetItem } from '@/config/types/asset';
+import { firebaseConfig } from '@/libs/firebaseConfig';
 
 export const firebaseApp: FirebaseApp = initializeApp(firebaseConfig);
 

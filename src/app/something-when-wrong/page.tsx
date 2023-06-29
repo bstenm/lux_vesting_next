@@ -2,7 +2,7 @@
 
 import { purple } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
-import { Typography } from 'components/Typography';
+import { Typography } from '@/components/Typography';
 
 const Container = styled('div')`
     height: 80vh;

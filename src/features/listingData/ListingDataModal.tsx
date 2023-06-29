@@ -1,6 +1,6 @@
 'use client';
 
-import { ButtonWithModal } from 'components/ButtonWithModal';
+import { ButtonWithModal } from '@/components/ButtonWithModal';
 
 import { ListingData } from './ListingData';
 

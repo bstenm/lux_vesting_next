@@ -1,7 +1,7 @@
 import PersonIcon from '@mui/icons-material/Person';
 import { useState, MouseEvent } from 'react';
 
-import { IconButton } from 'components/iconButtons/IconButton';
+import { IconButton } from '@/components/iconButtons/IconButton';
 
 import { UserMenu } from './UserMenu';
 

@@ -2,7 +2,7 @@
 
 import SwapHorizIcon from '@mui/icons-material/SwapHoriz';
 
-import { Button } from 'components/buttons/Button';
+import { Button } from '@/components/buttons/Button';
 
 type Props = {
     disabled: boolean;

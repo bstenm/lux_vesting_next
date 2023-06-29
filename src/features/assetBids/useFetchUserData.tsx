@@ -1,9 +1,9 @@
 'use client';
 
-import { User } from 'config/types/user';
-import { HookOptions } from 'config/types';
-import { useAsyncAction } from 'libs/hooks/useAsyncAction';
-import { DatabaseService } from 'services/DatabaseService';
+import { User } from '@/config/types/user';
+import { HookOptions } from '@/config/types';
+import { useAsyncAction } from '@/libs/hooks/useAsyncAction';
+import { DatabaseService } from '@/services/DatabaseService';
 
 type Args = { id: string };
 

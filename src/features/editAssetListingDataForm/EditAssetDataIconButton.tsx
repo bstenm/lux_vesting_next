@@ -1,6 +1,6 @@
 'use client';
 
-import { EditIconButton } from 'components/iconButtons/EditIconButton';
+import { EditIconButton } from '@/components/iconButtons/EditIconButton';
 
 import { EditAssetListingDataModal } from './EditAssetListingDataModal';
 

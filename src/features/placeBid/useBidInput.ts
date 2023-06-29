@@ -3,9 +3,9 @@
 import maxBy from 'lodash/maxBy';
 import { MouseEvent, MouseEventHandler, useState } from 'react';
 
-import { AssetItem } from 'config/types/asset';
-import { useBidOnItem } from 'features/placeBid/useBidOnItem';
-import { useFetchAssetBids } from 'features/assetBids/useFetchAssetBids';
+import { AssetItem } from '@/config/types/asset';
+import { useBidOnItem } from '@/features/placeBid/useBidOnItem';
+import { useFetchAssetBids } from '@/features/assetBids/useFetchAssetBids';
 
 type StateLogic = {
     onSubmit: (e: MouseEvent<HTMLButtonElement>) => void;

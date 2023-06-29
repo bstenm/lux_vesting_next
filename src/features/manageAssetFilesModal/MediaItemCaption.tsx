@@ -1,7 +1,7 @@
 'use client';
 
-import { withEllipsis } from 'libs/utils';
-import { Typography } from 'components/Typography';
+import { withEllipsis } from '@/libs/utils';
+import { Typography } from '@/components/Typography';
 
 type Props = {
     data: string;

@@ -3,9 +3,9 @@
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 
-import { Spinner } from 'components/Spinner';
-import { Typography } from 'components/Typography';
-import { useFetchAssetBids } from 'features/assetBids/useFetchAssetBids';
+import { Spinner } from '@/components/Spinner';
+import { Typography } from '@/components/Typography';
+import { useFetchAssetBids } from '@/features/assetBids/useFetchAssetBids';
 
 import { AssetBidRow } from './AssetBidRow';
 

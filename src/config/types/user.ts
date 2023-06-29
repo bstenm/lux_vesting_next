@@ -1,5 +1,5 @@
-import { NotificationData, Tier } from 'config/types';
-import { userTypes } from 'config';
+import { NotificationData, Tier } from '@/config/types';
+import { userTypes } from '@/config';
 
 import { AssetItem } from './asset';
 

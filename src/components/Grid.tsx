@@ -2,7 +2,7 @@
 
 import MuiGrid from '@mui/material/Grid';
 import capitalize from 'lodash/capitalize';
-import { useTranslate } from 'libs/hooks/useTranslate';
+import { useTranslate } from '@/libs/hooks/useTranslate';
 
 type Props = React.ComponentProps<typeof MuiGrid> & {
     textId?: string;

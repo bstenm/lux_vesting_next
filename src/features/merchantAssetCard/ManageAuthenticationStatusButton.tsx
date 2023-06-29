@@ -1,13 +1,13 @@
 'use client';
 
-import { RedButton } from 'components/buttons/RedButton';
-import { Typography } from 'components/Typography';
-import { LightButton } from 'components/buttons/LightButton';
-import { BlackBanner } from 'components/BlackBanner';
-import { YellowButton } from 'components/buttons/YellowButton';
-import { RequestDenialModal } from 'features/requestDenialNotes/RequestDenialNotesModal';
-import { AssetItem, AssetAuthenticationStatus } from 'config/types/asset';
-import { AssetAuthenticationRequestFormModal } from 'features/assetAuthenticationRequestForm/AssetAuthenticationRequestFormModal';
+import { RedButton } from '@/components/buttons/RedButton';
+import { Typography } from '@/components/Typography';
+import { LightButton } from '@/components/buttons/LightButton';
+import { BlackBanner } from '@/components/BlackBanner';
+import { YellowButton } from '@/components/buttons/YellowButton';
+import { RequestDenialModal } from '@/features/requestDenialNotes/RequestDenialNotesModal';
+import { AssetItem, AssetAuthenticationStatus } from '@/config/types/asset';
+import { AssetAuthenticationRequestFormModal } from '@/features/assetAuthenticationRequestForm/AssetAuthenticationRequestFormModal';
 
 import { CancelAuthenticationRequestModal } from './CancelAuthenticationRequestModal';
 

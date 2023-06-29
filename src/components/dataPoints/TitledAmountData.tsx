@@ -1,6 +1,6 @@
 'use client';
 
-import { defaultCurrencySymbol } from 'config';
+import { defaultCurrencySymbol } from '@/config';
 
 import { TitledDataPoint } from './TitledDataPoint';
 

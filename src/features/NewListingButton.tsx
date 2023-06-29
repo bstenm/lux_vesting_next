@@ -1,8 +1,8 @@
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 
-import { Row } from 'components/Row';
-import { Typography } from 'components/Typography';
-import { IconButton } from 'components/iconButtons/IconButton';
+import { Row } from '@/components/Row';
+import { Typography } from '@/components/Typography';
+import { IconButton } from '@/components/iconButtons/IconButton';
 
 type Props = {
     onClick: () => void;

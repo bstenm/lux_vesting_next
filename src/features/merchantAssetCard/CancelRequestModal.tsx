@@ -2,11 +2,11 @@
 
 import Stack from '@mui/material/Stack';
 
-import { Row } from 'components/Row';
-import { Typography } from 'components/Typography';
-import { LightButton } from 'components/buttons/LightButton';
-import { YellowButton } from 'components/buttons/YellowButton';
-import { ButtonWithModal } from 'components/ButtonWithModal';
+import { Row } from '@/components/Row';
+import { Typography } from '@/components/Typography';
+import { LightButton } from '@/components/buttons/LightButton';
+import { YellowButton } from '@/components/buttons/YellowButton';
+import { ButtonWithModal } from '@/components/ButtonWithModal';
 
 type Props = {
     title: string;

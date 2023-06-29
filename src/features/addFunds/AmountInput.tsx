@@ -6,7 +6,7 @@ import { ChangeEvent } from 'react';
 import MuiFormControl from '@mui/material/FormControl';
 import InputAdornment from '@mui/material/InputAdornment';
 
-import { defaultCurrencySymbol } from 'config';
+import { defaultCurrencySymbol } from '@/config';
 
 type Props = {
     amount?: number;

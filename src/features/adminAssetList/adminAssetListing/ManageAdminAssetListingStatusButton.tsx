@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 
-import { Modal } from 'components/Modal';
-import { AssetListingStatus } from 'config/types/asset';
+import { Modal } from '@/components/Modal';
+import { AssetListingStatus } from '@/config/types/asset';
 
 import { AdminAssetListingStatusButton } from './AdminAssetListingStatusButton';
 

@@ -2,14 +2,14 @@
 
 import { useEffect } from 'react';
 
-import { Row } from 'components/Row';
-import { AssetItem } from 'config/types/asset';
-import { getAllAssets } from 'state/assets/selectors';
-import { FetchingScreen } from 'components/FetchingScreen';
-import { useAppSelector } from 'libs/hooks/useAppSelector';
-import { ListingStatusView } from 'features/merchantAssetCard/ManageListingStatusButton';
-import { MerchantAssetCard } from 'features/merchantAssetCard/MerchantAssetCard';
-import { useFetchMerchantAssets } from 'features/adminAssetList/useFetchMerchantAssets';
+import { Row } from '@/components/Row';
+import { AssetItem } from '@/config/types/asset';
+import { getAllAssets } from '@/state/assets/selectors';
+import { FetchingScreen } from '@/components/FetchingScreen';
+import { useAppSelector } from '@/libs/hooks/useAppSelector';
+import { ListingStatusView } from '@/features/merchantAssetCard/ManageListingStatusButton';
+import { MerchantAssetCard } from '@/features/merchantAssetCard/MerchantAssetCard';
+import { useFetchMerchantAssets } from '@/features/adminAssetList/useFetchMerchantAssets';
 
 type Props = {
     assetId?: string;

@@ -1,7 +1,7 @@
 'use client';
 
-import { Modal } from 'components/Modal';
-import { BigMutedMessage } from 'components/typography/BigMutedMessage';
+import { Modal } from '@/components/Modal';
+import { BigMutedMessage } from '@/components/typography/BigMutedMessage';
 
 type Props = React.ComponentProps<typeof Modal> & {
     textId: string;

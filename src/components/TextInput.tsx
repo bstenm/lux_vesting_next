@@ -7,8 +7,8 @@ import FormControl from '@mui/material/FormControl';
 import { ErrorMessage } from '@hookform/error-message';
 import { useFormContext } from 'react-hook-form';
 
-import { useTranslate } from 'libs/hooks/useTranslate';
-import { FormHelperText } from 'components/FormHelperText';
+import { useTranslate } from '@/libs/hooks/useTranslate';
+import { FormHelperText } from '@/components/FormHelperText';
 
 type Props = React.ComponentProps<typeof TextField> & {
     label?: string;

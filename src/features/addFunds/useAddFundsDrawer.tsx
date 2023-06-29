@@ -1,9 +1,9 @@
 'use client';
 
-import { useAppSelector } from 'libs/hooks/useAppSelector';
-import { useAppDispatch } from 'libs/hooks/useAppDispatch';
-import { addFundsDrawerActions } from 'state/addFundsDrawer/addFundsDrawerSlice';
-import { getAddFundsDrawerState } from 'state/addFundsDrawer/selectors';
+import { useAppSelector } from '@/libs/hooks/useAppSelector';
+import { useAppDispatch } from '@/libs/hooks/useAppDispatch';
+import { addFundsDrawerActions } from '@/state/addFundsDrawer/addFundsDrawerSlice';
+import { getAddFundsDrawerState } from '@/state/addFundsDrawer/selectors';
 
 type StateLogic = {
     open: (content?: string) => void;

@@ -3,11 +3,11 @@
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 
-import { Row } from 'components/Row';
-import { AssetItem } from 'config/types/asset';
-import { StandardDrawer } from 'components/StandardDrawer';
+import { Row } from '@/components/Row';
+import { AssetItem } from '@/config/types/asset';
+import { StandardDrawer } from '@/components/StandardDrawer';
 
-import { FetchingScreen } from 'components/FetchingScreen';
+import { FetchingScreen } from '@/components/FetchingScreen';
 import { useChatRoom } from './useChatRoom';
 import { ChatRoomInput } from './ChatRoomInput';
 import { ChatRoomMessage } from './ChatRoomMessage';

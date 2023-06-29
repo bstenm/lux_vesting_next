@@ -1,10 +1,10 @@
 import debounce from 'lodash/debounce';
 import { useState } from 'react';
 
-import { useAction } from 'libs/hooks/useAction';
-import { AssetItem } from 'config/types/asset';
-import { getAuctionEndTimestamp } from 'libs/utils';
-import { SelectInputMultiValue, SelectInputValue } from 'config/types';
+import { useAction } from '@/libs/hooks/useAction';
+import { AssetItem } from '@/config/types/asset';
+import { getAuctionEndTimestamp } from '@/libs/utils';
+import { SelectInputMultiValue, SelectInputValue } from '@/config/types';
 
 type Filter = {
     brands?: SelectInputMultiValue;

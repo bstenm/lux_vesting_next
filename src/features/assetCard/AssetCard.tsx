@@ -7,16 +7,16 @@ import { styled } from '@mui/material/styles';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 
-import { Row } from 'components/Row';
-import { Tooltip } from 'components/Tooltip';
-import { TimeLeft } from 'components/TimeLeft';
-import { AssetItem } from 'config/types/asset';
-import { ImageCarousel } from 'features/imageCarousel/ImageCarousel';
-import { isUserLoggedIn } from 'state/user/selectors';
-import { useAppSelector } from 'libs/hooks/useAppSelector';
-import { getItemPictures } from 'libs/utils';
-import { AssetHighestBid } from 'features/assetBids/AssetHighestBid';
-import { TitledAmountData } from 'components/dataPoints/TitledAmountData';
+import { Row } from '@/components/Row';
+import { Tooltip } from '@/components/Tooltip';
+import { TimeLeft } from '@/components/TimeLeft';
+import { AssetItem } from '@/config/types/asset';
+import { ImageCarousel } from '@/features/imageCarousel/ImageCarousel';
+import { isUserLoggedIn } from '@/state/user/selectors';
+import { useAppSelector } from '@/libs/hooks/useAppSelector';
+import { getItemPictures } from '@/libs/utils';
+import { AssetHighestBid } from '@/features/assetBids/AssetHighestBid';
+import { TitledAmountData } from '@/components/dataPoints/TitledAmountData';
 
 import { Divider } from '@mui/material';
 import { AssetCardTitle } from './AssetCardTitle';

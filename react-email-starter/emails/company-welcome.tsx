@@ -14,9 +14,7 @@ import {
   import * as React from 'react';
 import { siteTitle } from '../config';
   
-  const baseUrl = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : '';
+  const baseUrl =`https://lux-vesting-next-bstenm.vercel.app`
   
   export const StripeWelcomeEmail = () => (
     <Html>
@@ -26,14 +24,14 @@ import { siteTitle } from '../config';
         <Container style={container}>
           <Section style={box}>
             <Img
-              src={`${baseUrl}/static/company-logo.jpg`}
+              src={`${baseUrl}/assets/tiers/gold.png`}
               width="49"
               height="21"
               alt={siteTitle}
             />
             <Hr style={hr} />
             <Text style={paragraph}>
-              Thanks for submitting your account information. You're now ready to
+              Thank you for submitting your account information. You're now ready to
               make live transactions with Stripe!
             </Text>
             <Text style={paragraph}>

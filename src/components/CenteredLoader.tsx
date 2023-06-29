@@ -2,8 +2,8 @@
 
 import Box from '@mui/material/Box';
 
-import { Centered } from 'components/Centered';
-import { BounceLoader } from 'components/BounceLoader';
+import { Centered } from '@/components/Centered';
+import { BounceLoader } from '@/components/BounceLoader';
 
 type Props = React.ComponentProps<typeof Box> & {
     fullscreen?: boolean;

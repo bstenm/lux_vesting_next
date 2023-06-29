@@ -3,10 +3,10 @@
 import { useCallback } from 'react';
 import { DropzoneState, FileRejection, useDropzone } from 'react-dropzone';
 
-import { useAlert } from 'features/alert/useAlert';
-import { MediaType } from 'config/types/asset';
-import { FileTooLargeError } from 'libs/customErrors';
-import { fileMaxSize, allowedFileMimes } from 'config';
+import { useAlert } from '@/features/alert/useAlert';
+import { MediaType } from '@/config/types/asset';
+import { FileTooLargeError } from '@/libs/customErrors';
+import { fileMaxSize, allowedFileMimes } from '@/config';
 
 type Props = {
     mediaType: MediaType;

@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import Box, { BoxProps } from '@mui/material/Box';
 
-import { BrokenImagePlaceholder } from 'components/BrokenImagePlaceholder';
-import { useTranslate } from 'libs/hooks/useTranslate';
+import { BrokenImagePlaceholder } from '@/components/BrokenImagePlaceholder';
+import { useTranslate } from '@/libs/hooks/useTranslate';
 
 type Props = BoxProps & {
     uri?: string;

@@ -2,11 +2,11 @@
 
 import Stack from '@mui/material/Stack';
 
-import { Row } from 'components/Row';
-import { AssetItem } from 'config/types/asset';
-import { withEllipsis } from 'libs/utils';
-import { Typography } from 'components/Typography';
-import { AssetRecordPicture } from 'features/AssetRecordPicture';
+import { Row } from '@/components/Row';
+import { AssetItem } from '@/config/types/asset';
+import { withEllipsis } from '@/libs/utils';
+import { Typography } from '@/components/Typography';
+import { AssetRecordPicture } from '@/features/AssetRecordPicture';
 
 type Props = {
     asset: AssetItem;

@@ -6,11 +6,11 @@ import sortBy from 'lodash/sortBy';
 import { styled } from '@mui/material/styles';
 import { useState } from 'react';
 
-import { Row } from 'components/Row';
-import { Image } from 'components/Image';
-import { AssetItem } from 'config/types/asset';
-import { getItemPics } from 'libs/utils';
-import { ImageMagnifier } from 'features/imageMagnifier/ImageMagnifier';
+import { Row } from '@/components/Row';
+import { Image } from '@/components/Image';
+import { AssetItem } from '@/config/types/asset';
+import { getItemPics } from '@/libs/utils';
+import { ImageMagnifier } from '@/features/imageMagnifier/ImageMagnifier';
 
 type Props = {
     data: AssetItem;

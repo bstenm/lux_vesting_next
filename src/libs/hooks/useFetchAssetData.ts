@@ -1,8 +1,8 @@
 import { DocumentReference } from 'firebase/firestore';
 
-import { AssetItem } from 'config/types/asset';
-import { HookOptions } from 'config/types';
-import { getAssetDocumentRef } from 'libs/firebaseApp';
+import { AssetItem } from '@/config/types/asset';
+import { HookOptions } from '@/config/types';
+import { getAssetDocumentRef } from '@/libs/firebaseApp';
 
 import { useRealTimeFetchDocument } from './useRealTimeFetchDocument';
 

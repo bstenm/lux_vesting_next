@@ -1,11 +1,11 @@
 'use client';
 
-import { Row } from 'components/Row';
-import { LightButton } from 'components/buttons/LightButton';
-import { GreenButton } from 'components/buttons/GreenButton';
-import { useUpdateAssetStatus } from 'libs/hooks/useUpdateAssetStatus';
-import { DenialNotesModalButton } from 'features/denialNotes/DenialNotesModalButton';
-import { AssetAuthenticationStatus, AssetItem } from 'config/types/asset';
+import { Row } from '@/components/Row';
+import { LightButton } from '@/components/buttons/LightButton';
+import { GreenButton } from '@/components/buttons/GreenButton';
+import { useUpdateAssetStatus } from '@/libs/hooks/useUpdateAssetStatus';
+import { DenialNotesModalButton } from '@/features/denialNotes/DenialNotesModalButton';
+import { AssetAuthenticationStatus, AssetItem } from '@/config/types/asset';
 
 import { DenyButton } from '../DenyButton';
 

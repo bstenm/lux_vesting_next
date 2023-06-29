@@ -2,13 +2,13 @@
 
 import { useState } from 'react';
 
-import { Modal } from 'components/Modal';
-import { RootState } from 'redux/store';
-import { MediaType } from 'config/types/asset';
-import { getAssetData } from 'state/assets/selectors';
-import { useAppSelector } from 'libs/hooks/useAppSelector';
-import { DocsIconButton } from 'components/iconButtons/DocsIconButton';
-import { CameraIconButton } from 'components/iconButtons/CameraIconButton';
+import { Modal } from '@/components/Modal';
+import { RootState } from '@/redux/store';
+import { MediaType } from '@/config/types/asset';
+import { getAssetData } from '@/state/assets/selectors';
+import { useAppSelector } from '@/libs/hooks/useAppSelector';
+import { DocsIconButton } from '@/components/iconButtons/DocsIconButton';
+import { CameraIconButton } from '@/components/iconButtons/CameraIconButton';
 
 import { ManageAssetFiles } from './ManageAssetFiles';
 

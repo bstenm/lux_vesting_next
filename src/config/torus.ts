@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import { TorusParams, TORUS_BUILD_ENV_TYPE } from '@toruslabs/torus-embed';
 
-import { CHAIN_ID, HOST_NETWORK, NETWORK_NAME } from 'config/constants';
+import { CHAIN_ID, HOST_NETWORK, NETWORK_NAME } from '@/config/constants';
 
 export const buildEnv = 'testing' as TORUS_BUILD_ENV_TYPE;
 

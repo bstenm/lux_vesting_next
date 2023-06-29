@@ -4,9 +4,9 @@ import Link from 'next/link';
 import { Trans } from 'react-i18next';
 import { styled } from '@mui/material/styles';
 
-import { path } from 'config/path';
-import { ContactForm } from 'features/contactForm/ContactForm';
-import { StandardPage } from 'components/StandardPage';
+import { path } from '@/config/path';
+import { ContactForm } from '@/features/contactForm/ContactForm';
+import { StandardPage } from '@/components/StandardPage';
 
 const FAQ = styled(Link)(({ theme }) => ({
     color: theme.palette.primary.light,

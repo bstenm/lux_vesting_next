@@ -3,7 +3,7 @@
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 
-import { Logo } from 'components/Logo';
+import { Logo } from '@/components/Logo';
 
 type Props = {
     top?: number;

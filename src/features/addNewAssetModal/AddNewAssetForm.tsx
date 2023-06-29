@@ -3,11 +3,11 @@
 import Stack from '@mui/material/Stack';
 import { FormProvider } from 'react-hook-form';
 
-import { Row } from 'components/Row';
-import { TextInput } from 'components/TextInput';
-import { DarkButton } from 'components/buttons/DarkButton';
-import { LightButton } from 'components/buttons/LightButton';
-import { DropFileAreaWithPreview } from 'features/dropFileArea/DropFileAreaWithPreview';
+import { Row } from '@/components/Row';
+import { TextInput } from '@/components/TextInput';
+import { DarkButton } from '@/components/buttons/DarkButton';
+import { LightButton } from '@/components/buttons/LightButton';
+import { DropFileAreaWithPreview } from '@/features/dropFileArea/DropFileAreaWithPreview';
 
 import { useAddNewAssetModal } from './useAddNewAssetModal';
 

@@ -7,8 +7,8 @@ import {
     getDownloadURL
 } from 'firebase/storage';
 
-import { firebaseApp } from 'libs/firebaseApp';
-import { avatarsStoragePath, mediaStoragePath } from 'config/index';
+import { firebaseApp } from '@/libs/firebaseApp';
+import { avatarsStoragePath, mediaStoragePath } from '@/config/index';
 
 const storage: FirebaseStorage = getStorage(firebaseApp);
 

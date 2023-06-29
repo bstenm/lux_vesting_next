@@ -2,7 +2,7 @@
 
 import Stack from '@mui/material/Stack';
 
-import { Typography } from 'components/Typography';
+import { Typography } from '@/components/Typography';
 
 type Props = {
     title: string;

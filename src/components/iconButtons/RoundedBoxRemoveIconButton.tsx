@@ -1,6 +1,6 @@
 'use client';
 
-import { RoundedGreyBox } from 'components/RoundedGreyBox';
+import { RoundedGreyBox } from '@/components/RoundedGreyBox';
 import { RemoveIconButton } from './RemoveIconButton';
 
 export function RoundedBoxRemoveIconButton(

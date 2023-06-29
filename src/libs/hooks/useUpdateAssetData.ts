@@ -1,7 +1,7 @@
-import { AssetItem } from 'config/types/asset';
-import { HookOptions } from 'config/types';
-import { assetsActions } from 'state/assets/assetsSlice';
-import { DatabaseService } from 'services/DatabaseService';
+import { AssetItem } from '@/config/types/asset';
+import { HookOptions } from '@/config/types';
+import { assetsActions } from '@/state/assets/assetsSlice';
+import { DatabaseService } from '@/services/DatabaseService';
 
 import { useAsyncAction } from './useAsyncAction';
 import { useAppDispatch } from './useAppDispatch';

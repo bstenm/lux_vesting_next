@@ -5,10 +5,10 @@ import Stack from '@mui/material/Stack';
 import { useState } from 'react';
 import ChevronRight from '@mui/icons-material/ExpandMore';
 
-import { Row } from 'components/Row';
-import { Badge } from 'components/Badge';
-import { IconButton } from 'components/iconButtons/IconButton';
-import { FilterIconButton } from 'components/iconButtons/FilterIconButton';
+import { Row } from '@/components/Row';
+import { Badge } from '@/components/Badge';
+import { IconButton } from '@/components/iconButtons/IconButton';
+import { FilterIconButton } from '@/components/iconButtons/FilterIconButton';
 
 type Props = {
     children: React.ReactNode;

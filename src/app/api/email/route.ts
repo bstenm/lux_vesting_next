@@ -1,8 +1,10 @@
 import sendgrid from '@sendgrid/mail';
 import { render } from '@react-email/render';
 
-import { NewListingEmail } from 'features/emails/NewListingEmail';
-import { MAIL_SERVICE_USER, SENDGRID_API_KEY } from 'config/constants';
+// import { NewListingEmail } from '@/features/emails/NewListingEmail';
+import { StripeWelcomeEmail } from '@/emails/company-welcome';
+
+import { MAIL_SERVICE_USER, SENDGRID_API_KEY } from '@/config/constants';
 
 export type EmailTemplate = {
     newListing: {
@@ -11,10 +13,15 @@ export type EmailTemplate = {
     };
 };
 
-const emailTemplateMap: EmailTemplate = {
+export type SendEmailBody = {
+    to: string;
+    template: keyof EmailTemplate;
+};
+
+const emailSpec: EmailTemplate = {
     newListing: {
         subject: 'A Lux Vesting New Listing',
-        component: NewListingEmail
+        component: StripeWelcomeEmail
     }
 };
 
@@ -24,11 +31,12 @@ export async function POST(req: Request): Promise<Response> {
 
         sendgrid.setApiKey(SENDGRID_API_KEY);
 
-        const { to, template, subject } = await req.json();
+        const { to, template } = (await req.json()) as SendEmailBody;
 
-        const html = render(
-            emailTemplateMap[template as keyof EmailTemplate].component()
-        );
+        const { subject, component } =
+            emailSpec[template as keyof EmailTemplate];
+
+        const html = render(component());
 
         await sendgrid.send({ to, from, html, subject });
 

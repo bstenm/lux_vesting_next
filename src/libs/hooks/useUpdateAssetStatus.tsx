@@ -2,11 +2,11 @@ import {
     AssetStatusType,
     AssetListingStatus,
     AssetAuthenticationStatus
-} from 'config/types/asset';
-import { assetsActions } from 'state/assets/assetsSlice';
-import { DatabaseService } from 'services/DatabaseService';
-import { useSendNotifications } from 'features/notifications/useSendNotifications';
-import { HookOptions, NotificationType } from 'config/types';
+} from '@/config/types/asset';
+import { assetsActions } from '@/state/assets/assetsSlice';
+import { DatabaseService } from '@/services/DatabaseService';
+import { useSendNotifications } from '@/features/notifications/useSendNotifications';
+import { HookOptions, NotificationType } from '@/config/types';
 
 import { useAppDispatch } from './useAppDispatch';
 import { useAsyncAction } from './useAsyncAction';
@@ -39,8 +39,10 @@ export const useUpdateAssetStatus = (
         const data = { status, notes };
         await DatabaseService.updateAssetStatus(assetId, statusType, data);
         dispatch(assetsActions.updateData({ id: assetId, [statusType]: data }));
+        // Notify the merchatn of the asset status change
+        const to = [merchantId];
         const type: NotificationType = `${statusType}StatusChanged`;
-        sendNotifications({ to: [merchantId], data: { type, value: status } });
+        sendNotifications({ to, data: { type, value: status } });
     };
 
     const [updateStatus, processing] = useAsyncAction<Args, void>(action, {

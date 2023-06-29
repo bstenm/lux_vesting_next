@@ -1,11 +1,11 @@
 'use client';
 
-import { RedButton } from 'components/buttons/RedButton';
-import { Typography } from 'components/Typography';
-import { BlackBanner } from 'components/BlackBanner';
-import { GreenButton } from 'components/buttons/GreenButton';
-import { YellowButton } from 'components/buttons/YellowButton';
-import { AssetAuthenticationStatus, AssetItem } from 'config/types/asset';
+import { RedButton } from '@/components/buttons/RedButton';
+import { Typography } from '@/components/Typography';
+import { BlackBanner } from '@/components/BlackBanner';
+import { GreenButton } from '@/components/buttons/GreenButton';
+import { YellowButton } from '@/components/buttons/YellowButton';
+import { AssetAuthenticationStatus, AssetItem } from '@/config/types/asset';
 
 import { AdminAssetAuthenticationStatusControlModal } from './AdminAssetAuthenticationStatusControlModal';
 

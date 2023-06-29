@@ -1,12 +1,12 @@
 'use client';
 
-import { useAppSelector } from 'libs/hooks/useAppSelector';
-import { useAsyncAction } from 'libs/hooks/useAsyncAction';
-import { DatabaseService } from 'services/DatabaseService';
-import { HookActionError } from 'libs/customErrors';
-import { useSendNotifications } from 'features/notifications/useSendNotifications';
-import { getUserId, getUserName } from 'state/user/selectors';
-import { Message, NotificationType } from 'config/types';
+import { useAppSelector } from '@/libs/hooks/useAppSelector';
+import { useAsyncAction } from '@/libs/hooks/useAsyncAction';
+import { DatabaseService } from '@/services/DatabaseService';
+import { HookActionError } from '@/libs/customErrors';
+import { useSendNotifications } from '@/features/notifications/useSendNotifications';
+import { getUserId, getUserName } from '@/state/user/selectors';
+import { Message, NotificationType } from '@/config/types';
 
 type StateLogic = [({ text }: Args) => void, boolean];
 

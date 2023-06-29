@@ -4,8 +4,8 @@ import { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm, SubmitHandler, UseFormReturn } from 'react-hook-form';
 
-import { AddNewAssetFormInput } from 'config/types/asset';
-import { useUserHistoricalActivity } from 'libs/hooks/useUserHistoricalActivity';
+import { AddNewAssetFormInput } from '@/config/types/asset';
+import { useUserHistoricalActivity } from '@/libs/hooks/useUserHistoricalActivity';
 
 import { useAddNewAsset } from './useAddNewAsset';
 import { addNewAssetSchema } from './addNewAssetSchema';

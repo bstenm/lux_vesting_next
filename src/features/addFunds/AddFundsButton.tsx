@@ -1,6 +1,6 @@
 'use client';
 
-import { DarkButton } from 'components/buttons/DarkButton';
+import { DarkButton } from '@/components/buttons/DarkButton';
 
 import { useAddFundsDrawer } from './useAddFundsDrawer';
 

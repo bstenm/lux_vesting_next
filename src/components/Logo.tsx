@@ -2,8 +2,8 @@
 
 import Image from 'next/image';
 
-import logo from 'assets/logo.svg';
-import { SITE_TITLE } from 'config/constants';
+import logo from '@/assets/logo.svg';
+import { SITE_TITLE } from '@/config/constants';
 
 type Props = {
     width: number;

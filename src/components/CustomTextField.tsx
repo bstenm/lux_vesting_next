@@ -5,10 +5,10 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import { forwardRef } from 'react';
 import { ErrorMessage } from '@hookform/error-message';
-import { useTranslate } from 'libs/hooks/useTranslate';
+import { useTranslate } from '@/libs/hooks/useTranslate';
 import TextField, { TextFieldProps } from '@mui/material/TextField';
 
-import { FormHelperText } from 'components/FormHelperText';
+import { FormHelperText } from '@/components/FormHelperText';
 import { Controller, useFormContext, Path } from 'react-hook-form';
 
 type Props<T> = TextFieldProps & {

@@ -1,6 +1,6 @@
 'use client';
 
-import { RoundedGreyBox } from 'components/RoundedGreyBox';
+import { RoundedGreyBox } from '@/components/RoundedGreyBox';
 import { EditIconButton } from './EditIconButton';
 
 export function RoundedBoxEditIconButton(

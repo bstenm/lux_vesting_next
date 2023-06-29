@@ -2,10 +2,10 @@
 
 import { grey } from '@mui/material/colors';
 import { capitalize } from 'lodash';
-import { useTranslate } from 'libs/hooks/useTranslate';
+import { useTranslate } from '@/libs/hooks/useTranslate';
 
-import { Spinner } from 'components/Spinner';
-import { RoundedGreyBox } from 'components/RoundedGreyBox';
+import { Spinner } from '@/components/Spinner';
+import { RoundedGreyBox } from '@/components/RoundedGreyBox';
 
 import { useWeb3 } from './useWeb3';
 

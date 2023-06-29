@@ -2,7 +2,7 @@
 
 import { BoxProps } from '@mui/material/Box';
 
-import { Typography } from 'components/Typography';
+import { Typography } from '@/components/Typography';
 
 import { BlackBanner } from './BlackBanner';
 

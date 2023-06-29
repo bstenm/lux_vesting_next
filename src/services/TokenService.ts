@@ -1,7 +1,7 @@
 import { formatUnits } from 'ethers';
 
 import TokenContract from 'artifacts/contracts/LuxVestingToken.sol/LuxVestingToken.json';
-import { TOKEN_CONTRACT_ADDRESS } from 'config/constants';
+import { TOKEN_CONTRACT_ADDRESS } from '@/config/constants';
 
 import { SmartContractService } from './SmartContractService';
 

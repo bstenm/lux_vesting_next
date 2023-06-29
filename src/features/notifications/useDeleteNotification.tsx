@@ -1,8 +1,8 @@
 'use client';
 
-import { HookOptions } from 'config/types';
-import { useAsyncAction } from 'libs/hooks/useAsyncAction';
-import { DatabaseService } from 'services/DatabaseService';
+import { HookOptions } from '@/config/types';
+import { useAsyncAction } from '@/libs/hooks/useAsyncAction';
+import { DatabaseService } from '@/services/DatabaseService';
 
 export type DeleteNotificationArgs = {
     id: string;

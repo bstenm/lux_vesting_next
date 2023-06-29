@@ -3,16 +3,16 @@
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 
-import { Row } from 'components/Row';
-import { Space } from 'components/Space';
-import { Typography } from 'components/Typography';
-import { AmountInput } from 'features/addFunds/AmountInput';
-import { PaypalButtons } from 'features/paypalButtons/PaypalButtons';
-import { useAppSelector } from 'libs/hooks/useAppSelector';
-import { getUserBalance } from 'state/user/selectors';
-import { proprietaryCurrency } from 'config';
-import { SpinnerWithMessage } from 'components/SpinnerWithMessage';
-import WalletIcon from 'assets/wallet.svg';
+import { Row } from '@/components/Row';
+import { Space } from '@/components/Space';
+import { Typography } from '@/components/Typography';
+import { AmountInput } from '@/features/addFunds/AmountInput';
+import { PaypalButtons } from '@/features/paypalButtons/PaypalButtons';
+import { useAppSelector } from '@/libs/hooks/useAppSelector';
+import { getUserBalance } from '@/state/user/selectors';
+import { proprietaryCurrency } from '@/config';
+import { SpinnerWithMessage } from '@/components/SpinnerWithMessage';
+import WalletIcon from '@/assets/wallet.svg';
 
 import { useBuyTokens } from './useBuyTokens';
 

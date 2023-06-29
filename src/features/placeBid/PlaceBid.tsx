@@ -2,11 +2,11 @@
 
 import Stack from '@mui/material/Stack';
 
-import { Row } from 'components/Row';
-import { AssetItem } from 'config/types/asset';
-import { DarkButton } from 'components/buttons/DarkButton';
-import { GreenButton } from 'components/buttons/GreenButton';
-import { AssetHighestBid } from 'features/assetBids/AssetHighestBid';
+import { Row } from '@/components/Row';
+import { AssetItem } from '@/config/types/asset';
+import { DarkButton } from '@/components/buttons/DarkButton';
+import { GreenButton } from '@/components/buttons/GreenButton';
+import { AssetHighestBid } from '@/features/assetBids/AssetHighestBid';
 
 import { BidInput } from './BidInput';
 import { useBidInput } from './useBidInput';

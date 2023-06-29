@@ -5,13 +5,13 @@ import { grey, purple } from '@mui/material/colors';
 import { remove } from 'lodash';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 
-import { Spinner } from 'components/Spinner';
-import { getUserId } from 'state/user/selectors';
-import { RootState } from 'redux/store';
-import { IconButton } from 'components/iconButtons/IconButton';
-import { useAppSelector } from 'libs/hooks/useAppSelector';
-import { getAssetFollowers } from 'state/assets/selectors';
-import { useUpdateAssetData } from 'libs/hooks/useUpdateAssetData';
+import { Spinner } from '@/components/Spinner';
+import { getUserId } from '@/state/user/selectors';
+import { RootState } from '@/redux/store';
+import { IconButton } from '@/components/iconButtons/IconButton';
+import { useAppSelector } from '@/libs/hooks/useAppSelector';
+import { getAssetFollowers } from '@/state/assets/selectors';
+import { useUpdateAssetData } from '@/libs/hooks/useUpdateAssetData';
 
 type Props = React.ComponentProps<typeof IconButton> & {
     assetId: string;

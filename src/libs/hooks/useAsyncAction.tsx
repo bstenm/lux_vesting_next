@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-import { logger } from 'libs/logger';
-import { HookOptions } from 'config/types';
-import { getErrorMessage } from 'libs/getErrorMessage';
+import { logger } from '@/libs/logger';
+import { HookOptions } from '@/config/types';
+import { getErrorMessage } from '@/libs/getErrorMessage';
 
-import { HookActionError } from 'libs/customErrors';
+import { HookActionError } from '@/libs/customErrors';
 import { useAlert } from '../../features/alert/useAlert';
 
 type StateLogic<T, V> = [(args: T) => Promise<V>, boolean];

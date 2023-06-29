@@ -1,8 +1,8 @@
 import Grid from '@mui/material/Grid';
 import { purple } from '@mui/material/colors';
-import { Button } from 'components/buttons/Button';
+import { Button } from '@/components/buttons/Button';
 
-import { AssetMediaMetadata } from 'config/types/asset';
+import { AssetMediaMetadata } from '@/config/types/asset';
 
 type Props = {
     pics: AssetMediaMetadata[];

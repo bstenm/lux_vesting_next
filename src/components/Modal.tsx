@@ -6,7 +6,7 @@
 
 import noop from 'lodash/noop';
 import SweetAlert from 'react-bootstrap-sweetalert';
-import { useTranslate } from 'libs/hooks/useTranslate';
+import { useTranslate } from '@/libs/hooks/useTranslate';
 
 import { TitleBanner } from './TitleBanner';
 

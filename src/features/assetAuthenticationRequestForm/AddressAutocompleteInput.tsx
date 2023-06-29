@@ -8,9 +8,9 @@ import { useFormContext } from 'react-hook-form';
 import { usePlacesWidget } from 'react-google-autocomplete';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 
-import { Row } from 'components/Row';
-import { Typography } from 'components/Typography';
-import { CustomTextField } from 'components/CustomTextField';
+import { Row } from '@/components/Row';
+import { Typography } from '@/components/Typography';
+import { CustomTextField } from '@/components/CustomTextField';
 
 type Props = {
     disabled: boolean;

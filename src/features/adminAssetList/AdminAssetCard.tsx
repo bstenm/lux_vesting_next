@@ -3,18 +3,18 @@
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 
-import { Row } from 'components/Row';
-import { AssetItem } from 'config/types/asset';
-import { DataPoint } from 'components/DataPoint';
-import { Typography } from 'components/Typography';
-import { StandardCard } from 'components/StandardCard';
-import { EmailIconButton } from 'components/iconButtons/EmailIconButton';
-import { ShowBidsButton } from 'features/assetBids/ShowBidsButton';
-import { AssetRecordPicture } from 'features/AssetRecordPicture';
-import { formatDate, withEllipsis } from 'libs/utils';
-import { EditAssetDataIconButton } from 'features/editAssetListingDataForm/EditAssetDataIconButton';
-import { ManageAssetPicsIconButton } from 'features/manageAssetFilesModal/ManageAssetPicsIconButton';
-import { ManageAssetDocsIconButton } from 'features/manageAssetFilesModal/ManageAssetDocsIconButton';
+import { Row } from '@/components/Row';
+import { AssetItem } from '@/config/types/asset';
+import { DataPoint } from '@/components/DataPoint';
+import { Typography } from '@/components/Typography';
+import { StandardCard } from '@/components/StandardCard';
+import { EmailIconButton } from '@/components/iconButtons/EmailIconButton';
+import { ShowBidsButton } from '@/features/assetBids/ShowBidsButton';
+import { AssetRecordPicture } from '@/features/AssetRecordPicture';
+import { formatDate, withEllipsis } from '@/libs/utils';
+import { EditAssetDataIconButton } from '@/features/editAssetListingDataForm/EditAssetDataIconButton';
+import { ManageAssetPicsIconButton } from '@/features/manageAssetFilesModal/ManageAssetPicsIconButton';
+import { ManageAssetDocsIconButton } from '@/features/manageAssetFilesModal/ManageAssetDocsIconButton';
 
 import { SendMessageButton } from './SendMessageButton';
 import { ManageAdminListingStatusButton } from './adminAssetListing/ManageAdminAssetListingStatusButton';

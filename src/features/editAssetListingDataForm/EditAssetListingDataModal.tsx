@@ -1,6 +1,6 @@
 'use client';
 
-import { ButtonWithModal } from 'components/ButtonWithModal';
+import { ButtonWithModal } from '@/components/ButtonWithModal';
 import { EditAssetListingDataForm } from './EditAssetListingDataForm';
 
 type Props = {

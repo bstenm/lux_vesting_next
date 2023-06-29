@@ -3,16 +3,16 @@
 import { UserInfo } from '@toruslabs/torus-embed';
 import { useEffect } from 'react';
 
-import { User } from 'config/types/user';
-import { getUserId } from 'state/user/selectors';
-import { userActions } from 'state/user/userSlice';
-import { web3Service } from 'services/web3Service';
-import { tokenContract } from 'services/TokenService';
-import { useAsyncAction } from 'libs/hooks/useAsyncAction';
-import { useAppSelector } from 'libs/hooks/useAppSelector';
-import { useAppDispatch } from 'libs/hooks/useAppDispatch';
-import { DatabaseService } from 'services/DatabaseService';
-import { RecordNotFoundError } from 'libs/customErrors';
+import { User } from '@/config/types/user';
+import { getUserId } from '@/state/user/selectors';
+import { userActions } from '@/state/user/userSlice';
+import { web3Service } from '@/services/web3Service';
+import { tokenContract } from '@/services/TokenService';
+import { useAsyncAction } from '@/libs/hooks/useAsyncAction';
+import { useAppSelector } from '@/libs/hooks/useAppSelector';
+import { useAppDispatch } from '@/libs/hooks/useAppDispatch';
+import { DatabaseService } from '@/services/DatabaseService';
+import { RecordNotFoundError } from '@/libs/customErrors';
 
 type AuthLogic = {
     login: () => Promise<void>;

@@ -3,7 +3,7 @@
 import capitalize from 'lodash/capitalize';
 import startCase from 'lodash/startCase';
 import MuiDialogTitle from '@mui/material/DialogTitle';
-import { useTranslate } from 'libs/hooks/useTranslate';
+import { useTranslate } from '@/libs/hooks/useTranslate';
 
 type Props = React.ComponentProps<typeof MuiDialogTitle> & {
     bold?: boolean;

@@ -1,9 +1,9 @@
 'use client';
 
 import Image from 'next/image';
-import { useTranslate } from 'libs/hooks/useTranslate';
+import { useTranslate } from '@/libs/hooks/useTranslate';
 
-import BidIconImg from 'assets/bid-icon.png';
+import BidIconImg from '@/assets/bid-icon.png';
 
 type Props = {
     size?: number;

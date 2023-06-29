@@ -3,8 +3,8 @@
 import { MouseEvent } from 'react';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 
-import { Badge } from 'components/Badge';
-import { IconButton } from 'components/iconButtons/IconButton';
+import { Badge } from '@/components/Badge';
+import { IconButton } from '@/components/iconButtons/IconButton';
 
 type Props = {
     onClick: (e: MouseEvent<HTMLButtonElement>) => void;

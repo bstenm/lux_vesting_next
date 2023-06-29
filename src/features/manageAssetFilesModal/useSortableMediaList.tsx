@@ -2,15 +2,15 @@
 
 import { useState } from 'react';
 
-import { RootState } from 'redux/store';
-import { HookOptions } from 'config/types';
-import { useAppDispatch } from 'libs/hooks/useAppDispatch';
-import { useAppSelector } from 'libs/hooks/useAppSelector';
-import { useAsyncAction } from 'libs/hooks/useAsyncAction';
-import { DatabaseService } from 'services/DatabaseService';
-import { assetsActions } from 'state/assets/assetsSlice';
-import { getAssetMedias } from 'state/assets/selectors';
-import { AssetMediaMetadataItem, MediaType } from 'config/types/asset';
+import { RootState } from '@/redux/store';
+import { HookOptions } from '@/config/types';
+import { useAppDispatch } from '@/libs/hooks/useAppDispatch';
+import { useAppSelector } from '@/libs/hooks/useAppSelector';
+import { useAsyncAction } from '@/libs/hooks/useAsyncAction';
+import { DatabaseService } from '@/services/DatabaseService';
+import { assetsActions } from '@/state/assets/assetsSlice';
+import { getAssetMedias } from '@/state/assets/selectors';
+import { AssetMediaMetadataItem, MediaType } from '@/config/types/asset';
 
 type StateLogic = {
     files: AssetMediaMetadataItem[];

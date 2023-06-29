@@ -1,12 +1,12 @@
 'use client';
 
-import { AssetMedia } from 'config/types/asset';
-import { HookOptions } from 'config/types';
-import { assetsActions } from 'state/assets/assetsSlice';
-import { StorageService } from 'services/StorageService';
-import { useAsyncAction } from 'libs/hooks/useAsyncAction';
-import { useAppDispatch } from 'libs/hooks/useAppDispatch';
-import { DatabaseService } from 'services/DatabaseService';
+import { AssetMedia } from '@/config/types/asset';
+import { HookOptions } from '@/config/types';
+import { assetsActions } from '@/state/assets/assetsSlice';
+import { StorageService } from '@/services/StorageService';
+import { useAsyncAction } from '@/libs/hooks/useAsyncAction';
+import { useAppDispatch } from '@/libs/hooks/useAppDispatch';
+import { DatabaseService } from '@/services/DatabaseService';
 
 type StateLogic = [(data: AssetMedia) => Promise<void>, boolean];
 
