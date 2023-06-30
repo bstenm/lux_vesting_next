@@ -6,12 +6,6 @@ export const PROD_MODE = process.env.NODE_ENV === 'production';
 
 export const TEST_MODE = process.env.NODE_ENV === 'test';
 
-export const SITE_TITLE = 'Lux Vesting';
-
-export const SITE_URL = DEV_MODE
-    ? 'http://localhost:3000'
-    : 'https://luxvesting.com';
-
 export const BLOCKCHAIN_CURRENCY_TO_DOLLAR = 1350;
 
 export const DOLLAR_TO_PROPRIETARY_CURRENCY = 100;
@@ -39,6 +33,8 @@ export const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY!;
 
 export const MAIL_SERVICE_USER = process.env.MAIL_SERVICE_USER!;
 
+export const VERCEL_URL = process.env.NEXT_PUBLIC_VERCEL_URL!;
+
 export const TOKEN_CONTRACT_ADDRESS = LOCAL_BLOCKCHAIN
     ? process.env.NEXT_PUBLIC_TOKEN_CONTRACT_ADDRESS_ON_LOCALHOST!
     : process.env.NEXT_PUBLIC_TOKEN_CONTRACT_ADDRESS_ON_GOERLI!;
@@ -59,3 +55,7 @@ export const IS_TEST_NETWORK = HOST_NETWORK === 'goerli';
 
 export const LUX_VESTING_INITIAL_BID_RATIO =
     DEV_MODE || IS_TEST_NETWORK ? 1 / 1000 : 25 / 100;
+
+export const SITE_TITLE = 'Lux Vesting';
+
+export const SITE_URL = DEV_MODE ? 'http://localhost:3000' : VERCEL_URL;
