@@ -1,22 +1,22 @@
 import {
-    Body,
-    Button,
-    Container,
-    Head,
     Hr,
-    Html,
     Img,
     Link,
-    Preview,
-    Section,
     Text,
+    Body,
+    Html,
+    Head,
+    Button,
+    Section,
+    Preview,
+    Container,
   } from '@react-email/components';
-  import * as React from 'react';
-import { siteTitle } from '../config';
+
+import { siteTitle } from '@/config';
   
-  const baseUrl =`https://lux-vesting-next-bstenm.vercel.app`
+  const baseUrl = process.env.VERCEL_URL ?? '../static'; 
   
-  export const StripeWelcomeEmail = () => (
+  export const CompanyWelcome = () => (
     <Html>
       <Head />
       <Preview>You're now ready to make live transactions with Stripe!</Preview>
@@ -24,10 +24,10 @@ import { siteTitle } from '../config';
         <Container style={container}>
           <Section style={box}>
             <Img
-              src={`${baseUrl}/assets/tiers/gold.png`}
-              width="49"
-              height="21"
               alt={siteTitle}
+              src={`${baseUrl}/assets/company-logo.jpg`}
+              width="50"
+              height="50"
             />
             <Hr style={hr} />
             <Text style={paragraph}>
@@ -100,7 +100,7 @@ import { siteTitle } from '../config';
     </Html>
   );
   
-  export default StripeWelcomeEmail;
+  export default CompanyWelcome;
   
   const main = {
     backgroundColor: '#f6f9fc',
