@@ -29,7 +29,10 @@ export async function GET(req: Request): Promise<Response> {
 
         sendgrid.setApiKey(SENDGRID_API_KEY);
 
-        const { to, template } = (await req.json()) as SendEmailBody;
+        // const { to, template } = (await req.json()) as SendEmailBody;
+        const to = 'bstenm@hotmail.com';
+
+        const template = 'newListing';
 
         const { subject, component } =
             emailSpec[template as keyof EmailTemplate];
@@ -40,8 +43,6 @@ export async function GET(req: Request): Promise<Response> {
 
         return new Response(
             JSON.stringify({
-                to,
-                template,
                 key: SENDGRID_API_KEY,
                 from: MAIL_SERVICE_USER
             })
