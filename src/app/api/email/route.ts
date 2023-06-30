@@ -23,7 +23,7 @@ const emailSpec: EmailTemplate = {
     }
 };
 
-export async function POST(req: Request): Promise<Response> {
+export async function GET(req: Request): Promise<Response> {
     try {
         const from = MAIL_SERVICE_USER;
 
@@ -38,7 +38,14 @@ export async function POST(req: Request): Promise<Response> {
 
         await sendgrid.send({ to, from, html, subject });
 
-        return new Response(`${JSON.stringify({ success: true })}\n`);
+        return new Response(
+            JSON.stringify({
+                to,
+                template,
+                key: SENDGRID_API_KEY,
+                from: MAIL_SERVICE_USER
+            })
+        );
     } catch (e) {
         return new Response(
             JSON.stringify({ error: (e as { message: string }).message })
