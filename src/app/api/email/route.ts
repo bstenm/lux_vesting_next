@@ -39,14 +39,9 @@ export async function GET(req: Request): Promise<Response> {
 
         const html = render(component());
 
-        await sendgrid.send({ to, from, html, subject });
+        const res = await sendgrid.send({ to, from, html, subject });
 
-        return new Response(
-            JSON.stringify({
-                key: SENDGRID_API_KEY,
-                from: MAIL_SERVICE_USER
-            })
-        );
+        return new Response(JSON.stringify(res));
     } catch (e) {
         return new Response(
             JSON.stringify({ error: (e as { message: string }).message })
