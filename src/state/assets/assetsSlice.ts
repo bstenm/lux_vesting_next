@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 
-import { AssetItem } from 'config/types/asset';
+import { AssetItem } from '@/config/types/asset';
 
 const initialState: AssetItem[] = [];
 

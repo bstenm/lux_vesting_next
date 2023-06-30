@@ -2,13 +2,13 @@ import sortBy from 'lodash/sortBy';
 import maxBy from 'lodash/maxBy';
 import uniqBy from 'lodash/uniqBy';
 
-import { RootState } from 'redux/store';
 import {
     Bid,
     AssetItem,
     MediaType,
     AssetMediaMetadataItem
-} from 'config/types/asset';
+} from '@/config/types/asset';
+import { RootState } from '@/redux/store';
 
 export const getAllAssets = (state: RootState): AssetItem[] => state.assets;
 
