@@ -6,7 +6,8 @@ import { useAsyncAction } from '@/libs/hooks/useAsyncAction';
 import { useAppSelector } from '@/libs/hooks/useAppSelector';
 import { DatabaseService } from '@/services/DatabaseService';
 import { HookOptions, NotificationData } from '@/config/types';
-import { useSendEmail } from '@/features/emails/useSendEmail';
+
+import { useSendEmail } from './useSendEmail';
 
 export type Args = {
     to: string[];

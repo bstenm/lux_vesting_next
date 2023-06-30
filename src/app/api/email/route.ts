@@ -1,9 +1,7 @@
 import sendgrid from '@sendgrid/mail';
 import { render } from '@react-email/render';
 
-// import { NewListingEmail } from '@/features/emails/NewListingEmail';
-import { StripeWelcomeEmail } from '@/emails/company-welcome';
-
+import { CompanyWelcome } from '@/emails/CompanyWelcome';
 import { MAIL_SERVICE_USER, SENDGRID_API_KEY } from '@/config/constants';
 
 export type EmailTemplate = {
@@ -20,8 +18,8 @@ export type SendEmailBody = {
 
 const emailSpec: EmailTemplate = {
     newListing: {
-        subject: 'A Lux Vesting New Listing',
-        component: StripeWelcomeEmail
+        subject: 'Lux Vesting New Listing',
+        component: CompanyWelcome
     }
 };
 
