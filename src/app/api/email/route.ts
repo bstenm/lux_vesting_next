@@ -23,16 +23,13 @@ const emailSpec: EmailTemplate = {
     }
 };
 
-export async function GET(req: Request): Promise<Response> {
+export async function POST(req: Request): Promise<Response> {
     try {
         const from = MAIL_SERVICE_USER;
 
         sendgrid.setApiKey(SENDGRID_API_KEY);
 
-        // const { to, template } = (await req.json()) as SendEmailBody;
-        const to = 'bstenm@hotmail.com';
-
-        const template = 'newListing';
+        const { to, template } = (await req.json()) as SendEmailBody;
 
         const { subject, component } =
             emailSpec[template as keyof EmailTemplate];
