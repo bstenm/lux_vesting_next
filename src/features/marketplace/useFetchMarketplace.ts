@@ -6,9 +6,9 @@ import { useAsyncAction } from '@/libs/hooks/useAsyncAction';
 import { useAppDispatch } from '@/libs/hooks/useAppDispatch';
 import { DatabaseService } from '@/services/DatabaseService';
 
-type StateLogic = [() => Promise<void>, boolean];
+type HookLogic = [() => Promise<void>, boolean];
 
-export const useFetchMarketplace = (op: HookOptions = {}): StateLogic => {
+export const useFetchMarketplace = (op: HookOptions = {}): HookLogic => {
     const dispatch = useAppDispatch();
 
     const action = async (): Promise<void> => {

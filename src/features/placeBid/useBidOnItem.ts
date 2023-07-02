@@ -17,12 +17,12 @@ import { useSendNotifications } from '@/features/notifications/useSendNotificati
 
 type ActionParams = { value: number; bidders?: string[] };
 
-type StateLogic = [(param: ActionParams) => Promise<void>, boolean];
+type HookLogic = [(param: ActionParams) => Promise<void>, boolean];
 
 export const useBidOnItem = (
     asset: AssetItem,
     op: HookOptions = {}
-): StateLogic => {
+): HookLogic => {
     const { id: assetId, merchantId, followers } = asset;
 
     const [sendNotifications] = useSendNotifications(asset.id, {
@@ -36,8 +36,6 @@ export const useBidOnItem = (
         value
     }: ActionParams): Promise<void> => {
         const newBid: Bid = { value, bidder };
-        // TODO: Restore?
-        // await biddingService.createBid(newBid);
         await DatabaseService.addBidToAsset(assetId, newBid);
         // Send a notification to all this asset bidders
         const type: NotificationType = 'newBidPlaced';

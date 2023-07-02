@@ -7,7 +7,7 @@ import { MessageItem } from '@/config/types';
 import { useFetchChat } from './useFetchChat';
 import { useSendMessage } from './useSendMessage';
 
-type StateLogic = {
+type HookLogic = {
     text: string;
     send: () => void;
     fetching: boolean;
@@ -20,7 +20,7 @@ export const useChatRoom = (
     to: string,
     from: string,
     assetId: string
-): StateLogic => {
+): HookLogic => {
     const [text, setText] = useState<string>('');
 
     const [messages, fetching] = useFetchChat(to, from, assetId);

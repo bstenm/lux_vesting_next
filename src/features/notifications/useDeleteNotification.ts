@@ -9,9 +9,9 @@ export type DeleteNotificationArgs = {
     uid: string;
 };
 
-type StateLogic = [(args: DeleteNotificationArgs) => void, boolean];
+type HookLogic = [(args: DeleteNotificationArgs) => void, boolean];
 
-export const useDeleteNotification = (op: HookOptions = {}): StateLogic => {
+export const useDeleteNotification = (op: HookOptions = {}): HookLogic => {
     const deleteNotificationAction = async ({
         id,
         uid

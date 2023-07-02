@@ -12,7 +12,7 @@ import { useAlert } from '@/features/alert/useAlert';
 import { DEV_MODE } from '@/config/constants';
 import { defaultCurrency } from '@/config';
 
-type StateLogic = {
+type HookLogic = {
     onError: (e: unknown) => void;
     onCancel: () => void;
     onApprove: (
@@ -37,7 +37,7 @@ export const usePaypal = ({
     onPaymentError,
     onPaymentSuccess,
     onPaymentCancelled
-}: Args): StateLogic => {
+}: Args): HookLogic => {
     const { errorAlert, successAlert } = useAlert();
 
     const onError = (e: unknown): void => {

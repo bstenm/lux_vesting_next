@@ -6,12 +6,12 @@ import { HookOptions, NotificationItem } from '@/config/types';
 import { useRealTimeFetchCollection } from '@/libs/hooks/useRealTimeFetchCollection';
 import { getNotificationCollectionRef } from '@/libs/firebaseApp';
 
-type StateLogic = [NotificationItem[], boolean];
+type HookLogic = [NotificationItem[], boolean];
 
 export const useFetchNotifications = (
     userId: string,
     op: HookOptions = {}
-): StateLogic =>
+): HookLogic =>
     useRealTimeFetchCollection<NotificationItem>(
         query(getNotificationCollectionRef(userId)) as Query<NotificationItem>,
         'errorRetrievingNotifications',

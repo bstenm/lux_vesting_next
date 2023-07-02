@@ -15,7 +15,7 @@ type RemoveParams = {
     id: string;
 };
 
-type StateLogic = {
+type HookLogic = {
     files: AssetMediaMetadataItem[];
     processing: boolean;
     onRemoveItem: ({ id }: RemoveParams) => void;
@@ -25,7 +25,7 @@ export const useRemoveAssetMediaItem = (
     assetId: string,
     mediaType: MediaType,
     op: HookOptions = {}
-): StateLogic => {
+): HookLogic => {
     const dispatch = useAppDispatch();
 
     const files = useAppSelector((state: RootState) =>

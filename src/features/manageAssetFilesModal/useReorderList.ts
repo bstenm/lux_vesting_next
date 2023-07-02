@@ -12,7 +12,7 @@ import { assetsActions } from '@/state/assets/assetsSlice';
 import { getAssetMedias } from '@/state/assets/selectors';
 import { AssetMediaMetadataItem, MediaType } from '@/config/types/asset';
 
-type StateLogic = {
+type HookLogic = {
     reordering: boolean;
     onSaveList: () => Promise<void>;
     onReorderList: (items: AssetMediaMetadataItem[]) => void;
@@ -23,7 +23,7 @@ export const useReorderList = (
     mediaType: MediaType,
     onSuccess: () => void,
     op: HookOptions = {}
-): StateLogic => {
+): HookLogic => {
     const dispatch = useAppDispatch();
 
     const files = useAppSelector((state: RootState) =>

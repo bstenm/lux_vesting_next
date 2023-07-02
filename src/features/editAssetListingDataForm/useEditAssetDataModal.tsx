@@ -17,7 +17,7 @@ import { useUpdateAssetStatus } from '@/libs/hooks/useUpdateAssetStatus';
 import { getUserId } from '@/state/user/selectors';
 import { editAssetDataSchema } from './editAssetDataSchema';
 
-type StateLogic = {
+type HookLogic = {
     onClose: () => void;
     onSubmit: (data: EditAssetDataFormInput) => void;
     submitting: boolean;
@@ -35,7 +35,7 @@ export const useEditAssetDataModal = (
     assetId: string,
     onSuccess: () => void,
     { silent = false }: Options = {}
-): StateLogic => {
+): HookLogic => {
     const { successAlert } = useAlert(silent);
 
     const assetData = useAppSelector((state: RootState) =>

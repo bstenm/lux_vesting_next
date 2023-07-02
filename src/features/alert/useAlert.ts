@@ -6,14 +6,14 @@ import { useTranslate } from '@/libs/hooks/useTranslate';
 import { alertActions } from '@/state/alert/alertSlice';
 import { useAppDispatch } from '@/libs/hooks/useAppDispatch';
 
-type StateLogic = {
+type HookLogic = {
     infoAlert: (messageId: string) => void;
     errorAlert: (messageId?: string) => void;
     successAlert: (messageId: string) => void;
     closeAlert: () => void;
 };
 
-export const useAlert = (mute?: boolean): StateLogic => {
+export const useAlert = (mute?: boolean): HookLogic => {
     const t = useTranslate();
 
     const dispatch = useAppDispatch();

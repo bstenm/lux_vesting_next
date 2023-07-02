@@ -7,12 +7,12 @@ import { HookOptions } from '@/config/types';
 import { getBidCollectionRef } from '@/libs/firebaseApp';
 import { useRealTimeFetchCollection } from '@/libs/hooks/useRealTimeFetchCollection';
 
-type StateLogic = [BidItem[], boolean];
+type HookLogic = [BidItem[], boolean];
 
 export const useFetchAssetBids = (
     assetId: string,
     op: HookOptions = {}
-): StateLogic =>
+): HookLogic =>
     useRealTimeFetchCollection<BidItem>(
         query(getBidCollectionRef(assetId)) as Query<BidItem>,
         'errorRetrievingAssetBids',
@@ -28,14 +28,14 @@ export const useFetchAssetBids = (
 // import { useAsyncAction } from './useAsyncAction';
 // import { useAppDispatch } from './useAppDispatch';
 
-// type StateLogic = [(params: ActionParams) => Promise<BidItem[]>, boolean];
+// type HookLogic = [(params: ActionParams) => Promise<BidItem[]>, boolean];
 
 // type ActionParams = {
 //     id: string;
 //     nftId: number;
 // };
 
-// export const useFetchAssetBids = (op: HookOptions = {}): StateLogic => {
+// export const useFetchAssetBids = (op: HookOptions = {}): HookLogic => {
 //     const dispatch = useAppDispatch();
 
 //     const action = async ({ id, nftId }: ActionParams): Promise<BidItem[]> => {

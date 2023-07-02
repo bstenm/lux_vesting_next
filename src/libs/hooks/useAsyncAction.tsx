@@ -7,7 +7,7 @@ import { getErrorMessage } from '@/libs/getErrorMessage';
 import { HookActionError } from '@/libs/customErrors';
 import { useAlert } from '../../features/alert/useAlert';
 
-type StateLogic<T, V> = [(args: T) => Promise<V>, boolean];
+type HookLogic<T, V> = [(args: T) => Promise<V>, boolean];
 
 export const useAsyncAction = <T extends Record<string, unknown> | void, V>(
     action: (args: T) => Promise<V>,
@@ -20,7 +20,7 @@ export const useAsyncAction = <T extends Record<string, unknown> | void, V>(
         onError,
         onSuccess
     }: HookOptions = {}
-): StateLogic<T, V> => {
+): HookLogic<T, V> => {
     const [processing, setProcessing] = useState<boolean>(false);
 
     const { infoAlert, errorAlert, successAlert } = useAlert();

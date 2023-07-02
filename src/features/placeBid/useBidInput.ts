@@ -7,7 +7,7 @@ import { AssetItem } from '@/config/types/asset';
 import { useBidOnItem } from '@/features/placeBid/useBidOnItem';
 import { useFetchAssetBids } from '@/features/assetBids/useFetchAssetBids';
 
-type StateLogic = {
+type HookLogic = {
     onSubmit: (e: MouseEvent<HTMLButtonElement>) => void;
     invalidBid: boolean;
     processing: boolean;
@@ -17,7 +17,7 @@ type StateLogic = {
 export const useBidInput = (
     item: AssetItem,
     onSuccess?: () => void
-): StateLogic => {
+): HookLogic => {
     const [bids, fetchingBids] = useFetchAssetBids(item.id);
 
     const highestBid = maxBy(bids, 'value')?.value;

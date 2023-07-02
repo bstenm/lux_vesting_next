@@ -7,7 +7,7 @@ import { useAddMediaToAsset } from './useAddMediaToAsset';
 
 export type DragState = 'accept' | 'reject';
 
-type StateLogic = {
+type HookLogic = {
     submit: (file: File) => void;
     submitting: boolean;
 };
@@ -15,7 +15,7 @@ type StateLogic = {
 export const useDropAssetMedia = (
     assetId: string,
     mediaType: MediaType
-): StateLogic => {
+): HookLogic => {
     const [addNewMedia, submitting] = useAddMediaToAsset(assetId);
 
     const submit = async (file: File): Promise<void> => {

@@ -7,13 +7,13 @@ import { db } from '@/libs/firebaseApp';
 import { MessageItem } from '@/config/types';
 import { useRealTimeFetchCollection } from '@/libs/hooks/useRealTimeFetchCollection';
 
-type StateLogic = [MessageItem[] | undefined, boolean];
+type HookLogic = [MessageItem[] | undefined, boolean];
 
 export const useFetchChat = (
     to: string,
     from: string,
     assetId: string
-): StateLogic => {
+): HookLogic => {
     const errMessage = 'errorRetrievingMessages';
 
     const messageRef = collection(db, 'assets', assetId, 'messages');

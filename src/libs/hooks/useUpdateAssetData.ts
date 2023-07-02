@@ -6,12 +6,12 @@ import { DatabaseService } from '@/services/DatabaseService';
 import { useAsyncAction } from './useAsyncAction';
 import { useAppDispatch } from './useAppDispatch';
 
-type StateLogic = [(values: Partial<AssetItem>) => Promise<void>, boolean];
+type HookLogic = [(values: Partial<AssetItem>) => Promise<void>, boolean];
 
 export const useUpdateAssetData = (
     id: string,
     op: HookOptions = {}
-): StateLogic => {
+): HookLogic => {
     const dispatch = useAppDispatch();
 
     const action = async (data: Partial<AssetItem>): Promise<void> => {

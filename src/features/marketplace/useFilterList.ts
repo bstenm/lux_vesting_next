@@ -26,14 +26,14 @@ const initialFilter: Filter = {
 
 type Args = { list: AssetItem[] };
 
-type StateLogic = [
+type HookLogic = [
     Filter,
     (list: AssetItem[]) => AssetItem[],
     (filter: Filter) => void,
     () => void
 ];
 
-export const useFilterList = (): StateLogic => {
+export const useFilterList = (): HookLogic => {
     const [constraint, setConstraint] = useState<Filter>({});
 
     const [realTimeConstraint, setRealTimeConstraint] = useState<Filter>({});

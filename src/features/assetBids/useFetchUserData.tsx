@@ -7,9 +7,9 @@ import { DatabaseService } from '@/services/DatabaseService';
 
 type Args = { id: string };
 
-type StateLogic = [(args: Args) => Promise<User>, boolean];
+type HookLogic = [(args: Args) => Promise<User>, boolean];
 
-export const useFetchUserData = (op: HookOptions = {}): StateLogic => {
+export const useFetchUserData = (op: HookOptions = {}): HookLogic => {
     const action = async ({ id }: Args): Promise<User> =>
         DatabaseService.getUserById(id);
 

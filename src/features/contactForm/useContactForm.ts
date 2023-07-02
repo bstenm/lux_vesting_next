@@ -11,14 +11,14 @@ import { contactFormSchema } from './contactFormSchema';
 const sendSupportMessage = (values: ContactFormInput): ContactFormInput =>
     values;
 
-type StateLogic = {
+type HookLogic = {
     onSubmit: (data: ContactFormInput) => void;
     submitting: boolean;
     // eslint-disable-next-line @typescript-eslint/ban-types
     formMethods: UseFormReturn<ContactFormInput, object>;
 };
 
-export const useContractForm = (): StateLogic => {
+export const useContractForm = (): HookLogic => {
     const [submitting, setSubmitting] = useState<boolean>(false);
 
     const formMethods = useForm<ContactFormInput>({

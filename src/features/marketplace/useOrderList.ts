@@ -10,12 +10,12 @@ type Args = {
     list: AssetItem[];
 };
 
-type StateLogic = [
+type HookLogic = [
     (list: AssetItem[]) => AssetItem[],
     (option?: SortOptionValue) => void
 ];
 
-export const useOrderList = (): StateLogic => {
+export const useOrderList = (): HookLogic => {
     const [sorting, setSorting] = useState<SortOptionValue>();
 
     const action = ({ list }: Args): AssetItem[] => {

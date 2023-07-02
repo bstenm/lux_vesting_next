@@ -8,12 +8,12 @@ import { useAsyncAction } from '@/libs/hooks/useAsyncAction';
 import { useAppDispatch } from '@/libs/hooks/useAppDispatch';
 import { DatabaseService } from '@/services/DatabaseService';
 
-type StateLogic = [(data: AssetMedia) => Promise<void>, boolean];
+type HookLogic = [(data: AssetMedia) => Promise<void>, boolean];
 
 export const useAddMediaToAsset = (
     assetId: string,
     op: HookOptions = {}
-): StateLogic => {
+): HookLogic => {
     const dispatch = useAppDispatch();
 
     const action = async (data: AssetMedia): Promise<void> => {

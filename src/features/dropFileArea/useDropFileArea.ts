@@ -15,7 +15,7 @@ type Props = {
     onFileRemoved?: () => void;
 };
 
-type StateLogic = DropzoneState & {
+type HookLogic = DropzoneState & {
     onDelete: () => void;
 };
 
@@ -24,7 +24,7 @@ export const useDropFileArea = ({
     mediaType,
     onFileRemoved,
     onFilesDropped
-}: Props): StateLogic => {
+}: Props): HookLogic => {
     const maxSize = fileMaxSize[mediaType];
 
     const allowedMimes = allowedFileMimes[mediaType];

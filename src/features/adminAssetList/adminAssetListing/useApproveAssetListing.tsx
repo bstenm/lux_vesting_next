@@ -15,12 +15,12 @@ import { AssetItem } from '@/config/types/asset';
 //     NFT_MARKETPLACE_CONTRACT_ADDRESS
 // } from '@/config/constants';
 
-type StateLogic = [() => void, boolean];
+type HookLogic = [() => void, boolean];
 
 export const useApproveAssetListing = (
     data: AssetItem,
     onSuccess: () => void
-): StateLogic => {
+): HookLogic => {
     // const broker = useAppSelector(getUserAccount);
 
     // const coverPhotoData = getItemCoverPicture(data);

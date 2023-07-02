@@ -12,13 +12,13 @@ type Param = {
     assetId: string;
 };
 
-type StateLogic = [(param: Param) => Promise<void>, boolean];
+type HookLogic = [(param: Param) => Promise<void>, boolean];
 
 export const useBuyMarketItem = (
     id: string,
     bidder: string,
     op: HookOptions = {}
-): StateLogic => {
+): HookLogic => {
     const merchantId = bidder;
 
     const [fetchUserData] = useFetchUserData({ silent: true });

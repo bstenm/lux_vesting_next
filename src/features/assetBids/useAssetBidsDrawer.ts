@@ -5,14 +5,14 @@ import { useState } from 'react';
 import { getUserId } from '@/state/user/selectors';
 import { useAppSelector } from '@/libs/hooks/useAppSelector';
 
-type StateLogic = {
+type HookLogic = {
     userId: string;
     clientId?: string;
     handleCloseChat: () => void;
     handleOpenChat: (id: string) => void;
 };
 
-export const useAssetBidsDrawer = (): StateLogic => {
+export const useAssetBidsDrawer = (): HookLogic => {
     const userId = useAppSelector(getUserId);
 
     const [clientId, setClientId] = useState<string>('');

@@ -13,7 +13,7 @@ import { useUserHistoricalActivity } from '@/libs/hooks/useUserHistoricalActivit
 import { getUserAccount, getUserBalance } from '@/state/user/selectors';
 import { DOLLAR_TO_PROPRIETARY_CURRENCY } from '@/config/constants';
 
-type StateLogic = {
+type HookLogic = {
     amount: number | undefined;
     tranferingTokens: boolean;
     changeAmount: (value: number) => void;
@@ -27,7 +27,7 @@ const log = logger('Buy Tokens');
 export const useBuyTokens = (
     onSuccess: () => void,
     silent?: boolean
-): StateLogic => {
+): HookLogic => {
     const dispatch = useAppDispatch();
 
     const account = useAppSelector(getUserAccount);
