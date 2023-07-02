@@ -15,7 +15,7 @@ import { useUpdateAssetStatus } from '@/libs/hooks/useUpdateAssetStatus';
 import { isValidDocumentFileType } from '@/libs/utils';
 import { MediaType, AssetAuthenticationFormInput } from '@/config/types/asset';
 
-type StateLogic = {
+type HookLogic = {
     onClose: () => void;
     onSubmit: (data: AssetAuthenticationFormInput) => void;
     submitting: boolean;
@@ -39,7 +39,7 @@ export const assetAuthenticationFormSchema = yup
 export const useAssetAuthenticationRequestForm = (
     assetId: string,
     handleClose: () => void
-): StateLogic => {
+): HookLogic => {
     const userData = useAppSelector(getUserData);
 
     const [addNewMedia] = useAddMediaToAsset(assetId, { silent: true });

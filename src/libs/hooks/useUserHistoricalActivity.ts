@@ -29,7 +29,7 @@ type Options = {
     throws?: boolean;
 };
 
-type StateLogic = {
+type HookLogic = {
     adding: boolean;
     fetching: boolean;
     activities?: UserHistoricalActivityItem[];
@@ -55,7 +55,7 @@ const activityConverter: FirestoreDataConverter<UserHistoricalActivityItem> = {
 export const useUserHistoricalActivity = ({
     silent,
     throws
-}: Options = {}): StateLogic => {
+}: Options = {}): HookLogic => {
     const userId = useAppSelector(getUserId);
 
     const { errorAlert } = useAlert();

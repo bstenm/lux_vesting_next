@@ -8,11 +8,11 @@ import { useSendNotifications } from '@/features/notifications/useSendNotificati
 import { getUserId, getUserName } from '@/state/user/selectors';
 import { Message, NotificationType } from '@/config/types';
 
-type StateLogic = [({ text }: Args) => void, boolean];
+type HookLogic = [({ text }: Args) => void, boolean];
 
 type Args = { text: string };
 
-export const useSendMessage = (to: string, assetId: string): StateLogic => {
+export const useSendMessage = (to: string, assetId: string): HookLogic => {
     const from = useAppSelector(getUserId);
 
     const userName = useAppSelector(getUserName);

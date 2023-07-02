@@ -264,7 +264,7 @@ export class DatabaseService {
         status: AssetAuthenticationStatusData | AssetListingData
     ): Promise<void> {
         log.debug('Update asset status with data:', status);
-        const data = { [statusType]: setRecordWithUpdateDate({ status }) };
+        const data = { [statusType]: setRecordWithUpdateDate(status) };
         await updateDoc(getAssetDocumentRef(id), data);
         log.debug('Successfully updated asset', id, 'with data:', data);
     }

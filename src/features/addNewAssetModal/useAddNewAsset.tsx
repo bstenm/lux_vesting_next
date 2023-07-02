@@ -15,12 +15,12 @@ import { useAppDispatch } from '@/libs/hooks/useAppDispatch';
 import { DatabaseService } from '@/services/DatabaseService';
 import { getUserId, getUserName } from '@/state/user/selectors';
 
-type StateLogic = [(values: AddNewAssetFormInput) => Promise<void>, boolean];
+type HookLogic = [(values: AddNewAssetFormInput) => Promise<void>, boolean];
 
 export const useAddNewAsset = ({
     silent,
     throws
-}: HookOptions = {}): StateLogic => {
+}: HookOptions = {}): HookLogic => {
     const dispatch = useAppDispatch();
 
     const merchantId = useAppSelector(getUserId);

@@ -5,13 +5,13 @@ import { useAppDispatch } from '@/libs/hooks/useAppDispatch';
 import { addFundsDrawerActions } from '@/state/addFundsDrawer/addFundsDrawerSlice';
 import { getAddFundsDrawerState } from '@/state/addFundsDrawer/selectors';
 
-type StateLogic = {
+type HookLogic = {
     open: (content?: string) => void;
     close: () => void;
     opened: boolean;
 };
 
-export const useAddFundsDrawer = (): StateLogic => {
+export const useAddFundsDrawer = (): HookLogic => {
     const dispatch = useAppDispatch();
 
     const opened = useAppSelector(getAddFundsDrawerState);

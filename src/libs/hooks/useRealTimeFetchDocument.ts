@@ -4,13 +4,13 @@ import { DocumentReference } from 'firebase/firestore';
 import { useAlert } from '@/features/alert/useAlert';
 import { HookOptions } from '@/config/types';
 
-type StateLogic<T> = [T, boolean];
+type HookLogic<T> = [T, boolean];
 
 export const useRealTimeFetchDocument = <T extends Record<string, unknown>>(
     docRef: DocumentReference<T>,
     errorMessage: string,
     { silent, throws }: HookOptions = {}
-): StateLogic<T> => {
+): HookLogic<T> => {
     const { errorAlert } = useAlert();
 
     const [item, fetching, error] = useDocumentData(docRef);

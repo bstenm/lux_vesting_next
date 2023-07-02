@@ -12,7 +12,7 @@ import { assetsActions } from '@/state/assets/assetsSlice';
 import { getAssetMedias } from '@/state/assets/selectors';
 import { AssetMediaMetadataItem, MediaType } from '@/config/types/asset';
 
-type StateLogic = {
+type HookLogic = {
     files: AssetMediaMetadataItem[];
     processing: boolean;
     onSaveList: () => Promise<void>;
@@ -24,7 +24,7 @@ export const useSortableMediaList = (
     mediaType: MediaType,
     onSuccess: () => void,
     op: HookOptions = {}
-): StateLogic => {
+): HookLogic => {
     const dispatch = useAppDispatch();
 
     const files = useAppSelector((state: RootState) =>

@@ -19,7 +19,7 @@ type Props = {
     onCancel: () => void;
 };
 
-type StateLogic = {
+type HookLogic = {
     onClose: () => void;
     onSubmit: (data: FormInput) => void;
     submitting: boolean;
@@ -37,7 +37,7 @@ const formSchema = yup
     })
     .required();
 
-export const useDenialNotesForm = ({ onSave, onCancel }: Props): StateLogic => {
+export const useDenialNotesForm = ({ onSave, onCancel }: Props): HookLogic => {
     const formMethods = useForm<FormInput>({
         resolver: yupResolver(formSchema)
     });

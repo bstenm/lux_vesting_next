@@ -4,7 +4,7 @@ import { HookOptions } from '@/config/types';
 import { HookActionError } from '@/libs/customErrors';
 import { getErrorMessage } from '@/libs/getErrorMessage';
 
-type StateLogic<T, V> = [(args: T) => V];
+type HookLogic<T, V> = [(args: T) => V];
 
 export const useAction = <T extends Record<string, unknown> | void, V>(
     action: (args: T) => V,
@@ -17,7 +17,7 @@ export const useAction = <T extends Record<string, unknown> | void, V>(
         onError,
         onSuccess
     }: HookOptions = {}
-): StateLogic<T, V> => {
+): HookLogic<T, V> => {
     const { infoAlert, errorAlert, successAlert } = useAlert();
 
     const execute = (args: T): V | undefined => {

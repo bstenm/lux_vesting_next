@@ -7,9 +7,9 @@ import { useAsyncAction } from './useAsyncAction';
 import { useAppSelector } from './useAppSelector';
 import { useAppDispatch } from './useAppDispatch';
 
-type StateLogic = [(args: Record<string, unknown>) => Promise<void>, boolean];
+type HookLogic = [(args: Record<string, unknown>) => Promise<void>, boolean];
 
-export const useUpdateUserData = (op: HookOptions = {}): StateLogic => {
+export const useUpdateUserData = (op: HookOptions = {}): HookLogic => {
     const uid = useAppSelector(getUserId);
 
     const dispatch = useAppDispatch();

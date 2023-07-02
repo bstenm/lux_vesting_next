@@ -3,7 +3,7 @@
 import { swap } from 'react-grid-dnd';
 import { useState } from 'react';
 
-type StateLogic<T> = {
+type HookLogic<T> = {
     items: T[];
     onChange: (
         sourceId: string,
@@ -17,7 +17,7 @@ export const useSortableList = <T extends { id: string }>(
     list: T[],
     onReorderList?: (items: T[]) => void,
     onRemoveItem?: (id: string) => void
-): StateLogic<T> => {
+): HookLogic<T> => {
     const [deletedItems, setDeletedItems] = useState<T[]>([]);
 
     const [items, setItems] = useState<T[]>(list);

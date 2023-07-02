@@ -10,7 +10,7 @@ import { useUserHistoricalActivity } from '@/libs/hooks/useUserHistoricalActivit
 import { useAddNewAsset } from './useAddNewAsset';
 import { addNewAssetSchema } from './addNewAssetSchema';
 
-type StateLogic = {
+type HookLogic = {
     onClose: () => void;
     onSubmit: (data: AddNewAssetFormInput) => void;
     submitting: boolean;
@@ -21,7 +21,7 @@ type StateLogic = {
     onFileRemoved: () => void;
 };
 
-export const useAddNewAssetModal = (handleClose: () => void): StateLogic => {
+export const useAddNewAssetModal = (handleClose: () => void): HookLogic => {
     const { addActivity } = useUserHistoricalActivity({ silent: true });
 
     const [fileDropped, setFileDropped] = useState<boolean>(false);

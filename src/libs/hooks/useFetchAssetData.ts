@@ -6,12 +6,12 @@ import { getAssetDocumentRef } from '@/libs/firebaseApp';
 
 import { useRealTimeFetchDocument } from './useRealTimeFetchDocument';
 
-type StateLogic = [AssetItem, boolean];
+type HookLogic = [AssetItem, boolean];
 
 export const useFetchAssetData = (
     assetId: string,
     op: HookOptions = {}
-): StateLogic =>
+): HookLogic =>
     useRealTimeFetchDocument<AssetItem>(
         getAssetDocumentRef(assetId) as DocumentReference<AssetItem>,
         'errorRetrievingAsset',
