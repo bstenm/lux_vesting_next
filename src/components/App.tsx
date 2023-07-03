@@ -7,7 +7,7 @@ import {
     responsiveFontSizes
 } from '@mui/material/styles';
 import { useMemo } from 'react';
-import { yellow } from '@mui/material/colors';
+import { purple, yellow } from '@mui/material/colors';
 import { Provider } from 'react-redux';
 import * as locales from '@mui/material/locale';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -42,7 +42,9 @@ const theme: ThemeOptions = {
             secondary: '#aaa'
         },
         info: {
-            main: yellow[300],
+            dark: yellow[300],
+            light: yellow[500],
+            main: yellow[400],
             contrastText: '#fff'
         },
         error: {
@@ -53,16 +55,20 @@ const theme: ThemeOptions = {
             main: '#00e676'
         },
         primary: {
-            dark: '#274B73',
+            // dark: '#274B73',
+            dark: '#3C4858',
             light: '#A5CEE4',
-            main: '#3C4858',
+            main: '#A5CEE4',
             contrastText: '#fff'
         },
         secondary: {
-            dark: '#264257',
-            light: '#876cc7',
-            main: '#3C4858',
-            contrastText: '#000'
+            // light: '#876cc7',
+            '100': purple[100],
+            '700': purple[700],
+            dark: purple[300],
+            light: purple[500],
+            main: purple[400],
+            contrastText: '#fff'
         }
     },
     filter: {

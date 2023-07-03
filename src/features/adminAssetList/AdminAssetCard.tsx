@@ -61,13 +61,13 @@ export function AdminAssetCard({
                                     {withEllipsis(data.name, 40)}
                                 </Typography>
                             </Box>
-                            <Typography variant="body1" color="primary.light">
+                            <Typography variant="body1" color="primary.main">
                                 {data.merchantName}
                             </Typography>
                             <DataPoint
                                 italic
                                 data={formatDate(data.createdAt)}
-                                color="primary.light"
+                                color="primary.main"
                                 variant="body2"
                             />
                         </Stack>

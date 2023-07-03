@@ -61,11 +61,9 @@ export function ChatRoomPanelSlider({ children }: Props): JSX.Element {
             <Stack sx={{ width: 35, ml: 3 }} alignItems="flex-start">
                 <ShowHeaderButton onClick={handleChange}>
                     {!openHeader ? (
-                        <KeyboardArrowDownIcon
-                            sx={{ color: 'primary.light' }}
-                        />
+                        <KeyboardArrowDownIcon sx={{ color: 'primary.main' }} />
                     ) : (
-                        <KeyboardArrowUpIcon sx={{ color: 'primary.light' }} />
+                        <KeyboardArrowUpIcon sx={{ color: 'primary.main' }} />
                     )}
                 </ShowHeaderButton>
             </Stack>

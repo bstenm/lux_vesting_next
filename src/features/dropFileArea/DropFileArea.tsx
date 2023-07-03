@@ -33,7 +33,7 @@ const StyledDropzone = styled(Box)<{
     border-color: ${(() => {
         if (isdragreject === 'true') return theme.palette.error.light;
         if (isdragaccept === 'true') return theme.palette.success.main;
-        return theme.palette.primary.light;
+        return theme.palette.primary.main;
     })()};
 `
 );
@@ -46,7 +46,7 @@ const StyledIcon = styled(GetAppIcon)<{
     color: ${(() => {
         if (isdragreject === 'true') return theme.palette.error.light;
         if (isdragaccept === 'true') return theme.palette.success.main;
-        return theme.palette.primary.light;
+        return theme.palette.primary.main;
     })()};
 `
 );

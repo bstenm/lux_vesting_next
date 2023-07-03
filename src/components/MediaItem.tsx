@@ -49,7 +49,7 @@ export function MediaItem({ data, draggable, onRemove }: Props): JSX.Element {
                     <Img uri={data.uri} alt={data.title} draggable={false} />
                 ) : (
                     <DescriptionIcon
-                        sx={{ color: 'primary.light' }}
+                        sx={{ color: 'primary.main' }}
                         fontSize="large"
                     />
                 )}
@@ -75,7 +75,7 @@ export function MediaItem({ data, draggable, onRemove }: Props): JSX.Element {
                     <MenuIcon
                         fontSize="small"
                         sx={{
-                            color: 'primary.light',
+                            color: 'primary.main',
                             opacity: onHover ? 1 : 0.4
                         }}
                     />

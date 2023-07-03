@@ -43,7 +43,7 @@ export const ManageAdminAssetAuthenticationStatusButton = ({
             <BlackBanner>
                 <Typography
                     uppercased
-                    sx={{ color: 'primary.light' }}
+                    sx={{ color: 'primary.main' }}
                     textId="unauthenticated"
                     variant="body2"
                 />

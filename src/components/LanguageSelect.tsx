@@ -25,7 +25,7 @@ export function LanguageSelect(): JSX.Element {
                 bgcolor: 'common.black',
                 borderRadius: 1
             }}>
-            <LanguageIcon fontSize="small" sx={{ color: 'primary.light' }} />
+            <LanguageIcon fontSize="small" sx={{ color: 'primary.main' }} />
             <FormControl size="small">
                 <CustomSelect value={lang} onChange={handleChange}>
                     {languages.map((e: string) => (

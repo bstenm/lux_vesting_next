@@ -21,7 +21,7 @@ type Props = BoxProps & {
 
 const Button = styled(MuiButton)<{ hidden: boolean }>(({ hidden, theme }) => ({
     pos: 'relative',
-    color: theme.palette.primary.light,
+    color: theme.palette.primary.main,
     display: hidden ? 'none' : 'block',
     height: 32,
     minWidth: 30,

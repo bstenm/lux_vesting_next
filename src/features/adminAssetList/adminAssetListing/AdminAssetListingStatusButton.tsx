@@ -5,6 +5,7 @@ import { Typography } from '@/components/Typography';
 import { AssetListingStatus } from '@/config/types/asset';
 import { GreenButton } from '@/components/buttons/GreenButton';
 import { YellowButton } from '@/components/buttons/YellowButton';
+import { PurpleButton } from '@/components/buttons/PurpleButton';
 
 type Props = {
     status?: AssetListingStatus;
@@ -20,7 +21,7 @@ export const AdminAssetListingStatusButton = ({
             <RedButton textId="listingDenied" onClick={onViewListingData} />
         ),
         revoked: (
-            <RedButton textId="listingRevoked" onClick={onViewListingData} />
+            <PurpleButton textId="listingRevoked" onClick={onViewListingData} />
         ),
         pending: (
             <YellowButton textId="pendingListing" onClick={onViewListingData} />
@@ -32,7 +33,7 @@ export const AdminAssetListingStatusButton = ({
             <Typography
                 sx={{
                     p: 1,
-                    color: 'primary.light',
+                    color: 'primary.main',
                     bgcolor: 'black',
                     textAlign: 'center',
                     opacity: 1

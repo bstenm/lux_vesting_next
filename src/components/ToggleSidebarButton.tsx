@@ -25,7 +25,7 @@ type Props = {
 
 const MenuIcon = styled(MuiMenuIcon)(
     ({ theme }) => `
-    color: ${theme.palette.primary.light}
+    color: ${theme.palette.primary.main}
 `
 );
 

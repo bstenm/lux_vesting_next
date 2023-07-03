@@ -17,7 +17,7 @@ export function ViewIcon({ size }: Props): JSX.Element {
     return (
         <VisibilityIcon
             fontSize={size ?? 'small'}
-            sx={{ color: 'primary.light' }}
+            sx={{ color: 'primary.main' }}
         />
     );
 }

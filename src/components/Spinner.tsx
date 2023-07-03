@@ -30,7 +30,7 @@ export function Spinner({ size }: Props): JSX.Element {
                 variant="indeterminate"
                 disableShrink
                 sx={{
-                    color: 'secondary.main',
+                    color: 'primary.dark',
                     animationDuration: '550ms',
                     position: 'absolute',
                     left: 0,

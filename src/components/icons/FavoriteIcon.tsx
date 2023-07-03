@@ -17,7 +17,7 @@ export function FavoriteIcon({ size }: Props): JSX.Element {
     return (
         <MuiFavoriteIcon
             fontSize={size ?? 'small'}
-            sx={{ color: 'primary.light' }}
+            sx={{ color: 'primary.main' }}
         />
     );
 }

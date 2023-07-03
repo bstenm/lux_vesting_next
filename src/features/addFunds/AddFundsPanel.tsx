@@ -43,7 +43,7 @@ export function AddFundsPanel({ handleClose }: Props): JSX.Element {
                     <Stack
                         sx={({ palette }) => ({
                             p: 2,
-                            border: `1px solid ${palette.primary.light}`
+                            border: `1px solid ${palette.primary.main}`
                         })}
                         justifyContent="center"
                         spacing={2}>
@@ -56,7 +56,7 @@ export function AddFundsPanel({ handleClose }: Props): JSX.Element {
                             spacing={1}
                             alignItems="center"
                             justifyContent="center">
-                            <Typography color="primary.light" variant="h6">
+                            <Typography color="primary.main" variant="h6">
                                 {userBalance}
                             </Typography>
                             <Typography variant="body2">

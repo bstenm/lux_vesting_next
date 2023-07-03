@@ -21,7 +21,7 @@ function UnderConstructionPage(): JSX.Element {
         <Container>
             <Tooltip title={t('underConstruction') ?? ''}>
                 <ConstructionIcon
-                    sx={{ color: 'primary.light', fontSize: 120 }}
+                    sx={{ color: 'primary.main', fontSize: 120 }}
                 />
             </Tooltip>
         </Container>

@@ -17,7 +17,7 @@ export function FullViewIcon({ size }: Props): JSX.Element {
     return (
         <FullscreenIcon
             fontSize={size ?? 'medium'}
-            sx={{ color: 'primary.light' }}
+            sx={{ color: 'primary.main' }}
         />
     );
 }

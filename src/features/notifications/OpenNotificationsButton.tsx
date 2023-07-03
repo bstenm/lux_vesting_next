@@ -18,7 +18,7 @@ export function OpenNotificationsButton({
     return (
         <IconButton onClick={onClick}>
             <Badge color="error" badgeContent={nbOfNotifications}>
-                <NotificationsIcon sx={{ color: 'primary.light' }} />
+                <NotificationsIcon sx={{ color: 'primary.main' }} />
             </Badge>
         </IconButton>
     );

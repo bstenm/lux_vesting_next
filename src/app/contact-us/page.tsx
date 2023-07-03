@@ -9,7 +9,7 @@ import { ContactForm } from '@/features/contactForm/ContactForm';
 import { StandardPage } from '@/components/StandardPage';
 
 const FAQ = styled(Link)(({ theme }) => ({
-    color: theme.palette.primary.light,
+    color: theme.palette.primary.main,
     fontSize: '22px',
     textDecoration: 'underline'
 }));

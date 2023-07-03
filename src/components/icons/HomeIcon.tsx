@@ -17,7 +17,7 @@ export function HomeIcon({ size }: Props): JSX.Element {
     return (
         <MuiHomeIcon
             fontSize={size ?? 'medium'}
-            sx={{ color: 'primary.light' }}
+            sx={{ color: 'primary.main' }}
         />
     );
 }

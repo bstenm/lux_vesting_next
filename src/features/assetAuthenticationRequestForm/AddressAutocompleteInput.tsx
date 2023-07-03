@@ -1,7 +1,6 @@
 'use client';
 
 import Box from '@mui/material/Box';
-import { purple } from '@mui/material/colors';
 import { useState } from 'react';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { useFormContext } from 'react-hook-form';
@@ -57,12 +56,12 @@ export function AddressAutocompleteInput({ disabled }: Props): JSX.Element {
             </Box>
             {entrySelected && !edit && (
                 <Row spacing={1} justifyContent="center">
-                    <LocationOnOutlinedIcon sx={{ color: 'primary.light' }} />
-                    <Typography sx={{ pr: 1, color: 'primary.light' }}>
+                    <LocationOnOutlinedIcon sx={{ color: 'primary.main' }} />
+                    <Typography sx={{ pr: 1, color: 'primary.main' }}>
                         {entrySelected}
                     </Typography>
                     <HighlightOffIcon
-                        sx={{ color: purple[100] }}
+                        sx={{ color: 'secondary.100' }}
                         onClick={onRemove}
                         fontSize="small"
                     />

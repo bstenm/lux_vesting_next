@@ -17,7 +17,7 @@ export function OpenInNewIcon({ size }: Props): JSX.Element {
     return (
         <MuiOpenInNewIcon
             fontSize={size ?? 'small'}
-            sx={{ color: 'primary.light' }}
+            sx={{ color: 'primary.main' }}
         />
     );
 }

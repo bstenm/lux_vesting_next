@@ -20,13 +20,13 @@ export function TextField(props: TextFieldProps): JSX.Element {
                     color: grey[400]
                 },
                 '& .MuiInput-input': {
-                    color: 'primary.light'
+                    color: 'primary.main'
                 },
                 '& .MuiInput-underline:after': {
                     borderBottomColor: 'common.black'
                 },
                 '& .MuiInput-underline:before': {
-                    borderBottomColor: 'primary.light'
+                    borderBottomColor: 'primary.main'
                 },
                 ...sx
             }}

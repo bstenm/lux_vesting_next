@@ -41,7 +41,7 @@ export function AssetBidsPanel({
                 <Typography
                     capitalized
                     sx={{ m: 'auto' }}
-                    color="primary.light"
+                    color="primary.main"
                     textId="noBidsYet"
                     fontSize={24}
                 />

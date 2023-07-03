@@ -42,7 +42,7 @@ function LoyaltyTiersPage(): JSX.Element {
                             sx={{
                                 p: 3,
                                 borderBottom: (theme) =>
-                                    `1px solid ${theme.palette.primary.light}`
+                                    `1px solid ${theme.palette.primary.main}`
                             }}
                             spacing={2}
                             alignItems="center"

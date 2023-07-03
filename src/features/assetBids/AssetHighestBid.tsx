@@ -24,7 +24,7 @@ export function AssetHighestBid({ id, align, ...props }: Props): JSX.Element {
 
     if (!highestBid) {
         return (
-            <Typography capitalized color="primary.light" textId="noBidsYet" />
+            <Typography capitalized color="primary.main" textId="noBidsYet" />
         );
     }
 

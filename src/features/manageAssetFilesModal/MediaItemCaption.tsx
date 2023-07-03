@@ -13,7 +13,7 @@ export function MediaItemCaption({ data }: Props): JSX.Element {
             sx={{
                 py: 0.5,
                 px: 0.5,
-                color: 'primary.light',
+                color: 'primary.main',
                 width: 105,
                 textAlign: 'center',
                 bgcolor: 'common.black',

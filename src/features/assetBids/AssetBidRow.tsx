@@ -42,7 +42,7 @@ export function AssetBidRow({ data, handleOpenChat }: Props): JSX.Element {
                 />
             }>
             <Row spacing={2}>
-                <Typography bold color="primary.light">
+                <Typography bold color="primary.main">
                     {defaultCurrencySymbol}
                     {data.value.toLocaleString()}
                 </Typography>
@@ -52,7 +52,7 @@ export function AssetBidRow({ data, handleOpenChat }: Props): JSX.Element {
                 ) : (
                     <Typography
                         sx={{ maxWidth: 210 }}
-                        color="primary.light"
+                        color="primary.main"
                         showMissing={!fetching && !username}
                         noWrap>
                         {username}

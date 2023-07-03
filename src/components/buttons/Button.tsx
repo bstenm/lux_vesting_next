@@ -44,7 +44,7 @@ export function Button({
                     props.color !== 'inherit' &&
                     !contained
                         ? `1px solid ${theme.palette[props.color]}`
-                        : `1px solid ${theme.palette.primary.main}`
+                        : `1px solid ${theme.palette.primary.dark}`
             }}
             {...props}>
             {loading ? <Spinner /> : content}

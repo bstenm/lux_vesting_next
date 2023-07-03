@@ -7,7 +7,7 @@ export function NoFilesUploadedMessage(): JSX.Element {
         <Typography
             capitalized
             sx={{ m: 'auto' }}
-            color="primary.light"
+            color="primary.main"
             textId="noDocumentsUploaded"
             fontSize={24}
         />
