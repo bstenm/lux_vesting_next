@@ -16,15 +16,8 @@ type Props = {
 };
 
 export function AddNewAssetForm({ onSuccess }: Props): JSX.Element {
-    const {
-        onClose,
-        onSubmit,
-        submitting,
-        fileDropped,
-        formMethods,
-        onFileDropped,
-        onFileRemoved
-    } = useAddNewAssetModal(onSuccess);
+    const { onClose, onSubmit, submitting, formMethods } =
+        useAddNewAssetModal(onSuccess);
 
     return (
         <FormProvider {...formMethods}>
@@ -38,9 +31,8 @@ export function AddNewAssetForm({ onSuccess }: Props): JSX.Element {
                         textId="uploadCoverPhoto"
                         fileType="picture"
                         fieldName="picture"
-                        onFileDropped={onFileDropped}
-                        onFileRemoved={onFileRemoved}
                         disabled={submitting}
+                        required
                     />
                     <Row justifyContent="space-between">
                         <DarkButton
