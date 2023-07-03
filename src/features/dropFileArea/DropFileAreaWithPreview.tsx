@@ -25,6 +25,7 @@ type Props = {
     textId?: string;
     fileType: MediaType;
     disabled?: boolean;
+    required?: boolean;
     fieldName: string;
     onFileDropped?: () => void;
     onFileRemoved?: () => void;
@@ -53,8 +54,9 @@ const Dropzone = styled('div')<{
 
 export function DropFileAreaWithPreview({
     textId,
-    disabled,
     fileType,
+    disabled,
+    required,
     fieldName,
     onFileDropped,
     onFileRemoved
@@ -184,6 +186,7 @@ export function DropFileAreaWithPreview({
                         capitalized
                         sx={{ color }}
                         bold={isDragReject}
+                        suffix={required ? '*' : ''}
                         textId={msgId}
                         variant="body2"
                     />

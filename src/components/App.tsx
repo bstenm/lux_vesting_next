@@ -66,7 +66,7 @@ const theme: ThemeOptions = {
             '700': purple[700],
             dark: purple[300],
             light: purple[500],
-            main: purple[400],
+            main: purple[300],
             contrastText: '#fff'
         }
     },

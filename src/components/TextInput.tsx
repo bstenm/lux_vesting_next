@@ -44,7 +44,6 @@ export function TextInput({
         <FormControl>
             <TextField
                 sx={{
-                    width: '50ch',
                     '& label': {
                         color: grey[400]
                     },
