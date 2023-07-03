@@ -8,19 +8,29 @@ import { BlackBanner } from './BlackBanner';
 
 type Props = BoxProps & {
     data?: string;
+    textId?: string;
 };
 
-export function TitleBanner({ data, ...rest }: Props): JSX.Element {
+export function TitleBanner({ data, textId, ...rest }: Props): JSX.Element {
     return (
         <BlackBanner {...rest}>
-            {data ? (
+            {data && (
                 <Typography sx={{ color: 'primary.main' }} uppercased>
                     {data}
                 </Typography>
-            ) : (
+            )}
+            {!data && textId && (
+                <Typography
+                    sx={{ color: 'primary.main', fontStyle: 'italic' }}
+                    textId={textId}
+                    uppercased
+                />
+            )}
+            {!data && !textId && (
                 <Typography
                     sx={{ color: 'primary.main', fontStyle: 'italic' }}
                     textId="missingName"
+                    allCapitalized
                 />
             )}
         </BlackBanner>

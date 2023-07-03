@@ -55,9 +55,8 @@ const theme: ThemeOptions = {
             main: '#00e676'
         },
         primary: {
-            // dark: '#274B73',
             dark: '#3C4858',
-            light: '#A5CEE4',
+            '500': '#274B73',
             main: '#A5CEE4',
             contrastText: '#fff'
         },

@@ -16,6 +16,7 @@ type Props = Omit<
 > & {
     title?: string;
     width?: number;
+    textId?: string;
     children?: React.ReactNode;
     noBanner?: boolean;
     fitContent?: boolean;
@@ -27,6 +28,7 @@ export function Modal({
     title,
     style,
     width,
+    textId,
     children,
     noBanner,
     fitContent,
@@ -54,7 +56,9 @@ export function Modal({
                 ...style
             }}
             {...rest}>
-            {title && !noBanner && <TitleBanner sx={{ mb: 2 }} data={title} />}
+            {(title || textId) && !noBanner && (
+                <TitleBanner sx={{ mb: 2 }} data={title} textId={textId} />
+            )}
             {children}
         </SweetAlert>
     );
