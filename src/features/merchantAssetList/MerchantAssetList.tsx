@@ -11,7 +11,7 @@ import { ListingStatusView } from '@/features/merchantAssetCard/ManageListingSta
 import { MerchantAssetCard } from '@/features/merchantAssetCard/MerchantAssetCard';
 import { useFetchMerchantAssets } from '@/features/adminAssetList/useFetchMerchantAssets';
 
-type Props = {
+type Props = Omit<React.ComponentProps<typeof Row>, 'children'> & {
     assetId?: string;
     openView?: ListingStatusView;
     onSelectitem: (data: AssetItem) => void;
@@ -20,7 +20,8 @@ type Props = {
 export function MerchantAssetList({
     assetId,
     openView,
-    onSelectitem
+    onSelectitem,
+    ...other
 }: Props): JSX.Element {
     const list = useAppSelector(getAllAssets);
 
@@ -34,9 +35,7 @@ export function MerchantAssetList({
     return (
         <FetchingScreen<AssetItem[]> data={list} fetching={fetching}>
             {(data: AssetItem[]) => (
-                <Row
-                    sx={{ mt: 2, flexWrap: 'wrap', gap: 4 }}
-                    justifyContent="space-between">
+                <Row sx={{ mt: 2, flexWrap: 'wrap', gap: 4 }} {...other}>
                     {data.map((asset: AssetItem) => (
                         <MerchantAssetCard
                             key={asset.id}
