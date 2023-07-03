@@ -51,5 +51,5 @@ export const ManageAdminAssetAuthenticationStatusButton = ({
         )
     };
 
-    return statusToElement[data.authentication.status];
+    return statusToElement[data.authentication?.status ?? 'unprocessed'];
 };

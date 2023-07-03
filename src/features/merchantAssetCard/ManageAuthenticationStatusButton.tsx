@@ -32,14 +32,14 @@ export const ManageAuthenticationStatusButton = ({
         denied: (
             <RequestDenialModal
                 title={data.name}
-                notes={data.authentication.notes}>
+                notes={data.authentication?.notes}>
                 {(open) => <RedButton textId="authDenied" onClick={open} />}
             </RequestDenialModal>
         ),
         revoked: (
             <RequestDenialModal
                 title={data.name}
-                notes={data.authentication.notes}>
+                notes={data.authentication?.notes}>
                 {(open) => <RedButton textId="authRevoked" onClick={open} />}
             </RequestDenialModal>
         ),
@@ -64,5 +64,5 @@ export const ManageAuthenticationStatusButton = ({
         )
     };
 
-    return statusToElement[data.authentication.status];
+    return statusToElement[data.authentication?.status ?? 'unprocessed'];
 };

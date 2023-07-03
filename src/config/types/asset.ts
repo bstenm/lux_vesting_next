@@ -77,7 +77,7 @@ export type AssetItem = Asset & {
     listing?: AssetListingData;
     createdAt: string;
     followers?: string[];
-    authentication: AssetAuthenticationStatusData;
+    authentication?: AssetAuthenticationStatusData;
     physicallyChecked?: boolean;
     physicallyReceived?: boolean;
     physicallyCheckedAt?: number;
