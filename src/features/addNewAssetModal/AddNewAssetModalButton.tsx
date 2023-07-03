@@ -35,7 +35,7 @@ export function AddNewAssetModalButton({ children }: Props): JSX.Element {
         <>
             {children(handleOpenModal)}
             {openModal && (
-                <Modal title="addNewAsset" onCancel={handleCloseModal}>
+                <Modal onCancel={handleCloseModal}>
                     <ProtectedComponent>
                         <AddNewAssetForm onSuccess={onSuccess} />
                     </ProtectedComponent>

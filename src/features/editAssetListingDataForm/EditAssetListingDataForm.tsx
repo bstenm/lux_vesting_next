@@ -4,7 +4,7 @@ import { FormProvider } from 'react-hook-form';
 
 import { Row } from '@/components/Row';
 import { DarkButton } from '@/components/buttons/DarkButton';
-import { LightButton } from '@/components/buttons/LightButton';
+import { GreenButton } from '@/components/buttons/GreenButton';
 import { CustomTextField } from '@/components/CustomTextField';
 import { AssetListingFormInput } from '@/config/types/asset';
 
@@ -34,7 +34,6 @@ export function EditAssetListingDataForm({
                     <CustomTextField<AssetListingFormInput>
                         required
                         type="number"
-                        label="price"
                         name="price"
                         width="600px"
                         disabled={submitting}
@@ -42,20 +41,17 @@ export function EditAssetListingDataForm({
                     <CustomTextField<AssetListingFormInput>
                         required
                         type="number"
-                        label="wristLength"
                         name="wristLength"
                         disabled={submitting}
                     />
                     <CustomTextField<AssetListingFormInput>
                         required
-                        label="color"
                         name="color"
                         width="600px"
                         disabled={submitting}
                     />
                     <CustomTextField<AssetListingFormInput>
                         required
-                        label="material"
                         name="material"
                         disabled={submitting}
                     />
@@ -74,7 +70,7 @@ export function EditAssetListingDataForm({
                         onClick={onClose}
                         disabled={submitting}
                     />
-                    <LightButton
+                    <GreenButton
                         type="submit"
                         textId="submit"
                         loading={submitting}

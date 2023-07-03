@@ -5,6 +5,7 @@ import { useTranslate } from '@/libs/hooks/useTranslate';
 import MuiButton, { ButtonProps } from '@mui/material/Button';
 
 import { Spinner } from '@/components/Spinner';
+import { noop } from 'lodash';
 
 type Props = ButtonProps & {
     textId?: string;
@@ -18,6 +19,7 @@ type Props = ButtonProps & {
 
 export function Button({
     textId,
+    onClick,
     loading,
     children,
     disabled,
@@ -32,20 +34,30 @@ export function Button({
 
     const content = textId ? t(textId) : children;
 
+    const border =
+        withBorder && props.color && props.color !== 'inherit' && !contained
+            ? `1px solid ${theme.palette[props.color]}`
+            : `1px solid ${theme.palette.primary.dark}`;
+
+    const enabled = !loading && !disabled;
+
     return (
         <MuiButton
             variant={contained ? 'contained' : 'outlined'}
-            disabled={loading || disabled}
+            disableRipple={!enabled}
             sx={{
                 width: fullWidth ? '100%' : 'inherit',
-                border:
-                    withBorder &&
-                    props.color &&
-                    props.color !== 'inherit' &&
-                    !contained
-                        ? `1px solid ${theme.palette[props.color]}`
-                        : `1px solid ${theme.palette.primary.dark}`
+                cursor: enabled ? 'pointer' : 'default',
+                opacity: enabled ? 1 : 0.4,
+                border,
+                '&:hover': {
+                    border: enabled
+                        ? border
+                        : `1px solid ${theme.palette.primary.dark}`,
+                    bgcolor: enabled ? 'inherit' : 'transparent'
+                }
             }}
+            onClick={enabled ? onClick : noop}
             {...props}>
             {loading ? <Spinner /> : content}
         </MuiButton>
