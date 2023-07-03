@@ -13,7 +13,7 @@ export function BounceLoader({ size, color }: Props): JSX.Element {
 
     return (
         <LibBounceLoader
-            color={color ?? theme.palette.primary.light}
+            color={color ?? theme.palette.primary.main}
             loading
             size={size ?? 50}
         />

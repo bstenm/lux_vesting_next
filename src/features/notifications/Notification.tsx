@@ -75,7 +75,7 @@ export function Notification({ data }: Props): JSX.Element {
                         {formatDate(data.createdAt)}
                     </Typography>
                 </Row>
-                <Typography sx={{ color: 'primary.light' }} variant="body2">
+                <Typography sx={{ color: 'primary.main' }} variant="body2">
                     {data.assetName}
                 </Typography>
             </Stack>

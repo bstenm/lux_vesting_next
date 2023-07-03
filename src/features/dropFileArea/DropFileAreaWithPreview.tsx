@@ -46,7 +46,7 @@ const Dropzone = styled('div')<{
     border-color: ${(() => {
         if (isdragreject === 'true') return theme.palette.error.light;
         if (isdragaccept === 'true') return theme.palette.success.main;
-        return theme.palette.primary.light;
+        return theme.palette.primary.main;
     })()};
 `
 );
@@ -120,7 +120,7 @@ export function DropFileAreaWithPreview({
         maxFiles: 1
     });
 
-    let color = 'primary.light';
+    let color = 'primary.main';
     let msgId = textId || 'dropFilesOrClickHere';
 
     if (isDragReject) {
@@ -159,7 +159,7 @@ export function DropFileAreaWithPreview({
                 </Typography>
                 {!disabled && (
                     <HighlightOffIcon
-                        sx={{ width: 40, color: 'primary.light' }}
+                        sx={{ width: 40, color: 'primary.main' }}
                         onClick={onDelete}
                     />
                 )}

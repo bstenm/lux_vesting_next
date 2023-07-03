@@ -17,7 +17,7 @@ export function EditIcon({ size }: Props): JSX.Element {
     return (
         <EditMuiIcon
             fontSize={size ?? 'small'}
-            sx={{ color: 'primary.light' }}
+            sx={{ color: 'primary.main' }}
         />
     );
 }

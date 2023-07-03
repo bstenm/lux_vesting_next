@@ -12,7 +12,7 @@ type Props = {
 export function SpinnerWithMessage({ textId }: Props): JSX.Element {
     return (
         <Stack spacing={2} alignItems="center">
-            <Typography variant="body2" color="primary.light" textId={textId} />
+            <Typography variant="body2" color="primary.main" textId={textId} />
             <Spinner />
         </Stack>
     );

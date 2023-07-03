@@ -31,7 +31,7 @@ const Fade = styled('div')<{ out: number }>`
 
 const BackButton = styled(Row)(
     ({ theme }) => `
-    color: ${theme.palette.primary.light};
+    color: ${theme.palette.primary.main};
     cursor: pointer;
     position: relative;
     left: -10px;
@@ -135,7 +135,7 @@ export function ComponentWithSelectedDataInDrawer<
                         onClick={onCloseDrawer}>
                         <ChevronLeftIcon />
                         <Typography
-                            sx={{ color: 'primary.light' }}
+                            sx={{ color: 'primary.main' }}
                             variant="subtitle1">
                             Back
                         </Typography>

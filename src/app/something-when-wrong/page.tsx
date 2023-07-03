@@ -1,6 +1,5 @@
 'use client';
 
-import { purple } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
 import { Typography } from '@/components/Typography';
 
@@ -15,7 +14,7 @@ function SomethingWentWrongPage(): JSX.Element {
     return (
         <Container>
             <Typography
-                sx={{ color: purple[700] }}
+                sx={{ color: 'secondary.700' }}
                 variant="h3"
                 textId="somethingWentWrong"
             />

@@ -54,7 +54,7 @@ export function FetchingScreen<T>({
 
     return (
         <Centered fullscreen={fullscreen} {...other}>
-            <GrDropbox size={50} color={theme.palette.primary.light} />
+            <GrDropbox size={50} color={theme.palette.primary.main} />
         </Centered>
     );
 }

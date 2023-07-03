@@ -13,7 +13,7 @@ export function PuffLoader({ size, color }: Props): JSX.Element {
 
     return (
         <LibPuffLoader
-            color={color ?? theme.palette.secondary.dark}
+            color={color ?? theme.palette.primary.dark}
             loading
             size={size ?? 30}
         />

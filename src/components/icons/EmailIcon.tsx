@@ -17,7 +17,7 @@ export function EmailIcon({ size }: Props): JSX.Element {
     return (
         <AlternateEmailIcon
             fontSize={size ?? 'small'}
-            sx={{ color: 'primary.light' }}
+            sx={{ color: 'primary.main' }}
         />
     );
 }

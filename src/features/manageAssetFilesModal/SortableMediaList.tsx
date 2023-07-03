@@ -39,7 +39,7 @@ export function SortableMediaList({
             </Box>
             <Row justifyContent="space-between">
                 <Button
-                    sx={{ color: 'primary.light' }}
+                    sx={{ color: 'primary.main' }}
                     textId="cancel"
                     variant="outlined"
                     onClick={onClose}

@@ -15,7 +15,7 @@ const StyledButton = styled('button')<{ dark: boolean }>(
       font-size: 15px;
       font-weight: bold;
       background: transparent;
-      color: ${dark ? theme.palette.primary.dark : theme.palette.primary.light};
+      color: ${dark ? theme.palette.primary.dark : theme.palette.primary.main};
   `
 );
 
@@ -39,7 +39,7 @@ export const Option = styled(OptionUnstyled)(
         padding: 9px;
         list-style: none;
         font-size: 15px;
-        color: ${theme.palette.primary.light};
+        color: ${theme.palette.primary.main};
 		background: ${theme.palette.common.black};
         &:hover {
 			background: ${grey[900]};

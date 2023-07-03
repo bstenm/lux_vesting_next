@@ -19,7 +19,7 @@ import { StandardPage } from '@/components/StandardPage';
 
 const ContactUsLink = styled(Link)(
     ({ theme }) => `
-    color: ${theme.palette.primary.light};
+    color: ${theme.palette.primary.main};
     font-size: 22px;
     text-decoration: underline;
 `
@@ -52,7 +52,7 @@ function FAQPage(): JSX.Element {
                             bgcolor: 'transparent',
                             '&:not(:last-child)': {
                                 borderBottom: (theme) =>
-                                    `1px solid ${theme.palette.primary.light}`
+                                    `1px solid ${theme.palette.primary.main}`
                             }
                         }}
                         key={question}

@@ -31,7 +31,7 @@ export function ListingData({
             </Grid>
             <Grid item xs={4}>
                 <Row>
-                    <Typography sx={{ color: 'primary.light' }}>
+                    <Typography sx={{ color: 'primary.main' }}>
                         {formatDate(updatedAt)}
                     </Typography>
                 </Row>
@@ -44,7 +44,7 @@ export function ListingData({
             </Grid>
             <Grid item xs={4}>
                 <Row>
-                    <Typography bold sx={{ color: 'primary.light' }}>
+                    <Typography bold sx={{ color: 'primary.main' }}>
                         {bids.length}
                     </Typography>
                 </Row>
@@ -57,7 +57,7 @@ export function ListingData({
             </Grid>
             <Grid item xs={4}>
                 <Row>
-                    <Typography bold sx={{ color: 'primary.light' }}>
+                    <Typography bold sx={{ color: 'primary.main' }}>
                         {nbOfTimesViewed}
                     </Typography>
                 </Row>
@@ -70,7 +70,7 @@ export function ListingData({
             </Grid>
             <Grid item xs={4}>
                 <Row>
-                    <Typography bold sx={{ color: 'primary.light' }}>
+                    <Typography bold sx={{ color: 'primary.main' }}>
                         {nbOfTimesSaved}
                     </Typography>
                 </Row>

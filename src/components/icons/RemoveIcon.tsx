@@ -17,7 +17,7 @@ export function RemoveIcon({ size }: Props): JSX.Element {
     return (
         <HighlightOffIcon
             fontSize={size ?? 'small'}
-            sx={{ color: 'primary.light' }}
+            sx={{ color: 'primary.main' }}
         />
     );
 }

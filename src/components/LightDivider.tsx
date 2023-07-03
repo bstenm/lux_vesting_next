@@ -12,7 +12,7 @@ export function LightDivider({ margin, sx, ...props }: Props): JSX.Element {
             sx={{
                 my: props.orientation !== 'vertical' ? margin : 0,
                 mx: props.orientation === 'vertical' ? margin : 0,
-                bgcolor: 'primary.light',
+                bgcolor: 'primary.main',
                 ...sx
             }}
             {...props}

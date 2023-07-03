@@ -17,7 +17,7 @@ export function ChatRoomMessage({ data, thisUser }: Props): JSX.Element {
             <Box
                 sx={{
                     p: 1,
-                    bgcolor: thisUser ? 'primary.dark' : 'primary.light',
+                    bgcolor: thisUser ? 'primary.dark' : 'primary.main',
                     maxWidth: '80%',
                     borderRadius: 2
                 }}>

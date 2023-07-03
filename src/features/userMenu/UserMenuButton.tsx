@@ -24,7 +24,7 @@ export function UserMenuButton(): JSX.Element {
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleOpen}>
-                <PersonIcon sx={{ color: 'primary.light' }} />
+                <PersonIcon sx={{ color: 'primary.main' }} />
             </IconButton>
             <UserMenu anchorEl={anchorEl} handleClose={handleClose} />
         </>

@@ -1,7 +1,7 @@
 'use client';
 
 import Box from '@mui/material/Box';
-import { grey, purple } from '@mui/material/colors';
+import { grey } from '@mui/material/colors';
 import { remove } from 'lodash';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 
@@ -52,7 +52,7 @@ export function AssetFavoriteButton({ assetId, ...props }: Props): JSX.Element {
             onClick={setAsFavorite}
             {...props}>
             {isFollowing ? (
-                <BookmarkIcon sx={{ fontSize: 30, color: purple[300] }} />
+                <BookmarkIcon sx={{ fontSize: 30, color: 'secondary.dark' }} />
             ) : (
                 <BookmarkIcon
                     sx={{

@@ -10,5 +10,5 @@ type Props = {
 export function EmptyBoxIcon({ size }: Props): JSX.Element {
     const theme = useTheme();
 
-    return <GrDropbox size={size ?? 30} color={theme.palette.primary.light} />;
+    return <GrDropbox size={size ?? 30} color={theme.palette.primary.main} />;
 }

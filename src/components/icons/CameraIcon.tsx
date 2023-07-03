@@ -17,7 +17,7 @@ export function CameraIcon({ size }: Props): JSX.Element {
     return (
         <LocalSeeIcon
             fontSize={size ?? 'small'}
-            sx={{ color: 'primary.light' }}
+            sx={{ color: 'primary.main' }}
         />
     );
 }

@@ -17,7 +17,7 @@ export function CommentIcon({ size }: Props): JSX.Element {
     return (
         <MuiCommentIcon
             fontSize={size ?? 'small'}
-            sx={{ color: 'primary.light' }}
+            sx={{ color: 'primary.main' }}
         />
     );
 }

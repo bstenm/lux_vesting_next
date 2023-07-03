@@ -12,7 +12,7 @@ type Props = {
 export function ReorderButton({ onClick, disabled }: Props): JSX.Element {
     return (
         <Button
-            sx={{ color: 'primary.light' }}
+            sx={{ color: 'primary.main' }}
             textId="reorder"
             variant="outlined"
             onClick={onClick}

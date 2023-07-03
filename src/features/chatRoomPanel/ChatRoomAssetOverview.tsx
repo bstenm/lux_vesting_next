@@ -34,7 +34,7 @@ export function ChatRoomAssetOverview({ asset }: Props): JSX.Element {
                     title={asset.name}>
                     {withEllipsis(asset.name, 50)}
                 </Typography>
-                <Typography italic variant="body1" color="primary.light">
+                <Typography italic variant="body1" color="primary.main">
                     {asset.merchantName}
                 </Typography>
             </Stack>

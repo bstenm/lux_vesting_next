@@ -4,11 +4,11 @@ import { RedButton } from '@/components/buttons/RedButton';
 import { LightButton } from '@/components/buttons/LightButton';
 import { GreenButton } from '@/components/buttons/GreenButton';
 import { YellowButton } from '@/components/buttons/YellowButton';
+import { ListingDataModal } from '@/features/listingData/ListingDataModal';
 import { RequestDenialModal } from '@/features/requestDenialNotes/RequestDenialNotesModal';
 import { EditAssetListingDataModal } from '@/features/editAssetListingDataForm/EditAssetListingDataModal';
 import { AssetItem, AssetListingStatus } from '@/config/types/asset';
 
-import { ListingDataModal } from '../listingData/ListingDataModal';
 import { CancelListingRequestModal } from './CancelListingRequestModal';
 
 export type ListingStatusView =

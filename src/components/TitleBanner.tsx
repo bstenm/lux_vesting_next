@@ -14,12 +14,12 @@ export function TitleBanner({ data, ...rest }: Props): JSX.Element {
     return (
         <BlackBanner {...rest}>
             {data ? (
-                <Typography sx={{ color: 'primary.light' }} uppercased>
+                <Typography sx={{ color: 'primary.main' }} uppercased>
                     {data}
                 </Typography>
             ) : (
                 <Typography
-                    sx={{ color: 'primary.light', fontStyle: 'italic' }}
+                    sx={{ color: 'primary.main', fontStyle: 'italic' }}
                     textId="missingName"
                 />
             )}

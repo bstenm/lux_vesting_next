@@ -33,7 +33,7 @@ export function SortableMediaItem({ data }: Props): JSX.Element {
             ) : (
                 <>
                     <DescriptionIcon
-                        sx={{ color: 'primary.light' }}
+                        sx={{ color: 'primary.main' }}
                         fontSize="large"
                     />
                     <MediaItemCaption data={data.title} />
@@ -43,7 +43,7 @@ export function SortableMediaItem({ data }: Props): JSX.Element {
                 <MenuIcon
                     fontSize="small"
                     sx={{
-                        color: 'primary.light',
+                        color: 'primary.main',
                         opacity: onHover ? 1 : 0.4
                     }}
                 />

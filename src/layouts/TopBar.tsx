@@ -1,5 +1,5 @@
+import { grey } from '@mui/material/colors';
 import HomeIcon from '@mui/icons-material/Home';
-import { grey, purple } from '@mui/material/colors';
 import { usePathname } from 'next/navigation';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 
@@ -32,7 +32,9 @@ export function TopBar(): JSX.Element {
             <Row spacing={4} alignItems="center">
                 {userIsAdmin && (
                     <Link href={path.admin}>
-                        <AdminPanelSettingsIcon sx={{ color: purple[300] }} />
+                        <AdminPanelSettingsIcon
+                            sx={{ color: 'secondary.dark' }}
+                        />
                     </Link>
                 )}
                 <Link href={path.landing}>

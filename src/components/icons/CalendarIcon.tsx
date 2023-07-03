@@ -17,7 +17,7 @@ export function CalendarIcon({ size }: Props): JSX.Element {
     return (
         <CalendarMonthIcon
             fontSize={size ?? 'small'}
-            sx={{ color: 'primary.light' }}
+            sx={{ color: 'primary.main' }}
         />
     );
 }

@@ -14,7 +14,7 @@ import { TitledAmountData } from '@/components/dataPoints/TitledAmountData';
 import { getItemPics, getCertificateOfAuthenticity } from '@/libs/utils';
 
 import { AssetSpecs } from './AssetSpecs';
-import { LinktToPictures } from './LinktToPictures ';
+import { LinkToPictures } from './LinkToPictures ';
 
 type Props = {
     data: AssetItem;
@@ -64,7 +64,7 @@ export function MarketItemSpecPanel({
                     />
                 </Box>
                 <Box sx={{ mt: 4, display: { md: 'none' } }}>
-                    <LinktToPictures pics={pictures} onSelect={onSelectPic} />
+                    <LinkToPictures pics={pictures} onSelect={onSelectPic} />
                 </Box>
             </Box>
         </Stack>

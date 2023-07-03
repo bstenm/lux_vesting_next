@@ -16,7 +16,7 @@ export function TitledDataPoint({
     ...props
 }: Props): JSX.Element {
     return (
-        <Stack alignItems={align ?? 'center'} sx={{ color: 'primary.light' }}>
+        <Stack alignItems={align ?? 'center'} sx={{ color: 'primary.main' }}>
             <Typography
                 uppercased
                 color="text.secondary"
