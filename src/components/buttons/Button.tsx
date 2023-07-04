@@ -47,9 +47,9 @@ export function Button({
                     props.color !== 'inherit' &&
                     !contained
                         ? `1px solid ${theme.palette[props.color]}`
-                        : `1px solid ${theme.palette.primary.dark}`,
+                        : `1px solid ${theme.palette.text.disabled}`,
                 '&:disabled': {
-                    border: `1px solid ${theme.palette.primary.dark}`
+                    border: `1px solid ${theme.palette.text.disabled}`
                 }
             }}
             {...props}>

@@ -74,7 +74,7 @@ export function TextFieldComponent<T extends Record<string, unknown>>(
                             sx={{
                                 pl: 0.5,
                                 color: 'text.secondary',
-                                fontSize: 17
+                                fontSize: 18
                             }}
                             shrink
                             htmlFor={name}>
@@ -83,7 +83,7 @@ export function TextFieldComponent<T extends Record<string, unknown>>(
                     )}
                     <TextField
                         sx={{
-                            mt: noLabel ? 0 : 2,
+                            mt: noLabel ? 0 : 2.5,
                             ...sx
                         }}
                         id={labelTxt}
