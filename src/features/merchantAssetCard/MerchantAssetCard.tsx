@@ -32,7 +32,6 @@ type Props<T> = {
 
 const Card = styled(MuiCard)`
     width: 220px;
-    margin: auto;
     border-radius: 5px;
     background: linear-gradient(180deg, #212121 0%, rgba(33, 33, 33, 0) 100%);
 `;

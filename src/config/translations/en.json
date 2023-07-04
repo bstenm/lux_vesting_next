@@ -259,7 +259,7 @@
    "errorRetrievingMessages": "error while attempting to retrieve messages",
    "enterBid": "enter your bid",
    "emailAdmin": "email administration",
-   "loginToView": "please login to {{action}}",
+   "loginToView": "login to {{action}}",
    "following": "following",
    "follow": "follow",
    "accessPrivateArea": "access your private area",

@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import { Trans } from 'react-i18next';
 
 import { Centered } from '@/components/Centered';
-import { LightButton } from '@/components/buttons/LightButton';
+import { WhiteButton } from '@/components/buttons/WhiteButton';
 
 import { useWeb3 } from './useWeb3';
 
@@ -24,15 +24,15 @@ export function ProtectedComponent({
     if (!loggedIn) {
         return (
             <Centered fullscreen={fullscreen}>
-                <LightButton
-                    sx={{ width: 250 }}
+                <WhiteButton
+                    sx={{ maxWidth: 250 }}
                     onClick={login}
                     loading={initializing || processing}>
                     <Trans
                         values={{ action }}
                         i18nKey={action ? 'loginToView' : 'login'}
                     />
-                </LightButton>
+                </WhiteButton>
             </Centered>
         );
     }
