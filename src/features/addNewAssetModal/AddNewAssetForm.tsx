@@ -6,10 +6,10 @@ import { FormProvider } from 'react-hook-form';
 import { Row } from '@/components/Row';
 import { DarkButton } from '@/components/buttons/DarkButton';
 import { GreenButton } from '@/components/buttons/GreenButton';
+import { AssetNameInput } from '@/features/editAssetListingDataForm/AssetNameInput';
 import { DropFileAreaWithPreview } from '@/features/dropFileArea/DropFileAreaWithPreview';
 
 import { useAddNewAssetModal } from './useAddNewAssetModal';
-import { AssetNameInput } from '../editAssetListingDataForm/AssetNameInput';
 
 type Props = {
     onSuccess: () => void;

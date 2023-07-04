@@ -3,13 +3,14 @@
 import startCase from 'lodash/startCase';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
+import { useTheme } from '@mui/material';
 import { forwardRef } from 'react';
 import { ErrorMessage } from '@hookform/error-message';
-import { useTranslate } from '@/libs/hooks/useTranslate';
 import TextField, { TextFieldProps } from '@mui/material/TextField';
-
-import { FormHelperText } from '@/components/FormHelperText';
 import { Controller, useFormContext, Path } from 'react-hook-form';
+
+import { useTranslate } from '@/libs/hooks/useTranslate';
+import { FormHelperText } from '@/components/FormHelperText';
 
 type Props<T> = TextFieldProps & {
     name: Path<T>;
@@ -46,6 +47,8 @@ export function TextFieldComponent<T extends Record<string, unknown>>(
 ): JSX.Element {
     const t = useTranslate();
 
+    const theme = useTheme();
+
     const {
         control,
         formState: { errors }
@@ -63,16 +66,26 @@ export function TextFieldComponent<T extends Record<string, unknown>>(
             control={control}
             render={({ field }) => (
                 <FormControl
-                    sx={{ pb: error ? 0 : 3, width }}
+                    sx={{ pb: error ? 0 : 1, width }}
                     variant="standard"
                     fullWidth>
                     {!noLabel && (
-                        <InputLabel shrink htmlFor={name}>
+                        <InputLabel
+                            sx={{
+                                pl: 0.5,
+                                color: 'text.secondary',
+                                fontSize: 17
+                            }}
+                            shrink
+                            htmlFor={name}>
                             {labelTxt ?? labelComponent}
                         </InputLabel>
                     )}
                     <TextField
-                        sx={{ mt: noLabel ? 0 : 2, ...sx }}
+                        sx={{
+                            mt: noLabel ? 0 : 2,
+                            ...sx
+                        }}
                         id={labelTxt}
                         size={size ?? 'small'}
                         error={!!error}
@@ -81,7 +94,10 @@ export function TextFieldComponent<T extends Record<string, unknown>>(
                         placeholder={t(placeholder) as string}
                         InputProps={{
                             style: {
-                                backgroundColor: '#fff',
+                                color: theme.palette.common.white,
+                                borderRadius: 0,
+                                fontSize: 15,
+                                backgroundColor: theme.palette.common.black,
                                 ...inputStyle
                             }
                         }}
