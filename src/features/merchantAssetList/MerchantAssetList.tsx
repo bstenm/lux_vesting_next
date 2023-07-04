@@ -35,7 +35,7 @@ export function MerchantAssetList({
     return (
         <FetchingScreen<AssetItem[]> data={list} fetching={fetching}>
             {(data: AssetItem[]) => (
-                <Row sx={{ mt: 2, flexWrap: 'wrap', gap: 4 }} {...other}>
+                <Row sx={{ mt: 4, flexWrap: 'wrap', gap: 8 }} {...other}>
                     {data.map((asset: AssetItem) => (
                         <MerchantAssetCard
                             key={asset.id}

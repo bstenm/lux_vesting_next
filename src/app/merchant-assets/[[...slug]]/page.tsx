@@ -17,7 +17,7 @@ function MerchantAssetsPage(): JSX.Element {
 
     const List = useCallback(
         (onSelectitem: (data: AssetItem) => void) => (
-            <ProtectedComponent fullscreen action="accessPrivateArea">
+            <ProtectedComponent fullscreen>
                 <MerchantAssetList
                     assetId={assetId}
                     openView={action as ListingStatusView}
