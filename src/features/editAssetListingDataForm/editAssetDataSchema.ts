@@ -5,8 +5,12 @@ import * as yup from 'yup';
 import {
     minAssetPrice,
     maxAssetPrice,
-    minWristLength,
-    maxWristLength,
+    minColorLength,
+    maxColorLength,
+    minNameLength,
+    maxNameLength,
+    minMaterialLength,
+    maxMaterialLength,
     minAssetDescription,
     maxAssetDescription
 } from '@/config/formValues';
@@ -14,19 +18,29 @@ import {
 export const editAssetDataSchema = yup
     .object({
         price: yup.number().required().min(minAssetPrice).max(maxAssetPrice),
-        color: yup.string().required().min(2).trim(),
-        name: yup.string().required().min(3).max(200).trim(),
-        material: yup.string().required().min(2).trim(),
+        color: yup
+            .string()
+            .required()
+            .min(minColorLength)
+            .max(maxColorLength)
+            .trim(),
+        name: yup
+            .string()
+            .required()
+            .min(minNameLength)
+            .max(maxNameLength)
+            .trim(),
+        material: yup
+            .string()
+            .required()
+            .min(minMaterialLength)
+            .max(maxMaterialLength)
+            .trim(),
         description: yup
             .string()
             .required()
             .min(minAssetDescription)
             .max(maxAssetDescription)
-            .trim(),
-        wristLength: yup
-            .number()
-            .required()
-            .min(minWristLength)
-            .max(maxWristLength)
+            .trim()
     })
     .required();

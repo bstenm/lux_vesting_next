@@ -281,5 +281,6 @@
     "listOrderingError": "Error while ordering asset list",
     "clearFilters": "clear filters",
     "priceFrom": "price from",
-    "priceTo": "price to"
+    "priceTo": "price to",
+    "searchMarketplace": "search marketplace"
 }

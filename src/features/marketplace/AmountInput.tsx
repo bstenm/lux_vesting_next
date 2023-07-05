@@ -23,9 +23,9 @@ export function AmountInput({ label, input, onChange }: Props): JSX.Element {
             placeholder={capitalize(t(label))}
             InputProps={{
                 sx: {
-                    fontSize: 14,
-                    color: '#CCC',
+                    color: 'text.secondary',
                     width: 80,
+                    fontSize: 14,
                     '& .MuiOutlinedInput-input': {
                         p: 1
                     }

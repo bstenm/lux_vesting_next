@@ -8,6 +8,7 @@ import { useSearchParams } from 'next/navigation';
 
 import { Link } from '@/components/Link';
 import { path } from '@/config/path';
+import { useTranslate } from '@/libs/hooks/useTranslate';
 
 type Filter = {
     searchTerm?: string;
@@ -24,6 +25,8 @@ export function SearchInput({
     realTime,
     onSubmit = noop
 }: Props): JSX.Element {
+    const t = useTranslate();
+
     const searchTerm = useSearchParams().get('query');
 
     const [input, setInput] = useState<string>(searchTerm ?? '');
@@ -47,16 +50,18 @@ export function SearchInput({
     return (
         <InputBase
             sx={(theme) => ({
-                px: 1,
-                width: width ?? 200,
+                pl: 2,
+                pr: 1,
+                color: 'common.white',
+                width: width ?? 300,
                 height: 37,
-                margin: 'auto',
-                ...theme.filter
+                border: `1px solid ${theme.palette.text.disabled}`,
+                borderRadius: 1
             })}
             value={input}
             onChange={handleChange}
             inputProps={{ 'aria-label': 'search' }}
-            placeholder="Search…"
+            placeholder={`${t('searchMarketplace')}…`}
             endAdornment={
                 realTime ? (
                     <CloseIcon fontSize="small" onClick={() => reset()} />
@@ -66,7 +71,7 @@ export function SearchInput({
                             sx={{ p: 0.5 }}
                             onClick={handleSubmit}
                             aria-label="search">
-                            <SearchIcon sx={{ color: 'text.secondary' }} />
+                            <SearchIcon sx={{ color: 'text.disabled' }} />
                         </IconButton>
                     </Link>
                 )

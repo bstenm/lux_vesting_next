@@ -1,4 +1,3 @@
-import { grey } from '@mui/material/colors';
 import HomeIcon from '@mui/icons-material/Home';
 import { usePathname } from 'next/navigation';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
@@ -13,8 +12,8 @@ import { LanguageSelect } from '@/components/LanguageSelect';
 import { UserMenuButton } from '@/features/userMenu/UserMenuButton';
 import { NewListingButton } from '@/features/NewListingButton';
 import { NotificationDrawer } from '@/features/notifications/NotificationDrawer';
-import { isUserAdmin, isUserLoggedIn } from '@/state/user/selectors';
 import { AddNewAssetModalButton } from '@/features/addNewAssetModal/AddNewAssetModalButton';
+import { isUserAdmin, isUserLoggedIn } from '@/state/user/selectors';
 
 export function TopBar(): JSX.Element {
     const pathname = usePathname();
@@ -28,7 +27,7 @@ export function TopBar(): JSX.Element {
     const isNotHomepage = pathname && pathname !== path.landing;
 
     return (
-        <Row justifyContent="space-between">
+        <Row justifyContent="space-between" alignItems="center">
             <Row spacing={4} alignItems="center">
                 {userIsAdmin && (
                     <Link href={path.admin}>
@@ -38,16 +37,16 @@ export function TopBar(): JSX.Element {
                     </Link>
                 )}
                 <Link href={path.landing}>
-                    <HomeIcon sx={{ color: grey[500] }} />
+                    <HomeIcon sx={{ color: 'text.secondary' }} />
                 </Link>
                 <Link
-                    sx={{ color: grey[400] }}
+                    sx={{ color: 'text.secondary' }}
                     href={path.marketplace}
                     textId="marketplace"
                     allCapitalized
                 />
                 <Link
-                    sx={{ color: grey[400] }}
+                    sx={{ color: 'text.secondary' }}
                     href={path.merchantAssets}
                     textId="createdAssets"
                     allCapitalized
