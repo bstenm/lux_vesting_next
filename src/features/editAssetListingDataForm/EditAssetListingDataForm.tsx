@@ -35,27 +35,22 @@ export function EditAssetListingDataForm({
                     <Row spacing={3}>
                         <CustomTextField<AssetListingFormInput>
                             required
-                            type="number"
+                            type="amount"
                             name="price"
-                            width="600px"
                             disabled={submitting}
-                        />
-                        <CustomTextField<AssetListingFormInput>
-                            required
-                            type="number"
-                            name="wristLength"
-                            disabled={submitting}
+                            maxLength={9}
                         />
                         <CustomTextField<AssetListingFormInput>
                             required
                             name="color"
-                            width="600px"
                             disabled={submitting}
+                            maxLength={20}
                         />
                         <CustomTextField<AssetListingFormInput>
                             required
                             name="material"
                             disabled={submitting}
+                            maxLength={20}
                         />
                     </Row>
                     <CustomTextField<AssetListingFormInput>
@@ -63,6 +58,7 @@ export function EditAssetListingDataForm({
                         label="assetDescription"
                         name="description"
                         disabled={submitting}
+                        maxLength={500}
                         multiline
                         required
                     />

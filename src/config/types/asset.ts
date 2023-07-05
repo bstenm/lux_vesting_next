@@ -52,7 +52,6 @@ export type Asset = {
     tokenURI: string;
     description: string;
     merchantId: string;
-    wristLength: number;
     merchantName: string;
 };
 
@@ -136,7 +135,6 @@ export type AssetListingFormInput = {
     color: string;
     material: string;
     description: string;
-    wristLength: number;
 };
 
 export type EditAssetDataFormInput = {
@@ -145,7 +143,6 @@ export type EditAssetDataFormInput = {
     name: string;
     material: string;
     description: string;
-    wristLength: number;
 };
 
 export type AssetAuthenticationFormInput = {

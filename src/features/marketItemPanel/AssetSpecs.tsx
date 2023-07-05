@@ -21,7 +21,6 @@ export function AssetSpecs({ data }: Props): JSX.Element {
             <Row justifyContent="space-between">
                 <TitledDataPoint data={data.color} textId="color" />
                 <TitledDataPoint data={data.material} textId="material" />
-                <TitledDataPoint data={data.wristLength} textId="wrist" />
             </Row>
         </Stack>
     );

@@ -37,8 +37,9 @@ export const useUpdateAssetStatus = (
 
     const action = async ({ status, notes = '' }: Args): Promise<void> => {
         const data = { status, notes };
+        const statusData = { [statusType]: data };
         await DatabaseService.updateAssetStatus(assetId, statusType, data);
-        dispatch(assetsActions.updateData({ id: assetId, [statusType]: data }));
+        dispatch(assetsActions.updateData({ id: assetId, data: statusData }));
         // Notify the merchatn of the asset status change
         const to = [merchantId];
         const type: NotificationType = `${statusType}StatusChanged`;

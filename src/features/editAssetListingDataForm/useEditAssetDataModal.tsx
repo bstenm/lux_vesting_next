@@ -79,8 +79,7 @@ export const useEditAssetDataModal = (
                 price: assetData.price,
                 name: assetData.name,
                 material: assetData.material,
-                description: assetData.description,
-                wristLength: assetData.wristLength
+                description: assetData.description
             });
         }
     }, [assetData, formMethods]);
