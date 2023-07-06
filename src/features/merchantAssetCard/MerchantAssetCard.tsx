@@ -17,12 +17,9 @@ import { EditAssetDataIconButton } from '@/features/editAssetListingDataForm/Edi
 import { ManageAssetPicsIconButton } from '@/features/manageAssetFilesModal/ManageAssetPicsIconButton';
 import { ManageAssetDocsIconButton } from '@/features/manageAssetFilesModal/ManageAssetDocsIconButton';
 
-import {
-    ListingStatusView,
-    ManageListingStatusButton
-} from './ManageListingStatusButton';
 import { AssetCardTitle } from './AssetCardTitle';
-import { ManageAuthenticationStatusButton } from './ManageAuthenticationStatusButton';
+import { AuthenticationStatusButton } from './AuthenticationStatusButton';
+import { ListingStatusView, ListingStatusButton } from './ListingStatusButton';
 
 type Props<T> = {
     data: T;
@@ -68,11 +65,8 @@ export function MerchantAssetCard<T extends AssetItem>({
                         </Row>
                     )}
                     <Stack spacing={1} justifyContent="center">
-                        <ManageListingStatusButton
-                            data={data}
-                            openView={openView}
-                        />
-                        <ManageAuthenticationStatusButton data={data} />
+                        <ListingStatusButton data={data} openView={openView} />
+                        <AuthenticationStatusButton data={data} />
                     </Stack>
                 </Stack>
             </CardContent>

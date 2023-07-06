@@ -2,10 +2,10 @@
 
 import { RedButton } from '@/components/buttons/RedButton';
 import { Typography } from '@/components/Typography';
-import { AssetListingStatus } from '@/config/types/asset';
 import { GreenButton } from '@/components/buttons/GreenButton';
 import { YellowButton } from '@/components/buttons/YellowButton';
 import { PurpleButton } from '@/components/buttons/PurpleButton';
+import { AssetListingStatus } from '@/config/types/asset';
 
 type Props = {
     status?: AssetListingStatus;

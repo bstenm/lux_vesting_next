@@ -15,9 +15,7 @@ type Props = {
     data: AssetItem;
 };
 
-export const ManageAuthenticationStatusButton = ({
-    data
-}: Props): JSX.Element => {
+export const AuthenticationStatusButton = ({ data }: Props): JSX.Element => {
     const statusToElement: Record<AssetAuthenticationStatus, JSX.Element> = {
         pending: (
             <CancelAuthenticationRequestModal
