@@ -5,10 +5,10 @@ import { useCallback } from 'react';
 
 import { AssetItem } from '@/config/types/asset';
 import { PlaceBidButton } from '@/features/placeBid/PlaceBidButton';
-import { ListingStatusView } from '@/features/merchantAssetCard/ManageListingStatusButton';
 import { MerchantAssetList } from '@/features/merchantAssetList/MerchantAssetList';
 import { ProtectedComponent } from '@/features/authButton/ProtectedComponent';
 import { ComponentWithSelectedAssetInDrawer } from '@/layouts/ComponentWithSelectedAssetInDrawer';
+import { ListingStatusView } from '@/features/merchantAssetCard/ListingStatusButton';
 
 function MerchantAssetsPage(): JSX.Element {
     const { slug } = useParams() as { slug?: string };

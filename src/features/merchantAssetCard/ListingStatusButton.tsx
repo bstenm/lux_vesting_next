@@ -23,7 +23,7 @@ type Props = {
     openView?: ListingStatusView;
 };
 
-export const ManageListingStatusButton = ({
+export const ListingStatusButton = ({
     data,
     openView = 'none'
 }: Props): JSX.Element => {

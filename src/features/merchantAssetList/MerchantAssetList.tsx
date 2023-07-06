@@ -7,9 +7,9 @@ import { AssetItem } from '@/config/types/asset';
 import { getAllAssets } from '@/state/assets/selectors';
 import { FetchingScreen } from '@/components/FetchingScreen';
 import { useAppSelector } from '@/libs/hooks/useAppSelector';
-import { ListingStatusView } from '@/features/merchantAssetCard/ManageListingStatusButton';
 import { MerchantAssetCard } from '@/features/merchantAssetCard/MerchantAssetCard';
 import { useFetchMerchantAssets } from '@/features/adminAssetList/useFetchMerchantAssets';
+import { ListingStatusView } from '@/features/merchantAssetCard/ListingStatusButton';
 
 type Props = Omit<React.ComponentProps<typeof Row>, 'children'> & {
     assetId?: string;
