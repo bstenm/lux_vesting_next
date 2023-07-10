@@ -6,12 +6,13 @@ import {
     ThemeProvider,
     responsiveFontSizes
 } from '@mui/material/styles';
-import { useMemo } from 'react';
-import { purple, yellow } from '@mui/material/colors';
 import { Provider } from 'react-redux';
 import * as locales from '@mui/material/locale';
 import CssBaseline from '@mui/material/CssBaseline';
+import { useMemo } from 'react';
+import { purple, yellow } from '@mui/material/colors';
 import { useTranslation } from 'react-i18next';
+import { SessionProvider } from 'next-auth/react';
 
 import { store } from '@/redux/store';
 import { Layout } from '@/layouts/Layout';
@@ -96,15 +97,17 @@ export function App({ children }: Props): JSX.Element {
     ) as LangContextType;
 
     return (
-        <Provider store={store}>
-            <LangContext.Provider value={lngCxtValue}>
-                <ThemeProvider theme={responsiveTheme}>
-                    <CssBaseline />
-                    <Layout>{children}</Layout>
-                    <AlertSnackbar />
-                    <AddFundsDrawer />
-                </ThemeProvider>
-            </LangContext.Provider>
-        </Provider>
+        <SessionProvider>
+            <Provider store={store}>
+                <LangContext.Provider value={lngCxtValue}>
+                    <ThemeProvider theme={responsiveTheme}>
+                        <CssBaseline />
+                        <Layout>{children}</Layout>
+                        <AlertSnackbar />
+                        <AddFundsDrawer />
+                    </ThemeProvider>
+                </LangContext.Provider>
+            </Provider>
+        </SessionProvider>
     );
 }

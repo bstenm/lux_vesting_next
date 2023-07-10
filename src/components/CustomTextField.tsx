@@ -89,6 +89,7 @@ export function TextFieldComponent<T extends Record<string, unknown>>(
                     <TextField
                         sx={{
                             mt: noLabel ? 0 : 2.5,
+                            border: '1px solid #353535',
                             ...sx
                         }}
                         id={labelTxt}

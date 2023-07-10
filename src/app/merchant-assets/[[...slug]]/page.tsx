@@ -5,10 +5,14 @@ import { useCallback } from 'react';
 
 import { AssetItem } from '@/config/types/asset';
 import { PlaceBidButton } from '@/features/placeBid/PlaceBidButton';
+import { ListingStatusView } from '@/features/merchantAssetCard/ListingStatusButton';
 import { MerchantAssetList } from '@/features/merchantAssetList/MerchantAssetList';
 import { ProtectedComponent } from '@/features/authButton/ProtectedComponent';
 import { ComponentWithSelectedAssetInDrawer } from '@/layouts/ComponentWithSelectedAssetInDrawer';
-import { ListingStatusView } from '@/features/merchantAssetCard/ListingStatusButton';
+
+type ListProps = {
+    onSelectitem: (item: AssetItem) => void;
+};
 
 function MerchantAssetsPage(): JSX.Element {
     const { slug } = useParams() as { slug?: string };
@@ -16,12 +20,12 @@ function MerchantAssetsPage(): JSX.Element {
     const [action, assetId] = slug?.split('/') ?? [];
 
     const List = useCallback(
-        (onSelectitem: (data: AssetItem) => void) => (
+        (props: ListProps) => (
             <ProtectedComponent fullscreen>
                 <MerchantAssetList
                     assetId={assetId}
                     openView={action as ListingStatusView}
-                    onSelectitem={onSelectitem}
+                    onSelectitem={props.onSelectitem}
                 />
             </ProtectedComponent>
         ),

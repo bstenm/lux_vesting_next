@@ -17,6 +17,7 @@ type Props = ButtonProps & {
 };
 
 export function Button({
+    sx,
     textId,
     loading,
     children,
@@ -50,7 +51,8 @@ export function Button({
                         : `1px solid ${theme.palette.text.disabled}`,
                 '&:disabled': {
                     border: `1px solid ${theme.palette.text.disabled}`
-                }
+                },
+                ...sx
             }}
             {...props}>
             {loading ? <Spinner /> : content}

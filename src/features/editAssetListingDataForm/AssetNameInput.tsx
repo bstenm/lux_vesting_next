@@ -10,7 +10,7 @@ export function AssetNameInput({ disabled }: Props): JSX.Element {
     return (
         <TextInput
             sx={{
-                p: 1,
+                p: 0.8,
                 bgcolor: 'common.black',
                 textAlign: 'center',
                 '& .MuiInput-underline:before': {

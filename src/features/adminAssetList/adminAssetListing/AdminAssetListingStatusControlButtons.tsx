@@ -42,7 +42,6 @@ export const AdminAssetListingStatusControlButtons = ({
                 onClick={onApprove}
                 loading={approving}
                 fullWidth
-                withBorder
             />
         ),
         approved: (
@@ -52,7 +51,6 @@ export const AdminAssetListingStatusControlButtons = ({
                     onClick={() => onUpdateStatus('revoked')}
                     loading={updating}
                     fullWidth
-                    withBorder
                 />
                 <ListingDataModal
                     title={data.name}
@@ -64,7 +62,6 @@ export const AdminAssetListingStatusControlButtons = ({
                             onClick={open}
                             disabled={updating}
                             fullWidth
-                            withBorder
                         />
                     )}
                 </ListingDataModal>
@@ -79,7 +76,6 @@ export const AdminAssetListingStatusControlButtons = ({
                 />
                 <GreenButton
                     fullWidth
-                    withBorder
                     textId="approve"
                     onClick={onApprove}
                     loading={approving}
@@ -89,14 +85,15 @@ export const AdminAssetListingStatusControlButtons = ({
         pending: (
             <Row spacing={3}>
                 <DenyButton
+                    sx={{ bgcolor: 'common.black' }}
                     onDone={(notes) => onUpdateStatus('denied', notes)}
                 />
                 <GreenButton
+                    sx={{ bgcolor: 'common.black' }}
                     textId="approve"
                     onClick={onApprove}
                     loading={approving}
                     fullWidth
-                    withBorder
                 />
             </Row>
         )

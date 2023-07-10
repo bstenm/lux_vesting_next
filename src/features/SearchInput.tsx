@@ -1,4 +1,4 @@
-import { noop } from 'lodash';
+import { noop, startCase } from 'lodash';
 import CloseIcon from '@mui/icons-material/Close';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
@@ -55,13 +55,13 @@ export function SearchInput({
                 color: 'common.white',
                 width: width ?? 300,
                 height: 37,
-                border: `1px solid ${theme.palette.text.disabled}`,
+                border: `1px solid ${theme.palette.text.secondary}`,
                 borderRadius: 1
             })}
             value={input}
             onChange={handleChange}
             inputProps={{ 'aria-label': 'search' }}
-            placeholder={`${t('searchMarketplace')}…`}
+            placeholder={`${startCase(t('searchMarketplace'))}…`}
             endAdornment={
                 realTime ? (
                     <CloseIcon fontSize="small" onClick={() => reset()} />
@@ -71,7 +71,7 @@ export function SearchInput({
                             sx={{ p: 0.5 }}
                             onClick={handleSubmit}
                             aria-label="search">
-                            <SearchIcon sx={{ color: 'text.disabled' }} />
+                            <SearchIcon sx={{ color: 'text.secondary' }} />
                         </IconButton>
                     </Link>
                 )

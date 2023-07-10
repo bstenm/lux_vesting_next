@@ -282,5 +282,6 @@
     "clearFilters": "clear filters",
     "priceFrom": "price from",
     "priceTo": "price to",
-    "searchMarketplace": "search marketplace"
+    "searchMarketplace": "search marketplace",
+    "adminLogin": "admin login"
 }

@@ -62,39 +62,44 @@ export function Marketplace({ onSelectitem }: Props): JSX.Element {
 
     return (
         <>
-            <Row spacing={6}>
-                <AuctionTimeLeftFilter
-                    selected={filter.timeLeft}
-                    onToggle={addFilter}
-                />
-                <SearchInput input={filter.searchTerm} onSubmit={addFilter} />
-                <PriceRangeInput
-                    toValue={filter.priceRangeTo}
-                    fromValue={filter.priceRangeFrom}
-                    onSelect={addFilter}
-                />
-                <SortingSelection onSelect={addSorting} />
-                <RoundedGreyBox
-                    sx={{ cursor: 'pointer' }}
-                    onClick={resetFilter}>
-                    <Typography
-                        sx={{ py: 1, px: 2, fontSize: 14 }}
-                        textId="clearFilters"
-                        noWrap
-                        allCapitalized
+            {list.length > 0 && (
+                <Row spacing={6}>
+                    <AuctionTimeLeftFilter
+                        selected={filter.timeLeft}
+                        onToggle={addFilter}
                     />
-                </RoundedGreyBox>
-                <AdvancedFiltersPanel onToggle={onToggleAdvancedFilter}>
-                    <BrandsSelection
-                        selected={filter.brands}
+                    <SearchInput
+                        input={filter.searchTerm}
+                        onSubmit={addFilter}
+                    />
+                    <PriceRangeInput
+                        toValue={filter.priceRangeTo}
+                        fromValue={filter.priceRangeFrom}
                         onSelect={addFilter}
                     />
-                    <MerchantSelection
-                        selected={filter.merchant}
-                        onSelect={addFilter}
-                    />
-                </AdvancedFiltersPanel>
-            </Row>
+                    <SortingSelection onSelect={addSorting} />
+                    <RoundedGreyBox
+                        sx={{ cursor: 'pointer' }}
+                        onClick={resetFilter}>
+                        <Typography
+                            sx={{ py: 1, px: 2, fontSize: 14 }}
+                            textId="clearFilters"
+                            noWrap
+                            allCapitalized
+                        />
+                    </RoundedGreyBox>
+                    <AdvancedFiltersPanel onToggle={onToggleAdvancedFilter}>
+                        <BrandsSelection
+                            selected={filter.brands}
+                            onSelect={addFilter}
+                        />
+                        <MerchantSelection
+                            selected={filter.merchant}
+                            onSelect={addFilter}
+                        />
+                    </AdvancedFiltersPanel>
+                </Row>
+            )}
             <AssetList<AssetItem>
                 list={listToDisplay}
                 loading={fetching}

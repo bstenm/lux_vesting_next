@@ -27,12 +27,12 @@ export function Layout({
     return (
         <Container>
             <PerfectScrollbar>
-                <Box sx={{ px: 6, minHeight: '100%' }}>
+                <Box sx={{ pt: 1, px: 6, minHeight: '100%' }}>
                     <Stack
                         sx={{
                             width: 'calc(100vw - 80px)',
                             height: 60,
-                            zIndex: 6000,
+                            zIndex: 1000,
                             bgcolor: 'common.black',
                             position: isNotHomepage ? 'fixed' : 'static'
                         }}

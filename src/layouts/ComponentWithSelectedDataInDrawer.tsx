@@ -128,7 +128,7 @@ export function ComponentWithSelectedDataInDrawer<
                 onClose={onCloseDrawer}
                 hideBackdrop
                 noCloseButton>
-                <Box sx={{ width: rightBoxWidth }}>
+                <Box sx={{ pt: 3, width: rightBoxWidth }}>
                     <BackButton
                         sx={{ zIndex: 1000 }}
                         spacing={1}

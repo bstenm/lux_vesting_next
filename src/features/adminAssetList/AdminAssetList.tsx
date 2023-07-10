@@ -29,11 +29,7 @@ export function AdminAssetList({ onSelectitem }: Props): JSX.Element {
         <FetchingScreen<AssetItem[]> data={list} fetching={fetching}>
             {(data: AssetItem[]) => (
                 <Row
-                    sx={{
-                        mt: 2,
-                        flexWrap: 'wrap',
-                        gap: 6
-                    }}
+                    sx={{ mt: 2, flexWrap: 'wrap', gap: 6 }}
                     justifyContent="flex-start">
                     {data.map((asset: AssetItem) => (
                         <AdminAssetCard
