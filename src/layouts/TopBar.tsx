@@ -15,6 +15,17 @@ import { NotificationDrawer } from '@/features/notifications/NotificationDrawer'
 import { AddNewAssetModalButton } from '@/features/addNewAssetModal/AddNewAssetModalButton';
 import { isUserAdmin, isUserLoggedIn } from '@/state/user/selectors';
 
+const linkStyle = {
+    color: 'text.secondary',
+    '&:hover': {
+        color: 'common.white'
+    }
+};
+
+function MenuLink(props: React.ComponentProps<typeof Link>): JSX.Element {
+    return <Link sx={linkStyle} {...props} />;
+}
+
 export function TopBar(): JSX.Element {
     const pathname = usePathname();
 
@@ -37,23 +48,21 @@ export function TopBar(): JSX.Element {
                     </Link>
                 )}
                 <Link href={path.landing}>
-                    <HomeIcon sx={{ color: 'text.secondary' }} />
+                    <HomeIcon sx={linkStyle} />
                 </Link>
-                <Link
-                    sx={{ color: 'text.secondary' }}
+                <MenuLink
                     href={path.marketplace}
                     textId="marketplace"
                     allCapitalized
                 />
-                <Link
-                    sx={{ color: 'text.secondary' }}
+                <MenuLink
                     href={path.merchantAssets}
                     textId="createdAssets"
                     allCapitalized
                 />
             </Row>
             {isNotHomepage && !isMarketplace && <SearchInput />}
-            <Row alignItems="center" spacing={userIsLoggedIn ? 2 : 4}>
+            <Row alignItems="center" spacing={userIsLoggedIn ? 1 : 4}>
                 {isNotHomepage && (
                     <AddNewAssetModalButton>
                         {(handleOpenModal) => (
@@ -62,7 +71,7 @@ export function TopBar(): JSX.Element {
                     </AddNewAssetModalButton>
                 )}
                 {userIsLoggedIn && isNotHomepage && (
-                    <Row spacing={2} alignItems="center">
+                    <Row spacing={1} alignItems="center">
                         <NotificationDrawer />
                         <UserMenuButton />
                     </Row>

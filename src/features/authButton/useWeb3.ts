@@ -28,6 +28,7 @@ export const useWeb3 = (): AuthLogic => {
     const dispatch = useAppDispatch();
 
     const setUserData = async (): Promise<void> => {
+        // TODO: restore
         // const { email } = await web3Service.api.getUserInfo('');
         const email = 'bstenmm@gmail.com';
         // Get the user data from database for this account
@@ -39,14 +40,16 @@ export const useWeb3 = (): AuthLogic => {
     };
 
     const loginAction = async (): Promise<void> => {
+        // TODO: restore
         // Open web3 provider login popup
-        const account = await web3Service.login();
+        // const account = await web3Service.login();
+        const account = process.env.NEXT_PUBLIC_ADMIN_ID as string;
         // Retrieve the user info from the database if exists
         const storedUser: User = await DatabaseService.getUserById(account);
         // Get the user info stored by web3 provider after login
-        const web3User: UserInfo = await web3Service.api.getUserInfo('');
+        // const web3User: UserInfo = await web3Service.api.getUserInfo('');
         // The data we currently have on this user
-        const userData: User = storedUser || { ...web3User, account };
+        const userData: User = storedUser; // || { ...web3User, account };
         // Add a new user If not stored in database yet
         if (!storedUser) {
             await DatabaseService.addUser(userData);
@@ -95,7 +98,8 @@ export const useWeb3 = (): AuthLogic => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    const loggedIn = !!userId && web3Service.isUserLoggedIn();
+    // TODO: restore
+    const loggedIn = !!userId; // && web3Service.isUserLoggedIn();
 
     const initializing = web3Service.getInitializing();
 

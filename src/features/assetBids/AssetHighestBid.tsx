@@ -22,12 +22,6 @@ export function AssetHighestBid({ id, align, ...props }: Props): JSX.Element {
         return <Spinner />;
     }
 
-    if (!highestBid) {
-        return (
-            <Typography capitalized color="primary.main" textId="noBidsYet" />
-        );
-    }
-
     return (
         <TitledAmountData
             sx={{ color: 'success.main' }}

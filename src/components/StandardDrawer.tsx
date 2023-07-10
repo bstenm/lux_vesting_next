@@ -48,7 +48,7 @@ export function StandardDrawer({
                 <Box
                     sx={{
                         p: 3,
-                        pt: transparent ? 11 : 3,
+                        pt: transparent ? 11 : 0,
                         bgcolor: transparent ? 'transparent' : '#151515',
                         textAlign: 'center',
                         minHeight: '100%',

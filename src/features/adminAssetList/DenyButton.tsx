@@ -17,7 +17,6 @@ export function DenyButton({ textId, onDone, ...rest }: Props): JSX.Element {
             <RedButton
                 textId={textId ?? 'deny'}
                 onClick={handleOpen}
-                withBorder
                 fullWidth
                 {...rest}
             />
