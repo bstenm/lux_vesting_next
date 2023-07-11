@@ -18,19 +18,14 @@ import {
 export const editAssetDataSchema = yup
     .object({
         price: yup.number().required().min(minAssetPrice).max(maxAssetPrice),
-        color: yup
-            .string()
-            .required()
-            .min(minColorLength)
-            .max(maxColorLength)
-            .trim(),
+        casePrimaryColor: yup.string().required(),
         name: yup
             .string()
             .required()
             .min(minNameLength)
             .max(maxNameLength)
             .trim(),
-        material: yup
+        caseMaterial: yup
             .string()
             .required()
             .min(minMaterialLength)

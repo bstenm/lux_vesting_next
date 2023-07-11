@@ -8,9 +8,9 @@ export function DarkButton({
     return (
         <Button
             sx={(theme) => ({
-                color: theme.palette.primary[500],
+                color: theme.palette.primary.dark,
                 '&:hover': {
-                    border: `1px solid ${theme.palette.primary[500]}`
+                    border: `1px solid ${theme.palette.primary.dark}`
                 }
             })}
             {...props}

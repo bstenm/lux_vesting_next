@@ -11,7 +11,7 @@ import { useAppSelector } from '@/libs/hooks/useAppSelector';
 import { useAsyncAction } from '@/libs/hooks/useAsyncAction';
 import { getAssetData } from '@/state/assets/selectors';
 import { useUpdateAssetData } from '@/libs/hooks/useUpdateAssetData';
-import { EditAssetDataFormInput } from '@/config/types/asset';
+import { AssetListingFormInput } from '@/config/types/asset';
 
 import { useUpdateAssetStatus } from '@/libs/hooks/useUpdateAssetStatus';
 import { getUserId } from '@/state/user/selectors';
@@ -19,10 +19,10 @@ import { editAssetDataSchema } from './editAssetDataSchema';
 
 type HookLogic = {
     onClose: () => void;
-    onSubmit: (data: EditAssetDataFormInput) => void;
+    onSubmit: (data: AssetListingFormInput) => void;
     submitting: boolean;
     // eslint-disable-next-line @typescript-eslint/ban-types
-    formMethods: UseFormReturn<EditAssetDataFormInput, object>;
+    formMethods: UseFormReturn<AssetListingFormInput, object>;
 };
 
 type Options = {
@@ -50,7 +50,7 @@ export const useEditAssetDataModal = (
         throws: true
     });
 
-    const formMethods = useForm<EditAssetDataFormInput>({
+    const formMethods = useForm<AssetListingFormInput>({
         resolver: yupResolver(editAssetDataSchema)
     });
 
@@ -59,15 +59,15 @@ export const useEditAssetDataModal = (
         onSuccess();
     };
 
-    const action = async (values: EditAssetDataFormInput): Promise<void> => {
+    const action = async (values: AssetListingFormInput): Promise<void> => {
         log.info('Submitting new product', values);
-        await updateAssetData(values);
-        await updateAssetStatus('pending');
+        // await updateAssetData(values);
+        // await updateAssetStatus('pending');
         successAlert('editSuccess');
-        onSuccess();
+        // onSuccess();
     };
 
-    const [onSubmit, submitting] = useAsyncAction<EditAssetDataFormInput, void>(
+    const [onSubmit, submitting] = useAsyncAction<AssetListingFormInput, void>(
         action,
         { error: 'requestError', silent }
     );
@@ -75,11 +75,11 @@ export const useEditAssetDataModal = (
     useEffect(() => {
         if (assetData) {
             formMethods.reset({
-                color: assetData.color,
                 price: assetData.price,
                 name: assetData.name,
-                material: assetData.material,
-                description: assetData.description
+                description: assetData.description,
+                caseMaterial: assetData.caseMaterial,
+                casePrimaryColor: assetData.casePrimaryColor
             });
         }
     }, [assetData, formMethods]);

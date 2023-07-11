@@ -42,17 +42,38 @@ export type AssetListingStatus =
     | 'approved'
     | 'unprocessed';
 
+export type CaseMaterial = 'gold' | 'silver' | 'steel' | 'stainless steel';
+
+export type BraceletMaterial =
+    | 'gold'
+    | 'steel'
+    | 'silver'
+    | 'leather'
+    | 'stainless steel';
+
+export type AssetColor =
+    | 'gold'
+    | 'rose'
+    | 'silver'
+    | 'black'
+    | 'white'
+    | 'blue'
+    | 'green';
+
 export type Asset = {
-    color: string;
     price: number;
     name: string;
     medias: AssetMediaMetadataItem[];
-    material: string;
     category: AssetCategory;
     tokenURI: string;
     description: string;
     merchantId: string;
     merchantName: string;
+    caseMaterial: CaseMaterial;
+    braceletColor: AssetColor;
+    braceletMaterial: BraceletMaterial;
+    casePrimaryColor: AssetColor;
+    caseSecondaryColor: AssetColor;
 };
 
 export type AssetListingData = {
@@ -132,17 +153,12 @@ export type AddNewAssetFormInput = {
 
 export type AssetListingFormInput = {
     price: number;
-    color: string;
-    material: string;
-    description: string;
-};
-
-export type EditAssetDataFormInput = {
-    price: number;
-    color: string;
     name: string;
-    material: string;
     description: string;
+    caseMaterial: CaseMaterial;
+    braceletColor: AssetColor;
+    braceletMaterial: BraceletMaterial;
+    casePrimaryColor: AssetColor;
 };
 
 export type AssetAuthenticationFormInput = {
