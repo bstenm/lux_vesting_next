@@ -4,9 +4,9 @@ import { grey } from '@mui/material/colors';
 import startCase from 'lodash/startCase';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
+import { useTheme } from '@mui/material';
 import { forwardRef } from 'react';
 import { ErrorMessage } from '@hookform/error-message';
-import { Box, useTheme } from '@mui/material';
 import { Controller, useFormContext, Path } from 'react-hook-form';
 import ReactSelect, { GroupBase, SelectInstance } from 'react-select';
 
@@ -18,16 +18,15 @@ type Option = {
     value: string;
 };
 
-type Props<T> = React.ComponentProps<typeof ReactSelect> & {
+type Props<T> = Omit<React.ComponentProps<typeof ReactSelect>, 'onChange'> & {
     name: Path<T>;
     label?: string;
-    width?: string;
-    options: Option[];
+    options: string[];
     required?: boolean;
 };
 
 export function StandardFormSelectComponent<T extends Record<string, unknown>>(
-    { width, label, name, options, required, ...other }: Props<T>,
+    { label, name, options, required, ...other }: Props<T>,
     ref: React.ForwardedRef<
         SelectInstance<unknown, boolean, GroupBase<unknown>>
     >
@@ -51,9 +50,9 @@ export function StandardFormSelectComponent<T extends Record<string, unknown>>(
         <Controller
             name={name}
             control={control}
-            render={({ field }) => (
+            render={({ field: { value, onChange } }) => (
                 <FormControl
-                    sx={{ pb: error ? 0 : 1, width }}
+                    sx={{ pb: error ? 0 : 1 }}
                     variant="standard"
                     fullWidth>
                     <InputLabel
@@ -66,60 +65,66 @@ export function StandardFormSelectComponent<T extends Record<string, unknown>>(
                         htmlFor={name}>
                         {labelTxt}
                     </InputLabel>
-                    <Box>
-                        <ReactSelect
-                            isClearable
-                            options={options}
-                            placeholder=""
-                            styles={{
-                                control: (baseStyles) => ({
-                                    ...baseStyles,
-                                    color: theme.palette.common.white,
-                                    border: '1px solid #353535',
-                                    marginTop: '20px',
-                                    borderRadius: 0,
-                                    textTransform: 'capitalize',
-                                    backgroundColor: theme.palette.common.black
-                                }),
-                                container: (baseStyles) => ({
-                                    ...baseStyles,
-                                    backgroundColor: theme.palette.common.black
-                                }),
-                                menu: (baseStyles) => ({
-                                    ...baseStyles,
-                                    backgroundColor: theme.palette.common.black
-                                }),
-                                singleValue: (baseStyles) => ({
-                                    ...baseStyles,
-                                    color: theme.palette.common.white,
-                                    fontSize: 14
-                                }),
-                                option: (baseStyles) => ({
-                                    ...baseStyles,
-                                    color: theme.palette.text.secondary,
-                                    fontSize: 14,
-                                    textTransform: 'capitalize',
-                                    backgroundColor: theme.palette.common.black,
-                                    '&:hover': {
-                                        color: theme.palette.common.white,
-                                        backgroundColor: grey[900]
-                                    }
-                                })
-                            }}
-                            {...field}
-                            {...other}
-                            ref={ref}
-                        />
-                        {error && (
-                            <ErrorMessage
-                                errors={errors}
-                                name={name}
-                                render={({ message }) => (
-                                    <FormHelperText textId={message} />
-                                )}
-                            />
+                    <ReactSelect
+                        isClearable
+                        options={options.map((color) => ({
+                            label: color,
+                            value: color
+                        }))}
+                        value={options.find(
+                            (option) => (option as Option).value === value
                         )}
-                    </Box>
+                        onChange={(option) =>
+                            onChange((option as Option).value)
+                        }
+                        placeholder=""
+                        styles={{
+                            control: (baseStyles) => ({
+                                ...baseStyles,
+                                color: theme.palette.common.white,
+                                border: '1px solid #353535',
+                                borderRadius: 0,
+                                textTransform: 'capitalize',
+                                backgroundColor: theme.palette.common.black
+                            }),
+                            container: (baseStyles) => ({
+                                ...baseStyles,
+                                marginTop: '20px',
+                                backgroundColor: theme.palette.common.black
+                            }),
+                            menu: (baseStyles) => ({
+                                ...baseStyles,
+                                backgroundColor: theme.palette.common.black
+                            }),
+                            singleValue: (baseStyles) => ({
+                                ...baseStyles,
+                                color: theme.palette.common.white,
+                                fontSize: 14
+                            }),
+                            option: (baseStyles) => ({
+                                ...baseStyles,
+                                color: theme.palette.text.secondary,
+                                fontSize: 14,
+                                textTransform: 'capitalize',
+                                backgroundColor: theme.palette.common.black,
+                                '&:hover': {
+                                    color: theme.palette.common.white,
+                                    backgroundColor: grey[900]
+                                }
+                            })
+                        }}
+                        ref={ref}
+                        {...other}
+                    />
+                    {error && (
+                        <ErrorMessage
+                            errors={errors}
+                            name={name}
+                            render={({ message }) => (
+                                <FormHelperText textId={message} />
+                            )}
+                        />
+                    )}
                 </FormControl>
             )}
         />

@@ -9,9 +9,10 @@ import { GreenButton } from '@/components/buttons/GreenButton';
 import { CustomTextField } from '@/components/CustomTextField';
 import { AssetListingFormInput } from '@/config/types/asset';
 
-import { CaseColorSelect } from './CaseColorSelect';
 import { AssetNameInput } from './AssetNameInput';
+import { StandardFormSelect } from './StandardFormSelect';
 import { useEditAssetDataModal } from './useEditAssetDataModal';
+import { assetColors, caseMaterial } from './selectOptions';
 
 type Props = {
     assetId: string;
@@ -41,12 +42,17 @@ export function EditAssetListingDataForm({
                             disabled={submitting}
                             maxLength={9}
                         />
-                        <CaseColorSelect isDisabled={submitting} />
-                        <CustomTextField<AssetListingFormInput>
+                        <StandardFormSelect<AssetListingFormInput>
+                            required
+                            name="casePrimaryColor"
+                            options={assetColors}
+                            isDisabled={submitting}
+                        />
+                        <StandardFormSelect<AssetListingFormInput>
                             required
                             name="caseMaterial"
-                            disabled={submitting}
-                            maxLength={20}
+                            options={caseMaterial}
+                            isDisabled={submitting}
                         />
                     </Row>
                     <CustomTextField<AssetListingFormInput>
