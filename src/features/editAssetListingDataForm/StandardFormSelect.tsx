@@ -5,7 +5,7 @@ import startCase from 'lodash/startCase';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import { useTheme } from '@mui/material';
-import { forwardRef } from 'react';
+import { forwardRef, useMemo } from 'react';
 import { ErrorMessage } from '@hookform/error-message';
 import { Controller, useFormContext, Path } from 'react-hook-form';
 import ReactSelect, { GroupBase, SelectInstance } from 'react-select';
@@ -21,12 +21,13 @@ type Option = {
 type Props<T> = Omit<React.ComponentProps<typeof ReactSelect>, 'onChange'> & {
     name: Path<T>;
     label?: string;
-    options: string[];
+    width?: string;
+    options: string[] | Option[];
     required?: boolean;
 };
 
 export function StandardFormSelectComponent<T extends Record<string, unknown>>(
-    { label, name, options, required, ...other }: Props<T>,
+    { width, label, name, options, required, ...other }: Props<T>,
     ref: React.ForwardedRef<
         SelectInstance<unknown, boolean, GroupBase<unknown>>
     >
@@ -46,13 +47,24 @@ export function StandardFormSelectComponent<T extends Record<string, unknown>>(
         required ? '*' : ''
     }`;
 
+    const list: Option[] = useMemo(
+        () =>
+            typeof options[0] === 'string'
+                ? (options as string[]).map((color) => ({
+                      label: color,
+                      value: color
+                  }))
+                : (options as Option[]),
+        [options]
+    );
+
     return (
         <Controller
             name={name}
             control={control}
             render={({ field: { value, onChange } }) => (
                 <FormControl
-                    sx={{ pb: error ? 0 : 1 }}
+                    sx={{ pb: error ? 0 : 1, width }}
                     variant="standard"
                     fullWidth>
                     <InputLabel
@@ -67,22 +79,20 @@ export function StandardFormSelectComponent<T extends Record<string, unknown>>(
                     </InputLabel>
                     <ReactSelect
                         isClearable
-                        options={options.map((color) => ({
-                            label: color,
-                            value: color
-                        }))}
-                        value={options.find(
-                            (option) => (option as Option).value === value
+                        placeholder=""
+                        options={list}
+                        value={list.find(
+                            (option) => (option as Option)?.value === value
                         )}
                         onChange={(option) =>
-                            onChange((option as Option).value)
+                            onChange((option as Option)?.value)
                         }
-                        placeholder=""
                         styles={{
                             control: (baseStyles) => ({
                                 ...baseStyles,
                                 color: theme.palette.common.white,
                                 border: '1px solid #353535',
+                                textAlign: 'left',
                                 borderRadius: 0,
                                 textTransform: 'capitalize',
                                 backgroundColor: theme.palette.common.black
@@ -96,25 +106,30 @@ export function StandardFormSelectComponent<T extends Record<string, unknown>>(
                                 ...baseStyles,
                                 backgroundColor: theme.palette.common.black
                             }),
-                            singleValue: (baseStyles) => ({
+                            singleValue: (baseStyles, { isDisabled }) => ({
                                 ...baseStyles,
-                                color: theme.palette.common.white,
+                                color: isDisabled
+                                    ? theme.palette.text.disabled
+                                    : theme.palette.common.white,
                                 fontSize: 14
                             }),
                             option: (baseStyles) => ({
                                 ...baseStyles,
                                 color: theme.palette.text.secondary,
                                 fontSize: 14,
+                                textAlign: 'left',
                                 textTransform: 'capitalize',
                                 backgroundColor: theme.palette.common.black,
                                 '&:hover': {
                                     color: theme.palette.common.white,
                                     backgroundColor: grey[900]
                                 }
-                            })
+                            }),
+                            indicatorSeparator: () => ({ display: 'none' }),
+                            dropdownIndicator: () => ({ display: 'none' })
                         }}
-                        ref={ref}
                         {...other}
+                        ref={ref}
                     />
                     {error && (
                         <ErrorMessage

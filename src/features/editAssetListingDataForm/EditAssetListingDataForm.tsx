@@ -12,7 +12,7 @@ import { AssetListingFormInput } from '@/config/types/asset';
 import { AssetNameInput } from './AssetNameInput';
 import { StandardFormSelect } from './StandardFormSelect';
 import { useEditAssetDataModal } from './useEditAssetDataModal';
-import { assetColors, caseMaterial } from './selectOptions';
+import { assetColors, braceletMaterials, caseMaterials } from './selectOptions';
 
 type Props = {
     assetId: string;
@@ -34,24 +34,47 @@ export function EditAssetListingDataForm({
                 onSubmit={formMethods.handleSubmit(onSubmit)}>
                 <Stack spacing={4}>
                     <AssetNameInput disabled={submitting} />
-                    <Row spacing={3}>
+                    <Row sx={{ flexWrap: 'wrap', gap: 3 }}>
                         <CustomTextField<AssetListingFormInput>
                             required
                             type="amount"
                             name="price"
+                            width="140px"
                             disabled={submitting}
                             maxLength={9}
                         />
                         <StandardFormSelect<AssetListingFormInput>
                             required
                             name="casePrimaryColor"
+                            width="140px"
+                            options={assetColors}
+                            isDisabled={submitting}
+                        />
+                        <StandardFormSelect<AssetListingFormInput>
+                            name="caseSecondaryColor"
+                            width="140px"
                             options={assetColors}
                             isDisabled={submitting}
                         />
                         <StandardFormSelect<AssetListingFormInput>
                             required
                             name="caseMaterial"
-                            options={caseMaterial}
+                            width="140px"
+                            options={caseMaterials}
+                            isDisabled={submitting}
+                        />
+                        <StandardFormSelect<AssetListingFormInput>
+                            required
+                            name="braceletMaterial"
+                            width="140px"
+                            options={braceletMaterials}
+                            isDisabled={submitting}
+                        />
+                        <StandardFormSelect<AssetListingFormInput>
+                            required
+                            name="braceletColor"
+                            width="140px"
+                            options={assetColors}
                             isDisabled={submitting}
                         />
                     </Row>

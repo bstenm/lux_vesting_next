@@ -18,14 +18,14 @@ export const assetColors: AssetColor[] = [
     'white'
 ];
 
-export const braceletMaterial: CaseMaterial[] = [
+export const braceletMaterials: CaseMaterial[] = [
     'gold',
     'steel',
     'silver',
     'stainless steel'
 ];
 
-export const caseMaterial: BraceletMaterial[] = [
+export const caseMaterials: BraceletMaterial[] = [
     'gold',
     'steel',
     'silver',
@@ -40,7 +40,7 @@ export function CaseMaterialSelect<T extends Record<string, unknown>>({
     return (
         <StandardFormSelect<T>
             name={name as Path<T>}
-            options={caseMaterial.map((e) => ({
+            options={caseMaterials.map((e) => ({
                 label: e,
                 value: e
             }))}

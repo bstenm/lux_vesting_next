@@ -159,6 +159,7 @@ export type AssetListingFormInput = {
     braceletColor: AssetColor;
     braceletMaterial: BraceletMaterial;
     casePrimaryColor: AssetColor;
+    caseSecondaryColor?: AssetColor;
 };
 
 export type AssetAuthenticationFormInput = {

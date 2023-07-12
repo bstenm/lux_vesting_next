@@ -14,14 +14,14 @@ export const assetColors: AssetColor[] = [
     'white'
 ];
 
-export const braceletMaterial: CaseMaterial[] = [
+export const caseMaterials: CaseMaterial[] = [
     'gold',
     'steel',
     'silver',
     'stainless steel'
 ];
 
-export const caseMaterial: BraceletMaterial[] = [
+export const braceletMaterials: BraceletMaterial[] = [
     'gold',
     'steel',
     'silver',

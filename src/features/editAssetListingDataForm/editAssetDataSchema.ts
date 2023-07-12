@@ -1,6 +1,6 @@
 'use client';
 
-import * as yup from 'yup';
+import { object, number, string, ObjectSchema } from 'yup';
 
 import {
     minAssetPrice,
@@ -10,27 +10,20 @@ import {
     minAssetDescription,
     maxAssetDescription
 } from '@/config/formValues';
-import { assetColors, caseMaterial, braceletMaterial } from './selectOptions';
+import { AssetListingFormInput } from '@/config/types/asset';
+import { assetColors, caseMaterials, braceletMaterials } from './selectOptions';
 
-export const editAssetDataSchema = yup
-    .object({
-        price: yup.number().required().min(minAssetPrice).max(maxAssetPrice),
-        caseMaterial: yup.string().oneOf(caseMaterial).required(),
-        casePrimaryColor: yup.string().oneOf(assetColors).required(),
-        caseSecondaryColor: yup.string().oneOf(assetColors),
-        braceletColor: yup.string().oneOf(assetColors),
-        // braceletMaterial: yup.string().oneOf(braceletMaterial).required(),
-        name: yup
-            .string()
-            .required()
-            .min(minNameLength)
-            .max(maxNameLength)
-            .trim(),
-        description: yup
-            .string()
-            .required()
-            .min(minAssetDescription)
-            .max(maxAssetDescription)
-            .trim()
-    })
-    .required();
+export const editAssetDataSchema: ObjectSchema<AssetListingFormInput> = object({
+    price: number().required().min(minAssetPrice).max(maxAssetPrice),
+    name: string().required().min(minNameLength).max(maxNameLength).trim(),
+    caseMaterial: string().oneOf(caseMaterials).required(),
+    casePrimaryColor: string().oneOf(assetColors).required(),
+    caseSecondaryColor: string().oneOf(assetColors),
+    braceletColor: string().oneOf(assetColors).required(),
+    braceletMaterial: string().oneOf(braceletMaterials).required(),
+    description: string()
+        .required()
+        .min(minAssetDescription)
+        .max(maxAssetDescription)
+        .trim()
+}).required();

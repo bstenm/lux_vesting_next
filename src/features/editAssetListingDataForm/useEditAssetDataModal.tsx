@@ -61,10 +61,10 @@ export const useEditAssetDataModal = (
 
     const action = async (values: AssetListingFormInput): Promise<void> => {
         log.info('Submitting new product', values);
-        // await updateAssetData(values);
-        // await updateAssetStatus('pending');
+        await updateAssetData(values);
+        await updateAssetStatus('pending');
         successAlert('editSuccess');
-        // onSuccess();
+        onSuccess();
     };
 
     const [onSubmit, submitting] = useAsyncAction<AssetListingFormInput, void>(
@@ -79,7 +79,10 @@ export const useEditAssetDataModal = (
                 name: assetData.name,
                 description: assetData.description,
                 caseMaterial: assetData.caseMaterial,
-                casePrimaryColor: assetData.casePrimaryColor
+                braceletColor: assetData.braceletColor,
+                braceletMaterial: assetData.braceletMaterial,
+                casePrimaryColor: assetData.casePrimaryColor,
+                caseSecondaryColor: assetData.caseSecondaryColor
             });
         }
     }, [assetData, formMethods]);
