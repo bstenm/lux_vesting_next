@@ -128,10 +128,19 @@ export function ComponentWithSelectedDataInDrawer<
                 onClose={onCloseDrawer}
                 hideBackdrop
                 noCloseButton>
-                <Box sx={{ pt: 3, width: rightBoxWidth }}>
+                <Box sx={{ pt: 4, width: rightBoxWidth }}>
                     <BackButton
-                        sx={{ zIndex: 1000 }}
-                        spacing={1}
+                        sx={{
+                            pt: 2,
+                            pb: 1,
+                            top: 0,
+                            left: `calc(100vw - ${rightBoxWidth} - 30px)`,
+                            width: `calc(${rightBoxWidth} + 100px)`,
+                            zIndex: 1000,
+                            bgcolor: '#151515',
+                            position: 'fixed'
+                        }}
+                        spacing={0.5}
                         onClick={onCloseDrawer}>
                         <ChevronLeftIcon />
                         <Typography

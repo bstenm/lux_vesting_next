@@ -5,8 +5,9 @@ import Stack from '@mui/material/Stack';
 import { useState } from 'react';
 
 import { getUserId } from '@/state/user/selectors';
-import { StandardDrawer } from '@/components/StandardDrawer';
+import { Typography } from '@/components/Typography';
 import { useAppSelector } from '@/libs/hooks/useAppSelector';
+import { StandardDrawer } from '@/components/StandardDrawer';
 
 import { Notification } from './Notification';
 import { useFetchNotifications } from './useFetchNotifications';
@@ -34,19 +35,30 @@ export function NotificationDrawer(): JSX.Element {
                 nbOfNotifications={nbOfNotification}
             />
             {open && (
-                <StandardDrawer
-                    open={open}
-                    noData={!nbOfNotification}
-                    onClose={toggleOpen}
-                    transparent={!!nbOfNotification}
-                    noDataMessage="noNotifications">
+                <StandardDrawer open={open} onClose={toggleOpen} transparent>
                     <Stack sx={{ mt: 4 }}>
-                        {userNotifications.map((notification) => (
-                            <Notification
-                                key={notification.id}
-                                data={notification}
-                            />
-                        ))}
+                        {nbOfNotification < 1 ? (
+                            <Box
+                                sx={{
+                                    bgcolor: '#151515',
+                                    borderRadius: 1
+                                }}>
+                                <Typography
+                                    capitalized
+                                    sx={{ m: 2, color: 'text.secondary' }}
+                                    textId="noNotifications"
+                                    variant="body2"
+                                />
+                            </Box>
+                        ) : (
+                            userNotifications.map((notification) => (
+                                <Notification
+                                    key={notification.id}
+                                    data={notification}
+                                    onEmpty={toggleOpen}
+                                />
+                            ))
+                        )}
                     </Stack>
                 </StandardDrawer>
             )}

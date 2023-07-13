@@ -1,8 +1,8 @@
 import { ElementType, useCallback, useState } from 'react';
 
 import { AssetItem } from '@/config/types/asset';
-import { MarketItemSpecPanel } from '@/features/marketItemPanel/MarketItemSpecPanel';
-import { MarketItemImagesPanel } from '@/features/marketItemPanel/MarketItemImagesPanel';
+import { AssetSpecPanel } from '@/features/assetPanel/AssetSpecPanel';
+import { AssetImagesPanel } from '@/features/assetPanel/AssetImagesPanel';
 import { ComponentWithSelectedDataInDrawer } from '@/layouts/ComponentWithSelectedDataInDrawer';
 
 type Props = {
@@ -18,7 +18,7 @@ export function ComponentWithSelectedAssetInDrawer({
 
     const ImagesPanel = useCallback(
         (data: AssetItem) => (
-            <MarketItemImagesPanel
+            <AssetImagesPanel
                 data={data}
                 selected={picSelected}
                 onSelectPic={(pic) => setPicSelected(pic)}
@@ -29,7 +29,7 @@ export function ComponentWithSelectedAssetInDrawer({
 
     const SpecsPanel = useCallback(
         (data: AssetItem, handleClose?: () => void) => (
-            <MarketItemSpecPanel
+            <AssetSpecPanel
                 data={data}
                 Actions={Actions}
                 selected={picSelected}

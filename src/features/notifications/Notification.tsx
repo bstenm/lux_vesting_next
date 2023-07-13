@@ -20,16 +20,19 @@ import { DeleteNotificationButton } from './DeleteNotificationButton';
 
 type Props = {
     data: NotificationItem;
+    onEmpty: () => void;
 };
 
-export function Notification({ data }: Props): JSX.Element {
+export function Notification({ data, onEmpty }: Props): JSX.Element {
     const uid = useAppSelector(getUserId);
 
     const theme = useTheme();
 
     const { id, link } = data;
 
-    const [deleteNotification, deleting] = useDeleteNotification();
+    const [deleteNotification, deleting] = useDeleteNotification({
+        onSuccess: onEmpty
+    });
 
     const color =
         {

@@ -35,7 +35,7 @@ const ViewOptionImg = styled(Image)({
     objectPosition: 'center'
 });
 
-export function MarketItemImagesPanel({
+export function AssetImagesPanel({
     data,
     selected,
     onSelectPic

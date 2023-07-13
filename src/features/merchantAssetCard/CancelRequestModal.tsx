@@ -26,10 +26,18 @@ export function CancelRequestModal({
     processing
 }: Props): JSX.Element {
     return (
-        <ButtonWithModal title={title} button={children} opened={opened}>
+        <ButtonWithModal
+            warning
+            title={title}
+            button={children}
+            opened={opened}>
             {(handleClose) => (
-                <Stack spacing={2}>
-                    <Typography textId={textId} />
+                <Stack sx={{ mt: 3 }} spacing={5}>
+                    <Typography
+                        sx={{ lineHeight: 2.5 }}
+                        textId={textId}
+                        uppercased
+                    />
                     <Row justifyContent="space-between">
                         <LightButton
                             textId="cancel"
@@ -37,7 +45,7 @@ export function CancelRequestModal({
                             disabled={processing}
                         />
                         <YellowButton
-                            textId="confirmRequestCancellation"
+                            textId="confirm"
                             loading={processing}
                             onClick={async () => {
                                 await onConfirm();
